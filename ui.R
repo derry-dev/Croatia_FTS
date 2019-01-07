@@ -1,14 +1,37 @@
-source("functions.R", local = T)
-fluidPage(
-  br(),
-  div(style="display:inline-block; vertical-align:top; position:relative; top:5; width:200px;",
-      selectInput("kpa",
-                  label = "Select KPA:",
-                  choices = c("Throughput", "Safety", "Sector Capacity"))),
-  div(style="display:inline-block; vertical-align:top; width:auto;",
-      uiOutput("options")),
-  tags$style(type="text/css",
-             ".shiny-output-error { visibility: hidden; }",
-             ".shiny-output-error:before { visibility: hidden; }"
+source("global.R", local = T)
+
+fillPage(
+  
+  shinyjs::useShinyjs(),
+  tags$head(
+    tags$link(rel = "stylesheet", type = "text/css", href = "style.css")
+    #tags$script(src = "script.js")
+  ),
+  tags$body(
+    div(class="header"),
+    
+    div(class="content",
+      uiOutput("display")
+    ),
+    
+    div(class="footer"),
+    
+    absolutePanel(
+      class = "controls",
+      div(class="dropdown_box",selectInput("kpa","Select KPA:",choices.kpa)),
+      div(class="dropdown_box",uiOutput("metric")),
+      div(class="dropdown_box",uiOutput("options")),
+      div(class="dropdown_box",uiOutput("moreoptions")),
+      div(class="check_box",uiOutput("data")),
+      div(class="check_box",uiOutput("arrange")),
+      div(class="centerwrapper",
+          div(class="button",actionButton("view", "View Plot")),
+          div(class="button",actionButton("explore", "View Data"))
+      ),
+      #div(id="import_new_data",actionButton("import", "Import new data")),
+      draggable = T,
+      fixed = T
+    )
   )
+  
 )

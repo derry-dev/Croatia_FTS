@@ -1,100 +1,212 @@
-source("functions.R", local = T)
+source("global.R", local = T)
+
 function(input, output, session){
   
+  session$allowReconnect(TRUE)
+  options(shiny.launch.browser=FALSE)
+  
+  v <- reactiveValues(doDisplay = FALSE, doTable = FALSE)
+  
+  observeEvent(input$view, {
+    v$doDisplay <- TRUE
+    v$doTable <- FALSE
+  })
+  
+  observeEvent(input$explore, {
+    v$doDisplay <- FALSE
+    v$doTable <- TRUE
+  })
+  
+  observeEvent(input$import, {
+    dbimport()
+    v$doDisplay <- FALSE
+    v$doTable <- FALSE
+    table.TotalThroughputs <- read.csv("~/Croatia v3.0/data/TotalThroughputs.csv", stringsAsFactors = FALSE)
+    table.HourlyThroughputs <- read.csv("~/Croatia v3.0/data/HourlyThroughputs.csv", stringsAsFactors = FALSE)
+    table.RollingHourlyThroughputs <- read.csv("~/Croatia v3.0/data/RollingHourlyThroughputs.csv", stringsAsFactors = FALSE)
+    table.FuelBurn <- read.csv("~/Croatia v3.0/data/FuelBurn.csv", stringsAsFactors = FALSE)
+    table.TrackMiles <- read.csv("~/Croatia v3.0/data/TrackMiles.csv", stringsAsFactors = FALSE)
+    table.Conflicts <- read.csv("~/Croatia v3.0/data/Conflicts.csv", stringsAsFactors = FALSE)
+    table.ConflictType <- read.csv("~/Croatia v3.0/data/ConflictType.csv", stringsAsFactors = FALSE)
+    table.LateralConflictType <- read.csv("~/Croatia v3.0/data/LateralConflictType.csv", stringsAsFactors = FALSE)
+    table.VerticalConflictType <- read.csv("~/Croatia v3.0/data/VerticalConflictType.csv", stringsAsFactors = FALSE)
+    table.ConflictsFlightPlanPhase <- read.csv("~/Croatia v3.0/data/ConflictsFlightPlanPhase.csv", stringsAsFactors = FALSE)
+    table.Severity <- read.csv("~/Croatia v3.0/data/Severity.csv", stringsAsFactors = FALSE)
+    table.VerticalSeverity <- read.csv("~/Croatia v3.0/data/VerticalSeverity.csv", stringsAsFactors = FALSE)
+    table.SectorOccupancy <- read.csv("~/Croatia v3.0/data/SectorOccupancy.csv", stringsAsFactors = FALSE)
+    table.SectorEntry <- read.csv("~/Croatia v3.0/data/SectorEntry.csv", stringsAsFactors = FALSE)
+    table.Workload <- read.csv("~/Croatia v3.0/data/Workload.csv", stringsAsFactors = FALSE)
+    shinyjs::reset("plot","map")
+  })
+  
+  output$metric <- renderUI({
+    x <- input$kpa
+    if (x == "Throughput") {
+      selectInput("metric","Select metric:",choices.throughputs)
+    } else if (x == "Efficiency") {
+      selectInput("metric","Select metric:",choices.efficiency)
+    } else if (x == "Safety") {
+      selectInput("metric","Select metric:",choices.safety)
+    } else if (x == "Sector Capacity") {
+      selectInput("metric","Select metric:",choices.sectorcapacity)
+    }
+  })
+  
   output$options <- renderUI({
-    if (input$kpa == "Throughput") {
-      tagList(
-        div(style="display:inline-block;vertical-align:top; width:200px;",
-            selectInput("metric1",
-                        label = "Select metric:",
-                        choices = c("Total Throughputs","Hourly Throughputs", "Rolling Hourly Throughputs"))),
-        div(style="display:inline-block; vertical-align:top; width:auto;",
-            uiOutput("options1")),
-        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
-            plotlyOutput("plot", height="100%"))
-      )
-    } else if (input$kpa == "Safety") {
-      tagList(
-        div(style="display:inline-block;vertical-align:top; width:200px;",
-            selectInput("metric3",
-                        label = "Select metric:",
-                        choices = c("Conflict Map", "Conflict Map 3D","Conflict Statistics"))),
-        div(style="display:inline-block; vertical-align:top; width:auto;",
-            uiOutput("options3"))
-      )
-    } else if (input$kpa == "Sector Capacity") {
-      tagList(
-        div(style="display:inline-block;vertical-align:top; width:200px;",
-            selectInput("metric4",
-                        label = "Select metric:",
-                        choices = c("Sector Entry Count","Sector Occupancy Count"))),
-        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
-            plotlyOutput("plot", height="100%"))
-      )
+    x <- input$metric
+    if (x == "Total Throughput") {
+      selectInput("options","Select airport:",list.airports)
+    } else if (x == "Hourly Throughput") {
+      selectInput("options","Select airport:",list.airports)
+    } else if (x == "Rolling Hourly Throughput") {
+      selectInput("options","Select airport:",list.airports)
+    } else if (x == "Track Miles") {
+      selectInput("options","Select grouping:",choices.efficiencygrouping)
+    } else if (x == "Fuel Burn") {
+      selectInput("options","Select grouping:",choices.efficiencygrouping)
+    } else if (x == "Conflict Statistics") {
+      selectInput("options","Select grouping:",choices.conflictsgrouping)
+    } else if (x == "Sector Occupancy Count") {
+      selectInput("options","Select sector:",list.sectors)
+    } else if (x == "Sector Entry Count") {
+      selectInput("options","Select sector:",list.sectors)
+    } else if (x == "Controller Workload") {
+      selectInput("options","Select sector:",list.sectors)
     }
   })
   
-  output$options1 <- renderUI({
-    if (input$metric1 == "Total Throughputs") {
-      isolate({})
-    } else if (input$metric1 != "Total Throughputs") {
-      div(style="display:inline-block;vertical-align:top; width:200px;",
-          selectInput("airport1",
-                      label = "Select airport:",
-                      choices = Airport.list))
-    }
+  output$moreoptions <- renderUI({
+    x <- input$metric
+    if (x == "Track Miles") {
+      selectInput("moreoptions","Select airport:",list.airports)
+    } else if (x == "Fuel Burn") {
+      selectInput("moreoptions","Select airport:",list.airports)
+    } 
   })
   
-  output$options3 <- renderUI({
-    if (input$metric3 == "Conflict Statistics") {
-      tagList(
-        div(style="display:inline-block;vertical-align:top; width:200px;",
-            selectInput("group3",
-                        label = "Select grouping:",
-                        choices = c("Conflict Type","Conflict Type (Lateral)","Conflict Type (Vertical)","Flight Phase","Severity","Severity (Vertical)"))),
-        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
-            plotlyOutput("plot", height="100%"))
-      )
-    } else if (input$metric3 == "Conflict Map") {
-      div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
-          leafletOutput("map", height="100%"))
-    } else if (input$metric3 == "Conflict Map 3D") {
-      div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
-          plotlyOutput("plot", height="100%"))
+  output$display <- renderUI({
+    if (v$doDisplay == TRUE) {
+        if (input$metric == "Conflict Map") {
+          div(id="wrap1",leafletOutput("map",height="100%"))
+        } else {
+          div(id="wrap2",plotlyOutput("plot",height="100%"))
+        }
     }
-  })
-  
-  output$map <- renderLeaflet({
-    if (input$kpa == "Safety") {
-      if (input$metric3 == "Conflict Map") {
-        plotConflictMap()
-      }
+    else if (v$doTable == TRUE) {
+      isolate({
+        div(id="wrap1",DT::dataTableOutput("table"))
+      })  
+    } else {
+      return()
     }
   })
   
   output$plot <- renderPlotly({
-    if (input$kpa == "Throughput") {
-      if (input$metric1 == "Total Throughputs") {
-        plotlyTotalThroughput()
-      } else if (input$metric1 == "Hourly Throughputs") {
-        plotlyHourlyThroughput(airport = input$airport1)
-      } else if (input$metric1 == "Rolling Hourly Throughputs") {
-        plotlyRollingHourlyThroughput(airport = input$airport1)
-      }
-    } else if (input$kpa == "Efficiency") {
-      
-    } else if (input$kpa == "Safety") {
-      if (input$metric3 == "Conflict Statistics") {
-        plotlyConflictCount(group = input$group3)
-      } else if (input$metric3 == "Conflict Map 3D") {
-        plotlyConflict3D()
-      }
-    } else if (input$kpa == "Sector Capacity") {
-      if (input$metric4 == "Sector Occupancy Count") {
-        plotlySectorOccupancy()
-      } else if (input$metric4 == "Sector Entry Count") {
-        plotlySectorEntry()
-      }
+    x <- input$metric
+    if (x == "Total Throughput") {
+      plotlyTotalThroughput(data = c(input$data), airport = input$options, arrange = input$arrange)
+    } else if (x == "Hourly Throughput") {
+      plotlyHourlyThroughput(data = c(input$data), airport = input$options, arrange = input$arrange)
+    } else if (x == "Rolling Hourly Throughput") {
+      plotlyRollingHourlyThroughput(data = c(input$data), airport = input$options, arrange = input$arrange)
+    } else if (x == "Track Miles") {
+      plotlyTrackMiles(data = c(input$data), group = input$options, airport = input$moreoptions, arrange = input$arrange)
+    } else if (x == "Fuel Burn") {
+      plotlyFuelBurn(data = c(input$data), group = input$options, airport = input$moreoptions, arrange = input$arrange)
+    } else if (x == "Conflict Map 3D") {
+      plotlyConflict3D(data = c(input$data))
+    } else if (x == "Conflict Statistics") {
+      plotlyConflictCount(data = c(input$data), group = input$options, arrange = input$arrange)
+    } else if (x == "Sector Entry Count") {
+      plotlySectorEntry(data = c(input$data), sector = input$options, arrange = input$arrange)
+    } else if (x == "Sector Occupancy Count") {
+      plotlySectorOccupancy(data = c(input$data), sector = input$options, arrange = input$arrange)
+    } else if (x == "Controller Workload") {
+      plotlyControllerWorkload(data = c(input$data), sector = input$options, arrange = input$arrange)
     }
   })
+  
+  output$map <- renderLeaflet({
+    if (input$metric == "Conflict Map") {
+      plotConflictMap()
+    }
+  })
+  
+  output$data <- renderUI({
+    if (input$metric != "Conflict Map") {
+      checkboxGroupInput("data","Scenario data to display:",c("Current","PBN"),selected="Current",inline=T)
+    }
+  })
+  
+  output$arrange <- renderUI({
+    if ("Current" %in% input$data & "PBN" %in% input$data & input$metric %in% c("Total Throughput","Hourly Throughput","Conflict Statistics")) {
+      radioButtons("arrange","Plot arrangement:",c("Vertical","Horizontal","Group","Stack"),inline=T)
+    } else if ("Current" %in% input$data & "PBN" %in% input$data & input$metric %in% c("Rolling Hourly Throughput","Track Miles","Fuel Burn","Sector Entry Count","Sector Occupancy Count","Controller Workload")) {
+      radioButtons("arrange","Plot arrangement:",c("Vertical","Horizontal","Group"),inline=T)
+    }
+  })
+  
+  output$table <- renderDataTable({
+    x <- input$metric
+    if (x == "Total Throughput") {
+      data <- table.TotalThroughputs
+      if (input$options != "All") {
+        data <- subset(data, Airport %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Hourly Throughput") {
+      data <- table.HourlyThroughputs
+      if (input$options != "All") {
+        data <- subset(data, Airport %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Rolling Hourly Throughput") {
+      data <- table.RollingHourlyThroughputs
+      if (input$options != "All") {
+        data <- subset(data, Airport %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Track Miles") {
+      data <- table.TrackMiles
+    } else if (x == "Fuel Burn") {
+      data <- table.FuelBurn
+    } else if (x == "Conflict Map") {
+      data <- table.Conflicts
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Conflict Statistics") {
+      if (input$options == "Conflict Type") {
+        data <- table.ConflictType
+      } else if (input$options == "Conflict Type (Lateral)") {
+        data <- table.LateralConflictType
+      } else if (input$options == "Conflict Type (Vertical)") {
+        data <- table.VerticalConflictType
+      } else if (input$options == "Flight Phase") {
+        data <- table.ConflictsFlightPlanPhase
+      } else if (input$options == "Severity") {
+        data <- table.Severity
+      } else if (input$options == "Severity (Vertical)") {
+        data <- table.VerticalSeverity
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Sector Occupancy Count") {
+      data <- table.SectorOccupancy
+      if (input$options != "All") {
+        data <- subset(data, Sector %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Sector Entry Count") {
+      data <- table.SectorEntry
+      if (input$options != "All") {
+        data <- subset(data, Sector %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    } else if (x == "Controller Workload") {
+      data <- table.Workload
+      if (input$options != "All") {
+        data <- subset(data, Sector %in% input$options)
+      }
+      subset(data, Scenario %in% input$data)
+    }
+  }, options = list(pageLength = 20))
+  
 }
