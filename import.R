@@ -2,17 +2,34 @@ library(RPostgreSQL)
 library(plyr)
 library(tidyr)
 
-# Change these lists if you want to include other airports/sectors
+
+con <- dbConnect(dbDriver("PostgreSQL"),dbname="airtopdb",host="192.168.1.157",port=5432,user="think",password="think")
+
+# Change these lists if you want to include other airports/sectors --------------------------------------------------------
 list.airports <- factor(c("All","LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI","LDSB","LDOS"), ordered = TRUE)
 list.sectors <- factor(c("All","TMA_DUBROVNIK","TMA_OSIJEK","TMA_PULA","TMA_SPLIT","TMA_ZADAR","TMA_ZAGREB"), ordered = TRUE)
 
-# Change these to match schema names (base name if multiple runs) for each scenario (assuming rest of query remain the same)
-schema.current1 <- "Croatia"
-schema.current2 <- "Croatia"
-schema.PBN1 <- "Croatia_PBN"
-schema.PBN2 <- "Croatia_PBN"
-
-con <- dbConnect(dbDriver("PostgreSQL"),dbname="airtopdb",host="192.168.1.157",port=5432,user="think",password="think")
+# Change these to match schema names for each scenario (assuming rest of query remain the same) --------------------------------------------------------
+schema.current_RD1_1 <- "Croatia_REF_RD1_1"
+schema.current_RD1_2 <- "Croatia_REF_RD1_2"
+schema.current_RD1_3 <- "Croatia_REF_RD1_3"
+schema.current_RD1_4 <- "Croatia_REF_RD1_4"
+schema.current_RD1_5 <- "Croatia_REF_RD1_5"
+schema.current_RD2_1 <- "Croatia_REF_RD2_1"
+schema.current_RD2_2 <- "Croatia_REF_RD2_2"
+schema.current_RD2_3 <- "Croatia_REF_RD2_3"
+schema.current_RD2_4 <- "Croatia_REF_RD2_4"
+schema.current_RD2_5 <- "Croatia_REF_RD2_5"
+schema.PBN_RD1_1 <- "Croatia_PBN_RD1_1"
+schema.PBN_RD1_2 <- "Croatia_PBN_RD1_2"
+schema.PBN_RD1_3 <- "Croatia_PBN_RD1_3"
+schema.PBN_RD1_4 <- "Croatia_PBN_RD1_4"
+schema.PBN_RD1_5 <- "Croatia_PBN_RD1_5"
+schema.PBN_RD2_1 <- "Croatia_PBN_RD2_1"
+schema.PBN_RD2_2 <- "Croatia_PBN_RD2_2"
+schema.PBN_RD2_3 <- "Croatia_PBN_RD2_3"
+schema.PBN_RD2_4 <- "Croatia_PBN_RD2_4"
+schema.PBN_RD2_5 <- "Croatia_PBN_RD2_5"
 
 # Total Throughput --------------------------------------------------------
 query.TotalThroughputs <-
@@ -25,29 +42,69 @@ WHERE "Time_day" = 2
 GROUP BY "New DepartureOrArrivalAirport", "AircraftState"
 ORDER BY "New DepartureOrArrivalAirport", "AircraftState"'
 
-table.current1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.TotalThroughputs))
-table.current2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.TotalThroughputs))
-table.PBN1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.TotalThroughputs))
-table.PBN2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.TotalThroughputs))
+table.current_RD1_1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.TotalThroughputs))
+table.current_RD1_2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.TotalThroughputs))
+table.current_RD1_3.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.TotalThroughputs))
+table.current_RD1_4.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.TotalThroughputs))
+table.current_RD1_5.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.TotalThroughputs))
+table.current_RD2_1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.TotalThroughputs))
+table.current_RD2_2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.TotalThroughputs))
+table.current_RD2_3.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.TotalThroughputs))
+table.current_RD2_4.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.TotalThroughputs))
+table.current_RD2_5.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.TotalThroughputs))
+table.PBN_RD1_1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.TotalThroughputs))
+table.PBN_RD1_2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.TotalThroughputs))
+table.PBN_RD1_3.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.TotalThroughputs))
+table.PBN_RD1_4.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.TotalThroughputs))
+table.PBN_RD1_5.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.TotalThroughputs))
+table.PBN_RD2_1.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.TotalThroughputs))
+table.PBN_RD2_2.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.TotalThroughputs))
+table.PBN_RD2_3.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.TotalThroughputs))
+table.PBN_RD2_4.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.TotalThroughputs))
+table.PBN_RD2_5.TotalThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.TotalThroughputs))
 
-t1 <- table.current1.TotalThroughputs; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.TotalThroughputs; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.TotalThroughputs; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.TotalThroughputs; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.TotalThroughputs <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.TotalThroughputs$Scenario <- "Current"; table.current_RD1_1.TotalThroughputs$Runway <- "1"; table.current_RD1_1.TotalThroughputs$Run <- "1"
+table.current_RD1_2.TotalThroughputs$Scenario <- "Current"; table.current_RD1_2.TotalThroughputs$Runway <- "1"; table.current_RD1_2.TotalThroughputs$Run <- "2"
+table.current_RD1_3.TotalThroughputs$Scenario <- "Current"; table.current_RD1_3.TotalThroughputs$Runway <- "1"; table.current_RD1_3.TotalThroughputs$Run <- "3"
+table.current_RD1_4.TotalThroughputs$Scenario <- "Current"; table.current_RD1_4.TotalThroughputs$Runway <- "1"; table.current_RD1_4.TotalThroughputs$Run <- "4"
+table.current_RD1_5.TotalThroughputs$Scenario <- "Current"; table.current_RD1_5.TotalThroughputs$Runway <- "1"; table.current_RD1_5.TotalThroughputs$Run <- "5"
+table.current_RD2_1.TotalThroughputs$Scenario <- "Current"; table.current_RD2_1.TotalThroughputs$Runway <- "2"; table.current_RD2_1.TotalThroughputs$Run <- "1"
+table.current_RD2_2.TotalThroughputs$Scenario <- "Current"; table.current_RD2_2.TotalThroughputs$Runway <- "2"; table.current_RD2_2.TotalThroughputs$Run <- "2"
+table.current_RD2_3.TotalThroughputs$Scenario <- "Current"; table.current_RD2_3.TotalThroughputs$Runway <- "2"; table.current_RD2_3.TotalThroughputs$Run <- "3"
+table.current_RD2_4.TotalThroughputs$Scenario <- "Current"; table.current_RD2_4.TotalThroughputs$Runway <- "2"; table.current_RD2_4.TotalThroughputs$Run <- "4"
+table.current_RD2_5.TotalThroughputs$Scenario <- "Current"; table.current_RD2_5.TotalThroughputs$Runway <- "2"; table.current_RD2_5.TotalThroughputs$Run <- "5"
+table.PBN_RD1_1.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD1_1.TotalThroughputs$Runway <- "1"; table.PBN_RD1_1.TotalThroughputs$Run <- "1"
+table.PBN_RD1_2.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD1_2.TotalThroughputs$Runway <- "1"; table.PBN_RD1_2.TotalThroughputs$Run <- "2"
+table.PBN_RD1_3.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD1_3.TotalThroughputs$Runway <- "1"; table.PBN_RD1_3.TotalThroughputs$Run <- "3"
+table.PBN_RD1_4.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD1_4.TotalThroughputs$Runway <- "1"; table.PBN_RD1_4.TotalThroughputs$Run <- "4"
+table.PBN_RD1_5.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD1_5.TotalThroughputs$Runway <- "1"; table.PBN_RD1_5.TotalThroughputs$Run <- "5"
+table.PBN_RD2_1.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD2_1.TotalThroughputs$Runway <- "2"; table.PBN_RD2_1.TotalThroughputs$Run <- "1"
+table.PBN_RD2_2.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD2_2.TotalThroughputs$Runway <- "2"; table.PBN_RD2_2.TotalThroughputs$Run <- "2"
+table.PBN_RD2_3.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD2_3.TotalThroughputs$Runway <- "2"; table.PBN_RD2_3.TotalThroughputs$Run <- "3"
+table.PBN_RD2_4.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD2_4.TotalThroughputs$Runway <- "2"; table.PBN_RD2_4.TotalThroughputs$Run <- "4"
+table.PBN_RD2_5.TotalThroughputs$Scenario <- "PBN"; table.PBN_RD2_5.TotalThroughputs$Runway <- "2"; table.PBN_RD2_5.TotalThroughputs$Run <- "5"
+
+table.TotalThroughputs <- rbind(table.current_RD1_1.TotalThroughputs,table.current_RD1_2.TotalThroughputs,table.current_RD1_3.TotalThroughputs,
+                                table.current_RD1_4.TotalThroughputs,table.current_RD1_5.TotalThroughputs,
+                                table.current_RD2_1.TotalThroughputs,table.current_RD2_2.TotalThroughputs,table.current_RD2_3.TotalThroughputs,
+                                table.current_RD2_4.TotalThroughputs,table.current_RD2_5.TotalThroughputs,
+                                table.PBN_RD1_1.TotalThroughputs,table.PBN_RD1_2.TotalThroughputs,table.PBN_RD1_3.TotalThroughputs,
+                                table.PBN_RD1_4.TotalThroughputs,table.PBN_RD1_5.TotalThroughputs,
+                                table.PBN_RD2_1.TotalThroughputs,table.PBN_RD2_2.TotalThroughputs,table.PBN_RD2_3.TotalThroughputs,
+                                table.PBN_RD2_4.TotalThroughputs,table.PBN_RD2_5.TotalThroughputs)
 
 table.TotalThroughputs <- table.TotalThroughputs[!(table.TotalThroughputs$Category == "Climbing"),]
-agg1 <- aggregate(data = table.TotalThroughputs,Count~Category+Scenario+Runway,"sum")
+agg1 <- aggregate(data = table.TotalThroughputs,Count~Category+Scenario+Runway+Run,"sum")
 agg1$Airport <- "All Airports"
-agg2 <- aggregate(data = subset(table.TotalThroughputs, Airport %in% list.airports),Count~Category+Scenario+Runway,"sum")
+agg2 <- aggregate(data = subset(table.TotalThroughputs, Airport %in% list.airports),Count~Category+Scenario+Runway+Run,"sum")
 agg2$Airport <- "All Major Airports"
-agg3 <- aggregate(data = table.TotalThroughputs,Count~Airport+Scenario+Runway,"sum")
+agg3 <- aggregate(data = table.TotalThroughputs,Count~Airport+Scenario+Runway+Run,"sum")
 agg3$Category <- "Arrival and Departures"
 table.TotalThroughputs <- rbind(table.TotalThroughputs, agg1, agg2, agg3)
 table.TotalThroughputs$Category[table.TotalThroughputs$Category == "Descending"] <- "Arrivals"
 table.TotalThroughputs$Category[table.TotalThroughputs$Category == "GroundAccelerating"] <- "Departures"
 
-write.csv(table.TotalThroughputs, file="~/Croatia v3.2/data/TotalThroughputs.csv", row.names=F)
+write.csv(table.TotalThroughputs, file="~/Croatia v3.3/data/TotalThroughputs.csv", row.names=F)
 
 # Hourly Throughput -------------------------------------------------------
 query.HourlyThroughputs <-
@@ -61,29 +118,69 @@ WHERE "Time_day" = 2
 GROUP BY EXTRACT(HOUR FROM "Time_time"),"New DepartureOrArrivalAirport", "AircraftState"
 ORDER BY "New DepartureOrArrivalAirport", "AircraftState",EXTRACT(HOUR FROM "Time_time")'
 
-table.current1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.HourlyThroughputs))
-table.current2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.HourlyThroughputs))
-table.PBN1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.HourlyThroughputs))
-table.PBN2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.HourlyThroughputs))
+table.current_RD1_1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.HourlyThroughputs))
+table.current_RD1_2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.HourlyThroughputs))
+table.current_RD1_3.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.HourlyThroughputs))
+table.current_RD1_4.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.HourlyThroughputs))
+table.current_RD1_5.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.HourlyThroughputs))
+table.current_RD2_1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.HourlyThroughputs))
+table.current_RD2_2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.HourlyThroughputs))
+table.current_RD2_3.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.HourlyThroughputs))
+table.current_RD2_4.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.HourlyThroughputs))
+table.current_RD2_5.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.HourlyThroughputs))
+table.PBN_RD1_1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.HourlyThroughputs))
+table.PBN_RD1_2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.HourlyThroughputs))
+table.PBN_RD1_3.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.HourlyThroughputs))
+table.PBN_RD1_4.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.HourlyThroughputs))
+table.PBN_RD1_5.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.HourlyThroughputs))
+table.PBN_RD2_1.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.HourlyThroughputs))
+table.PBN_RD2_2.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.HourlyThroughputs))
+table.PBN_RD2_3.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.HourlyThroughputs))
+table.PBN_RD2_4.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.HourlyThroughputs))
+table.PBN_RD2_5.HourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.HourlyThroughputs))
 
-t1 <- table.current1.HourlyThroughputs; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.HourlyThroughputs; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.HourlyThroughputs; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.HourlyThroughputs; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.HourlyThroughputs <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.HourlyThroughputs$Scenario <- "Current"; table.current_RD1_1.HourlyThroughputs$Runway <- "1"; table.current_RD1_1.HourlyThroughputs$Run <- "1"
+table.current_RD1_2.HourlyThroughputs$Scenario <- "Current"; table.current_RD1_2.HourlyThroughputs$Runway <- "1"; table.current_RD1_2.HourlyThroughputs$Run <- "2"
+table.current_RD1_3.HourlyThroughputs$Scenario <- "Current"; table.current_RD1_3.HourlyThroughputs$Runway <- "1"; table.current_RD1_3.HourlyThroughputs$Run <- "3"
+table.current_RD1_4.HourlyThroughputs$Scenario <- "Current"; table.current_RD1_4.HourlyThroughputs$Runway <- "1"; table.current_RD1_4.HourlyThroughputs$Run <- "4"
+table.current_RD1_5.HourlyThroughputs$Scenario <- "Current"; table.current_RD1_5.HourlyThroughputs$Runway <- "1"; table.current_RD1_5.HourlyThroughputs$Run <- "5"
+table.current_RD2_1.HourlyThroughputs$Scenario <- "Current"; table.current_RD2_1.HourlyThroughputs$Runway <- "2"; table.current_RD2_1.HourlyThroughputs$Run <- "1"
+table.current_RD2_2.HourlyThroughputs$Scenario <- "Current"; table.current_RD2_2.HourlyThroughputs$Runway <- "2"; table.current_RD2_2.HourlyThroughputs$Run <- "2"
+table.current_RD2_3.HourlyThroughputs$Scenario <- "Current"; table.current_RD2_3.HourlyThroughputs$Runway <- "2"; table.current_RD2_3.HourlyThroughputs$Run <- "3"
+table.current_RD2_4.HourlyThroughputs$Scenario <- "Current"; table.current_RD2_4.HourlyThroughputs$Runway <- "2"; table.current_RD2_4.HourlyThroughputs$Run <- "4"
+table.current_RD2_5.HourlyThroughputs$Scenario <- "Current"; table.current_RD2_5.HourlyThroughputs$Runway <- "2"; table.current_RD2_5.HourlyThroughputs$Run <- "5"
+table.PBN_RD1_1.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_1.HourlyThroughputs$Runway <- "1"; table.PBN_RD1_1.HourlyThroughputs$Run <- "1"
+table.PBN_RD1_2.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_2.HourlyThroughputs$Runway <- "1"; table.PBN_RD1_2.HourlyThroughputs$Run <- "2"
+table.PBN_RD1_3.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_3.HourlyThroughputs$Runway <- "1"; table.PBN_RD1_3.HourlyThroughputs$Run <- "3"
+table.PBN_RD1_4.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_4.HourlyThroughputs$Runway <- "1"; table.PBN_RD1_4.HourlyThroughputs$Run <- "4"
+table.PBN_RD1_5.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_5.HourlyThroughputs$Runway <- "1"; table.PBN_RD1_5.HourlyThroughputs$Run <- "5"
+table.PBN_RD2_1.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_1.HourlyThroughputs$Runway <- "2"; table.PBN_RD2_1.HourlyThroughputs$Run <- "1"
+table.PBN_RD2_2.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_2.HourlyThroughputs$Runway <- "2"; table.PBN_RD2_2.HourlyThroughputs$Run <- "2"
+table.PBN_RD2_3.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_3.HourlyThroughputs$Runway <- "2"; table.PBN_RD2_3.HourlyThroughputs$Run <- "3"
+table.PBN_RD2_4.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_4.HourlyThroughputs$Runway <- "2"; table.PBN_RD2_4.HourlyThroughputs$Run <- "4"
+table.PBN_RD2_5.HourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_5.HourlyThroughputs$Runway <- "2"; table.PBN_RD2_5.HourlyThroughputs$Run <- "5"
+
+table.HourlyThroughputs <- rbind(table.current_RD1_1.HourlyThroughputs,table.current_RD1_2.HourlyThroughputs,table.current_RD1_3.HourlyThroughputs,
+                                table.current_RD1_4.HourlyThroughputs,table.current_RD1_5.HourlyThroughputs,
+                                table.current_RD2_1.HourlyThroughputs,table.current_RD2_2.HourlyThroughputs,table.current_RD2_3.HourlyThroughputs,
+                                table.current_RD2_4.HourlyThroughputs,table.current_RD2_5.HourlyThroughputs,
+                                table.PBN_RD1_1.HourlyThroughputs,table.PBN_RD1_2.HourlyThroughputs,table.PBN_RD1_3.HourlyThroughputs,
+                                table.PBN_RD1_4.HourlyThroughputs,table.PBN_RD1_5.HourlyThroughputs,
+                                table.PBN_RD2_1.HourlyThroughputs,table.PBN_RD2_2.HourlyThroughputs,table.PBN_RD2_3.HourlyThroughputs,
+                                table.PBN_RD2_4.HourlyThroughputs,table.PBN_RD2_5.HourlyThroughputs)
 
 table.HourlyThroughputs <- table.HourlyThroughputs[!(table.HourlyThroughputs$Category == "Climbing"),]
-agg1 <- aggregate(data = table.HourlyThroughputs,Count~Category+Scenario+Runway+Hour,"sum")
+agg1 <- aggregate(data = table.HourlyThroughputs,Count~Category+Scenario+Runway+Run+Hour,"sum")
 agg1$Airport <- "All Airports"
-agg2 <- aggregate(data = subset(table.HourlyThroughputs, Airport %in% list.airports),Count~Category+Scenario+Runway+Hour,"sum")
+agg2 <- aggregate(data = subset(table.HourlyThroughputs, Airport %in% list.airports),Count~Category+Scenario+Runway+Run+Hour,"sum")
 agg2$Airport <- "All Major Airports"
-agg3 <- aggregate(data = table.HourlyThroughputs,Count~Airport+Scenario+Runway+Hour,"sum")
+agg3 <- aggregate(data = table.HourlyThroughputs,Count~Airport+Scenario+Runway+Run+Hour,"sum")
 agg3$Category <- "Arrivals and Departures"
 table.HourlyThroughputs <- rbind(table.HourlyThroughputs, agg1, agg2, agg3)
 table.HourlyThroughputs$Category[table.HourlyThroughputs$Category == "Descending"] <- "Arrivals"
 table.HourlyThroughputs$Category[table.HourlyThroughputs$Category == "GroundAccelerating"] <- "Departures"
 
-write.csv(table.HourlyThroughputs, file="~/Croatia v3.2/data/HourlyThroughputs.csv", row.names=F)
+write.csv(table.HourlyThroughputs, file="~/Croatia v3.3/data/HourlyThroughputs.csv", row.names=F)
 
 # Rolling Hourly Throughput -----------------------------------------------
 query.RollingHourlyThroughputs <-
@@ -97,27 +194,67 @@ FROM "ENTER SCHEMA NAME"."RS_RWYTHROUGHPUT"
 WHERE "Time_day" = 2
 ORDER BY "AirportStatus", "Time_time"'
 
-table.current1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.RollingHourlyThroughputs))
-table.current2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.RollingHourlyThroughputs))
-table.PBN1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.RollingHourlyThroughputs))
-table.PBN2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.RollingHourlyThroughputs))
+table.current_RD1_1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.RollingHourlyThroughputs))
+table.current_RD1_2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.RollingHourlyThroughputs))
+table.current_RD1_3.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.RollingHourlyThroughputs))
+table.current_RD1_4.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.RollingHourlyThroughputs))
+table.current_RD1_5.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.RollingHourlyThroughputs))
+table.current_RD2_1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.RollingHourlyThroughputs))
+table.current_RD2_2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.RollingHourlyThroughputs))
+table.current_RD2_3.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.RollingHourlyThroughputs))
+table.current_RD2_4.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.RollingHourlyThroughputs))
+table.current_RD2_5.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.RollingHourlyThroughputs))
+table.PBN_RD1_1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.RollingHourlyThroughputs))
+table.PBN_RD1_2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.RollingHourlyThroughputs))
+table.PBN_RD1_3.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.RollingHourlyThroughputs))
+table.PBN_RD1_4.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.RollingHourlyThroughputs))
+table.PBN_RD1_5.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.RollingHourlyThroughputs))
+table.PBN_RD2_1.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.RollingHourlyThroughputs))
+table.PBN_RD2_2.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.RollingHourlyThroughputs))
+table.PBN_RD2_3.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.RollingHourlyThroughputs))
+table.PBN_RD2_4.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.RollingHourlyThroughputs))
+table.PBN_RD2_5.RollingHourlyThroughputs <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.RollingHourlyThroughputs))
 
-t1 <- table.current1.RollingHourlyThroughputs; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.RollingHourlyThroughputs; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.RollingHourlyThroughputs; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.RollingHourlyThroughputs; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.RollingHourlyThroughputs <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD1_1.RollingHourlyThroughputs$Runway <- "1"; table.current_RD1_1.RollingHourlyThroughputs$Run <- "1"
+table.current_RD1_2.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD1_2.RollingHourlyThroughputs$Runway <- "1"; table.current_RD1_2.RollingHourlyThroughputs$Run <- "2"
+table.current_RD1_3.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD1_3.RollingHourlyThroughputs$Runway <- "1"; table.current_RD1_3.RollingHourlyThroughputs$Run <- "3"
+table.current_RD1_4.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD1_4.RollingHourlyThroughputs$Runway <- "1"; table.current_RD1_4.RollingHourlyThroughputs$Run <- "4"
+table.current_RD1_5.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD1_5.RollingHourlyThroughputs$Runway <- "1"; table.current_RD1_5.RollingHourlyThroughputs$Run <- "5"
+table.current_RD2_1.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD2_1.RollingHourlyThroughputs$Runway <- "2"; table.current_RD2_1.RollingHourlyThroughputs$Run <- "1"
+table.current_RD2_2.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD2_2.RollingHourlyThroughputs$Runway <- "2"; table.current_RD2_2.RollingHourlyThroughputs$Run <- "2"
+table.current_RD2_3.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD2_3.RollingHourlyThroughputs$Runway <- "2"; table.current_RD2_3.RollingHourlyThroughputs$Run <- "3"
+table.current_RD2_4.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD2_4.RollingHourlyThroughputs$Runway <- "2"; table.current_RD2_4.RollingHourlyThroughputs$Run <- "4"
+table.current_RD2_5.RollingHourlyThroughputs$Scenario <- "Current"; table.current_RD2_5.RollingHourlyThroughputs$Runway <- "2"; table.current_RD2_5.RollingHourlyThroughputs$Run <- "5"
+table.PBN_RD1_1.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_1.RollingHourlyThroughputs$Runway <- "1"; table.PBN_RD1_1.RollingHourlyThroughputs$Run <- "1"
+table.PBN_RD1_2.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_2.RollingHourlyThroughputs$Runway <- "1"; table.PBN_RD1_2.RollingHourlyThroughputs$Run <- "2"
+table.PBN_RD1_3.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_3.RollingHourlyThroughputs$Runway <- "1"; table.PBN_RD1_3.RollingHourlyThroughputs$Run <- "3"
+table.PBN_RD1_4.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_4.RollingHourlyThroughputs$Runway <- "1"; table.PBN_RD1_4.RollingHourlyThroughputs$Run <- "4"
+table.PBN_RD1_5.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD1_5.RollingHourlyThroughputs$Runway <- "1"; table.PBN_RD1_5.RollingHourlyThroughputs$Run <- "5"
+table.PBN_RD2_1.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_1.RollingHourlyThroughputs$Runway <- "2"; table.PBN_RD2_1.RollingHourlyThroughputs$Run <- "1"
+table.PBN_RD2_2.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_2.RollingHourlyThroughputs$Runway <- "2"; table.PBN_RD2_2.RollingHourlyThroughputs$Run <- "2"
+table.PBN_RD2_3.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_3.RollingHourlyThroughputs$Runway <- "2"; table.PBN_RD2_3.RollingHourlyThroughputs$Run <- "3"
+table.PBN_RD2_4.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_4.RollingHourlyThroughputs$Runway <- "2"; table.PBN_RD2_4.RollingHourlyThroughputs$Run <- "4"
+table.PBN_RD2_5.RollingHourlyThroughputs$Scenario <- "PBN"; table.PBN_RD2_5.RollingHourlyThroughputs$Runway <- "2"; table.PBN_RD2_5.RollingHourlyThroughputs$Run <- "5"
 
-colnames(table.RollingHourlyThroughputs) <- c("Time","Airport","Departures","Arrivals","Arrivals and Departures","Scenario","Runway")
+table.RollingHourlyThroughputs <- rbind(table.current_RD1_1.RollingHourlyThroughputs,table.current_RD1_2.RollingHourlyThroughputs,table.current_RD1_3.RollingHourlyThroughputs,
+                                 table.current_RD1_4.RollingHourlyThroughputs,table.current_RD1_5.RollingHourlyThroughputs,
+                                 table.current_RD2_1.RollingHourlyThroughputs,table.current_RD2_2.RollingHourlyThroughputs,table.current_RD2_3.RollingHourlyThroughputs,
+                                 table.current_RD2_4.RollingHourlyThroughputs,table.current_RD2_5.RollingHourlyThroughputs,
+                                 table.PBN_RD1_1.RollingHourlyThroughputs,table.PBN_RD1_2.RollingHourlyThroughputs,table.PBN_RD1_3.RollingHourlyThroughputs,
+                                 table.PBN_RD1_4.RollingHourlyThroughputs,table.PBN_RD1_5.RollingHourlyThroughputs,
+                                 table.PBN_RD2_1.RollingHourlyThroughputs,table.PBN_RD2_2.RollingHourlyThroughputs,table.PBN_RD2_3.RollingHourlyThroughputs,
+                                 table.PBN_RD2_4.RollingHourlyThroughputs,table.PBN_RD2_5.RollingHourlyThroughputs)
+
+colnames(table.RollingHourlyThroughputs) <- c("Time","Airport","Departures","Arrivals","Arrivals and Departures","Scenario","Runway","Run")
 table.RollingHourlyThroughputs <- gather(table.RollingHourlyThroughputs,"Category","Count",c(Departures,Arrivals,"Arrivals and Departures"))
-agg1 <- aggregate(data = table.RollingHourlyThroughputs, Count~Time+Category+Scenario+Runway, "sum")
+agg1 <- aggregate(data = table.RollingHourlyThroughputs, Count~Time+Category+Scenario+Runway+Run, "sum")
 agg1$Airport <- "All Airports"
-agg2 <- aggregate(data = subset(table.RollingHourlyThroughputs, Airport %in% list.airports), Count~Time+Category+Scenario+Runway, "sum")
+agg2 <- aggregate(data = subset(table.RollingHourlyThroughputs, Airport %in% list.airports), Count~Time+Category+Scenario+Runway+Run, "sum")
 agg2$Airport <- "All Major Airports"
 table.RollingHourlyThroughputs <- rbind(table.RollingHourlyThroughputs, agg1, agg2)
-table.RollingHourlyThroughputs <- table.RollingHourlyThroughputs[,c(1,6,2,5,3,4)]
+table.RollingHourlyThroughputs <- table.RollingHourlyThroughputs[,c(1,7,2,6,3,4,5)]
 
-write.csv(table.RollingHourlyThroughputs, file="~/Croatia v3.2/data/RollingHourlyThroughputs.csv", row.names=F)
+write.csv(table.RollingHourlyThroughputs, file="~/Croatia v3.3/data/RollingHourlyThroughputs.csv", row.names=F)
 
 # Fuel Burn Track Miles ---------------------------------------------------
 query.FuelBurnTrackMiles <-
@@ -140,16 +277,81 @@ END AS "RoutingType"
 FROM "ENTER SCHEMA NAME"."RS.FB_TM"
 WHERE "Time_day" = 2'
 
-table.current1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.FuelBurnTrackMiles))
-table.current2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.FuelBurnTrackMiles))
-table.PBN1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.FuelBurnTrackMiles))
-table.PBN2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.FuelBurnTrackMiles))
+table.current_RD1_1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.FuelBurnTrackMiles))
+table.current_RD1_2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.FuelBurnTrackMiles))
+table.current_RD1_3.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.FuelBurnTrackMiles))
+table.current_RD1_4.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.FuelBurnTrackMiles))
+table.current_RD1_5.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.FuelBurnTrackMiles))
+table.current_RD2_1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.FuelBurnTrackMiles))
+table.current_RD2_2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.FuelBurnTrackMiles))
+table.current_RD2_3.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.FuelBurnTrackMiles))
+table.current_RD2_4.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.FuelBurnTrackMiles))
+table.current_RD2_5.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.FuelBurnTrackMiles))
+table.PBN_RD1_1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.FuelBurnTrackMiles))
+table.PBN_RD1_2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.FuelBurnTrackMiles))
+table.PBN_RD1_3.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.FuelBurnTrackMiles))
+table.PBN_RD1_4.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.FuelBurnTrackMiles))
+table.PBN_RD1_5.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.FuelBurnTrackMiles))
+table.PBN_RD2_1.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.FuelBurnTrackMiles))
+table.PBN_RD2_2.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.FuelBurnTrackMiles))
+table.PBN_RD2_3.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.FuelBurnTrackMiles))
+table.PBN_RD2_4.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.FuelBurnTrackMiles))
+table.PBN_RD2_5.FuelBurnTrackMiles <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.FuelBurnTrackMiles))
 
-t1 <- table.current1.FuelBurnTrackMiles; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.FuelBurnTrackMiles; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.FuelBurnTrackMiles; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.FuelBurnTrackMiles; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.FuelBurnTrackMiles <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD1_1.FuelBurnTrackMiles$Runway <- "1"; table.current_RD1_1.FuelBurnTrackMiles$Run <- "1"
+table.current_RD1_2.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD1_2.FuelBurnTrackMiles$Runway <- "1"; table.current_RD1_2.FuelBurnTrackMiles$Run <- "2"
+table.current_RD1_3.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD1_3.FuelBurnTrackMiles$Runway <- "1"; table.current_RD1_3.FuelBurnTrackMiles$Run <- "3"
+table.current_RD1_4.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD1_4.FuelBurnTrackMiles$Runway <- "1"; table.current_RD1_4.FuelBurnTrackMiles$Run <- "4"
+table.current_RD1_5.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD1_5.FuelBurnTrackMiles$Runway <- "1"; table.current_RD1_5.FuelBurnTrackMiles$Run <- "5"
+table.current_RD2_1.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD2_1.FuelBurnTrackMiles$Runway <- "2"; table.current_RD2_1.FuelBurnTrackMiles$Run <- "1"
+table.current_RD2_2.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD2_2.FuelBurnTrackMiles$Runway <- "2"; table.current_RD2_2.FuelBurnTrackMiles$Run <- "2"
+table.current_RD2_3.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD2_3.FuelBurnTrackMiles$Runway <- "2"; table.current_RD2_3.FuelBurnTrackMiles$Run <- "3"
+table.current_RD2_4.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD2_4.FuelBurnTrackMiles$Runway <- "2"; table.current_RD2_4.FuelBurnTrackMiles$Run <- "4"
+table.current_RD2_5.FuelBurnTrackMiles$Scenario <- "Current"; table.current_RD2_5.FuelBurnTrackMiles$Runway <- "2"; table.current_RD2_5.FuelBurnTrackMiles$Run <- "5"
+table.PBN_RD1_1.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD1_1.FuelBurnTrackMiles$Runway <- "1"; table.PBN_RD1_1.FuelBurnTrackMiles$Run <- "1"
+table.PBN_RD1_2.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD1_2.FuelBurnTrackMiles$Runway <- "1"; table.PBN_RD1_2.FuelBurnTrackMiles$Run <- "2"
+table.PBN_RD1_3.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD1_3.FuelBurnTrackMiles$Runway <- "1"; table.PBN_RD1_3.FuelBurnTrackMiles$Run <- "3"
+table.PBN_RD1_4.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD1_4.FuelBurnTrackMiles$Runway <- "1"; table.PBN_RD1_4.FuelBurnTrackMiles$Run <- "4"
+table.PBN_RD1_5.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD1_5.FuelBurnTrackMiles$Runway <- "1"; table.PBN_RD1_5.FuelBurnTrackMiles$Run <- "5"
+table.PBN_RD2_1.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD2_1.FuelBurnTrackMiles$Runway <- "2"; table.PBN_RD2_1.FuelBurnTrackMiles$Run <- "1"
+table.PBN_RD2_2.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD2_2.FuelBurnTrackMiles$Runway <- "2"; table.PBN_RD2_2.FuelBurnTrackMiles$Run <- "2"
+table.PBN_RD2_3.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD2_3.FuelBurnTrackMiles$Runway <- "2"; table.PBN_RD2_3.FuelBurnTrackMiles$Run <- "3"
+table.PBN_RD2_4.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD2_4.FuelBurnTrackMiles$Runway <- "2"; table.PBN_RD2_4.FuelBurnTrackMiles$Run <- "4"
+table.PBN_RD2_5.FuelBurnTrackMiles$Scenario <- "PBN"; table.PBN_RD2_5.FuelBurnTrackMiles$Runway <- "2"; table.PBN_RD2_5.FuelBurnTrackMiles$Run <- "5"
+
+table.FuelBurnTrackMiles <- rbind(table.current_RD1_1.FuelBurnTrackMiles,table.current_RD1_2.FuelBurnTrackMiles,table.current_RD1_3.FuelBurnTrackMiles,
+                                        table.current_RD1_4.FuelBurnTrackMiles,table.current_RD1_5.FuelBurnTrackMiles,
+                                        table.current_RD2_1.FuelBurnTrackMiles,table.current_RD2_2.FuelBurnTrackMiles,table.current_RD2_3.FuelBurnTrackMiles,
+                                        table.current_RD2_4.FuelBurnTrackMiles,table.current_RD2_5.FuelBurnTrackMiles,
+                                        table.PBN_RD1_1.FuelBurnTrackMiles,table.PBN_RD1_2.FuelBurnTrackMiles,table.PBN_RD1_3.FuelBurnTrackMiles,
+                                        table.PBN_RD1_4.FuelBurnTrackMiles,table.PBN_RD1_5.FuelBurnTrackMiles,
+                                        table.PBN_RD2_1.FuelBurnTrackMiles,table.PBN_RD2_2.FuelBurnTrackMiles,table.PBN_RD2_3.FuelBurnTrackMiles,
+                                        table.PBN_RD2_4.FuelBurnTrackMiles,table.PBN_RD2_5.FuelBurnTrackMiles)
+
+#Filter to remove incorrect flights
+table.FuelBurnTrackMiles <- subset(table.FuelBurnTrackMiles,
+                   !(grepl('LDZD_LDSB',Routing)) &
+                   !(grepl('SHARK',Callsign)) & 
+                   !(grepl('ARMIX_LDRI',Routing) & Runway == '1' & TrackMiles >= 100) &
+                   !(grepl('ARMIX_LDRI',Routing) & Runway == '2' & TrackMiles >= 130) &
+                   !(grepl('LDZA_LDOS',Routing)  & TrackMiles >= 140) &
+                   !(grepl('PODET_LDOS',Routing) & TrackMiles >= 190) &
+                   !(grepl('LDSP_LDOS',Routing) & TrackMiles >= 210) &
+                   !(grepl('LDPL_LDOS',Routing) & TrackMiles >= 240) &
+                   !(grepl('BAREB_LDOS',Routing) & TrackMiles >= 100) &
+                   !(grepl('ARGOM_LDZA',Routing) & Runway == '1' & TrackMiles >= 130) &
+                   !(grepl('LDLO_LDZA',Routing) & Runway == '1' & TrackMiles >= 130) &
+                   !(grepl('LDZD_LDZA',Routing) & Runway == '1' & TrackMiles >= 150) &
+                   !(grepl('KOPRY_LDZA',Routing) & Runway == '1' & TrackMiles >= 150) &
+                   !(grepl('LABIN_LDZA',Routing) & Runway == '1' & TrackMiles >= 250) &
+                   !(grepl('PERAN_LDZA',Routing) & Runway == '1' & TrackMiles >= 300) &
+                   !(grepl('PEROT_LDZA',Routing) & Runway == '1' & TrackMiles >= 250) &
+                   !(grepl('PETOV_LDZA',Routing) & Runway == '1' & TrackMiles >= 150) &
+                   !(grepl('ARGOM_LDZA',Routing) & Runway == '2' & TrackMiles >= 130) &
+                   !(grepl('LDLO_LDZA',Routing) & Runway == '2' & TrackMiles >= 150) &
+                   !(grepl('KOPRY_LDZA',Routing) & Runway == '2' & TrackMiles >= 110) &
+                   !(grepl('PEROT_LDZA',Routing) & Runway == '2' & TrackMiles >= 200) &
+                   !(grepl('PETOV_LDZA',Routing) & Runway == '2' & TrackMiles >= 110))
 
 table.FuelBurnTrackMiles <- table.FuelBurnTrackMiles %>%
   mutate(Waypoint = ifelse(RoutingType == 'Departure', sub(".*_", "", Routing),
@@ -161,10 +363,10 @@ for (i in 1:nrow(table.FuelBurnTrackMiles)) {
   if (table.FuelBurnTrackMiles[i,]$RoutingType == "Domestic" & is.na(table.FuelBurnTrackMiles[i,]$RoutingType) == F) {
     t1 <- table.FuelBurnTrackMiles[i,]
     t1$RoutingType <- "Arrival"
-    t1$Waypoint <- t1$Origin
+    t1$Waypoint <- paste("From",t1$Origin)
     t2 <- table.FuelBurnTrackMiles[i,]
     t2$RoutingType <- "Departure"
-    t2$Waypoint <- t2$Destination
+    t2$Waypoint <- paste("To",t2$Destination)
     temp <- rbind(temp,t1,t2)
   }
 }
@@ -174,39 +376,39 @@ table.FuelBurnTrackMiles$Airport <- ifelse(table.FuelBurnTrackMiles$RoutingType 
 table.FuelBurnTrackMiles$Airport <- ifelse(table.FuelBurnTrackMiles$RoutingType == "Arrival",table.FuelBurnTrackMiles$Destination,table.FuelBurnTrackMiles$Airport)
 table.FuelBurnTrackMiles <- subset(table.FuelBurnTrackMiles, substr(Airport,1,4) %in% list.airports)
 
-table.FuelBurn <- aggregate(data=table.FuelBurnTrackMiles,FuelBurn~Airport+Scenario+Runway+RoutingType+Waypoint,"sum")
-temp1 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway+Waypoint,"sum")
+table.FuelBurn <- aggregate(data=table.FuelBurnTrackMiles,FuelBurn~Airport+Scenario+Runway+Run+RoutingType+Waypoint,"sum")
+temp1 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway+Run+Waypoint,"sum")
 temp1$RoutingType <- "Arrivals and Departures"
-temp2 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway+RoutingType,"sum")
+temp2 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway+Run+RoutingType,"sum")
 temp2$Waypoint <- "All Routes"
-temp3 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway,"sum")
+temp3 <- aggregate(data = table.FuelBurn, FuelBurn~Airport+Scenario+Runway+Run,"sum")
 temp3$RoutingType <- "Arrivals and Departures"
 temp3$Waypoint <- "All Routes"
-temp4 <- aggregate(data = table.FuelBurn, FuelBurn~Scenario+Runway,"sum")
+temp4 <- aggregate(data = table.FuelBurn, FuelBurn~Scenario+Runway+Run,"sum")
 temp4$RoutingType <- "Arrivals and Departures"
 temp4$Waypoint <- "All Routes"
 temp4$Airport <- "All Airports"
 table.FuelBurn <- rbind(table.FuelBurn,temp1,temp2,temp3,temp4)
-table.FuelBurn <- table.FuelBurn[,c(1,6,4,5,2,3)]
+table.FuelBurn <- table.FuelBurn[,c(1,7,5,6,2,3,4)]
 
-table.TrackMiles <- aggregate(data=table.FuelBurnTrackMiles,TrackMiles~Airport+Scenario+Runway+RoutingType+Waypoint,"sum")
-temp1 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Scenario+Runway+Waypoint,"sum")
+table.TrackMiles <- aggregate(data=table.FuelBurnTrackMiles,TrackMiles~Airport+Scenario+Runway+Run+RoutingType+Waypoint,"sum")
+temp1 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Scenario+Runway+Run+Waypoint,"sum")
 temp1$RoutingType <- "Arrivals and Departures"
-temp2 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Scenario+Runway+RoutingType,"sum")
+temp2 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Scenario+Runway+Run+RoutingType,"sum")
 temp2$Waypoint <- "All Routes"
-temp3 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Runway+Scenario,"sum")
+temp3 <- aggregate(data = table.TrackMiles, TrackMiles~Airport+Runway+Run+Scenario,"sum")
 temp3$RoutingType <- "Arrivals and Departures"
 temp3$Waypoint <- "All Routes"
-temp4 <- aggregate(data = table.TrackMiles, TrackMiles~Scenario+Runway,"sum")
+temp4 <- aggregate(data = table.TrackMiles, TrackMiles~Scenario+Runway+Run,"sum")
 temp4$RoutingType <- "Arrivals and Departures"
 temp4$Waypoint <- "All Routes"
 temp4$Airport <- "All Airports"
 table.TrackMiles <- rbind(table.TrackMiles,temp1,temp2,temp3,temp4)
-table.TrackMiles <- table.TrackMiles[,c(1,6,4,5,2,3)]
+table.TrackMiles <- table.TrackMiles[,c(1,7,5,6,2,3,4)]
 
-write.csv(table.FuelBurnTrackMiles, file="~/Croatia v3.2/data/FuelBurnTrackMiles.csv", row.names=F)
-write.csv(table.FuelBurn, file="~/Croatia v3.2/data/FuelBurn.csv", row.names=F)
-write.csv(table.TrackMiles, file="~/Croatia v3.2/data/TrackMiles.csv", row.names=F)
+write.csv(table.FuelBurnTrackMiles, file="~/Croatia v3.3/data/FuelBurnTrackMiles.csv", row.names=F)
+write.csv(table.FuelBurn, file="~/Croatia v3.3/data/FuelBurn.csv", row.names=F)
+write.csv(table.TrackMiles, file="~/Croatia v3.3/data/TrackMiles.csv", row.names=F)
 
 # Conflict ----------------------------------------------------------------
 query.Conflicts <-
@@ -232,35 +434,131 @@ t1."FlightType" AS "FlightType1",
 t2."FlightType" AS "FlightType2",
 t1."Routing" AS "Routing1",
 t2."Routing" AS "Routing2",
+t1."OriginInfo" AS "Origin1",
+t2."OriginInfo" AS "Origin2",
+t1."DestinationInfo" AS "Destination1",
+t2."DestinationInfo" AS "Destination2",
 SPLIT_PART("2DLocation",\' \',6)::numeric + SPLIT_PART("2DLocation",\' \',7)::numeric/60 + SPLIT_PART("2DLocation",\' \',8)::numeric/3600 AS "Longitude",
 SPLIT_PART("2DLocation",\' \',2)::numeric + SPLIT_PART("2DLocation",\' \',3)::numeric/60 + SPLIT_PART("2DLocation",\' \',4)::numeric/3600 AS "Latitude"
 FROM "ENTER SCHEMA NAME"."Conflict"
 LEFT JOIN LATERAL (
-SELECT "Callsign", "FlightType", "Routing"
+SELECT "Callsign", "FlightType", "Routing", "OriginInfo", "DestinationInfo"
 FROM "ENTER SCHEMA NAME"."RS.FB_TM"
 WHERE "Time_day" = 2
-AND REPLACE("Callsign",\'F_\',\'\') = SPLIT_PART(REPLACE(REPLACE(REPLACE("ID",\'_F_\',\'_\'),\'_2_\',\'_\'),\'_1_\',\'\'),\'_\',2)
+AND "Callsign" = "FlightPlan1"
 ) AS t1 ON TRUE
 LEFT JOIN LATERAL (
-SELECT "Callsign", "FlightType", "Routing"
+SELECT "Callsign", "FlightType", "Routing", "OriginInfo", "DestinationInfo"
 FROM "ENTER SCHEMA NAME"."RS.FB_TM"
 WHERE "Time_day" = 2
-AND REPLACE("Callsign",\'F_\',\'\') = SPLIT_PART(REPLACE(REPLACE(REPLACE("ID",\'_F_\',\'_\'),\'_2_\',\'_\'),\'_1_\',\'\'),\'_\',3)
+AND "Callsign" = "FlightPlan2"
 ) AS t2 ON TRUE
 WHERE "StartTime_day" = 2'
 
-table.current1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.Conflicts))
-table.current2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.Conflicts))
-table.PBN1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.Conflicts))
-table.PBN2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.Conflicts))
+table.current_RD1_1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.Conflicts))
+table.current_RD1_2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.Conflicts))
+table.current_RD1_3.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.Conflicts))
+table.current_RD1_4.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.Conflicts))
+table.current_RD1_5.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.Conflicts))
+table.current_RD2_1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.Conflicts))
+table.current_RD2_2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.Conflicts))
+table.current_RD2_3.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.Conflicts))
+table.current_RD2_4.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.Conflicts))
+table.current_RD2_5.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.Conflicts))
+table.PBN_RD1_1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.Conflicts))
+table.PBN_RD1_2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.Conflicts))
+table.PBN_RD1_3.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.Conflicts))
+table.PBN_RD1_4.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.Conflicts))
+table.PBN_RD1_5.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.Conflicts))
+table.PBN_RD2_1.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.Conflicts))
+table.PBN_RD2_2.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.Conflicts))
+table.PBN_RD2_3.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.Conflicts))
+table.PBN_RD2_4.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.Conflicts))
+table.PBN_RD2_5.Conflicts <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.Conflicts))
 
-t1 <- table.current1.Conflicts; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.Conflicts; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.Conflicts; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.Conflicts; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.Conflicts <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.Conflicts$Scenario <- "Current"; table.current_RD1_1.Conflicts$Runway <- "1"; table.current_RD1_1.Conflicts$Run <- "1"
+table.current_RD1_2.Conflicts$Scenario <- "Current"; table.current_RD1_2.Conflicts$Runway <- "1"; table.current_RD1_2.Conflicts$Run <- "2"
+table.current_RD1_3.Conflicts$Scenario <- "Current"; table.current_RD1_3.Conflicts$Runway <- "1"; table.current_RD1_3.Conflicts$Run <- "3"
+table.current_RD1_4.Conflicts$Scenario <- "Current"; table.current_RD1_4.Conflicts$Runway <- "1"; table.current_RD1_4.Conflicts$Run <- "4"
+table.current_RD1_5.Conflicts$Scenario <- "Current"; table.current_RD1_5.Conflicts$Runway <- "1"; table.current_RD1_5.Conflicts$Run <- "5"
+table.current_RD2_1.Conflicts$Scenario <- "Current"; table.current_RD2_1.Conflicts$Runway <- "2"; table.current_RD2_1.Conflicts$Run <- "1"
+table.current_RD2_2.Conflicts$Scenario <- "Current"; table.current_RD2_2.Conflicts$Runway <- "2"; table.current_RD2_2.Conflicts$Run <- "2"
+table.current_RD2_3.Conflicts$Scenario <- "Current"; table.current_RD2_3.Conflicts$Runway <- "2"; table.current_RD2_3.Conflicts$Run <- "3"
+table.current_RD2_4.Conflicts$Scenario <- "Current"; table.current_RD2_4.Conflicts$Runway <- "2"; table.current_RD2_4.Conflicts$Run <- "4"
+table.current_RD2_5.Conflicts$Scenario <- "Current"; table.current_RD2_5.Conflicts$Runway <- "2"; table.current_RD2_5.Conflicts$Run <- "5"
+table.PBN_RD1_1.Conflicts$Scenario <- "PBN"; table.PBN_RD1_1.Conflicts$Runway <- "1"; table.PBN_RD1_1.Conflicts$Run <- "1"
+table.PBN_RD1_2.Conflicts$Scenario <- "PBN"; table.PBN_RD1_2.Conflicts$Runway <- "1"; table.PBN_RD1_2.Conflicts$Run <- "2"
+table.PBN_RD1_3.Conflicts$Scenario <- "PBN"; table.PBN_RD1_3.Conflicts$Runway <- "1"; table.PBN_RD1_3.Conflicts$Run <- "3"
+table.PBN_RD1_4.Conflicts$Scenario <- "PBN"; table.PBN_RD1_4.Conflicts$Runway <- "1"; table.PBN_RD1_4.Conflicts$Run <- "4"
+table.PBN_RD1_5.Conflicts$Scenario <- "PBN"; table.PBN_RD1_5.Conflicts$Runway <- "1"; table.PBN_RD1_5.Conflicts$Run <- "5"
+table.PBN_RD2_1.Conflicts$Scenario <- "PBN"; table.PBN_RD2_1.Conflicts$Runway <- "2"; table.PBN_RD2_1.Conflicts$Run <- "1"
+table.PBN_RD2_2.Conflicts$Scenario <- "PBN"; table.PBN_RD2_2.Conflicts$Runway <- "2"; table.PBN_RD2_2.Conflicts$Run <- "2"
+table.PBN_RD2_3.Conflicts$Scenario <- "PBN"; table.PBN_RD2_3.Conflicts$Runway <- "2"; table.PBN_RD2_3.Conflicts$Run <- "3"
+table.PBN_RD2_4.Conflicts$Scenario <- "PBN"; table.PBN_RD2_4.Conflicts$Runway <- "2"; table.PBN_RD2_4.Conflicts$Run <- "4"
+table.PBN_RD2_5.Conflicts$Scenario <- "PBN"; table.PBN_RD2_5.Conflicts$Runway <- "2"; table.PBN_RD2_5.Conflicts$Run <- "5"
+
+table.Conflicts <- rbind(table.current_RD1_1.Conflicts,table.current_RD1_2.Conflicts,table.current_RD1_3.Conflicts,
+                                  table.current_RD1_4.Conflicts,table.current_RD1_5.Conflicts,
+                                  table.current_RD2_1.Conflicts,table.current_RD2_2.Conflicts,table.current_RD2_3.Conflicts,
+                                  table.current_RD2_4.Conflicts,table.current_RD2_5.Conflicts,
+                                  table.PBN_RD1_1.Conflicts,table.PBN_RD1_2.Conflicts,table.PBN_RD1_3.Conflicts,
+                                  table.PBN_RD1_4.Conflicts,table.PBN_RD1_5.Conflicts,
+                                  table.PBN_RD2_1.Conflicts,table.PBN_RD2_2.Conflicts,table.PBN_RD2_3.Conflicts,
+                                  table.PBN_RD2_4.Conflicts,table.PBN_RD2_5.Conflicts)
 
 for(i in 1:ncol(table.Conflicts)) table.Conflicts[[i]][is.na(table.Conflicts[[i]])] = "NULL"
+
+robfilters <- function(){
+    d <- subset(table.Conflicts, (FlightType1 %in% "GeneralAviation" & FlightType2 %in% "GeneralAviation" & Severity >= 4)
+                | (((FlightType1 %in% "AirCarrier" & FlightType2 %in% "GeneralAviation") | (FlightType1 %in% "GeneralAviation" & FlightType2 %in% "AirCarrier")) & Severity >= 2)
+                | (FlightType1 %in% "AirCarrier" & FlightType2 %in% "AirCarrier" & Severity >= 1)
+                | ((FlightType1 %in% "Military" | FlightType2 %in% "Military") & Severity >= 1))
+    swag <- d[0,]
+    dest1 <- d$Destination1
+    dest2 <- d$Destination2
+    orig1 <- d$Origin1
+    orig2 <- d$Origin2
+    ft1 <- d$FlightType1
+    ft2 <- d$FlightType2
+    sev <- d$Severity
+    alt <- as.numeric(d$Altitude_ft)
+    for (i in 1:nrow(d)) {
+        if (
+            !(dest1[i] == dest2[i]
+              & dest1[i] %in% list.airports
+              & dest2[i] %in% list.airports
+            )
+            & !(ft1[i] == "AirCarrier" & ft2[i] == "AirCarrier"
+                & orig1[i] == "LDZA" & orig2[i] == "LDZA"
+                & alt[i] <= 5000
+                & sev[i] %in% c("1","2")
+            )
+            & !(((orig1[i] == "LDSP" & dest2[i] == "LDSP")|(dest1[i] == "LDSP" & orig2[i] == "LDSP"))
+                & alt[i] <= 6500
+                & sev[i] %in% c("1","2")
+            )
+            & !(ft1[i] == "AirCarrier" & ft2[i] == "AirCarrier"
+                & ((orig1[i] == "LDDU" & dest2[i] == "LDDU")|(dest1[i] == "LDDU" & orig2[i] == "LDDU"))
+                & alt[i] <= 10000
+                & sev[i] %in% c("1","2")
+            )
+            & !(ft1[i] == "Military" & ft2[i] == "Military"
+            )
+            & !((ft1[i] == "Military" | ft2[i] == "Military")
+                & dest1[i] == "LDZA" & dest2[i] == "LDZA"
+            )
+            & !((ft1[i] == "Military" | ft2[i] == "Military")
+                & dest1[i] == "LDZD" & dest2[i] == "LDZD"
+            )
+        ) {
+            swag <- rbind(swag, d[i,])
+        }
+    }
+    row.names(swag) <- 1:nrow(swag)
+    return(swag)
+}
+
+table.Conflicts <- robfilters()
 
 temp1 <- as.data.frame(gsub("Approach","App",t(apply(table.Conflicts[,c(16,17)], 1, sort))))
 for (i in 1:nrow(temp1)) {
@@ -272,78 +570,82 @@ for (i in 1:nrow(temp1)) {
 }
 temp2 <- as.data.frame(gsub("AirCarrier","IFR",gsub("GeneralAviation","VFR",t(apply(table.Conflicts[,c(18,19)], 1, sort)))))
 for (i in 1:nrow(temp2)) {
-  if (temp2[i,1] == temp2[i,2]) {
+  if (temp2[i,1] == temp2[i,2] & temp2[i,1] %in% c("IFR","VFR") & temp2[i,2] %in% c("IFR","VFR")) {
     temp2[i,3] <- paste("Both",temp2[i,1])
-  } else {
+  } else if (temp2[i,1] != temp2[i,2] & temp2[i,1] %in% c("IFR","VFR") & temp2[i,2] %in% c("IFR","VFR")) {
     temp2[i,3] <- paste(temp2[i,1],"&",temp2[i,2])
-  }
-}
-temp3 <- as.data.frame(t(apply(table.Conflicts[,c(20,21)], 1, sort)))
-for (i in 1:nrow(temp3)) {
-  if (temp3[i,1] == temp3[i,2]) {
-    temp3[i,3] <- paste("Both",temp3[i,1])
   } else {
-    temp3[i,3] <- paste(temp3[i,1],temp3[i,2])
+    temp2[i,3] <- "Military"
   }
 }
-table.Conflicts <- cbind(table.Conflicts, temp1[,3], temp2[,3], temp3[,3])
-names(table.Conflicts)[c(26,27,28)] <- c("FlightPlanPhases","FlightTypes","Routings")
-table.Conflicts <- table.Conflicts[,c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,26,18,19,27,20,21,28,22,23,24,25)]
+table.Conflicts <- cbind(table.Conflicts, temp1[,3], temp2[,3])
+names(table.Conflicts)[c(31,32)] <- c("FlightPlanPhases","FlightTypes")
+table.Conflicts <- table.Conflicts[,c(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,31,18,19,32,20,21,22,23,24,25,26,27,28,29,30)]
 
-table.ConflictType <- count(table.Conflicts, vars = c("Sector","ConflictType","Scenario","Runway"))
-temp1 <- aggregate(data = table.ConflictType,freq~ConflictType+Scenario+Runway,"sum")
+table.ConflictType <- plyr::count(table.Conflicts, vars = c("Sector","ConflictType","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.ConflictType,freq~ConflictType+Scenario+Runway+Run,"sum")
 temp1$Sector <- "All Sectors"
-temp2 <- aggregate(data = subset(table.ConflictType, Sector %in% list.sectors),freq~ConflictType+Scenario+Runway,"sum")
+temp2 <- aggregate(data = subset(table.ConflictType, Sector %in% list.sectors),freq~ConflictType+Scenario+Runway+Run,"sum")
 temp2$Sector <- "All TMA"
 table.ConflictType <- rbind(table.ConflictType, temp1, temp2)
 table.ConflictType$ConflictType <- gsub("([a-z])([A-Z])", "\\1 \\2", table.ConflictType$ConflictType)
-names(table.ConflictType) <- c("Sector","ConflictType","Scenario","Runway","Count")
-table.ConflictType <- table.ConflictType[,c(1,5,2,3,4)]
+names(table.ConflictType) <- c("Sector","ConflictType","Scenario","Runway","Run","Count")
+table.ConflictType <- table.ConflictType[,c(1,6,2,3,4,5)]
 
-table.LateralConflictType <- count(table.Conflicts, vars = c("Sector","LateralConflictType","Scenario","Runway"))
-temp1 <- aggregate(data = table.LateralConflictType,freq~LateralConflictType+Scenario+Runway,"sum")
+table.LateralConflictType <- plyr::count(table.Conflicts, vars = c("Sector","LateralConflictType","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.LateralConflictType,freq~LateralConflictType+Scenario+Runway+Run,"sum")
 temp1$Sector <- "All Sectors"
-temp2 <- aggregate(data = subset(table.LateralConflictType, Sector %in% list.sectors),freq~LateralConflictType+Scenario+Runway,"sum")
+temp2 <- aggregate(data = subset(table.LateralConflictType, Sector %in% list.sectors),freq~LateralConflictType+Scenario+Runway+Run,"sum")
 temp2$Sector <- "All TMA"
 table.LateralConflictType <- rbind(table.LateralConflictType, temp1, temp2)
 table.LateralConflictType$LateralConflictType <- gsub("([a-z])([A-Z])", "\\1 \\2", table.LateralConflictType$LateralConflictType)
-names(table.LateralConflictType) <- c("Sector","LateralConflictType","Scenario","Runway","Count")
-table.LateralConflictType <- table.LateralConflictType[,c(1,5,2,3,4)]
+names(table.LateralConflictType) <- c("Sector","LateralConflictType","Scenario","Runway","Run","Count")
+table.LateralConflictType <- table.LateralConflictType[,c(1,6,2,3,4,5)]
 
-table.VerticalConflictType <- count(table.Conflicts, vars = c("Sector","VerticalConflictType","Scenario","Runway"))
-temp1 <- aggregate(data = table.VerticalConflictType,freq~VerticalConflictType+Scenario+Runway,"sum")
+table.VerticalConflictType <- plyr::count(table.Conflicts, vars = c("Sector","VerticalConflictType","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.VerticalConflictType,freq~VerticalConflictType+Scenario+Runway+Run,"sum")
 temp1$Sector <- "All Sectors"
-temp2 <- aggregate(data = subset(table.VerticalConflictType, Sector %in% list.sectors),freq~VerticalConflictType+Scenario+Runway,"sum")
+temp2 <- aggregate(data = subset(table.VerticalConflictType, Sector %in% list.sectors),freq~VerticalConflictType+Scenario+Runway+Run,"sum")
 temp2$Sector <- "All TMA"
 table.VerticalConflictType <- rbind(table.VerticalConflictType, temp1, temp2)
 table.VerticalConflictType$VerticalConflictType <- gsub("([a-z])([A-Z])", "\\1 \\2", table.VerticalConflictType$VerticalConflictType)
-names(table.VerticalConflictType) <- c("Sector","VerticalConflictType","Scenario","Runway","Count")
-table.VerticalConflictType <- table.VerticalConflictType[,c(1,5,2,3,4)]
+names(table.VerticalConflictType) <- c("Sector","VerticalConflictType","Scenario","Runway","Run","Count")
+table.VerticalConflictType <- table.VerticalConflictType[,c(1,6,2,3,4,5)]
 
-table.Severity <- count(table.Conflicts, vars = c("Sector","Severity","Scenario","Runway"))
-temp1 <- aggregate(data = table.Severity,freq~Severity+Scenario+Runway,"sum")
+table.Severity <- plyr::count(table.Conflicts, vars = c("Sector","Severity","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.Severity,freq~Severity+Scenario+Runway+Run,"sum")
 temp1$Sector <- "All Sectors"
-temp2 <- aggregate(data = subset(table.Severity, Sector %in% list.sectors),freq~Severity+Scenario+Runway,"sum")
+temp2 <- aggregate(data = subset(table.Severity, Sector %in% list.sectors),freq~Severity+Scenario+Runway+Run,"sum")
 temp2$Sector <- "All TMA"
 table.Severity <- rbind(table.Severity, temp1, temp2)
-names(table.Severity) <- c("Sector","Severity","Scenario","Runway","Count")
-table.Severity <- table.Severity[,c(1,5,2,3,4)]
+names(table.Severity) <- c("Sector","Severity","Scenario","Runway","Run","Count")
+table.Severity <- table.Severity[,c(1,6,2,3,4,5)]
 
-table.VerticalSeverity <- count(table.Conflicts, vars = c("Sector","VerticalSeverity","Scenario","Runway"))
-temp1 <- aggregate(data = table.VerticalSeverity,freq~VerticalSeverity+Scenario+Runway,"sum")
+table.VerticalSeverity <- plyr::count(table.Conflicts, vars = c("Sector","VerticalSeverity","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.VerticalSeverity,freq~VerticalSeverity+Scenario+Runway+Run,"sum")
 temp1$Sector <- "All Sectors"
-temp2 <- aggregate(data = subset(table.VerticalSeverity, Sector %in% list.sectors),freq~VerticalSeverity+Scenario+Runway,"sum")
+temp2 <- aggregate(data = subset(table.VerticalSeverity, Sector %in% list.sectors),freq~VerticalSeverity+Scenario+Runway+Run,"sum")
 temp2$Sector <- "All TMA"
 table.VerticalSeverity <- rbind(table.VerticalSeverity, temp1, temp2)
-names(table.VerticalSeverity) <- c("Sector","VerticalSeverity","Scenario","Runway","Count")
-table.VerticalSeverity <- table.VerticalSeverity[,c(1,5,2,3,4)]
+names(table.VerticalSeverity) <- c("Sector","VerticalSeverity","Scenario","Runway","Run","Count")
+table.VerticalSeverity <- table.VerticalSeverity[,c(1,6,2,3,4,5)]
 
-write.csv(table.Conflicts, file="~/Croatia v3.2/data/Conflicts.csv", row.names=F)
-write.csv(table.ConflictType, file="~/Croatia v3.2/data/ConflictType.csv", row.names=F)
-write.csv(table.LateralConflictType, file="~/Croatia v3.2/data/LateralConflictType.csv", row.names=F)
-write.csv(table.VerticalConflictType, file="~/Croatia v3.2/data/VerticalConflictType.csv", row.names=F)
-write.csv(table.Severity, file="~/Croatia v3.2/data/Severity.csv", row.names=F)
-write.csv(table.VerticalSeverity, file="~/Croatia v3.2/data/VerticalSeverity.csv", row.names=F)
+table.FlightType <- plyr::count(table.Conflicts, vars = c("Sector","FlightTypes","Scenario","Runway","Run"))
+temp1 <- aggregate(data = table.FlightType,freq~FlightTypes+Scenario+Runway+Run,"sum")
+temp1$Sector <- "All Sectors"
+temp2 <- aggregate(data = subset(table.FlightType, Sector %in% list.sectors),freq~FlightTypes+Scenario+Runway+Run,"sum")
+temp2$Sector <- "All TMA"
+table.FlightType <- rbind(table.FlightType, temp1, temp2)
+names(table.FlightType) <- c("Sector","FlightTypes","Scenario","Runway","Run","Count")
+table.FlightType <- table.FlightType[,c(1,6,2,3,4,5)]
+
+write.csv(table.Conflicts, file="~/Croatia v3.3/data/Conflicts.csv", row.names=F)
+write.csv(table.ConflictType, file="~/Croatia v3.3/data/ConflictType.csv", row.names=F)
+write.csv(table.LateralConflictType, file="~/Croatia v3.3/data/LateralConflictType.csv", row.names=F)
+write.csv(table.VerticalConflictType, file="~/Croatia v3.3/data/VerticalConflictType.csv", row.names=F)
+write.csv(table.Severity, file="~/Croatia v3.3/data/Severity.csv", row.names=F)
+write.csv(table.VerticalSeverity, file="~/Croatia v3.3/data/VerticalSeverity.csv", row.names=F)
+write.csv(table.FlightType, file="~/Croatia v3.3/data/FlightType.csv", row.names=F)
 
 # Conflict Flight Plan Phase ---------------------------------------------
 query.ConflictsFlightPlanPhase <-
@@ -358,20 +660,60 @@ COUNT(*) AS "Count"
 FROM "ENTER SCHEMA NAME"."Conflict"
 GROUP BY "ATCSector", (CASE WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2") THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2" ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1" END)'
 
-table.current1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.ConflictsFlightPlanPhase))
-table.current2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.ConflictsFlightPlanPhase))
-table.PBN1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.ConflictsFlightPlanPhase))
-table.PBN2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.ConflictsFlightPlanPhase))
+table.current_RD1_1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.ConflictsFlightPlanPhase))
+table.current_RD1_2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.ConflictsFlightPlanPhase))
+table.current_RD1_3.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.ConflictsFlightPlanPhase))
+table.current_RD1_4.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.ConflictsFlightPlanPhase))
+table.current_RD1_5.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.ConflictsFlightPlanPhase))
+table.current_RD2_1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.ConflictsFlightPlanPhase))
+table.current_RD2_2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.ConflictsFlightPlanPhase))
+table.current_RD2_3.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.ConflictsFlightPlanPhase))
+table.current_RD2_4.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.ConflictsFlightPlanPhase))
+table.current_RD2_5.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.ConflictsFlightPlanPhase))
+table.PBN_RD1_1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.ConflictsFlightPlanPhase))
+table.PBN_RD1_2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.ConflictsFlightPlanPhase))
+table.PBN_RD1_3.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.ConflictsFlightPlanPhase))
+table.PBN_RD1_4.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.ConflictsFlightPlanPhase))
+table.PBN_RD1_5.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.ConflictsFlightPlanPhase))
+table.PBN_RD2_1.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.ConflictsFlightPlanPhase))
+table.PBN_RD2_2.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.ConflictsFlightPlanPhase))
+table.PBN_RD2_3.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.ConflictsFlightPlanPhase))
+table.PBN_RD2_4.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.ConflictsFlightPlanPhase))
+table.PBN_RD2_5.ConflictsFlightPlanPhase <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.ConflictsFlightPlanPhase))
 
-t1 <- table.current1.ConflictsFlightPlanPhase; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.ConflictsFlightPlanPhase; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.ConflictsFlightPlanPhase; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.ConflictsFlightPlanPhase; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.ConflictsFlightPlanPhase <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD1_1.ConflictsFlightPlanPhase$Runway <- "1"; table.current_RD1_1.ConflictsFlightPlanPhase$Run <- "1"
+table.current_RD1_2.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD1_2.ConflictsFlightPlanPhase$Runway <- "1"; table.current_RD1_2.ConflictsFlightPlanPhase$Run <- "2"
+table.current_RD1_3.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD1_3.ConflictsFlightPlanPhase$Runway <- "1"; table.current_RD1_3.ConflictsFlightPlanPhase$Run <- "3"
+table.current_RD1_4.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD1_4.ConflictsFlightPlanPhase$Runway <- "1"; table.current_RD1_4.ConflictsFlightPlanPhase$Run <- "4"
+table.current_RD1_5.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD1_5.ConflictsFlightPlanPhase$Runway <- "1"; table.current_RD1_5.ConflictsFlightPlanPhase$Run <- "5"
+table.current_RD2_1.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD2_1.ConflictsFlightPlanPhase$Runway <- "2"; table.current_RD2_1.ConflictsFlightPlanPhase$Run <- "1"
+table.current_RD2_2.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD2_2.ConflictsFlightPlanPhase$Runway <- "2"; table.current_RD2_2.ConflictsFlightPlanPhase$Run <- "2"
+table.current_RD2_3.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD2_3.ConflictsFlightPlanPhase$Runway <- "2"; table.current_RD2_3.ConflictsFlightPlanPhase$Run <- "3"
+table.current_RD2_4.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD2_4.ConflictsFlightPlanPhase$Runway <- "2"; table.current_RD2_4.ConflictsFlightPlanPhase$Run <- "4"
+table.current_RD2_5.ConflictsFlightPlanPhase$Scenario <- "Current"; table.current_RD2_5.ConflictsFlightPlanPhase$Runway <- "2"; table.current_RD2_5.ConflictsFlightPlanPhase$Run <- "5"
+table.PBN_RD1_1.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD1_1.ConflictsFlightPlanPhase$Runway <- "1"; table.PBN_RD1_1.ConflictsFlightPlanPhase$Run <- "1"
+table.PBN_RD1_2.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD1_2.ConflictsFlightPlanPhase$Runway <- "1"; table.PBN_RD1_2.ConflictsFlightPlanPhase$Run <- "2"
+table.PBN_RD1_3.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD1_3.ConflictsFlightPlanPhase$Runway <- "1"; table.PBN_RD1_3.ConflictsFlightPlanPhase$Run <- "3"
+table.PBN_RD1_4.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD1_4.ConflictsFlightPlanPhase$Runway <- "1"; table.PBN_RD1_4.ConflictsFlightPlanPhase$Run <- "4"
+table.PBN_RD1_5.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD1_5.ConflictsFlightPlanPhase$Runway <- "1"; table.PBN_RD1_5.ConflictsFlightPlanPhase$Run <- "5"
+table.PBN_RD2_1.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD2_1.ConflictsFlightPlanPhase$Runway <- "2"; table.PBN_RD2_1.ConflictsFlightPlanPhase$Run <- "1"
+table.PBN_RD2_2.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD2_2.ConflictsFlightPlanPhase$Runway <- "2"; table.PBN_RD2_2.ConflictsFlightPlanPhase$Run <- "2"
+table.PBN_RD2_3.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD2_3.ConflictsFlightPlanPhase$Runway <- "2"; table.PBN_RD2_3.ConflictsFlightPlanPhase$Run <- "3"
+table.PBN_RD2_4.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD2_4.ConflictsFlightPlanPhase$Runway <- "2"; table.PBN_RD2_4.ConflictsFlightPlanPhase$Run <- "4"
+table.PBN_RD2_5.ConflictsFlightPlanPhase$Scenario <- "PBN"; table.PBN_RD2_5.ConflictsFlightPlanPhase$Runway <- "2"; table.PBN_RD2_5.ConflictsFlightPlanPhase$Run <- "5"
 
-agg1 <- aggregate(data = table.ConflictsFlightPlanPhase,Count~FlightPlanPhases+Scenario+Runway,"sum")
+table.ConflictsFlightPlanPhase <- rbind(table.current_RD1_1.ConflictsFlightPlanPhase,table.current_RD1_2.ConflictsFlightPlanPhase,table.current_RD1_3.ConflictsFlightPlanPhase,
+                         table.current_RD1_4.ConflictsFlightPlanPhase,table.current_RD1_5.ConflictsFlightPlanPhase,
+                         table.current_RD2_1.ConflictsFlightPlanPhase,table.current_RD2_2.ConflictsFlightPlanPhase,table.current_RD2_3.ConflictsFlightPlanPhase,
+                         table.current_RD2_4.ConflictsFlightPlanPhase,table.current_RD2_5.ConflictsFlightPlanPhase,
+                         table.PBN_RD1_1.ConflictsFlightPlanPhase,table.PBN_RD1_2.ConflictsFlightPlanPhase,table.PBN_RD1_3.ConflictsFlightPlanPhase,
+                         table.PBN_RD1_4.ConflictsFlightPlanPhase,table.PBN_RD1_5.ConflictsFlightPlanPhase,
+                         table.PBN_RD2_1.ConflictsFlightPlanPhase,table.PBN_RD2_2.ConflictsFlightPlanPhase,table.PBN_RD2_3.ConflictsFlightPlanPhase,
+                         table.PBN_RD2_4.ConflictsFlightPlanPhase,table.PBN_RD2_5.ConflictsFlightPlanPhase)
+
+agg1 <- aggregate(data = table.ConflictsFlightPlanPhase,Count~FlightPlanPhases+Scenario+Runway+Run,"sum")
 agg1$Sector <- "All Sectors"
-agg2 <- aggregate(data = subset(table.ConflictsFlightPlanPhase, Sector %in% list.sectors),Count~FlightPlanPhases+Scenario+Runway,"sum")
+agg2 <- aggregate(data = subset(table.ConflictsFlightPlanPhase, Sector %in% list.sectors),Count~FlightPlanPhases+Scenario+Runway+Run,"sum")
 agg2$Sector <- "All TMA"
 table.ConflictsFlightPlanPhase <- rbind(table.ConflictsFlightPlanPhase, agg1, agg2)
 
@@ -384,9 +726,9 @@ for (i in 1:length(temp)) {
   }
 }
 table.ConflictsFlightPlanPhase$FlightPlanPhases <- unlist(temp)
-table.ConflictsFlightPlanPhase <- table.ConflictsFlightPlanPhase[,c(1,3,2,4,5)]
+table.ConflictsFlightPlanPhase <- table.ConflictsFlightPlanPhase[,c(1,3,2,4,5,6)]
 
-write.csv(table.ConflictsFlightPlanPhase, file="~/Croatia v3.2/data/ConflictsFlightPlanPhase.csv", row.names=F)
+write.csv(table.ConflictsFlightPlanPhase, file="~/Croatia v3.3/data/ConflictsFlightPlanPhase.csv", row.names=F)
 
 # Sector Occupancy --------------------------------------------------------
 query.SectorOccupancy <-
@@ -397,24 +739,64 @@ to_char("Time_time", \'HH24:MI\') AS "Time",
 FROM "ENTER SCHEMA NAME"."RS_SECOCC"
 WHERE "Time_day" = 2'
 
-table.current1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.SectorOccupancy))
-table.current2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.SectorOccupancy))
-table.PBN1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.SectorOccupancy))
-table.PBN2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.SectorOccupancy))
+table.current_RD1_1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.SectorOccupancy))
+table.current_RD1_2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.SectorOccupancy))
+table.current_RD1_3.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.SectorOccupancy))
+table.current_RD1_4.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.SectorOccupancy))
+table.current_RD1_5.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.SectorOccupancy))
+table.current_RD2_1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.SectorOccupancy))
+table.current_RD2_2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.SectorOccupancy))
+table.current_RD2_3.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.SectorOccupancy))
+table.current_RD2_4.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.SectorOccupancy))
+table.current_RD2_5.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.SectorOccupancy))
+table.PBN_RD1_1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.SectorOccupancy))
+table.PBN_RD1_2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.SectorOccupancy))
+table.PBN_RD1_3.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.SectorOccupancy))
+table.PBN_RD1_4.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.SectorOccupancy))
+table.PBN_RD1_5.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.SectorOccupancy))
+table.PBN_RD2_1.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.SectorOccupancy))
+table.PBN_RD2_2.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.SectorOccupancy))
+table.PBN_RD2_3.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.SectorOccupancy))
+table.PBN_RD2_4.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.SectorOccupancy))
+table.PBN_RD2_5.SectorOccupancy <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.SectorOccupancy))
 
-t1 <- table.current1.SectorOccupancy; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.SectorOccupancy; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.SectorOccupancy; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.SectorOccupancy; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.SectorOccupancy <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.SectorOccupancy$Scenario <- "Current"; table.current_RD1_1.SectorOccupancy$Runway <- "1"; table.current_RD1_1.SectorOccupancy$Run <- "1"
+table.current_RD1_2.SectorOccupancy$Scenario <- "Current"; table.current_RD1_2.SectorOccupancy$Runway <- "1"; table.current_RD1_2.SectorOccupancy$Run <- "2"
+table.current_RD1_3.SectorOccupancy$Scenario <- "Current"; table.current_RD1_3.SectorOccupancy$Runway <- "1"; table.current_RD1_3.SectorOccupancy$Run <- "3"
+table.current_RD1_4.SectorOccupancy$Scenario <- "Current"; table.current_RD1_4.SectorOccupancy$Runway <- "1"; table.current_RD1_4.SectorOccupancy$Run <- "4"
+table.current_RD1_5.SectorOccupancy$Scenario <- "Current"; table.current_RD1_5.SectorOccupancy$Runway <- "1"; table.current_RD1_5.SectorOccupancy$Run <- "5"
+table.current_RD2_1.SectorOccupancy$Scenario <- "Current"; table.current_RD2_1.SectorOccupancy$Runway <- "2"; table.current_RD2_1.SectorOccupancy$Run <- "1"
+table.current_RD2_2.SectorOccupancy$Scenario <- "Current"; table.current_RD2_2.SectorOccupancy$Runway <- "2"; table.current_RD2_2.SectorOccupancy$Run <- "2"
+table.current_RD2_3.SectorOccupancy$Scenario <- "Current"; table.current_RD2_3.SectorOccupancy$Runway <- "2"; table.current_RD2_3.SectorOccupancy$Run <- "3"
+table.current_RD2_4.SectorOccupancy$Scenario <- "Current"; table.current_RD2_4.SectorOccupancy$Runway <- "2"; table.current_RD2_4.SectorOccupancy$Run <- "4"
+table.current_RD2_5.SectorOccupancy$Scenario <- "Current"; table.current_RD2_5.SectorOccupancy$Runway <- "2"; table.current_RD2_5.SectorOccupancy$Run <- "5"
+table.PBN_RD1_1.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD1_1.SectorOccupancy$Runway <- "1"; table.PBN_RD1_1.SectorOccupancy$Run <- "1"
+table.PBN_RD1_2.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD1_2.SectorOccupancy$Runway <- "1"; table.PBN_RD1_2.SectorOccupancy$Run <- "2"
+table.PBN_RD1_3.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD1_3.SectorOccupancy$Runway <- "1"; table.PBN_RD1_3.SectorOccupancy$Run <- "3"
+table.PBN_RD1_4.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD1_4.SectorOccupancy$Runway <- "1"; table.PBN_RD1_4.SectorOccupancy$Run <- "4"
+table.PBN_RD1_5.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD1_5.SectorOccupancy$Runway <- "1"; table.PBN_RD1_5.SectorOccupancy$Run <- "5"
+table.PBN_RD2_1.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD2_1.SectorOccupancy$Runway <- "2"; table.PBN_RD2_1.SectorOccupancy$Run <- "1"
+table.PBN_RD2_2.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD2_2.SectorOccupancy$Runway <- "2"; table.PBN_RD2_2.SectorOccupancy$Run <- "2"
+table.PBN_RD2_3.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD2_3.SectorOccupancy$Runway <- "2"; table.PBN_RD2_3.SectorOccupancy$Run <- "3"
+table.PBN_RD2_4.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD2_4.SectorOccupancy$Runway <- "2"; table.PBN_RD2_4.SectorOccupancy$Run <- "4"
+table.PBN_RD2_5.SectorOccupancy$Scenario <- "PBN"; table.PBN_RD2_5.SectorOccupancy$Runway <- "2"; table.PBN_RD2_5.SectorOccupancy$Run <- "5"
 
-agg1 <- aggregate(data = table.SectorOccupancy,Count~Time+Scenario+Runway,"sum")
+table.SectorOccupancy <- rbind(table.current_RD1_1.SectorOccupancy,table.current_RD1_2.SectorOccupancy,table.current_RD1_3.SectorOccupancy,
+                                        table.current_RD1_4.SectorOccupancy,table.current_RD1_5.SectorOccupancy,
+                                        table.current_RD2_1.SectorOccupancy,table.current_RD2_2.SectorOccupancy,table.current_RD2_3.SectorOccupancy,
+                                        table.current_RD2_4.SectorOccupancy,table.current_RD2_5.SectorOccupancy,
+                                        table.PBN_RD1_1.SectorOccupancy,table.PBN_RD1_2.SectorOccupancy,table.PBN_RD1_3.SectorOccupancy,
+                                        table.PBN_RD1_4.SectorOccupancy,table.PBN_RD1_5.SectorOccupancy,
+                                        table.PBN_RD2_1.SectorOccupancy,table.PBN_RD2_2.SectorOccupancy,table.PBN_RD2_3.SectorOccupancy,
+                                        table.PBN_RD2_4.SectorOccupancy,table.PBN_RD2_5.SectorOccupancy)
+
+agg1 <- aggregate(data = table.SectorOccupancy,Count~Time+Scenario+Runway+Run,"sum")
 agg1$Sector <- "All Sectors"
-agg2 <- aggregate(data = subset(table.SectorOccupancy, Sector %in% list.sectors),Count~Time+Scenario+Runway,"sum")
+agg2 <- aggregate(data = subset(table.SectorOccupancy, Sector %in% list.sectors),Count~Time+Scenario+Runway+Run,"sum")
 agg2$Sector <- "All TMA"
 table.SectorOccupancy <- rbind(table.SectorOccupancy,agg1,agg2)
 
-write.csv(table.SectorOccupancy, file="~/Croatia v3.2/data/SectorOccupancy.csv", row.names=F)
+write.csv(table.SectorOccupancy, file="~/Croatia v3.3/data/SectorOccupancy.csv", row.names=F)
 
 # Sector Entry ------------------------------------------------------------
 query.SectorEntry <-
@@ -425,24 +807,64 @@ to_char("Time_time", \'HH24:MI\') AS "Time",
 FROM "ENTER SCHEMA NAME"."RS_SECENTRY"
 WHERE "Time_day" = 2'
 
-table.current1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.SectorEntry))
-table.current2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.SectorEntry))
-table.PBN1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.SectorEntry))
-table.PBN2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.SectorEntry))
+table.current_RD1_1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.SectorEntry))
+table.current_RD1_2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.SectorEntry))
+table.current_RD1_3.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.SectorEntry))
+table.current_RD1_4.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.SectorEntry))
+table.current_RD1_5.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.SectorEntry))
+table.current_RD2_1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.SectorEntry))
+table.current_RD2_2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.SectorEntry))
+table.current_RD2_3.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.SectorEntry))
+table.current_RD2_4.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.SectorEntry))
+table.current_RD2_5.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.SectorEntry))
+table.PBN_RD1_1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.SectorEntry))
+table.PBN_RD1_2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.SectorEntry))
+table.PBN_RD1_3.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.SectorEntry))
+table.PBN_RD1_4.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.SectorEntry))
+table.PBN_RD1_5.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.SectorEntry))
+table.PBN_RD2_1.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.SectorEntry))
+table.PBN_RD2_2.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.SectorEntry))
+table.PBN_RD2_3.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.SectorEntry))
+table.PBN_RD2_4.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.SectorEntry))
+table.PBN_RD2_5.SectorEntry <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.SectorEntry))
 
-t1 <- table.current1.SectorEntry; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.SectorEntry; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.SectorEntry; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.SectorEntry; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.SectorEntry <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.SectorEntry$Scenario <- "Current"; table.current_RD1_1.SectorEntry$Runway <- "1"; table.current_RD1_1.SectorEntry$Run <- "1"
+table.current_RD1_2.SectorEntry$Scenario <- "Current"; table.current_RD1_2.SectorEntry$Runway <- "1"; table.current_RD1_2.SectorEntry$Run <- "2"
+table.current_RD1_3.SectorEntry$Scenario <- "Current"; table.current_RD1_3.SectorEntry$Runway <- "1"; table.current_RD1_3.SectorEntry$Run <- "3"
+table.current_RD1_4.SectorEntry$Scenario <- "Current"; table.current_RD1_4.SectorEntry$Runway <- "1"; table.current_RD1_4.SectorEntry$Run <- "4"
+table.current_RD1_5.SectorEntry$Scenario <- "Current"; table.current_RD1_5.SectorEntry$Runway <- "1"; table.current_RD1_5.SectorEntry$Run <- "5"
+table.current_RD2_1.SectorEntry$Scenario <- "Current"; table.current_RD2_1.SectorEntry$Runway <- "2"; table.current_RD2_1.SectorEntry$Run <- "1"
+table.current_RD2_2.SectorEntry$Scenario <- "Current"; table.current_RD2_2.SectorEntry$Runway <- "2"; table.current_RD2_2.SectorEntry$Run <- "2"
+table.current_RD2_3.SectorEntry$Scenario <- "Current"; table.current_RD2_3.SectorEntry$Runway <- "2"; table.current_RD2_3.SectorEntry$Run <- "3"
+table.current_RD2_4.SectorEntry$Scenario <- "Current"; table.current_RD2_4.SectorEntry$Runway <- "2"; table.current_RD2_4.SectorEntry$Run <- "4"
+table.current_RD2_5.SectorEntry$Scenario <- "Current"; table.current_RD2_5.SectorEntry$Runway <- "2"; table.current_RD2_5.SectorEntry$Run <- "5"
+table.PBN_RD1_1.SectorEntry$Scenario <- "PBN"; table.PBN_RD1_1.SectorEntry$Runway <- "1"; table.PBN_RD1_1.SectorEntry$Run <- "1"
+table.PBN_RD1_2.SectorEntry$Scenario <- "PBN"; table.PBN_RD1_2.SectorEntry$Runway <- "1"; table.PBN_RD1_2.SectorEntry$Run <- "2"
+table.PBN_RD1_3.SectorEntry$Scenario <- "PBN"; table.PBN_RD1_3.SectorEntry$Runway <- "1"; table.PBN_RD1_3.SectorEntry$Run <- "3"
+table.PBN_RD1_4.SectorEntry$Scenario <- "PBN"; table.PBN_RD1_4.SectorEntry$Runway <- "1"; table.PBN_RD1_4.SectorEntry$Run <- "4"
+table.PBN_RD1_5.SectorEntry$Scenario <- "PBN"; table.PBN_RD1_5.SectorEntry$Runway <- "1"; table.PBN_RD1_5.SectorEntry$Run <- "5"
+table.PBN_RD2_1.SectorEntry$Scenario <- "PBN"; table.PBN_RD2_1.SectorEntry$Runway <- "2"; table.PBN_RD2_1.SectorEntry$Run <- "1"
+table.PBN_RD2_2.SectorEntry$Scenario <- "PBN"; table.PBN_RD2_2.SectorEntry$Runway <- "2"; table.PBN_RD2_2.SectorEntry$Run <- "2"
+table.PBN_RD2_3.SectorEntry$Scenario <- "PBN"; table.PBN_RD2_3.SectorEntry$Runway <- "2"; table.PBN_RD2_3.SectorEntry$Run <- "3"
+table.PBN_RD2_4.SectorEntry$Scenario <- "PBN"; table.PBN_RD2_4.SectorEntry$Runway <- "2"; table.PBN_RD2_4.SectorEntry$Run <- "4"
+table.PBN_RD2_5.SectorEntry$Scenario <- "PBN"; table.PBN_RD2_5.SectorEntry$Runway <- "2"; table.PBN_RD2_5.SectorEntry$Run <- "5"
 
-agg1 <- aggregate(data = table.SectorEntry,Entries~Time+Scenario+Runway,"sum")
+table.SectorEntry <- rbind(table.current_RD1_1.SectorEntry,table.current_RD1_2.SectorEntry,table.current_RD1_3.SectorEntry,
+                               table.current_RD1_4.SectorEntry,table.current_RD1_5.SectorEntry,
+                               table.current_RD2_1.SectorEntry,table.current_RD2_2.SectorEntry,table.current_RD2_3.SectorEntry,
+                               table.current_RD2_4.SectorEntry,table.current_RD2_5.SectorEntry,
+                               table.PBN_RD1_1.SectorEntry,table.PBN_RD1_2.SectorEntry,table.PBN_RD1_3.SectorEntry,
+                               table.PBN_RD1_4.SectorEntry,table.PBN_RD1_5.SectorEntry,
+                               table.PBN_RD2_1.SectorEntry,table.PBN_RD2_2.SectorEntry,table.PBN_RD2_3.SectorEntry,
+                               table.PBN_RD2_4.SectorEntry,table.PBN_RD2_5.SectorEntry)
+
+agg1 <- aggregate(data = table.SectorEntry,Entries~Time+Scenario+Runway+Run,"sum")
 agg1$Sector <- "All Sectors"
-agg2 <- aggregate(data = subset(table.SectorEntry, Sector %in% list.sectors),Entries~Time+Scenario+Runway,"sum")
+agg2 <- aggregate(data = subset(table.SectorEntry, Sector %in% list.sectors),Entries~Time+Scenario+Runway+Run,"sum")
 agg2$Sector <- "All TMA"
 table.SectorEntry <- rbind(table.SectorEntry,agg1,agg2)
 
-write.csv(table.SectorEntry, file="~/Croatia v3.2/data/SectorEntry.csv", row.names=F)
+write.csv(table.SectorEntry, file="~/Croatia v3.3/data/SectorEntry.csv", row.names=F)
 
 # Workload ----------------------------------------------------------------
 query.Workload <- 
@@ -513,18 +935,58 @@ GROUP BY "Sector", "TimeAdjusted"
 WHERE EXTRACT(second from "Time") = 0
 AND EXTRACT(minute from "Time") IN (0,10,20,30,40,50)'
 
-table.current1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.Workload))
-table.current2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.Workload))
-table.PBN1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN1,query.Workload))
-table.PBN2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN2,query.Workload))
+table.current_RD1_1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_1,query.Workload))
+table.current_RD1_2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_2,query.Workload))
+table.current_RD1_3.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_3,query.Workload))
+table.current_RD1_4.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_4,query.Workload))
+table.current_RD1_5.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD1_5,query.Workload))
+table.current_RD2_1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_1,query.Workload))
+table.current_RD2_2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_2,query.Workload))
+table.current_RD2_3.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_3,query.Workload))
+table.current_RD2_4.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_4,query.Workload))
+table.current_RD2_5.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current_RD2_5,query.Workload))
+table.PBN_RD1_1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_1,query.Workload))
+table.PBN_RD1_2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_2,query.Workload))
+table.PBN_RD1_3.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_3,query.Workload))
+table.PBN_RD1_4.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_4,query.Workload))
+table.PBN_RD1_5.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD1_5,query.Workload))
+table.PBN_RD2_1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_1,query.Workload))
+table.PBN_RD2_2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_2,query.Workload))
+table.PBN_RD2_3.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_3,query.Workload))
+table.PBN_RD2_4.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_4,query.Workload))
+table.PBN_RD2_5.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.PBN_RD2_5,query.Workload))
 
-t1 <- table.current1.Workload; t1$Scenario <- "Current"; t1$Runway <- "1"
-t2 <- table.current2.Workload; t2$Scenario <- "Current"; t2$Runway <- "2"
-t3 <- table.PBN1.Workload; t3$Scenario <- "PBN"; t3$Runway <- "1"
-t4 <- table.PBN2.Workload; t4$Scenario <- "PBN"; t4$Runway <- "2"
-table.Workload <- rbind(t1,t2,t3,t4)
+table.current_RD1_1.Workload$Scenario <- "Current"; table.current_RD1_1.Workload$Runway <- "1"; table.current_RD1_1.Workload$Run <- "1"
+table.current_RD1_2.Workload$Scenario <- "Current"; table.current_RD1_2.Workload$Runway <- "1"; table.current_RD1_2.Workload$Run <- "2"
+table.current_RD1_3.Workload$Scenario <- "Current"; table.current_RD1_3.Workload$Runway <- "1"; table.current_RD1_3.Workload$Run <- "3"
+table.current_RD1_4.Workload$Scenario <- "Current"; table.current_RD1_4.Workload$Runway <- "1"; table.current_RD1_4.Workload$Run <- "4"
+table.current_RD1_5.Workload$Scenario <- "Current"; table.current_RD1_5.Workload$Runway <- "1"; table.current_RD1_5.Workload$Run <- "5"
+table.current_RD2_1.Workload$Scenario <- "Current"; table.current_RD2_1.Workload$Runway <- "2"; table.current_RD2_1.Workload$Run <- "1"
+table.current_RD2_2.Workload$Scenario <- "Current"; table.current_RD2_2.Workload$Runway <- "2"; table.current_RD2_2.Workload$Run <- "2"
+table.current_RD2_3.Workload$Scenario <- "Current"; table.current_RD2_3.Workload$Runway <- "2"; table.current_RD2_3.Workload$Run <- "3"
+table.current_RD2_4.Workload$Scenario <- "Current"; table.current_RD2_4.Workload$Runway <- "2"; table.current_RD2_4.Workload$Run <- "4"
+table.current_RD2_5.Workload$Scenario <- "Current"; table.current_RD2_5.Workload$Runway <- "2"; table.current_RD2_5.Workload$Run <- "5"
+table.PBN_RD1_1.Workload$Scenario <- "PBN"; table.PBN_RD1_1.Workload$Runway <- "1"; table.PBN_RD1_1.Workload$Run <- "1"
+table.PBN_RD1_2.Workload$Scenario <- "PBN"; table.PBN_RD1_2.Workload$Runway <- "1"; table.PBN_RD1_2.Workload$Run <- "2"
+table.PBN_RD1_3.Workload$Scenario <- "PBN"; table.PBN_RD1_3.Workload$Runway <- "1"; table.PBN_RD1_3.Workload$Run <- "3"
+table.PBN_RD1_4.Workload$Scenario <- "PBN"; table.PBN_RD1_4.Workload$Runway <- "1"; table.PBN_RD1_4.Workload$Run <- "4"
+table.PBN_RD1_5.Workload$Scenario <- "PBN"; table.PBN_RD1_5.Workload$Runway <- "1"; table.PBN_RD1_5.Workload$Run <- "5"
+table.PBN_RD2_1.Workload$Scenario <- "PBN"; table.PBN_RD2_1.Workload$Runway <- "2"; table.PBN_RD2_1.Workload$Run <- "1"
+table.PBN_RD2_2.Workload$Scenario <- "PBN"; table.PBN_RD2_2.Workload$Runway <- "2"; table.PBN_RD2_2.Workload$Run <- "2"
+table.PBN_RD2_3.Workload$Scenario <- "PBN"; table.PBN_RD2_3.Workload$Runway <- "2"; table.PBN_RD2_3.Workload$Run <- "3"
+table.PBN_RD2_4.Workload$Scenario <- "PBN"; table.PBN_RD2_4.Workload$Runway <- "2"; table.PBN_RD2_4.Workload$Run <- "4"
+table.PBN_RD2_5.Workload$Scenario <- "PBN"; table.PBN_RD2_5.Workload$Runway <- "2"; table.PBN_RD2_5.Workload$Run <- "5"
 
-write.csv(table.Workload, file="~/Croatia v3.2/data/Workload.csv", row.names=F)
+table.Workload <- rbind(table.current_RD1_1.Workload,table.current_RD1_2.Workload,table.current_RD1_3.Workload,
+                           table.current_RD1_4.Workload,table.current_RD1_5.Workload,
+                           table.current_RD2_1.Workload,table.current_RD2_2.Workload,table.current_RD2_3.Workload,
+                           table.current_RD2_4.Workload,table.current_RD2_5.Workload,
+                           table.PBN_RD1_1.Workload,table.PBN_RD1_2.Workload,table.PBN_RD1_3.Workload,
+                           table.PBN_RD1_4.Workload,table.PBN_RD1_5.Workload,
+                           table.PBN_RD2_1.Workload,table.PBN_RD2_2.Workload,table.PBN_RD2_3.Workload,
+                           table.PBN_RD2_4.Workload,table.PBN_RD2_5.Workload)
+
+write.csv(table.Workload, file="~/Croatia v3.3/data/Workload.csv", row.names=F)
 
 # Sector Polygons ---------------------------------------------------------
 table.SectorPolygons <-
@@ -1188,6 +1650,6 @@ table.SectorPolygons <- subset(gather(data=table.SectorPolygons, "V", "Position"
 table.SectorPolygons <- separate(data=table.SectorPolygons, col=Position, into=c("Longitude","Latitude"), sep=" ")
 table.SectorPolygons$Longitude <- as.numeric(table.SectorPolygons$Longitude); table.SectorPolygons$Latitude <- as.numeric(table.SectorPolygons$Latitude)  
 
-write.csv(table.SectorPolygons, file="~/Croatia v3.2/data/SectorPolygons.csv", row.names=F)
+write.csv(table.SectorPolygons, file="~/Croatia v3.3/data/SectorPolygons.csv", row.names=F)
 
 dbDisconnect(con)

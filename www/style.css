@@ -7,7 +7,7 @@
   	opacity: 0.1;
   	background-color: rgb(250,250,250);
     background-color: rgba(250,250,250,0.8);
-  	padding: 20px 10px 10px 10px;
+  	padding: 10px 10px 10px 10px;
   	border: 1px solid #bcbcbc;
   	border-radius: 5px;
   	cursor: move;
@@ -26,17 +26,12 @@
   	display: inline-block;
   	position: relative;
   	text-align: left;
+  	height: 65px;
   	width: 199px;
-  	top: -10px;
-}
-.check_box {
-    text-align: center;
 }
 .mapcontrols {
     position: relative;
     overflow: visible;
-    height: 575px;
-    width: inherit;
     background-color: rgb(250,250,250);
     background-color: rgba(250,250,250,0.25);
   	border: 1px solid #bcbcbc;
@@ -54,56 +49,58 @@
   	background-color: rgba(250,250,250,0.8);
   	transition-duration: 200ms;
 }
-#mapcontrols1 {
-    position: relative;
-    display: inline-block;
-    top: 15px;
-    width: 45%;
-    left: 4%;
-}
-#mapcontrols2 {
-    position: relative;
-    display: inline-block;
-    top: 15px;
-    width: 45%;
-    right: -13px;
-}
-#mapcontrols3 {
-    top: 6px;
-    position: relative;
-    display: inline-block;
-    width: 80%;
-    left: 10%;
-    right: 10%;
-}
-#mapcontrols4 {
-    top: -5px;
-    position: relative;
-    display: inline-block;
-    width: 46%;
-    left: 4%;
-}
-#mapcontrols5 {
-    top: -5px;
-    position: relative;
-    display: inline-block;
-    width: 46%;
-    left: 15px;
-}
-#mapcontrols6 {
-    top: -30px;
+.mapcontrolsleft {
     position: relative;
     display: inline-block;
     width: 45%;
-    left: 18%;
+    left: 18px;
+    vertical-align: top;
 }
-#mapcontrols7 {
-    top: -30px;
+.mapcontrolsright {
     position: relative;
     display: inline-block;
     width: 45%;
-    left: 13%;
-    right: 5%;
+    right: -35px;
+    vertical-align: top;
+}
+#mapoutline {
+    position: relative;
+    display: inline-block;
+    left: 17px;
+    height: 60px;
+    width: 90%;
+}
+#mapseverity1 {
+    position: relative;
+    display: inline-block;
+    height: 85px;
+    width: 44%;
+    left: 17px;
+    top: 1px;
+}
+#mapseverity2 {
+    position: relative;
+    display: inline-block;
+    height: 85px;
+    width: 44%;
+    left: 25px;
+    top: 1px;
+}
+#mappolygons {
+    top: 2px;
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    width: 45%;
+    left: 17px;
+}
+#mapairports {
+    top: 2px;
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    width: 45%;
+    left: 5px;
 }
 .header {
     position: fixed;
@@ -129,7 +126,7 @@
     right: 0;
 	  background-color: rgb(255, 255, 255);
     overflow: auto;
-    background-image: url("Think_FullLogo_Pink.png");
+    background-image: url("Think_FullLogoStrapline_Pink.svg");
     background-repeat: no-repeat;
     background-position: 90% 90%;
     background-size: 141.75px 70.75px;
@@ -143,7 +140,7 @@
   	position: absolute;
   	height: 96%;
   	width: 100%;
-  	top: 2%;
+  	top: 2.5%;
 }
 .shiny-output-error {
   	visibility:hidden;

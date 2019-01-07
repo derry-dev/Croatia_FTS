@@ -19,14 +19,12 @@ fillPage(
     #div(class="footer"),
     absolutePanel(
       class="controlpanel",
-      div(class="dropdown_box",
-          selectInput("kpa","KPA",c("Throughput","Efficiency","Safety","Sector Capacity"),selected="Safety"),
-          uiOutput("metric"),
-          uiOutput("options")
-          #selectInput("run", "Run", as.character(seq(1,10,1)))
-      ),
+      div(class="dropdown_box",selectInput("kpa","KPA",c("Throughput","Efficiency","Safety","Sector Capacity"),selected="Safety")),
+      uiOutput("metric"),
+      uiOutput("options"),
+      uiOutput("run"),
       uiOutput("operation"),
-      radioButtons("runway","Runway Scenario",c("1","2"),inline=T),
+      div(style="height:58px;",radioButtons("runway","Runway Direction",c("1","2"),inline=T)),
       uiOutput("arrange"),
       actionButton("view", "View Plot"),
       actionButton("explore", "View Data"),

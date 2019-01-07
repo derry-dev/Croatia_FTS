@@ -1,9 +1,39 @@
 ################## Derry Leng Presents ##################
 ############### A Rob Sawyer Production #################
-################## Shiny Croatia App #################### 
+### Croatian FTS Shiny Web Metrics Dashboard App Tool ### 
 ###### With Special Thanks To Pier Carlo Ferraris #######
 
-# VERSION 3.2 NOTES:
-# Capacity models
-# Workload table
-# sec Entry Sec Occ SQL scripts
+# VERSION 3.3 NOTES:
+# Added capacity models (v3.2)
+# Added conflict heatmap
+# Added conflict summary
+# Added Rob's conflict filters
+# Added support for up to 5 runs of current and PBN both runway direction data
+# Added support for displaying all runs
+# Added scenario (fill colour) legend to conflict map
+# Changed workload table query (v3.2)
+# Changed conflict map labels
+# Changed conflict map severity default starting selection
+# Compacted height of control panel
+# Enabled TMA/Non-TMA option to filter conflict map data table
+# Fixed efficiency metrics when displaying All Runs
+# Fixed Rolling Hourly Throughputs "All Airports" to only include those in list.airports
+# Joined origin and destination info to conflict map
+# Made changes to all titles
+# Minor bug fixes
+# Readjusted map controls to better handle addition of additional selections
+# Reenabled "group" arrangement for Total Throughput
+# Sec Entry and Sec Occ queries "Sector" and "Entries" column ref changed (v3.2)
+# Spiderfied conflict map clusters that have two or more markers at same position
+# Suppressed some console warnings
+
+# SHINY APP DOCUMENTATION
+# Database is queried by import.R, which compiles data from different schemas and
+# creates aggregated entries before writing files to csv in the 'data' folder.
+# Required package libraries and csv files are read by data.R.
+# The functions to draw plots for each metric is contained in global.R, which
+# takes data from tables read by data.R.
+# In ui.R, you can specify external JavaScript and CSS files for usage, which must
+# be placed in the 'www' folder, along with any images used.
+# The shiny app itself requires ui.R and server.R, in which we define initial UI
+# elements in ui.R and define behaviour when UI is interacted with in server.R.
