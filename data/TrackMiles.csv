@@ -1,777 +1,1561 @@
-"Airport","Scenario","RoutingType","Waypoint","TrackMiles"
-"LDDU","Current","Arrival","AIOSA",127.1
-"LDSP","Current","Arrival","AIOSA",168.5
-"LDZA","Current","Arrival","AIOSA",294.29999
-"LDZD","Current","Arrival","AIOSA",468.8
-"LDDU","PBN","Arrival","AIOSA",127.1
-"LDSP","PBN","Arrival","AIOSA",168.5
-"LDZA","PBN","Arrival","AIOSA",294.29999
-"LDZD","PBN","Arrival","AIOSA",468.8
-"LDDU","Current","Departure","AIOSA",117.2
-"LDDU","PBN","Departure","AIOSA",117.2
-"LDDU","Current","Arrival","ALIVO",323.79999
-"LDDU","PBN","Arrival","ALIVO",323.79999
-"LDDU","Current","Departure","ALIVO",327.5
-"LDPL","Current","Departure","ALIVO",620.8
-"LDRI","Current","Departure","ALIVO",988.5
-"LDSP","Current","Departure","ALIVO",681.90002
-"LDDU","PBN","Departure","ALIVO",327.5
-"LDPL","PBN","Departure","ALIVO",620.8
-"LDRI","PBN","Departure","ALIVO",988.5
-"LDSP","PBN","Departure","ALIVO",681.90002
-"LDZA","Current","Arrival","ARGOM",1929.1
-"LDZA","PBN","Arrival","ARGOM",1929.1
-"LDDU","Current","Arrival","ARMIX",312.39999
-"LDRI","Current","Arrival","ARMIX",760.8
-"LDSP","Current","Arrival","ARMIX",224.2
-"LDDU","PBN","Arrival","ARMIX",312.39999
-"LDRI","PBN","Arrival","ARMIX",760.8
-"LDSP","PBN","Arrival","ARMIX",224.2
-"LDDU","Current","Arrival","BAREB",508.89999
-"LDSP","Current","Arrival","BAREB",253.3
-"LDDU","PBN","Arrival","BAREB",508.89999
-"LDSP","PBN","Arrival","BAREB",253.3
-"LDDU","Current","Departure","BAXON",930.79999
-"LDSP","Current","Departure","BAXON",1261.8
-"LDDU","PBN","Departure","BAXON",930.79999
-"LDSP","PBN","Departure","BAXON",1261.8
-"LDDU","Current","Arrival","BUSET",1590.39995
-"LDSP","Current","Arrival","BUSET",452.6
-"LDZD","Current","Arrival","BUSET",484.19997
-"LDDU","PBN","Arrival","BUSET",1590.39995
-"LDSP","PBN","Arrival","BUSET",452.6
-"LDZD","PBN","Arrival","BUSET",484.19997
-"LDDU","Current","Departure","BUSET",340.89999
-"LDSP","Current","Departure","BUSET",1192.40003
-"LDZD","Current","Departure","BUSET",840.4
-"LDDU","PBN","Departure","BUSET",340.89999
-"LDSP","PBN","Departure","BUSET",1192.40003
-"LDZD","PBN","Departure","BUSET",840.4
-"LDDU","Current","Arrival","DARZA",300.10001
-"LDSB","Current","Arrival","DARZA",218.39999
-"LDSP","Current","Arrival","DARZA",2949.30012
-"LDZD","Current","Arrival","DARZA",307.6
-"LDDU","PBN","Arrival","DARZA",300.10001
-"LDSB","PBN","Arrival","DARZA",218.39999
-"LDSP","PBN","Arrival","DARZA",2949.30012
-"LDZD","PBN","Arrival","DARZA",307.6
-"LDDU","Current","Departure","DARZA",1936.29999
-"LDSP","Current","Departure","DARZA",688.00002
-"LDZD","Current","Departure","DARZA",320.09999
-"LDDU","PBN","Departure","DARZA",1936.29999
-"LDSP","PBN","Departure","DARZA",688.00002
-"LDZD","PBN","Departure","DARZA",320.09999
-"LDDU","Current","Departure","EDUGI",274.89999
-"LDDU","PBN","Departure","EDUGI",274.89999
-"LDZD","Current","Arrival","GEMKA",321.4
-"LDZD","PBN","Arrival","GEMKA",321.4
-"LDSB","Current","Departure","GEMKA",253.5
-"LDSB","PBN","Departure","GEMKA",253.5
-"LDZD","Current","Arrival","GIRDA",663.39998
-"LDZD","PBN","Arrival","GIRDA",663.39998
-"LDPL","Current","Departure","GIRDA",1482.7
-"LDZD","Current","Departure","GIRDA",170.3
-"LDPL","PBN","Departure","GIRDA",1482.7
-"LDZD","PBN","Departure","GIRDA",170.3
-"LDDU","Current","Arrival","KATTI",1894.39999
-"LDDU","PBN","Arrival","KATTI",1894.39999
-"LDDU","Current","Departure","KATTI",1520.89994
-"LDDU","PBN","Departure","KATTI",1520.89994
-"LDDU","Current","Arrival","KOPRY",538
-"LDPL","Current","Arrival","KOPRY",645
-"LDSB","Current","Arrival","KOPRY",214.7
-"LDSP","Current","Arrival","KOPRY",4703.89987
-"LDZA","Current","Arrival","KOPRY",559.5
-"LDZD","Current","Arrival","KOPRY",388
-"LDDU","PBN","Arrival","KOPRY",538
-"LDPL","PBN","Arrival","KOPRY",645
-"LDSB","PBN","Arrival","KOPRY",214.7
-"LDSP","PBN","Arrival","KOPRY",4703.89987
-"LDZA","PBN","Arrival","KOPRY",559.5
-"LDZD","PBN","Arrival","KOPRY",388
-"LDPL","Current","Departure","KOPRY",184.3
-"LDRI","Current","Departure","KOPRY",165.3
-"LDZA","Current","Departure","KOPRY",319.4
-"LDPL","PBN","Departure","KOPRY",184.3
-"LDRI","PBN","Departure","KOPRY",165.3
-"LDZA","PBN","Departure","KOPRY",319.4
-"LDDU","Current","Arrival","LABIN",2605.70004
-"LDSB","Current","Arrival","LABIN",257.20001
-"LDSP","Current","Arrival","LABIN",2482.90001
-"LDZA","Current","Arrival","LABIN",573.9
-"LDZD","Current","Arrival","LABIN",831.59999
-"LDDU","PBN","Arrival","LABIN",2605.70004
-"LDSB","PBN","Arrival","LABIN",257.20001
-"LDSP","PBN","Arrival","LABIN",2482.90001
-"LDZA","PBN","Arrival","LABIN",573.9
-"LDZD","PBN","Arrival","LABIN",831.59999
-"LDDU","Current","Departure","LABIN",686.29999
-"LDRI","Current","Departure","LABIN",258.6
-"LDDU","PBN","Departure","LABIN",686.29999
-"LDRI","PBN","Departure","LABIN",258.6
-"LDZA","Current","Departure","LAKIK",315.79998
-"LDZA","PBN","Departure","LAKIK",315.79998
-"LDZA","Current","Arrival","LDDU",1196.2
-"LDZA","PBN","Arrival","LDDU",1196.2
-"LDSP","Current","Departure","LDDU",105
-"LDZA","Current","Departure","LDDU",891.19997
-"LDZD","Current","Departure","LDDU",161.8
-"LDSP","PBN","Departure","LDDU",105
-"LDZA","PBN","Departure","LDDU",891.19997
-"LDZD","PBN","Departure","LDDU",161.8
-"LDZA","Current","Arrival","LDLO",99.9
-"LDZA","PBN","Arrival","LDLO",99.9
-"LDZA","Current","Departure","LDLO",116.4
-"LDZA","PBN","Departure","LDLO",116.4
-"LDPL","Current","Arrival","LDOS",239.8
-"LDSP","Current","Arrival","LDOS",195.39999
-"LDZA","Current","Arrival","LDOS",275.20002
-"LDPL","PBN","Arrival","LDOS",239.8
-"LDSP","PBN","Arrival","LDOS",195.39999
-"LDZA","PBN","Arrival","LDOS",275.20002
-"LDPL","Current","Departure","LDOS",217.39999
-"LDSP","Current","Departure","LDOS",188
-"LDZA","Current","Departure","LDOS",238
-"LDPL","PBN","Departure","LDOS",217.39999
-"LDSP","PBN","Departure","LDOS",188
-"LDZA","PBN","Departure","LDOS",238
-"LDOS","Current","Arrival","LDPL",217.39999
-"LDZD","Current","Arrival","LDPL",77.6
-"LDOS","PBN","Arrival","LDPL",217.39999
-"LDZD","PBN","Arrival","LDPL",77.6
-"LDOS","Current","Departure","LDPL",239.8
-"LDSP","Current","Departure","LDPL",164.2
-"LDZD","Current","Departure","LDPL",81.2
-"LDOS","PBN","Departure","LDPL",239.8
-"LDSP","PBN","Departure","LDPL",164.2
-"LDZD","PBN","Departure","LDPL",81.2
-"LDZA","Current","Arrival","LDSB",161.8
-"LDZA","PBN","Arrival","LDSB",161.8
-"LDZA","Current","Departure","LDSB",111.2
-"LDZD","Current","Departure","LDSB",179.3
-"LDZA","PBN","Departure","LDSB",111.2
-"LDZD","PBN","Departure","LDSB",179.3
-"LDDU","Current","Arrival","LDSP",105
-"LDOS","Current","Arrival","LDSP",188
-"LDPL","Current","Arrival","LDSP",164.2
-"LDZA","Current","Arrival","LDSP",623.89997
-"LDDU","PBN","Arrival","LDSP",105
-"LDOS","PBN","Arrival","LDSP",188
-"LDPL","PBN","Arrival","LDSP",164.2
-"LDZA","PBN","Arrival","LDSP",623.89997
-"LDOS","Current","Departure","LDSP",195.39999
-"LDZA","Current","Departure","LDSP",803.30003
-"LDOS","PBN","Departure","LDSP",195.39999
-"LDZA","PBN","Departure","LDSP",803.30003
-"LDDU","Current","Arrival","LDZA",891.19997
-"LDLO","Current","Arrival","LDZA",116.4
-"LDOS","Current","Arrival","LDZA",238
-"LDSB","Current","Arrival","LDZA",111.2
-"LDSP","Current","Arrival","LDZA",803.30003
-"LDZD","Current","Arrival","LDZA",137.2
-"LDDU","PBN","Arrival","LDZA",891.19997
-"LDLO","PBN","Arrival","LDZA",116.4
-"LDOS","PBN","Arrival","LDZA",238
-"LDSB","PBN","Arrival","LDZA",111.2
-"LDSP","PBN","Arrival","LDZA",803.30003
-"LDZD","PBN","Arrival","LDZA",137.2
-"LDDU","Current","Departure","LDZA",1196.2
-"LDLO","Current","Departure","LDZA",99.9
-"LDOS","Current","Departure","LDZA",275.20002
-"LDSB","Current","Departure","LDZA",161.8
-"LDSP","Current","Departure","LDZA",623.89997
-"LDZD","Current","Departure","LDZA",109.2
-"LDDU","PBN","Departure","LDZA",1196.2
-"LDLO","PBN","Departure","LDZA",99.9
-"LDOS","PBN","Departure","LDZA",275.20002
-"LDSB","PBN","Departure","LDZA",161.8
-"LDSP","PBN","Departure","LDZA",623.89997
-"LDZD","PBN","Departure","LDZA",109.2
-"LDDU","Current","Arrival","LDZD",161.8
-"LDPL","Current","Arrival","LDZD",81.2
-"LDSB","Current","Arrival","LDZD",179.3
-"LDZA","Current","Arrival","LDZD",109.2
-"LDDU","PBN","Arrival","LDZD",161.8
-"LDPL","PBN","Arrival","LDZD",81.2
-"LDSB","PBN","Arrival","LDZD",179.3
-"LDZA","PBN","Arrival","LDZD",109.2
-"LDPL","Current","Departure","LDZD",77.6
-"LDZA","Current","Departure","LDZD",137.2
-"LDPL","PBN","Departure","LDZD",77.6
-"LDZA","PBN","Departure","LDZD",137.2
-"LDSB","Current","Arrival","LJLJ",202.7
-"LDSB","PBN","Arrival","LJLJ",202.7
-"LDSB","Current","Departure","LJLJ",216.7
-"LDSB","PBN","Departure","LJLJ",216.7
-"LDSB","Current","Arrival","LOWG",244.89999
-"LDZA","Current","Arrival","LOWG",108.4
-"LDSB","PBN","Arrival","LOWG",244.89999
-"LDZA","PBN","Arrival","LOWG",108.4
-"LDSB","Current","Departure","LOWG",245
-"LDZA","Current","Departure","LOWG",91.1
-"LDSB","PBN","Departure","LOWG",245
-"LDZA","PBN","Departure","LOWG",91.1
-"LDZA","Current","Arrival","LQSA",165.2
-"LDZA","PBN","Arrival","LQSA",165.2
-"LDZA","Current","Departure","LQSA",155.7
-"LDZA","PBN","Departure","LQSA",155.7
-"LDDU","Current","Arrival","LYPG",83.2
-"LDDU","PBN","Arrival","LYPG",83.2
-"LDDU","Current","Departure","LYPG",54.7
-"LDDU","PBN","Departure","LYPG",54.7
-"LDDU","Current","Departure","LYTV",23.5
-"LDDU","PBN","Departure","LYTV",23.5
-"LDZA","Current","Departure","MITNO",233
-"LDZA","PBN","Departure","MITNO",233
-"LDDU","Current","Arrival","MOKUN",714.4
-"LDDU","PBN","Arrival","MOKUN",714.4
-"LDDU","Current","Departure","MOKUN",1002.5
-"LDDU","PBN","Departure","MOKUN",1002.5
-"LDSP","Current","Arrival","NEMEK",410.79998
-"LDSP","PBN","Arrival","NEMEK",410.79998
-"LDDU","Current","Arrival","NIKOL",288.20001
-"LDZD","Current","Arrival","NIKOL",140
-"LDDU","PBN","Arrival","NIKOL",288.20001
-"LDZD","PBN","Arrival","NIKOL",140
-"LDZA","Current","Departure","NILKU",241.60001
-"LDZA","PBN","Departure","NILKU",241.60001
-"LDSP","Current","Departure","OBUTI",923.7
-"LDZA","Current","Departure","OBUTI",1218
-"LDSP","PBN","Departure","OBUTI",923.7
-"LDZA","PBN","Departure","OBUTI",1218
-"LDDU","Current","Departure","OBUTI 1",966.59998
-"LDSB","Current","Departure","OBUTI 1",235.7
-"LDDU","PBN","Departure","OBUTI 1",966.59998
-"LDSB","PBN","Departure","OBUTI 1",235.7
-"LDDU","Current","Departure","OBUTI 2",1808.09994
-"LDDU","PBN","Departure","OBUTI 2",1808.09994
-"LDZA","Current","Arrival","OSLUD",245.60001
-"LDZA","PBN","Arrival","OSLUD",245.60001
-"LDZA","Current","Departure","OSLUD 1",472.09999
-"LDZA","PBN","Departure","OSLUD 1",472.09999
-"LDZA","Current","Arrival","OUTSIDE FIR E",937.69997
-"LDZA","PBN","Arrival","OUTSIDE FIR E",937.69997
-"LDSP","Current","Departure","OUTSIDE FIR N",193.89999
-"LDZD","Current","Departure","OUTSIDE FIR N",252.9
-"LDSP","PBN","Departure","OUTSIDE FIR N",193.89999
-"LDZD","PBN","Departure","OUTSIDE FIR N",252.9
-"LDSP","Current","Departure","OUTSIDE FIR N 1",582
-"LDSP","PBN","Departure","OUTSIDE FIR N 1",582
-"LDPL","Current","Arrival","OUTSIDE FIR NE",1654.69997
-"LDSP","Current","Arrival","OUTSIDE FIR NE",484.6
-"LDZD","Current","Arrival","OUTSIDE FIR NE",409.20002
-"LDPL","PBN","Arrival","OUTSIDE FIR NE",1654.69997
-"LDSP","PBN","Arrival","OUTSIDE FIR NE",484.6
-"LDZD","PBN","Arrival","OUTSIDE FIR NE",409.20002
-"LDZD","Current","Departure","OUTSIDE FIR NE",193.10001
-"LDZD","PBN","Departure","OUTSIDE FIR NE",193.10001
-"LDSP","Current","Departure","OUTSIDE FIR NE 1",1461.60006
-"LDSP","PBN","Departure","OUTSIDE FIR NE 1",1461.60006
-"LDDU","Current","Arrival","OUTSIDE FIR NW",693.30002
-"LDPL","Current","Arrival","OUTSIDE FIR NW",1206.50005
-"LDSP","Current","Arrival","OUTSIDE FIR NW",2296.30004
-"LDZD","Current","Arrival","OUTSIDE FIR NW",191.3
-"LDDU","PBN","Arrival","OUTSIDE FIR NW",693.30002
-"LDPL","PBN","Arrival","OUTSIDE FIR NW",1206.50005
-"LDSP","PBN","Arrival","OUTSIDE FIR NW",2296.30004
-"LDZD","PBN","Arrival","OUTSIDE FIR NW",191.3
-"LDSP","Current","Departure","OUTSIDE FIR NW",521.1
-"LDZD","Current","Departure","OUTSIDE FIR NW",190.8
-"LDSP","PBN","Departure","OUTSIDE FIR NW",521.1
-"LDZD","PBN","Departure","OUTSIDE FIR NW",190.8
-"LDSB","Current","Arrival","OUTSIDE FIR S",191.7
-"LDSP","Current","Arrival","OUTSIDE FIR S",231.2
-"LDSB","PBN","Arrival","OUTSIDE FIR S",191.7
-"LDSP","PBN","Arrival","OUTSIDE FIR S",231.2
-"LDSP","Current","Departure","OUTSIDE FIR S",209.2
-"LDZD","Current","Departure","OUTSIDE FIR S",276.10001
-"LDSP","PBN","Departure","OUTSIDE FIR S",209.2
-"LDZD","PBN","Departure","OUTSIDE FIR S",276.10001
-"LDZA","Current","Arrival","PERAN",525.5
-"LDZA","PBN","Arrival","PERAN",525.5
-"LDZA","Current","Arrival","PEROT",193.39999
-"LDZA","PBN","Arrival","PEROT",193.39999
-"LDZA","Current","Departure","PEROT",177.3
-"LDZA","PBN","Departure","PEROT",177.3
-"LDDU","Current","Arrival","PETOV",2202.59993
-"LDPL","Current","Arrival","PETOV",200.8
-"LDZA","Current","Arrival","PETOV",495.2
-"LDDU","PBN","Arrival","PETOV",2202.59993
-"LDPL","PBN","Arrival","PETOV",200.8
-"LDZA","PBN","Arrival","PETOV",495.2
-"LDSB","Current","Departure","PETOV",234.3
-"LDSP","Current","Departure","PETOV",3403.59997
-"LDSB","PBN","Departure","PETOV",234.3
-"LDSP","PBN","Departure","PETOV",3403.59997
-"LDDU","Current","Arrival","PEVAL",2602.69992
-"LDPL","Current","Arrival","PEVAL",370.8
-"LDSB","Current","Arrival","PEVAL",1043.70004
-"LDSP","Current","Arrival","PEVAL",690.30003
-"LDZD","Current","Arrival","PEVAL",1005
-"LDDU","PBN","Arrival","PEVAL",2602.69992
-"LDPL","PBN","Arrival","PEVAL",370.8
-"LDSB","PBN","Arrival","PEVAL",1043.70004
-"LDSP","PBN","Arrival","PEVAL",690.30003
-"LDZD","PBN","Arrival","PEVAL",1005
-"LDPL","Current","Departure","PEVAL",1763.9
-"LDPL","PBN","Departure","PEVAL",1763.9
-"LDDU","Current","Departure","PEVAL 1",3098.49997
-"LDSB","Current","Departure","PEVAL 1",768.09997
-"LDSP","Current","Departure","PEVAL 1",4362.09993
-"LDZD","Current","Departure","PEVAL 1",2032.29999
-"LDDU","PBN","Departure","PEVAL 1",3098.49997
-"LDSB","PBN","Departure","PEVAL 1",768.09997
-"LDSP","PBN","Departure","PEVAL 1",4362.09993
-"LDZD","PBN","Departure","PEVAL 1",2032.29999
-"LDZA","Current","Departure","PODET",1486.6
-"LDZA","PBN","Departure","PODET",1486.6
-"LDZA","Current","Departure","PODOB",237.2
-"LDZA","PBN","Departure","PODOB",237.2
-"LDDU","Current","Arrival","ROTAR",672.30002
-"LDPL","Current","Arrival","ROTAR",1031
-"LDSP","Current","Arrival","ROTAR",239.39999
-"LDDU","PBN","Arrival","ROTAR",672.30002
-"LDPL","PBN","Arrival","ROTAR",1031
-"LDSP","PBN","Arrival","ROTAR",239.39999
-"LDDU","Current","Departure","ROTAR",3524.8
-"LDSB","Current","Departure","ROTAR",264
-"LDZA","Current","Departure","ROTAR",625.7
-"LDDU","PBN","Departure","ROTAR",3524.8
-"LDSB","PBN","Departure","ROTAR",264
-"LDZA","PBN","Departure","ROTAR",625.7
-"LDSB","Current","Departure","ROTAR 1",260.39999
-"LDSP","Current","Departure","ROTAR 1",1749.2
-"LDSB","PBN","Departure","ROTAR 1",260.39999
-"LDSP","PBN","Departure","ROTAR 1",1749.2
-"LDDU","Current","Arrival","SABAD",1806.19994
-"LDSB","Current","Arrival","SABAD",221.89999
-"LDSP","Current","Arrival","SABAD",4262.70002
-"LDZD","Current","Arrival","SABAD",154.2
-"LDDU","PBN","Arrival","SABAD",1806.19994
-"LDSB","PBN","Arrival","SABAD",221.89999
-"LDSP","PBN","Arrival","SABAD",4262.70002
-"LDZD","PBN","Arrival","SABAD",154.2
-"LDDU","Current","Departure","SABAD",1611.59996
-"LDDU","PBN","Departure","SABAD",1611.59996
-"LDSP","Current","Departure","SABAD 1",458.5
-"LDSP","PBN","Departure","SABAD 1",458.5
-"LDPL","Current","Departure","SOMUN",275.79999
-"LDSP","Current","Departure","SOMUN",192.2
-"LDPL","PBN","Departure","SOMUN",275.79999
-"LDSP","PBN","Departure","SOMUN",192.2
-"LDDU","Current","Arrival","TORPO",1516.09997
-"LDSB","Current","Arrival","TORPO",365.89999
-"LDSP","Current","Arrival","TORPO",769.59996
-"LDZD","Current","Arrival","TORPO",129.60001
-"LDDU","PBN","Arrival","TORPO",1516.09997
-"LDSB","PBN","Arrival","TORPO",365.89999
-"LDSP","PBN","Arrival","TORPO",769.59996
-"LDZD","PBN","Arrival","TORPO",129.60001
-"LDSB","Current","Departure","TORPO",351.59999
-"LDSP","Current","Departure","TORPO",328.5
-"LDZD","Current","Departure","TORPO",361.6
-"LDSB","PBN","Departure","TORPO",351.59999
-"LDSP","PBN","Departure","TORPO",328.5
-"LDZD","PBN","Departure","TORPO",361.6
-"LDZA","Current","Arrival","TUVAR",396.4
-"LDZA","PBN","Arrival","TUVAR",396.4
-"LDZA","Current","Departure","TUVAR 1",732.79999
-"LDZA","PBN","Departure","TUVAR 1",732.79999
-"LDZA","Current","Arrival","VAKSU",319.79999
-"LDZA","PBN","Arrival","VAKSU",319.79999
-"LDDU","Current","Arrival","VAPUP",426.20002
-"LDSP","Current","Arrival","VAPUP",260.6
-"LDDU","PBN","Arrival","VAPUP",426.20002
-"LDSP","PBN","Arrival","VAPUP",260.6
-"LDDU","Current","Arrival","VEBAL",577.89999
-"LDDU","PBN","Arrival","VEBAL",577.89999
-"LDSB","Current","Departure","VEBAL",206.60001
-"LDSB","PBN","Departure","VEBAL",206.60001
-"LDSP","Current","Departure","VEBAL 3",3092.70002
-"LDSP","PBN","Departure","VEBAL 3",3092.70002
-"LDPL","Current","Arrival","VEBAR",296.60001
-"LDSP","Current","Arrival","VEBAR",209.60001
-"LDPL","PBN","Arrival","VEBAR",296.60001
-"LDSP","PBN","Arrival","VEBAR",209.60001
-"LDDU","Current","Departure","VEBAR",182.7
-"LDDU","PBN","Departure","VEBAR",182.7
-"LDDU","Current","Departure","VELUG",610.30001
-"LDSP","Current","Departure","VELUG",517.80001
-"LDDU","PBN","Departure","VELUG",610.30001
-"LDSP","PBN","Departure","VELUG",517.80001
-"LDDU","Current","Departure","XAMIT",472.5
-"LDZD","Current","Departure","XAMIT",255
-"LDDU","PBN","Departure","XAMIT",472.5
-"LDZD","PBN","Departure","XAMIT",255
-"LDZA","Current","Arrival","XOLTA",252
-"LDZA","PBN","Arrival","XOLTA",252
-"LDDU","Current","Departure","XOLTA",190.3
-"LDDU","PBN","Departure","XOLTA",190.3
-"LDDU","Current","Both","AIOSA",244.3
-"LDSP","Current","Both","AIOSA",168.5
-"LDZA","Current","Both","AIOSA",294.29999
-"LDZD","Current","Both","AIOSA",468.8
-"LDDU","PBN","Both","AIOSA",244.3
-"LDSP","PBN","Both","AIOSA",168.5
-"LDZA","PBN","Both","AIOSA",294.29999
-"LDZD","PBN","Both","AIOSA",468.8
-"LDDU","Current","Both","ALIVO",651.29999
-"LDPL","Current","Both","ALIVO",620.8
-"LDRI","Current","Both","ALIVO",988.5
-"LDSP","Current","Both","ALIVO",681.90002
-"LDDU","PBN","Both","ALIVO",651.29999
-"LDPL","PBN","Both","ALIVO",620.8
-"LDRI","PBN","Both","ALIVO",988.5
-"LDSP","PBN","Both","ALIVO",681.90002
-"LDZA","Current","Both","ARGOM",1929.1
-"LDZA","PBN","Both","ARGOM",1929.1
-"LDDU","Current","Both","ARMIX",312.39999
-"LDRI","Current","Both","ARMIX",760.8
-"LDSP","Current","Both","ARMIX",224.2
-"LDDU","PBN","Both","ARMIX",312.39999
-"LDRI","PBN","Both","ARMIX",760.8
-"LDSP","PBN","Both","ARMIX",224.2
-"LDDU","Current","Both","BAREB",508.89999
-"LDSP","Current","Both","BAREB",253.3
-"LDDU","PBN","Both","BAREB",508.89999
-"LDSP","PBN","Both","BAREB",253.3
-"LDDU","Current","Both","BAXON",930.79999
-"LDSP","Current","Both","BAXON",1261.8
-"LDDU","PBN","Both","BAXON",930.79999
-"LDSP","PBN","Both","BAXON",1261.8
-"LDDU","Current","Both","BUSET",1931.29994
-"LDSP","Current","Both","BUSET",1645.00003
-"LDZD","Current","Both","BUSET",1324.59997
-"LDDU","PBN","Both","BUSET",1931.29994
-"LDSP","PBN","Both","BUSET",1645.00003
-"LDZD","PBN","Both","BUSET",1324.59997
-"LDDU","Current","Both","DARZA",2236.4
-"LDSB","Current","Both","DARZA",218.39999
-"LDSP","Current","Both","DARZA",3637.30014
-"LDZD","Current","Both","DARZA",627.69999
-"LDDU","PBN","Both","DARZA",2236.4
-"LDSB","PBN","Both","DARZA",218.39999
-"LDSP","PBN","Both","DARZA",3637.30014
-"LDZD","PBN","Both","DARZA",627.69999
-"LDDU","Current","Both","EDUGI",274.89999
-"LDDU","PBN","Both","EDUGI",274.89999
-"LDSB","Current","Both","GEMKA",253.5
-"LDZD","Current","Both","GEMKA",321.4
-"LDSB","PBN","Both","GEMKA",253.5
-"LDZD","PBN","Both","GEMKA",321.4
-"LDPL","Current","Both","GIRDA",1482.7
-"LDZD","Current","Both","GIRDA",833.69998
-"LDPL","PBN","Both","GIRDA",1482.7
-"LDZD","PBN","Both","GIRDA",833.69998
-"LDDU","Current","Both","KATTI",3415.29993
-"LDDU","PBN","Both","KATTI",3415.29993
-"LDDU","Current","Both","KOPRY",538
-"LDPL","Current","Both","KOPRY",829.3
-"LDRI","Current","Both","KOPRY",165.3
-"LDSB","Current","Both","KOPRY",214.7
-"LDSP","Current","Both","KOPRY",4703.89987
-"LDZA","Current","Both","KOPRY",878.9
-"LDZD","Current","Both","KOPRY",388
-"LDDU","PBN","Both","KOPRY",538
-"LDPL","PBN","Both","KOPRY",829.3
-"LDRI","PBN","Both","KOPRY",165.3
-"LDSB","PBN","Both","KOPRY",214.7
-"LDSP","PBN","Both","KOPRY",4703.89987
-"LDZA","PBN","Both","KOPRY",878.9
-"LDZD","PBN","Both","KOPRY",388
-"LDDU","Current","Both","LABIN",3292.00003
-"LDRI","Current","Both","LABIN",258.6
-"LDSB","Current","Both","LABIN",257.20001
-"LDSP","Current","Both","LABIN",2482.90001
-"LDZA","Current","Both","LABIN",573.9
-"LDZD","Current","Both","LABIN",831.59999
-"LDDU","PBN","Both","LABIN",3292.00003
-"LDRI","PBN","Both","LABIN",258.6
-"LDSB","PBN","Both","LABIN",257.20001
-"LDSP","PBN","Both","LABIN",2482.90001
-"LDZA","PBN","Both","LABIN",573.9
-"LDZD","PBN","Both","LABIN",831.59999
-"LDZA","Current","Both","LAKIK",315.79998
-"LDZA","PBN","Both","LAKIK",315.79998
-"LDSP","Current","Both","LDDU",105
-"LDZA","Current","Both","LDDU",2087.39997
-"LDZD","Current","Both","LDDU",161.8
-"LDSP","PBN","Both","LDDU",105
-"LDZA","PBN","Both","LDDU",2087.39997
-"LDZD","PBN","Both","LDDU",161.8
-"LDZA","Current","Both","LDLO",216.3
-"LDZA","PBN","Both","LDLO",216.3
-"LDPL","Current","Both","LDOS",457.19999
-"LDSP","Current","Both","LDOS",383.39999
-"LDZA","Current","Both","LDOS",513.20002
-"LDPL","PBN","Both","LDOS",457.19999
-"LDSP","PBN","Both","LDOS",383.39999
-"LDZA","PBN","Both","LDOS",513.20002
-"LDOS","Current","Both","LDPL",457.19999
-"LDSP","Current","Both","LDPL",164.2
-"LDZD","Current","Both","LDPL",158.8
-"LDOS","PBN","Both","LDPL",457.19999
-"LDSP","PBN","Both","LDPL",164.2
-"LDZD","PBN","Both","LDPL",158.8
-"LDZA","Current","Both","LDSB",273
-"LDZD","Current","Both","LDSB",179.3
-"LDZA","PBN","Both","LDSB",273
-"LDZD","PBN","Both","LDSB",179.3
-"LDDU","Current","Both","LDSP",105
-"LDOS","Current","Both","LDSP",383.39999
-"LDPL","Current","Both","LDSP",164.2
-"LDZA","Current","Both","LDSP",1427.2
-"LDDU","PBN","Both","LDSP",105
-"LDOS","PBN","Both","LDSP",383.39999
-"LDPL","PBN","Both","LDSP",164.2
-"LDZA","PBN","Both","LDSP",1427.2
-"LDDU","Current","Both","LDZA",2087.39997
-"LDLO","Current","Both","LDZA",216.3
-"LDOS","Current","Both","LDZA",513.20002
-"LDSB","Current","Both","LDZA",273
-"LDSP","Current","Both","LDZA",1427.2
-"LDZD","Current","Both","LDZA",246.4
-"LDDU","PBN","Both","LDZA",2087.39997
-"LDLO","PBN","Both","LDZA",216.3
-"LDOS","PBN","Both","LDZA",513.20002
-"LDSB","PBN","Both","LDZA",273
-"LDSP","PBN","Both","LDZA",1427.2
-"LDZD","PBN","Both","LDZA",246.4
-"LDDU","Current","Both","LDZD",161.8
-"LDPL","Current","Both","LDZD",158.8
-"LDSB","Current","Both","LDZD",179.3
-"LDZA","Current","Both","LDZD",246.4
-"LDDU","PBN","Both","LDZD",161.8
-"LDPL","PBN","Both","LDZD",158.8
-"LDSB","PBN","Both","LDZD",179.3
-"LDZA","PBN","Both","LDZD",246.4
-"LDSB","Current","Both","LJLJ",419.4
-"LDSB","PBN","Both","LJLJ",419.4
-"LDSB","Current","Both","LOWG",489.89999
-"LDZA","Current","Both","LOWG",199.5
-"LDSB","PBN","Both","LOWG",489.89999
-"LDZA","PBN","Both","LOWG",199.5
-"LDZA","Current","Both","LQSA",320.9
-"LDZA","PBN","Both","LQSA",320.9
-"LDDU","Current","Both","LYPG",137.9
-"LDDU","PBN","Both","LYPG",137.9
-"LDDU","Current","Both","LYTV",23.5
-"LDDU","PBN","Both","LYTV",23.5
-"LDZA","Current","Both","MITNO",233
-"LDZA","PBN","Both","MITNO",233
-"LDDU","Current","Both","MOKUN",1716.9
-"LDDU","PBN","Both","MOKUN",1716.9
-"LDSP","Current","Both","NEMEK",410.79998
-"LDSP","PBN","Both","NEMEK",410.79998
-"LDDU","Current","Both","NIKOL",288.20001
-"LDZD","Current","Both","NIKOL",140
-"LDDU","PBN","Both","NIKOL",288.20001
-"LDZD","PBN","Both","NIKOL",140
-"LDZA","Current","Both","NILKU",241.60001
-"LDZA","PBN","Both","NILKU",241.60001
-"LDSP","Current","Both","OBUTI",923.7
-"LDZA","Current","Both","OBUTI",1218
-"LDSP","PBN","Both","OBUTI",923.7
-"LDZA","PBN","Both","OBUTI",1218
-"LDDU","Current","Both","OBUTI 1",966.59998
-"LDSB","Current","Both","OBUTI 1",235.7
-"LDDU","PBN","Both","OBUTI 1",966.59998
-"LDSB","PBN","Both","OBUTI 1",235.7
-"LDDU","Current","Both","OBUTI 2",1808.09994
-"LDDU","PBN","Both","OBUTI 2",1808.09994
-"LDZA","Current","Both","OSLUD",245.60001
-"LDZA","PBN","Both","OSLUD",245.60001
-"LDZA","Current","Both","OSLUD 1",472.09999
-"LDZA","PBN","Both","OSLUD 1",472.09999
-"LDZA","Current","Both","OUTSIDE FIR E",937.69997
-"LDZA","PBN","Both","OUTSIDE FIR E",937.69997
-"LDSP","Current","Both","OUTSIDE FIR N",193.89999
-"LDZD","Current","Both","OUTSIDE FIR N",252.9
-"LDSP","PBN","Both","OUTSIDE FIR N",193.89999
-"LDZD","PBN","Both","OUTSIDE FIR N",252.9
-"LDSP","Current","Both","OUTSIDE FIR N 1",582
-"LDSP","PBN","Both","OUTSIDE FIR N 1",582
-"LDPL","Current","Both","OUTSIDE FIR NE",1654.69997
-"LDSP","Current","Both","OUTSIDE FIR NE",484.6
-"LDZD","Current","Both","OUTSIDE FIR NE",602.30003
-"LDPL","PBN","Both","OUTSIDE FIR NE",1654.69997
-"LDSP","PBN","Both","OUTSIDE FIR NE",484.6
-"LDZD","PBN","Both","OUTSIDE FIR NE",602.30003
-"LDSP","Current","Both","OUTSIDE FIR NE 1",1461.60006
-"LDSP","PBN","Both","OUTSIDE FIR NE 1",1461.60006
-"LDDU","Current","Both","OUTSIDE FIR NW",693.30002
-"LDPL","Current","Both","OUTSIDE FIR NW",1206.50005
-"LDSP","Current","Both","OUTSIDE FIR NW",2817.40004
-"LDZD","Current","Both","OUTSIDE FIR NW",382.1
-"LDDU","PBN","Both","OUTSIDE FIR NW",693.30002
-"LDPL","PBN","Both","OUTSIDE FIR NW",1206.50005
-"LDSP","PBN","Both","OUTSIDE FIR NW",2817.40004
-"LDZD","PBN","Both","OUTSIDE FIR NW",382.1
-"LDSB","Current","Both","OUTSIDE FIR S",191.7
-"LDSP","Current","Both","OUTSIDE FIR S",440.4
-"LDZD","Current","Both","OUTSIDE FIR S",276.10001
-"LDSB","PBN","Both","OUTSIDE FIR S",191.7
-"LDSP","PBN","Both","OUTSIDE FIR S",440.4
-"LDZD","PBN","Both","OUTSIDE FIR S",276.10001
-"LDZA","Current","Both","PERAN",525.5
-"LDZA","PBN","Both","PERAN",525.5
-"LDZA","Current","Both","PEROT",370.69999
-"LDZA","PBN","Both","PEROT",370.69999
-"LDDU","Current","Both","PETOV",2202.59993
-"LDPL","Current","Both","PETOV",200.8
-"LDSB","Current","Both","PETOV",234.3
-"LDSP","Current","Both","PETOV",3403.59997
-"LDZA","Current","Both","PETOV",495.2
-"LDDU","PBN","Both","PETOV",2202.59993
-"LDPL","PBN","Both","PETOV",200.8
-"LDSB","PBN","Both","PETOV",234.3
-"LDSP","PBN","Both","PETOV",3403.59997
-"LDZA","PBN","Both","PETOV",495.2
-"LDDU","Current","Both","PEVAL",2602.69992
-"LDPL","Current","Both","PEVAL",2134.7
-"LDSB","Current","Both","PEVAL",1043.70004
-"LDSP","Current","Both","PEVAL",690.30003
-"LDZD","Current","Both","PEVAL",1005
-"LDDU","PBN","Both","PEVAL",2602.69992
-"LDPL","PBN","Both","PEVAL",2134.7
-"LDSB","PBN","Both","PEVAL",1043.70004
-"LDSP","PBN","Both","PEVAL",690.30003
-"LDZD","PBN","Both","PEVAL",1005
-"LDDU","Current","Both","PEVAL 1",3098.49997
-"LDSB","Current","Both","PEVAL 1",768.09997
-"LDSP","Current","Both","PEVAL 1",4362.09993
-"LDZD","Current","Both","PEVAL 1",2032.29999
-"LDDU","PBN","Both","PEVAL 1",3098.49997
-"LDSB","PBN","Both","PEVAL 1",768.09997
-"LDSP","PBN","Both","PEVAL 1",4362.09993
-"LDZD","PBN","Both","PEVAL 1",2032.29999
-"LDZA","Current","Both","PODET",1486.6
-"LDZA","PBN","Both","PODET",1486.6
-"LDZA","Current","Both","PODOB",237.2
-"LDZA","PBN","Both","PODOB",237.2
-"LDDU","Current","Both","ROTAR",4197.10002
-"LDPL","Current","Both","ROTAR",1031
-"LDSB","Current","Both","ROTAR",264
-"LDSP","Current","Both","ROTAR",239.39999
-"LDZA","Current","Both","ROTAR",625.7
-"LDDU","PBN","Both","ROTAR",4197.10002
-"LDPL","PBN","Both","ROTAR",1031
-"LDSB","PBN","Both","ROTAR",264
-"LDSP","PBN","Both","ROTAR",239.39999
-"LDZA","PBN","Both","ROTAR",625.7
-"LDSB","Current","Both","ROTAR 1",260.39999
-"LDSP","Current","Both","ROTAR 1",1749.2
-"LDSB","PBN","Both","ROTAR 1",260.39999
-"LDSP","PBN","Both","ROTAR 1",1749.2
-"LDDU","Current","Both","SABAD",3417.7999
-"LDSB","Current","Both","SABAD",221.89999
-"LDSP","Current","Both","SABAD",4262.70002
-"LDZD","Current","Both","SABAD",154.2
-"LDDU","PBN","Both","SABAD",3417.7999
-"LDSB","PBN","Both","SABAD",221.89999
-"LDSP","PBN","Both","SABAD",4262.70002
-"LDZD","PBN","Both","SABAD",154.2
-"LDSP","Current","Both","SABAD 1",458.5
-"LDSP","PBN","Both","SABAD 1",458.5
-"LDPL","Current","Both","SOMUN",275.79999
-"LDSP","Current","Both","SOMUN",192.2
-"LDPL","PBN","Both","SOMUN",275.79999
-"LDSP","PBN","Both","SOMUN",192.2
-"LDDU","Current","Both","TORPO",1516.09997
-"LDSB","Current","Both","TORPO",717.49998
-"LDSP","Current","Both","TORPO",1098.09996
-"LDZD","Current","Both","TORPO",491.20001
-"LDDU","PBN","Both","TORPO",1516.09997
-"LDSB","PBN","Both","TORPO",717.49998
-"LDSP","PBN","Both","TORPO",1098.09996
-"LDZD","PBN","Both","TORPO",491.20001
-"LDZA","Current","Both","TUVAR",396.4
-"LDZA","PBN","Both","TUVAR",396.4
-"LDZA","Current","Both","TUVAR 1",732.79999
-"LDZA","PBN","Both","TUVAR 1",732.79999
-"LDZA","Current","Both","VAKSU",319.79999
-"LDZA","PBN","Both","VAKSU",319.79999
-"LDDU","Current","Both","VAPUP",426.20002
-"LDSP","Current","Both","VAPUP",260.6
-"LDDU","PBN","Both","VAPUP",426.20002
-"LDSP","PBN","Both","VAPUP",260.6
-"LDDU","Current","Both","VEBAL",577.89999
-"LDSB","Current","Both","VEBAL",206.60001
-"LDDU","PBN","Both","VEBAL",577.89999
-"LDSB","PBN","Both","VEBAL",206.60001
-"LDSP","Current","Both","VEBAL 3",3092.70002
-"LDSP","PBN","Both","VEBAL 3",3092.70002
-"LDDU","Current","Both","VEBAR",182.7
-"LDPL","Current","Both","VEBAR",296.60001
-"LDSP","Current","Both","VEBAR",209.60001
-"LDDU","PBN","Both","VEBAR",182.7
-"LDPL","PBN","Both","VEBAR",296.60001
-"LDSP","PBN","Both","VEBAR",209.60001
-"LDDU","Current","Both","VELUG",610.30001
-"LDSP","Current","Both","VELUG",517.80001
-"LDDU","PBN","Both","VELUG",610.30001
-"LDSP","PBN","Both","VELUG",517.80001
-"LDDU","Current","Both","XAMIT",472.5
-"LDZD","Current","Both","XAMIT",255
-"LDDU","PBN","Both","XAMIT",472.5
-"LDZD","PBN","Both","XAMIT",255
-"LDDU","Current","Both","XOLTA",190.3
-"LDZA","Current","Both","XOLTA",252
-"LDDU","PBN","Both","XOLTA",190.3
-"LDZA","PBN","Both","XOLTA",252
-"LDDU","Current","Arrival","All",20941.89975
-"LDLO","Current","Arrival","All",116.4
-"LDOS","Current","Arrival","All",643.39999
-"LDPL","Current","Arrival","All",5890.60003
-"LDRI","Current","Arrival","All",760.8
-"LDSB","Current","Arrival","All",3251.60001
-"LDSP","Current","Arrival","All",22088.50005
-"LDZA","Current","Arrival","All",9462.19994
-"LDZD","Current","Arrival","All",5709.09997
-"LDDU","PBN","Arrival","All",20941.89975
-"LDLO","PBN","Arrival","All",116.4
-"LDOS","PBN","Arrival","All",643.39999
-"LDPL","PBN","Arrival","All",5890.60003
-"LDRI","PBN","Arrival","All",760.8
-"LDSB","PBN","Arrival","All",3251.60001
-"LDSP","PBN","Arrival","All",22088.50005
-"LDZA","PBN","Arrival","All",9462.19994
-"LDZD","PBN","Arrival","All",5709.09997
-"LDDU","Current","Departure","All",20877.09975
-"LDLO","Current","Departure","All",99.9
-"LDOS","Current","Departure","All",710.40001
-"LDPL","Current","Departure","All",4622.49998
-"LDRI","Current","Departure","All",1412.4
-"LDSB","Current","Departure","All",3197.69996
-"LDSP","Current","Departure","All",22901.30002
-"LDZA","Current","Departure","All",8603.59997
-"LDZD","Current","Departure","All",5424.1
-"LDDU","PBN","Departure","All",20877.09975
-"LDLO","PBN","Departure","All",99.9
-"LDOS","PBN","Departure","All",710.40001
-"LDPL","PBN","Departure","All",4622.49998
-"LDRI","PBN","Departure","All",1412.4
-"LDSB","PBN","Departure","All",3197.69996
-"LDSP","PBN","Departure","All",22901.30002
-"LDZA","PBN","Departure","All",8603.59997
-"LDZD","PBN","Departure","All",5424.1
-"LDDU","Current","Both","All",41818.9995
-"LDLO","Current","Both","All",216.3
-"LDOS","Current","Both","All",1353.8
-"LDPL","Current","Both","All",10513.10001
-"LDRI","Current","Both","All",2173.2
-"LDSB","Current","Both","All",6449.29997
-"LDSP","Current","Both","All",44989.80007
-"LDZA","Current","Both","All",18065.79991
-"LDZD","Current","Both","All",11133.19997
-"LDDU","PBN","Both","All",41818.9995
-"LDLO","PBN","Both","All",216.3
-"LDOS","PBN","Both","All",1353.8
-"LDPL","PBN","Both","All",10513.10001
-"LDRI","PBN","Both","All",2173.2
-"LDSB","PBN","Both","All",6449.29997
-"LDSP","PBN","Both","All",44989.80007
-"LDZA","PBN","Both","All",18065.79991
-"LDZD","PBN","Both","All",11133.19997
-"All","Current","Both","All",136713.49943
-"All","PBN","Both","All",136713.49943
+"Airport","TrackMiles","RoutingType","Waypoint","Scenario","Runway"
+"LDDU",123.8,"Arrival","AIOSA","Current","1"
+"LDSP",168.5,"Arrival","AIOSA","Current","1"
+"LDZA",294.89999,"Arrival","AIOSA","Current","1"
+"LDZD",468.8,"Arrival","AIOSA","Current","1"
+"LDDU",148.5,"Arrival","AIOSA","PBN","1"
+"LDSP",183.89999,"Arrival","AIOSA","PBN","1"
+"LDZA",298.10001,"Arrival","AIOSA","PBN","1"
+"LDZD",472.7,"Arrival","AIOSA","PBN","1"
+"LDDU",123.8,"Arrival","AIOSA","Current","2"
+"LDSP",168.5,"Arrival","AIOSA","Current","2"
+"LDZA",294.89999,"Arrival","AIOSA","Current","2"
+"LDZD",468.8,"Arrival","AIOSA","Current","2"
+"LDDU",148.5,"Arrival","AIOSA","PBN","2"
+"LDSP",183.89999,"Arrival","AIOSA","PBN","2"
+"LDZA",298.10001,"Arrival","AIOSA","PBN","2"
+"LDZD",472.7,"Arrival","AIOSA","PBN","2"
+"LDDU",117.2,"Departure","AIOSA","Current","1"
+"LDDU",117.8,"Departure","AIOSA","PBN","1"
+"LDDU",117.2,"Departure","AIOSA","Current","2"
+"LDDU",117.8,"Departure","AIOSA","PBN","2"
+"LDDU",327.5,"Departure","ALIVO","Current","1"
+"LDPL",620.8,"Departure","ALIVO","Current","1"
+"LDRI",988.5,"Departure","ALIVO","Current","1"
+"LDSP",681.90002,"Departure","ALIVO","Current","1"
+"LDDU",330.10001,"Departure","ALIVO","PBN","1"
+"LDPL",618.6,"Departure","ALIVO","PBN","1"
+"LDRI",1034.1,"Departure","ALIVO","PBN","1"
+"LDSP",716.79999,"Departure","ALIVO","PBN","1"
+"LDDU",327.5,"Departure","ALIVO","Current","2"
+"LDPL",620.8,"Departure","ALIVO","Current","2"
+"LDRI",988.5,"Departure","ALIVO","Current","2"
+"LDSP",681.90002,"Departure","ALIVO","Current","2"
+"LDDU",330.10001,"Departure","ALIVO","PBN","2"
+"LDPL",618.6,"Departure","ALIVO","PBN","2"
+"LDRI",1034.1,"Departure","ALIVO","PBN","2"
+"LDSP",716.79999,"Departure","ALIVO","PBN","2"
+"LDZA",2015.4,"Arrival","ARGOM","Current","1"
+"LDZA",2034.7,"Arrival","ARGOM","PBN","1"
+"LDZA",2015.4,"Arrival","ARGOM","Current","2"
+"LDZA",2034.7,"Arrival","ARGOM","PBN","2"
+"LDDU",312.39999,"Arrival","ARMIX","Current","1"
+"LDRI",760.6,"Arrival","ARMIX","Current","1"
+"LDSP",224.2,"Arrival","ARMIX","Current","1"
+"LDDU",312.60001,"Arrival","ARMIX","PBN","1"
+"LDRI",794.7,"Arrival","ARMIX","PBN","1"
+"LDSP",229.2,"Arrival","ARMIX","PBN","1"
+"LDDU",312.39999,"Arrival","ARMIX","Current","2"
+"LDRI",760.6,"Arrival","ARMIX","Current","2"
+"LDSP",224.2,"Arrival","ARMIX","Current","2"
+"LDDU",312.60001,"Arrival","ARMIX","PBN","2"
+"LDRI",794.7,"Arrival","ARMIX","PBN","2"
+"LDSP",229.2,"Arrival","ARMIX","PBN","2"
+"LDDU",508.89999,"Arrival","BAREB","Current","1"
+"LDSP",253.3,"Arrival","BAREB","Current","1"
+"LDDU",506.79998,"Arrival","BAREB","PBN","1"
+"LDSP",265.39999,"Arrival","BAREB","PBN","1"
+"LDDU",508.89999,"Arrival","BAREB","Current","2"
+"LDSP",253.3,"Arrival","BAREB","Current","2"
+"LDDU",506.79998,"Arrival","BAREB","PBN","2"
+"LDSP",265.39999,"Arrival","BAREB","PBN","2"
+"LDDU",930.60001,"Departure","BAXON","Current","1"
+"LDSP",1261.8,"Departure","BAXON","Current","1"
+"LDDU",934.80002,"Departure","BAXON","PBN","1"
+"LDSP",1293.69998,"Departure","BAXON","PBN","1"
+"LDDU",930.60001,"Departure","BAXON","Current","2"
+"LDSP",1261.8,"Departure","BAXON","Current","2"
+"LDDU",934.80002,"Departure","BAXON","PBN","2"
+"LDSP",1293.69998,"Departure","BAXON","PBN","2"
+"LDDU",1584.89995,"Arrival","BUSET","Current","1"
+"LDSP",452.6,"Arrival","BUSET","Current","1"
+"LDZD",484.19997,"Arrival","BUSET","Current","1"
+"LDDU",1593.00001,"Arrival","BUSET","PBN","1"
+"LDSP",477.1,"Arrival","BUSET","PBN","1"
+"LDZD",521.10001,"Arrival","BUSET","PBN","1"
+"LDDU",1584.89995,"Arrival","BUSET","Current","2"
+"LDSP",452.6,"Arrival","BUSET","Current","2"
+"LDZD",484.19997,"Arrival","BUSET","Current","2"
+"LDDU",1593.00001,"Arrival","BUSET","PBN","2"
+"LDSP",477.1,"Arrival","BUSET","PBN","2"
+"LDZD",521.10001,"Arrival","BUSET","PBN","2"
+"LDDU",340.89999,"Departure","BUSET","Current","1"
+"LDSP",1192.40003,"Departure","BUSET","Current","1"
+"LDZD",840.4,"Departure","BUSET","Current","1"
+"LDDU",342.70001,"Departure","BUSET","PBN","1"
+"LDSP",1209.40001,"Departure","BUSET","PBN","1"
+"LDZD",843.60001,"Departure","BUSET","PBN","1"
+"LDDU",340.89999,"Departure","BUSET","Current","2"
+"LDSP",1192.40003,"Departure","BUSET","Current","2"
+"LDZD",840.4,"Departure","BUSET","Current","2"
+"LDDU",342.70001,"Departure","BUSET","PBN","2"
+"LDSP",1209.40001,"Departure","BUSET","PBN","2"
+"LDZD",843.60001,"Departure","BUSET","PBN","2"
+"LDDU",300.10001,"Arrival","DARZA","Current","1"
+"LDSB",218.3,"Arrival","DARZA","Current","1"
+"LDSP",2947.30009,"Arrival","DARZA","Current","1"
+"LDZD",307.6,"Arrival","DARZA","Current","1"
+"LDDU",300.10001,"Arrival","DARZA","PBN","1"
+"LDSB",218.3,"Arrival","DARZA","PBN","1"
+"LDSP",3097.30008,"Arrival","DARZA","PBN","1"
+"LDZD",310,"Arrival","DARZA","PBN","1"
+"LDDU",300.10001,"Arrival","DARZA","Current","2"
+"LDSB",218.3,"Arrival","DARZA","Current","2"
+"LDSP",2947.30009,"Arrival","DARZA","Current","2"
+"LDZD",307.6,"Arrival","DARZA","Current","2"
+"LDDU",300.10001,"Arrival","DARZA","PBN","2"
+"LDSB",218.3,"Arrival","DARZA","PBN","2"
+"LDSP",3097.30008,"Arrival","DARZA","PBN","2"
+"LDZD",310,"Arrival","DARZA","PBN","2"
+"LDDU",1936.29999,"Departure","DARZA","Current","1"
+"LDSP",688.00002,"Departure","DARZA","Current","1"
+"LDZD",320.09999,"Departure","DARZA","Current","1"
+"LDDU",1978.90003,"Departure","DARZA","PBN","1"
+"LDSP",674,"Departure","DARZA","PBN","1"
+"LDZD",324.09999,"Departure","DARZA","PBN","1"
+"LDDU",1936.29999,"Departure","DARZA","Current","2"
+"LDSP",688.00002,"Departure","DARZA","Current","2"
+"LDZD",320.09999,"Departure","DARZA","Current","2"
+"LDDU",1978.90003,"Departure","DARZA","PBN","2"
+"LDSP",674,"Departure","DARZA","PBN","2"
+"LDZD",324.09999,"Departure","DARZA","PBN","2"
+"LDDU",274.89999,"Departure","EDUGI","Current","1"
+"LDDU",276.70001,"Departure","EDUGI","PBN","1"
+"LDDU",274.89999,"Departure","EDUGI","Current","2"
+"LDDU",276.70001,"Departure","EDUGI","PBN","2"
+"LDZD",321.4,"Arrival","GEMKA","Current","1"
+"LDZD",349.2,"Arrival","GEMKA","PBN","1"
+"LDZD",321.4,"Arrival","GEMKA","Current","2"
+"LDZD",349.2,"Arrival","GEMKA","PBN","2"
+"LDSB",253.5,"Departure","GEMKA","Current","1"
+"LDSB",253.5,"Departure","GEMKA","PBN","1"
+"LDSB",253.5,"Departure","GEMKA","Current","2"
+"LDSB",253.5,"Departure","GEMKA","PBN","2"
+"LDZD",663.39998,"Arrival","GIRDA","Current","1"
+"LDZD",711.60002,"Arrival","GIRDA","PBN","1"
+"LDZD",663.39998,"Arrival","GIRDA","Current","2"
+"LDZD",711.60002,"Arrival","GIRDA","PBN","2"
+"LDPL",1482.7,"Departure","GIRDA","Current","1"
+"LDZD",170.3,"Departure","GIRDA","Current","1"
+"LDPL",1473.7,"Departure","GIRDA","PBN","1"
+"LDZD",170.7,"Departure","GIRDA","PBN","1"
+"LDPL",1482.7,"Departure","GIRDA","Current","2"
+"LDZD",170.3,"Departure","GIRDA","Current","2"
+"LDPL",1473.7,"Departure","GIRDA","PBN","2"
+"LDZD",170.7,"Departure","GIRDA","PBN","2"
+"LDDU",1870.59997,"Arrival","KATTI","Current","1"
+"LDDU",1967.69999,"Arrival","KATTI","PBN","1"
+"LDDU",1870.59997,"Arrival","KATTI","Current","2"
+"LDDU",1967.69999,"Arrival","KATTI","PBN","2"
+"LDDU",1520.89994,"Departure","KATTI","Current","1"
+"LDDU",1548.40005,"Departure","KATTI","PBN","1"
+"LDDU",1520.89994,"Departure","KATTI","Current","2"
+"LDDU",1548.40005,"Departure","KATTI","PBN","2"
+"LDDU",538,"Arrival","KOPRY","Current","1"
+"LDPL",653.09999,"Arrival","KOPRY","Current","1"
+"LDSB",214.60001,"Arrival","KOPRY","Current","1"
+"LDSP",4718.89986,"Arrival","KOPRY","Current","1"
+"LDZA",589.6,"Arrival","KOPRY","Current","1"
+"LDZD",388,"Arrival","KOPRY","Current","1"
+"LDDU",568.20001,"Arrival","KOPRY","PBN","1"
+"LDPL",682.8,"Arrival","KOPRY","PBN","1"
+"LDSB",214.60001,"Arrival","KOPRY","PBN","1"
+"LDSP",4961.99999,"Arrival","KOPRY","PBN","1"
+"LDZA",589.99999,"Arrival","KOPRY","PBN","1"
+"LDZD",393.79998,"Arrival","KOPRY","PBN","1"
+"LDDU",538,"Arrival","KOPRY","Current","2"
+"LDPL",653.09999,"Arrival","KOPRY","Current","2"
+"LDSB",214.60001,"Arrival","KOPRY","Current","2"
+"LDSP",4718.89986,"Arrival","KOPRY","Current","2"
+"LDZA",589.6,"Arrival","KOPRY","Current","2"
+"LDZD",388,"Arrival","KOPRY","Current","2"
+"LDDU",568.20001,"Arrival","KOPRY","PBN","2"
+"LDPL",682.8,"Arrival","KOPRY","PBN","2"
+"LDSB",214.60001,"Arrival","KOPRY","PBN","2"
+"LDSP",4961.99999,"Arrival","KOPRY","PBN","2"
+"LDZA",589.99999,"Arrival","KOPRY","PBN","2"
+"LDZD",393.79998,"Arrival","KOPRY","PBN","2"
+"LDPL",184.3,"Departure","KOPRY","Current","1"
+"LDRI",165.3,"Departure","KOPRY","Current","1"
+"LDZA",239.6,"Departure","KOPRY","Current","1"
+"LDPL",184,"Departure","KOPRY","PBN","1"
+"LDRI",162.2,"Departure","KOPRY","PBN","1"
+"LDZA",239.3,"Departure","KOPRY","PBN","1"
+"LDPL",184.3,"Departure","KOPRY","Current","2"
+"LDRI",165.3,"Departure","KOPRY","Current","2"
+"LDZA",239.6,"Departure","KOPRY","Current","2"
+"LDPL",184,"Departure","KOPRY","PBN","2"
+"LDRI",162.2,"Departure","KOPRY","PBN","2"
+"LDZA",239.3,"Departure","KOPRY","PBN","2"
+"LDDU",2613.60006,"Arrival","LABIN","Current","1"
+"LDSB",256.70001,"Arrival","LABIN","Current","1"
+"LDSP",2482.40005,"Arrival","LABIN","Current","1"
+"LDZA",573.9,"Arrival","LABIN","Current","1"
+"LDZD",831.5,"Arrival","LABIN","Current","1"
+"LDDU",2608.40002,"Arrival","LABIN","PBN","1"
+"LDSB",256.70001,"Arrival","LABIN","PBN","1"
+"LDSP",2596.39993,"Arrival","LABIN","PBN","1"
+"LDZA",573.9,"Arrival","LABIN","PBN","1"
+"LDZD",851.80003,"Arrival","LABIN","PBN","1"
+"LDDU",2613.60006,"Arrival","LABIN","Current","2"
+"LDSB",256.70001,"Arrival","LABIN","Current","2"
+"LDSP",2482.40005,"Arrival","LABIN","Current","2"
+"LDZA",573.9,"Arrival","LABIN","Current","2"
+"LDZD",831.5,"Arrival","LABIN","Current","2"
+"LDDU",2608.40002,"Arrival","LABIN","PBN","2"
+"LDSB",256.70001,"Arrival","LABIN","PBN","2"
+"LDSP",2596.39993,"Arrival","LABIN","PBN","2"
+"LDZA",573.9,"Arrival","LABIN","PBN","2"
+"LDZD",851.80003,"Arrival","LABIN","PBN","2"
+"LDDU",686.29999,"Departure","LABIN","Current","1"
+"LDRI",258.6,"Departure","LABIN","Current","1"
+"LDDU",689.5,"Departure","LABIN","PBN","1"
+"LDRI",246.5,"Departure","LABIN","PBN","1"
+"LDDU",686.29999,"Departure","LABIN","Current","2"
+"LDRI",258.6,"Departure","LABIN","Current","2"
+"LDDU",689.5,"Departure","LABIN","PBN","2"
+"LDRI",246.5,"Departure","LABIN","PBN","2"
+"LDZA",315.79998,"Departure","LAKIK","Current","1"
+"LDZA",313.79998,"Departure","LAKIK","PBN","1"
+"LDZA",315.79998,"Departure","LAKIK","Current","2"
+"LDZA",313.79998,"Departure","LAKIK","PBN","2"
+"LDZA",1199.19999,"Arrival","LDDU","Current","1"
+"LDZA",1224.29999,"Arrival","LDDU","PBN","1"
+"LDZA",1199.19999,"Arrival","LDDU","Current","2"
+"LDZA",1224.29999,"Arrival","LDDU","PBN","2"
+"LDSP",107.5,"Departure","LDDU","Current","1"
+"LDZA",892.79999,"Departure","LDDU","Current","1"
+"LDZD",161.8,"Departure","LDDU","Current","1"
+"LDSP",123.9,"Departure","LDDU","PBN","1"
+"LDZA",919.69997,"Departure","LDDU","PBN","1"
+"LDZD",169.2,"Departure","LDDU","PBN","1"
+"LDSP",107.5,"Departure","LDDU","Current","2"
+"LDZA",892.79999,"Departure","LDDU","Current","2"
+"LDZD",161.8,"Departure","LDDU","Current","2"
+"LDSP",123.9,"Departure","LDDU","PBN","2"
+"LDZA",919.69997,"Departure","LDDU","PBN","2"
+"LDZD",169.2,"Departure","LDDU","PBN","2"
+"LDZA",99.9,"Arrival","LDLO","Current","1"
+"LDZA",99.9,"Arrival","LDLO","PBN","1"
+"LDZA",99.9,"Arrival","LDLO","Current","2"
+"LDZA",99.9,"Arrival","LDLO","PBN","2"
+"LDZA",116.4,"Departure","LDLO","Current","1"
+"LDZA",116.3,"Departure","LDLO","PBN","1"
+"LDZA",116.4,"Departure","LDLO","Current","2"
+"LDZA",116.3,"Departure","LDLO","PBN","2"
+"LDPL",239.8,"Arrival","LDOS","Current","1"
+"LDSP",194.89999,"Arrival","LDOS","Current","1"
+"LDZA",277.79998,"Arrival","LDOS","Current","1"
+"LDPL",250.3,"Arrival","LDOS","PBN","1"
+"LDSP",202.60001,"Arrival","LDOS","PBN","1"
+"LDZA",282.89999,"Arrival","LDOS","PBN","1"
+"LDPL",239.8,"Arrival","LDOS","Current","2"
+"LDSP",194.89999,"Arrival","LDOS","Current","2"
+"LDZA",277.79998,"Arrival","LDOS","Current","2"
+"LDPL",250.3,"Arrival","LDOS","PBN","2"
+"LDSP",202.60001,"Arrival","LDOS","PBN","2"
+"LDZA",282.89999,"Arrival","LDOS","PBN","2"
+"LDPL",217.39999,"Departure","LDOS","Current","1"
+"LDSP",188,"Departure","LDOS","Current","1"
+"LDZA",238,"Departure","LDOS","Current","1"
+"LDPL",217.2,"Departure","LDOS","PBN","1"
+"LDSP",192.2,"Departure","LDOS","PBN","1"
+"LDZA",236,"Departure","LDOS","PBN","1"
+"LDPL",217.39999,"Departure","LDOS","Current","2"
+"LDSP",188,"Departure","LDOS","Current","2"
+"LDZA",238,"Departure","LDOS","Current","2"
+"LDPL",217.2,"Departure","LDOS","PBN","2"
+"LDSP",192.2,"Departure","LDOS","PBN","2"
+"LDZA",236,"Departure","LDOS","PBN","2"
+"LDOS",217.39999,"Arrival","LDPL","Current","1"
+"LDSP",141.2,"Arrival","LDPL","Current","1"
+"LDZD",77.6,"Arrival","LDPL","Current","1"
+"LDOS",217.2,"Arrival","LDPL","PBN","1"
+"LDSP",150.2,"Arrival","LDPL","PBN","1"
+"LDZD",79,"Arrival","LDPL","PBN","1"
+"LDOS",217.39999,"Arrival","LDPL","Current","2"
+"LDSP",141.2,"Arrival","LDPL","Current","2"
+"LDZD",77.6,"Arrival","LDPL","Current","2"
+"LDOS",217.2,"Arrival","LDPL","PBN","2"
+"LDSP",150.2,"Arrival","LDPL","PBN","2"
+"LDZD",79,"Arrival","LDPL","PBN","2"
+"LDOS",239.8,"Departure","LDPL","Current","1"
+"LDSP",177.8,"Departure","LDPL","Current","1"
+"LDZD",93.4,"Departure","LDPL","Current","1"
+"LDOS",250.3,"Departure","LDPL","PBN","1"
+"LDSP",176.7,"Departure","LDPL","PBN","1"
+"LDZD",102.8,"Departure","LDPL","PBN","1"
+"LDOS",239.8,"Departure","LDPL","Current","2"
+"LDSP",177.8,"Departure","LDPL","Current","2"
+"LDZD",93.4,"Departure","LDPL","Current","2"
+"LDOS",250.3,"Departure","LDPL","PBN","2"
+"LDSP",176.7,"Departure","LDPL","PBN","2"
+"LDZD",102.8,"Departure","LDPL","PBN","2"
+"LDZA",161.8,"Arrival","LDSB","Current","1"
+"LDZA",168.2,"Arrival","LDSB","PBN","1"
+"LDZA",161.8,"Arrival","LDSB","Current","2"
+"LDZA",168.2,"Arrival","LDSB","PBN","2"
+"LDZA",158.89999,"Departure","LDSB","Current","1"
+"LDZD",178.9,"Departure","LDSB","Current","1"
+"LDZA",163.60001,"Departure","LDSB","PBN","1"
+"LDZD",198,"Departure","LDSB","PBN","1"
+"LDZA",158.89999,"Departure","LDSB","Current","2"
+"LDZD",178.9,"Departure","LDSB","Current","2"
+"LDZA",163.60001,"Departure","LDSB","PBN","2"
+"LDZD",198,"Departure","LDSB","PBN","2"
+"LDDU",107.5,"Arrival","LDSP","Current","1"
+"LDOS",188,"Arrival","LDSP","Current","1"
+"LDPL",177.8,"Arrival","LDSP","Current","1"
+"LDZA",632.69997,"Arrival","LDSP","Current","1"
+"LDDU",123.9,"Arrival","LDSP","PBN","1"
+"LDOS",192.2,"Arrival","LDSP","PBN","1"
+"LDPL",176.7,"Arrival","LDSP","PBN","1"
+"LDZA",654.00001,"Arrival","LDSP","PBN","1"
+"LDDU",107.5,"Arrival","LDSP","Current","2"
+"LDOS",188,"Arrival","LDSP","Current","2"
+"LDPL",177.8,"Arrival","LDSP","Current","2"
+"LDZA",632.69997,"Arrival","LDSP","Current","2"
+"LDDU",123.9,"Arrival","LDSP","PBN","2"
+"LDOS",192.2,"Arrival","LDSP","PBN","2"
+"LDPL",176.7,"Arrival","LDSP","PBN","2"
+"LDZA",654.00001,"Arrival","LDSP","PBN","2"
+"LDOS",194.89999,"Departure","LDSP","Current","1"
+"LDPL",141.2,"Departure","LDSP","Current","1"
+"LDZA",794.69999,"Departure","LDSP","Current","1"
+"LDOS",202.60001,"Departure","LDSP","PBN","1"
+"LDPL",150.2,"Departure","LDSP","PBN","1"
+"LDZA",862.4,"Departure","LDSP","PBN","1"
+"LDOS",194.89999,"Departure","LDSP","Current","2"
+"LDPL",141.2,"Departure","LDSP","Current","2"
+"LDZA",794.69999,"Departure","LDSP","Current","2"
+"LDOS",202.60001,"Departure","LDSP","PBN","2"
+"LDPL",150.2,"Departure","LDSP","PBN","2"
+"LDZA",862.4,"Departure","LDSP","PBN","2"
+"LDDU",892.79999,"Arrival","LDZA","Current","1"
+"LDLO",116.4,"Arrival","LDZA","Current","1"
+"LDOS",238,"Arrival","LDZA","Current","1"
+"LDSB",158.89999,"Arrival","LDZA","Current","1"
+"LDSP",794.69999,"Arrival","LDZA","Current","1"
+"LDZD",527.8,"Arrival","LDZA","Current","1"
+"LDDU",919.69997,"Arrival","LDZA","PBN","1"
+"LDLO",116.3,"Arrival","LDZA","PBN","1"
+"LDOS",236,"Arrival","LDZA","PBN","1"
+"LDSB",163.60001,"Arrival","LDZA","PBN","1"
+"LDSP",862.4,"Arrival","LDZA","PBN","1"
+"LDZD",528.1,"Arrival","LDZA","PBN","1"
+"LDDU",892.79999,"Arrival","LDZA","Current","2"
+"LDLO",116.4,"Arrival","LDZA","Current","2"
+"LDOS",238,"Arrival","LDZA","Current","2"
+"LDSB",158.89999,"Arrival","LDZA","Current","2"
+"LDSP",794.69999,"Arrival","LDZA","Current","2"
+"LDZD",527.8,"Arrival","LDZA","Current","2"
+"LDDU",919.69997,"Arrival","LDZA","PBN","2"
+"LDLO",116.3,"Arrival","LDZA","PBN","2"
+"LDOS",236,"Arrival","LDZA","PBN","2"
+"LDSB",163.60001,"Arrival","LDZA","PBN","2"
+"LDSP",862.4,"Arrival","LDZA","PBN","2"
+"LDZD",528.1,"Arrival","LDZA","PBN","2"
+"LDDU",1199.19999,"Departure","LDZA","Current","1"
+"LDLO",99.9,"Departure","LDZA","Current","1"
+"LDOS",277.79998,"Departure","LDZA","Current","1"
+"LDSB",161.8,"Departure","LDZA","Current","1"
+"LDSP",632.69997,"Departure","LDZA","Current","1"
+"LDZD",437.7,"Departure","LDZA","Current","1"
+"LDDU",1224.29999,"Departure","LDZA","PBN","1"
+"LDLO",99.9,"Departure","LDZA","PBN","1"
+"LDOS",282.89999,"Departure","LDZA","PBN","1"
+"LDSB",168.2,"Departure","LDZA","PBN","1"
+"LDSP",654.00001,"Departure","LDZA","PBN","1"
+"LDZD",453.6,"Departure","LDZA","PBN","1"
+"LDDU",1199.19999,"Departure","LDZA","Current","2"
+"LDLO",99.9,"Departure","LDZA","Current","2"
+"LDOS",277.79998,"Departure","LDZA","Current","2"
+"LDSB",161.8,"Departure","LDZA","Current","2"
+"LDSP",632.69997,"Departure","LDZA","Current","2"
+"LDZD",437.7,"Departure","LDZA","Current","2"
+"LDDU",1224.29999,"Departure","LDZA","PBN","2"
+"LDLO",99.9,"Departure","LDZA","PBN","2"
+"LDOS",282.89999,"Departure","LDZA","PBN","2"
+"LDSB",168.2,"Departure","LDZA","PBN","2"
+"LDSP",654.00001,"Departure","LDZA","PBN","2"
+"LDZD",453.6,"Departure","LDZA","PBN","2"
+"LDDU",161.8,"Arrival","LDZD","Current","1"
+"LDPL",93.4,"Arrival","LDZD","Current","1"
+"LDSB",178.9,"Arrival","LDZD","Current","1"
+"LDZA",437.7,"Arrival","LDZD","Current","1"
+"LDDU",169.2,"Arrival","LDZD","PBN","1"
+"LDPL",102.8,"Arrival","LDZD","PBN","1"
+"LDSB",198,"Arrival","LDZD","PBN","1"
+"LDZA",453.6,"Arrival","LDZD","PBN","1"
+"LDDU",161.8,"Arrival","LDZD","Current","2"
+"LDPL",93.4,"Arrival","LDZD","Current","2"
+"LDSB",178.9,"Arrival","LDZD","Current","2"
+"LDZA",437.7,"Arrival","LDZD","Current","2"
+"LDDU",169.2,"Arrival","LDZD","PBN","2"
+"LDPL",102.8,"Arrival","LDZD","PBN","2"
+"LDSB",198,"Arrival","LDZD","PBN","2"
+"LDZA",453.6,"Arrival","LDZD","PBN","2"
+"LDPL",77.6,"Departure","LDZD","Current","1"
+"LDZA",527.8,"Departure","LDZD","Current","1"
+"LDPL",79,"Departure","LDZD","PBN","1"
+"LDZA",528.1,"Departure","LDZD","PBN","1"
+"LDPL",77.6,"Departure","LDZD","Current","2"
+"LDZA",527.8,"Departure","LDZD","Current","2"
+"LDPL",79,"Departure","LDZD","PBN","2"
+"LDZA",528.1,"Departure","LDZD","PBN","2"
+"LDZD",127.4,"Departure","LISKO","PBN","1"
+"LDZD",127.4,"Departure","LISKO","PBN","2"
+"LDSB",216.7,"Departure","LJLJ","Current","1"
+"LDSB",216.7,"Departure","LJLJ","PBN","1"
+"LDSB",216.7,"Departure","LJLJ","Current","2"
+"LDSB",216.7,"Departure","LJLJ","PBN","2"
+"LDSB",244.7,"Arrival","LOWG","Current","1"
+"LDZA",108.4,"Arrival","LOWG","Current","1"
+"LDSB",244.7,"Arrival","LOWG","PBN","1"
+"LDZA",110.1,"Arrival","LOWG","PBN","1"
+"LDSB",244.7,"Arrival","LOWG","Current","2"
+"LDZA",108.4,"Arrival","LOWG","Current","2"
+"LDSB",244.7,"Arrival","LOWG","PBN","2"
+"LDZA",110.1,"Arrival","LOWG","PBN","2"
+"LDSB",245,"Departure","LOWG","Current","1"
+"LDZA",91.1,"Departure","LOWG","Current","1"
+"LDSB",245,"Departure","LOWG","PBN","1"
+"LDZA",91.7,"Departure","LOWG","PBN","1"
+"LDSB",245,"Departure","LOWG","Current","2"
+"LDZA",91.1,"Departure","LOWG","Current","2"
+"LDSB",245,"Departure","LOWG","PBN","2"
+"LDZA",91.7,"Departure","LOWG","PBN","2"
+"LDZA",171.7,"Arrival","LQSA","Current","1"
+"LDZA",164.7,"Arrival","LQSA","PBN","1"
+"LDZA",171.7,"Arrival","LQSA","Current","2"
+"LDZA",164.7,"Arrival","LQSA","PBN","2"
+"LDZA",155.8,"Departure","LQSA","Current","1"
+"LDZA",155.60001,"Departure","LQSA","PBN","1"
+"LDZA",155.8,"Departure","LQSA","Current","2"
+"LDZA",155.60001,"Departure","LQSA","PBN","2"
+"LDDU",83.2,"Arrival","LYPG","Current","1"
+"LDDU",83.1,"Arrival","LYPG","PBN","1"
+"LDDU",83.2,"Arrival","LYPG","Current","2"
+"LDDU",83.1,"Arrival","LYPG","PBN","2"
+"LDDU",54.7,"Departure","LYPG","Current","1"
+"LDDU",56.7,"Departure","LYPG","PBN","1"
+"LDDU",54.7,"Departure","LYPG","Current","2"
+"LDDU",56.7,"Departure","LYPG","PBN","2"
+"LDDU",23.5,"Departure","LYTV","Current","1"
+"LDDU",23.5,"Departure","LYTV","Current","2"
+"LDDU",30.5,"Departure","LYTV.1","PBN","1"
+"LDDU",30.5,"Departure","LYTV.1","PBN","2"
+"LDZA",232.89999,"Departure","MITNO","Current","1"
+"LDZA",234.5,"Departure","MITNO","PBN","1"
+"LDZA",232.89999,"Departure","MITNO","Current","2"
+"LDZA",234.5,"Departure","MITNO","PBN","2"
+"LDDU",742.6,"Arrival","MOKUN","Current","1"
+"LDDU",752.3,"Arrival","MOKUN","PBN","1"
+"LDDU",742.6,"Arrival","MOKUN","Current","2"
+"LDDU",752.3,"Arrival","MOKUN","PBN","2"
+"LDDU",1002.5,"Departure","MOKUN","Current","1"
+"LDDU",1037,"Departure","MOKUN","PBN","1"
+"LDDU",1002.5,"Departure","MOKUN","Current","2"
+"LDDU",1037,"Departure","MOKUN","PBN","2"
+"LDSP",410.79998,"Arrival","NEMEK","Current","1"
+"LDSP",435.1,"Arrival","NEMEK","PBN","1"
+"LDSP",410.79998,"Arrival","NEMEK","Current","2"
+"LDSP",435.1,"Arrival","NEMEK","PBN","2"
+"LDDU",286.10001,"Arrival","NIKOL","Current","1"
+"LDZD",146,"Arrival","NIKOL","Current","1"
+"LDDU",286.10001,"Arrival","NIKOL","PBN","1"
+"LDZD",145.60001,"Arrival","NIKOL","PBN","1"
+"LDDU",286.10001,"Arrival","NIKOL","Current","2"
+"LDZD",146,"Arrival","NIKOL","Current","2"
+"LDDU",286.10001,"Arrival","NIKOL","PBN","2"
+"LDZD",145.60001,"Arrival","NIKOL","PBN","2"
+"LDZA",241.60001,"Departure","NILKU","Current","1"
+"LDZA",241.39999,"Departure","NILKU","PBN","1"
+"LDZA",241.60001,"Departure","NILKU","Current","2"
+"LDZA",241.39999,"Departure","NILKU","PBN","2"
+"LDZA",1218,"Departure","OBUTI","Current","1"
+"LDZA",1230.4,"Departure","OBUTI","PBN","1"
+"LDZA",1218,"Departure","OBUTI","Current","2"
+"LDZA",1230.4,"Departure","OBUTI","PBN","2"
+"LDDU",966.59998,"Departure","OBUTI.1","Current","1"
+"LDSB",235.7,"Departure","OBUTI.1","Current","1"
+"LDDU",953.10001,"Departure","OBUTI.1","PBN","1"
+"LDSB",235.7,"Departure","OBUTI.1","PBN","1"
+"LDDU",966.59998,"Departure","OBUTI.1","Current","2"
+"LDSB",235.7,"Departure","OBUTI.1","Current","2"
+"LDDU",953.10001,"Departure","OBUTI.1","PBN","2"
+"LDSB",235.7,"Departure","OBUTI.1","PBN","2"
+"LDDU",1808.09994,"Departure","OBUTI.2","Current","1"
+"LDSP",923.7,"Departure","OBUTI.2","Current","1"
+"LDDU",1834.20006,"Departure","OBUTI.2","PBN","1"
+"LDSP",923.60003,"Departure","OBUTI.2","PBN","1"
+"LDDU",1808.09994,"Departure","OBUTI.2","Current","2"
+"LDSP",923.7,"Departure","OBUTI.2","Current","2"
+"LDDU",1834.20006,"Departure","OBUTI.2","PBN","2"
+"LDSP",923.60003,"Departure","OBUTI.2","PBN","2"
+"LDZA",245.5,"Arrival","OSLUD","Current","1"
+"LDZA",247,"Arrival","OSLUD","PBN","1"
+"LDZA",245.5,"Arrival","OSLUD","Current","2"
+"LDZA",247,"Arrival","OSLUD","PBN","2"
+"LDZA",472.09999,"Departure","OSLUD.1","Current","1"
+"LDZA",474.89999,"Departure","OSLUD.1","PBN","1"
+"LDZA",472.09999,"Departure","OSLUD.1","Current","2"
+"LDZA",474.89999,"Departure","OSLUD.1","PBN","2"
+"LDZA",949.19997,"Arrival","OUTSIDE.FIR.E","Current","1"
+"LDZA",979.59996,"Arrival","OUTSIDE.FIR.E","PBN","1"
+"LDZA",949.19997,"Arrival","OUTSIDE.FIR.E","Current","2"
+"LDZA",979.59996,"Arrival","OUTSIDE.FIR.E","PBN","2"
+"LDSP",193.89999,"Departure","OUTSIDE.FIR.N","Current","1"
+"LDZD",252.9,"Departure","OUTSIDE.FIR.N","Current","1"
+"LDSP",193.39999,"Departure","OUTSIDE.FIR.N","PBN","1"
+"LDZD",256.00001,"Departure","OUTSIDE.FIR.N","PBN","1"
+"LDSP",193.89999,"Departure","OUTSIDE.FIR.N","Current","2"
+"LDZD",252.9,"Departure","OUTSIDE.FIR.N","Current","2"
+"LDSP",193.39999,"Departure","OUTSIDE.FIR.N","PBN","2"
+"LDZD",256.00001,"Departure","OUTSIDE.FIR.N","PBN","2"
+"LDSP",582,"Departure","OUTSIDE.FIR.N.1","Current","1"
+"LDSP",571.99998,"Departure","OUTSIDE.FIR.N.1","PBN","1"
+"LDSP",582,"Departure","OUTSIDE.FIR.N.1","Current","2"
+"LDSP",571.99998,"Departure","OUTSIDE.FIR.N.1","PBN","2"
+"LDPL",1666.99995,"Arrival","OUTSIDE.FIR.NE","Current","1"
+"LDSP",484.6,"Arrival","OUTSIDE.FIR.NE","Current","1"
+"LDZD",409.20002,"Arrival","OUTSIDE.FIR.NE","Current","1"
+"LDPL",1714.09999,"Arrival","OUTSIDE.FIR.NE","PBN","1"
+"LDSP",500.20002,"Arrival","OUTSIDE.FIR.NE","PBN","1"
+"LDZD",410.69999,"Arrival","OUTSIDE.FIR.NE","PBN","1"
+"LDPL",1666.99995,"Arrival","OUTSIDE.FIR.NE","Current","2"
+"LDSP",484.6,"Arrival","OUTSIDE.FIR.NE","Current","2"
+"LDZD",409.20002,"Arrival","OUTSIDE.FIR.NE","Current","2"
+"LDPL",1714.09999,"Arrival","OUTSIDE.FIR.NE","PBN","2"
+"LDSP",500.20002,"Arrival","OUTSIDE.FIR.NE","PBN","2"
+"LDZD",410.69999,"Arrival","OUTSIDE.FIR.NE","PBN","2"
+"LDZD",193.10001,"Departure","OUTSIDE.FIR.NE","Current","1"
+"LDZD",196.2,"Departure","OUTSIDE.FIR.NE","PBN","1"
+"LDZD",193.10001,"Departure","OUTSIDE.FIR.NE","Current","2"
+"LDZD",196.2,"Departure","OUTSIDE.FIR.NE","PBN","2"
+"LDSP",1461.60006,"Departure","OUTSIDE.FIR.NE.1","Current","1"
+"LDSP",1462.2,"Departure","OUTSIDE.FIR.NE.1","PBN","1"
+"LDSP",1461.60006,"Departure","OUTSIDE.FIR.NE.1","Current","2"
+"LDSP",1462.2,"Departure","OUTSIDE.FIR.NE.1","PBN","2"
+"LDDU",701.20002,"Arrival","OUTSIDE.FIR.NW","Current","1"
+"LDPL",1218.50005,"Arrival","OUTSIDE.FIR.NW","Current","1"
+"LDSP",2295.20002,"Arrival","OUTSIDE.FIR.NW","Current","1"
+"LDZD",191.3,"Arrival","OUTSIDE.FIR.NW","Current","1"
+"LDDU",703.20002,"Arrival","OUTSIDE.FIR.NW","PBN","1"
+"LDPL",1343.20006,"Arrival","OUTSIDE.FIR.NW","PBN","1"
+"LDSP",2426.70007,"Arrival","OUTSIDE.FIR.NW","PBN","1"
+"LDZD",197.89999,"Arrival","OUTSIDE.FIR.NW","PBN","1"
+"LDDU",701.20002,"Arrival","OUTSIDE.FIR.NW","Current","2"
+"LDPL",1218.50005,"Arrival","OUTSIDE.FIR.NW","Current","2"
+"LDSP",2295.20002,"Arrival","OUTSIDE.FIR.NW","Current","2"
+"LDZD",191.3,"Arrival","OUTSIDE.FIR.NW","Current","2"
+"LDDU",703.20002,"Arrival","OUTSIDE.FIR.NW","PBN","2"
+"LDPL",1343.20006,"Arrival","OUTSIDE.FIR.NW","PBN","2"
+"LDSP",2426.70007,"Arrival","OUTSIDE.FIR.NW","PBN","2"
+"LDZD",197.89999,"Arrival","OUTSIDE.FIR.NW","PBN","2"
+"LDSP",521.1,"Departure","OUTSIDE.FIR.NW","Current","1"
+"LDZD",190.8,"Departure","OUTSIDE.FIR.NW","Current","1"
+"LDSP",532.29998,"Departure","OUTSIDE.FIR.NW","PBN","1"
+"LDZD",191.3,"Departure","OUTSIDE.FIR.NW","PBN","1"
+"LDSP",521.1,"Departure","OUTSIDE.FIR.NW","Current","2"
+"LDZD",190.8,"Departure","OUTSIDE.FIR.NW","Current","2"
+"LDSP",532.29998,"Departure","OUTSIDE.FIR.NW","PBN","2"
+"LDZD",191.3,"Departure","OUTSIDE.FIR.NW","PBN","2"
+"LDZA",525.20001,"Arrival","PERAN","Current","1"
+"LDZA",530.40002,"Arrival","PERAN","PBN","1"
+"LDZA",525.20001,"Arrival","PERAN","Current","2"
+"LDZA",530.40002,"Arrival","PERAN","PBN","2"
+"LDZA",194.60001,"Arrival","PEROT","Current","1"
+"LDZA",198.60001,"Arrival","PEROT","PBN","1"
+"LDZA",194.60001,"Arrival","PEROT","Current","2"
+"LDZA",198.60001,"Arrival","PEROT","PBN","2"
+"LDZA",177.3,"Departure","PEROT","Current","1"
+"LDZA",176.3,"Departure","PEROT","PBN","1"
+"LDZA",177.3,"Departure","PEROT","Current","2"
+"LDZA",176.3,"Departure","PEROT","PBN","2"
+"LDSP",171.3,"Departure","PETAK","Current","1"
+"LDZD",238,"Departure","PETAK","Current","1"
+"LDSP",189.60001,"Departure","PETAK","PBN","1"
+"LDZD",247.89999,"Departure","PETAK","PBN","1"
+"LDSP",171.3,"Departure","PETAK","Current","2"
+"LDZD",238,"Departure","PETAK","Current","2"
+"LDSP",189.60001,"Departure","PETAK","PBN","2"
+"LDZD",247.89999,"Departure","PETAK","PBN","2"
+"LDDU",2201.89994,"Arrival","PETOV","Current","1"
+"LDPL",200.8,"Arrival","PETOV","Current","1"
+"LDZA",495,"Arrival","PETOV","Current","1"
+"LDDU",2211.99995,"Arrival","PETOV","PBN","1"
+"LDPL",211.7,"Arrival","PETOV","PBN","1"
+"LDZA",520.4,"Arrival","PETOV","PBN","1"
+"LDDU",2201.89994,"Arrival","PETOV","Current","2"
+"LDPL",200.8,"Arrival","PETOV","Current","2"
+"LDZA",495,"Arrival","PETOV","Current","2"
+"LDDU",2211.99995,"Arrival","PETOV","PBN","2"
+"LDPL",211.7,"Arrival","PETOV","PBN","2"
+"LDZA",520.4,"Arrival","PETOV","PBN","2"
+"LDSB",234.3,"Departure","PETOV","Current","1"
+"LDSP",3403.59997,"Departure","PETOV","Current","1"
+"LDSB",234.3,"Departure","PETOV","PBN","1"
+"LDSP",2942.7999,"Departure","PETOV","PBN","1"
+"LDSB",234.3,"Departure","PETOV","Current","2"
+"LDSP",3403.59997,"Departure","PETOV","Current","2"
+"LDSB",234.3,"Departure","PETOV","PBN","2"
+"LDSP",2942.7999,"Departure","PETOV","PBN","2"
+"LDSP",456.6,"Departure","PETOV.2","PBN","1"
+"LDSP",456.6,"Departure","PETOV.2","PBN","2"
+"LDDU",2602.69992,"Arrival","PEVAL","Current","1"
+"LDSB",1041.30003,"Arrival","PEVAL","Current","1"
+"LDSP",690.30003,"Arrival","PEVAL","Current","1"
+"LDZD",1006.4,"Arrival","PEVAL","Current","1"
+"LDDU",2603.19992,"Arrival","PEVAL","PBN","1"
+"LDSB",1041.30003,"Arrival","PEVAL","PBN","1"
+"LDSP",717.9,"Arrival","PEVAL","PBN","1"
+"LDZD",1021.80004,"Arrival","PEVAL","PBN","1"
+"LDDU",2602.69992,"Arrival","PEVAL","Current","2"
+"LDSB",1041.30003,"Arrival","PEVAL","Current","2"
+"LDSP",690.30003,"Arrival","PEVAL","Current","2"
+"LDZD",1006.4,"Arrival","PEVAL","Current","2"
+"LDDU",2603.19992,"Arrival","PEVAL","PBN","2"
+"LDSB",1041.30003,"Arrival","PEVAL","PBN","2"
+"LDSP",717.9,"Arrival","PEVAL","PBN","2"
+"LDZD",1021.80004,"Arrival","PEVAL","PBN","2"
+"LDPL",1763.9,"Departure","PEVAL","Current","1"
+"LDPL",1761.8,"Departure","PEVAL","PBN","1"
+"LDPL",1763.9,"Departure","PEVAL","Current","2"
+"LDPL",1761.8,"Departure","PEVAL","PBN","2"
+"LDDU",3098.49997,"Departure","PEVAL.1","Current","1"
+"LDSB",768.09997,"Departure","PEVAL.1","Current","1"
+"LDSP",4362.09993,"Departure","PEVAL.1","Current","1"
+"LDZD",2032.29999,"Departure","PEVAL.1","Current","1"
+"LDDU",3124.59998,"Departure","PEVAL.1","PBN","1"
+"LDSB",768.09997,"Departure","PEVAL.1","PBN","1"
+"LDSP",4420.20002,"Departure","PEVAL.1","PBN","1"
+"LDZD",2042.10003,"Departure","PEVAL.1","PBN","1"
+"LDDU",3098.49997,"Departure","PEVAL.1","Current","2"
+"LDSB",768.09997,"Departure","PEVAL.1","Current","2"
+"LDSP",4362.09993,"Departure","PEVAL.1","Current","2"
+"LDZD",2032.29999,"Departure","PEVAL.1","Current","2"
+"LDDU",3124.59998,"Departure","PEVAL.1","PBN","2"
+"LDSB",768.09997,"Departure","PEVAL.1","PBN","2"
+"LDSP",4420.20002,"Departure","PEVAL.1","PBN","2"
+"LDZD",2042.10003,"Departure","PEVAL.1","PBN","2"
+"LDZA",1486.6,"Departure","PODET","Current","1"
+"LDZA",1499.8,"Departure","PODET","PBN","1"
+"LDZA",1486.6,"Departure","PODET","Current","2"
+"LDZA",1499.8,"Departure","PODET","PBN","2"
+"LDZA",237.2,"Departure","PODOB","Current","1"
+"LDZA",235,"Departure","PODOB","PBN","1"
+"LDZA",237.2,"Departure","PODOB","Current","2"
+"LDZA",235,"Departure","PODOB","PBN","2"
+"LDSB",159.39999,"Arrival","RODON","Current","1"
+"LDSP",199.8,"Arrival","RODON","Current","1"
+"LDSB",159.39999,"Arrival","RODON","PBN","1"
+"LDSP",229.10001,"Arrival","RODON","PBN","1"
+"LDSB",159.39999,"Arrival","RODON","Current","2"
+"LDSP",199.8,"Arrival","RODON","Current","2"
+"LDSB",159.39999,"Arrival","RODON","PBN","2"
+"LDSP",229.10001,"Arrival","RODON","PBN","2"
+"LDDU",672.30002,"Arrival","ROTAR","Current","1"
+"LDPL",1443.4,"Arrival","ROTAR","Current","1"
+"LDSP",239.39999,"Arrival","ROTAR","Current","1"
+"LDDU",685.9,"Arrival","ROTAR","PBN","1"
+"LDPL",1443.4,"Arrival","ROTAR","PBN","1"
+"LDSP",248.60001,"Arrival","ROTAR","PBN","1"
+"LDDU",672.30002,"Arrival","ROTAR","Current","2"
+"LDPL",1443.4,"Arrival","ROTAR","Current","2"
+"LDSP",239.39999,"Arrival","ROTAR","Current","2"
+"LDDU",685.9,"Arrival","ROTAR","PBN","2"
+"LDPL",1443.4,"Arrival","ROTAR","PBN","2"
+"LDSP",248.60001,"Arrival","ROTAR","PBN","2"
+"LDDU",3524.8,"Departure","ROTAR","Current","1"
+"LDSB",264,"Departure","ROTAR","Current","1"
+"LDZA",625.7,"Departure","ROTAR","Current","1"
+"LDDU",3571.59996,"Departure","ROTAR","PBN","1"
+"LDSB",264,"Departure","ROTAR","PBN","1"
+"LDZA",625.40002,"Departure","ROTAR","PBN","1"
+"LDDU",3524.8,"Departure","ROTAR","Current","2"
+"LDSB",264,"Departure","ROTAR","Current","2"
+"LDZA",625.7,"Departure","ROTAR","Current","2"
+"LDDU",3571.59996,"Departure","ROTAR","PBN","2"
+"LDSB",264,"Departure","ROTAR","PBN","2"
+"LDZA",625.40002,"Departure","ROTAR","PBN","2"
+"LDSB",260.39999,"Departure","ROTAR.1","Current","1"
+"LDSP",1749.2,"Departure","ROTAR.1","Current","1"
+"LDSB",260.39999,"Departure","ROTAR.1","PBN","1"
+"LDSP",1775.39999,"Departure","ROTAR.1","PBN","1"
+"LDSB",260.39999,"Departure","ROTAR.1","Current","2"
+"LDSP",1749.2,"Departure","ROTAR.1","Current","2"
+"LDSB",260.39999,"Departure","ROTAR.1","PBN","2"
+"LDSP",1775.39999,"Departure","ROTAR.1","PBN","2"
+"LDDU",1813.89998,"Arrival","SABAD","Current","1"
+"LDSB",221.8,"Arrival","SABAD","Current","1"
+"LDSP",4262.0001,"Arrival","SABAD","Current","1"
+"LDZD",154.2,"Arrival","SABAD","Current","1"
+"LDDU",1816.49995,"Arrival","SABAD","PBN","1"
+"LDSB",221.89999,"Arrival","SABAD","PBN","1"
+"LDSP",4491.90003,"Arrival","SABAD","PBN","1"
+"LDZD",154.89999,"Arrival","SABAD","PBN","1"
+"LDDU",1813.89998,"Arrival","SABAD","Current","2"
+"LDSB",221.8,"Arrival","SABAD","Current","2"
+"LDSP",4262.0001,"Arrival","SABAD","Current","2"
+"LDZD",154.2,"Arrival","SABAD","Current","2"
+"LDDU",1816.49995,"Arrival","SABAD","PBN","2"
+"LDSB",221.89999,"Arrival","SABAD","PBN","2"
+"LDSP",4491.90003,"Arrival","SABAD","PBN","2"
+"LDZD",154.89999,"Arrival","SABAD","PBN","2"
+"LDDU",1611.59996,"Departure","SABAD","Current","1"
+"LDDU",1626.79998,"Departure","SABAD","PBN","1"
+"LDDU",1611.59996,"Departure","SABAD","Current","2"
+"LDDU",1626.79998,"Departure","SABAD","PBN","2"
+"LDSP",687.4,"Departure","SABAD.1","Current","1"
+"LDSP",676.49999,"Departure","SABAD.1","PBN","1"
+"LDSP",687.4,"Departure","SABAD.1","Current","2"
+"LDSP",676.49999,"Departure","SABAD.1","PBN","2"
+"LDPL",275.79999,"Departure","SOMUN","Current","1"
+"LDSP",192.2,"Departure","SOMUN","Current","1"
+"LDPL",275.79999,"Departure","SOMUN","PBN","1"
+"LDSP",204.5,"Departure","SOMUN","PBN","1"
+"LDPL",275.79999,"Departure","SOMUN","Current","2"
+"LDSP",192.2,"Departure","SOMUN","Current","2"
+"LDPL",275.79999,"Departure","SOMUN","PBN","2"
+"LDSP",204.5,"Departure","SOMUN","PBN","2"
+"LDDU",1513.39995,"Arrival","TORPO","Current","1"
+"LDSB",364.80001,"Arrival","TORPO","Current","1"
+"LDSP",769.59996,"Arrival","TORPO","Current","1"
+"LDZD",129.60001,"Arrival","TORPO","Current","1"
+"LDDU",1532.30001,"Arrival","TORPO","PBN","1"
+"LDSB",364.80001,"Arrival","TORPO","PBN","1"
+"LDSP",808.5,"Arrival","TORPO","PBN","1"
+"LDZD",129.7,"Arrival","TORPO","PBN","1"
+"LDDU",1513.39995,"Arrival","TORPO","Current","2"
+"LDSB",364.80001,"Arrival","TORPO","Current","2"
+"LDSP",769.59996,"Arrival","TORPO","Current","2"
+"LDZD",129.60001,"Arrival","TORPO","Current","2"
+"LDDU",1532.30001,"Arrival","TORPO","PBN","2"
+"LDSB",364.80001,"Arrival","TORPO","PBN","2"
+"LDSP",808.5,"Arrival","TORPO","PBN","2"
+"LDZD",129.7,"Arrival","TORPO","PBN","2"
+"LDSB",351.59999,"Departure","TORPO","Current","1"
+"LDSP",328.5,"Departure","TORPO","Current","1"
+"LDZD",361.6,"Departure","TORPO","Current","1"
+"LDSB",351.59999,"Departure","TORPO","PBN","1"
+"LDSP",333,"Departure","TORPO","PBN","1"
+"LDZD",266.9,"Departure","TORPO","PBN","1"
+"LDSB",351.59999,"Departure","TORPO","Current","2"
+"LDSP",328.5,"Departure","TORPO","Current","2"
+"LDZD",361.6,"Departure","TORPO","Current","2"
+"LDSB",351.59999,"Departure","TORPO","PBN","2"
+"LDSP",333,"Departure","TORPO","PBN","2"
+"LDZD",266.9,"Departure","TORPO","PBN","2"
+"LDZA",398.4,"Arrival","TUVAR","Current","1"
+"LDZA",413.5,"Arrival","TUVAR","PBN","1"
+"LDZA",398.4,"Arrival","TUVAR","Current","2"
+"LDZA",413.5,"Arrival","TUVAR","PBN","2"
+"LDZA",732.79999,"Departure","TUVAR.1","Current","1"
+"LDZA",735.19997,"Departure","TUVAR.1","PBN","1"
+"LDZA",732.79999,"Departure","TUVAR.1","Current","2"
+"LDZA",735.19997,"Departure","TUVAR.1","PBN","2"
+"LDZA",319.79999,"Arrival","VAKSU","Current","1"
+"LDZA",326.10001,"Arrival","VAKSU","PBN","1"
+"LDZA",319.79999,"Arrival","VAKSU","Current","2"
+"LDZA",326.10001,"Arrival","VAKSU","PBN","2"
+"LDDU",426.20002,"Arrival","VAPUP","Current","1"
+"LDSP",260.6,"Arrival","VAPUP","Current","1"
+"LDDU",438.30001,"Arrival","VAPUP","PBN","1"
+"LDSP",262.79998,"Arrival","VAPUP","PBN","1"
+"LDDU",426.20002,"Arrival","VAPUP","Current","2"
+"LDSP",260.6,"Arrival","VAPUP","Current","2"
+"LDDU",438.30001,"Arrival","VAPUP","PBN","2"
+"LDSP",262.79998,"Arrival","VAPUP","PBN","2"
+"LDDU",577.89999,"Arrival","VEBAL","Current","1"
+"LDDU",578,"Arrival","VEBAL","PBN","1"
+"LDDU",577.89999,"Arrival","VEBAL","Current","2"
+"LDDU",578,"Arrival","VEBAL","PBN","2"
+"LDSB",206.60001,"Departure","VEBAL","Current","1"
+"LDSB",202.8,"Departure","VEBAL","PBN","1"
+"LDSB",206.60001,"Departure","VEBAL","Current","2"
+"LDSB",202.8,"Departure","VEBAL","PBN","2"
+"LDSP",3092.70002,"Departure","VEBAL.3","Current","1"
+"LDSP",3096.69998,"Departure","VEBAL.3","PBN","1"
+"LDSP",3092.70002,"Departure","VEBAL.3","Current","2"
+"LDSP",3096.69998,"Departure","VEBAL.3","PBN","2"
+"LDPL",321.70001,"Arrival","VEBAR","Current","1"
+"LDSP",212.3,"Arrival","VEBAR","Current","1"
+"LDPL",321.89999,"Arrival","VEBAR","PBN","1"
+"LDSP",212.8,"Arrival","VEBAR","PBN","1"
+"LDPL",321.70001,"Arrival","VEBAR","Current","2"
+"LDSP",212.3,"Arrival","VEBAR","Current","2"
+"LDPL",321.89999,"Arrival","VEBAR","PBN","2"
+"LDSP",212.8,"Arrival","VEBAR","PBN","2"
+"LDDU",182.7,"Departure","VEBAR","Current","1"
+"LDDU",187.10001,"Departure","VEBAR","PBN","1"
+"LDDU",182.7,"Departure","VEBAR","Current","2"
+"LDDU",187.10001,"Departure","VEBAR","PBN","2"
+"LDDU",610.30001,"Departure","VELUG","Current","1"
+"LDSP",517.80001,"Departure","VELUG","Current","1"
+"LDDU",622.29999,"Departure","VELUG","PBN","1"
+"LDSP",516.49999,"Departure","VELUG","PBN","1"
+"LDDU",610.30001,"Departure","VELUG","Current","2"
+"LDSP",517.80001,"Departure","VELUG","Current","2"
+"LDDU",622.29999,"Departure","VELUG","PBN","2"
+"LDSP",516.49999,"Departure","VELUG","PBN","2"
+"LDDU",472.5,"Departure","XAMIT","Current","1"
+"LDZD",255,"Departure","XAMIT","Current","1"
+"LDDU",488.69999,"Departure","XAMIT","PBN","1"
+"LDZD",260.5,"Departure","XAMIT","PBN","1"
+"LDDU",472.5,"Departure","XAMIT","Current","2"
+"LDZD",255,"Departure","XAMIT","Current","2"
+"LDDU",488.69999,"Departure","XAMIT","PBN","2"
+"LDZD",260.5,"Departure","XAMIT","PBN","2"
+"LDZA",252,"Arrival","XOLTA","Current","1"
+"LDZA",251.89999,"Arrival","XOLTA","PBN","1"
+"LDZA",252,"Arrival","XOLTA","Current","2"
+"LDZA",251.89999,"Arrival","XOLTA","PBN","2"
+"LDDU",190.3,"Departure","XOLTA","Current","1"
+"LDDU",196.2,"Departure","XOLTA","PBN","1"
+"LDDU",190.3,"Departure","XOLTA","Current","2"
+"LDDU",196.2,"Departure","XOLTA","PBN","2"
+"LDDU",241,"Arrivals and Departures","AIOSA","Current","1"
+"LDSP",168.5,"Arrivals and Departures","AIOSA","Current","1"
+"LDZA",294.89999,"Arrivals and Departures","AIOSA","Current","1"
+"LDZD",468.8,"Arrivals and Departures","AIOSA","Current","1"
+"LDDU",266.3,"Arrivals and Departures","AIOSA","PBN","1"
+"LDSP",183.89999,"Arrivals and Departures","AIOSA","PBN","1"
+"LDZA",298.10001,"Arrivals and Departures","AIOSA","PBN","1"
+"LDZD",472.7,"Arrivals and Departures","AIOSA","PBN","1"
+"LDDU",241,"Arrivals and Departures","AIOSA","Current","2"
+"LDSP",168.5,"Arrivals and Departures","AIOSA","Current","2"
+"LDZA",294.89999,"Arrivals and Departures","AIOSA","Current","2"
+"LDZD",468.8,"Arrivals and Departures","AIOSA","Current","2"
+"LDDU",266.3,"Arrivals and Departures","AIOSA","PBN","2"
+"LDSP",183.89999,"Arrivals and Departures","AIOSA","PBN","2"
+"LDZA",298.10001,"Arrivals and Departures","AIOSA","PBN","2"
+"LDZD",472.7,"Arrivals and Departures","AIOSA","PBN","2"
+"LDDU",327.5,"Arrivals and Departures","ALIVO","Current","1"
+"LDPL",620.8,"Arrivals and Departures","ALIVO","Current","1"
+"LDRI",988.5,"Arrivals and Departures","ALIVO","Current","1"
+"LDSP",681.90002,"Arrivals and Departures","ALIVO","Current","1"
+"LDDU",330.10001,"Arrivals and Departures","ALIVO","PBN","1"
+"LDPL",618.6,"Arrivals and Departures","ALIVO","PBN","1"
+"LDRI",1034.1,"Arrivals and Departures","ALIVO","PBN","1"
+"LDSP",716.79999,"Arrivals and Departures","ALIVO","PBN","1"
+"LDDU",327.5,"Arrivals and Departures","ALIVO","Current","2"
+"LDPL",620.8,"Arrivals and Departures","ALIVO","Current","2"
+"LDRI",988.5,"Arrivals and Departures","ALIVO","Current","2"
+"LDSP",681.90002,"Arrivals and Departures","ALIVO","Current","2"
+"LDDU",330.10001,"Arrivals and Departures","ALIVO","PBN","2"
+"LDPL",618.6,"Arrivals and Departures","ALIVO","PBN","2"
+"LDRI",1034.1,"Arrivals and Departures","ALIVO","PBN","2"
+"LDSP",716.79999,"Arrivals and Departures","ALIVO","PBN","2"
+"LDZA",2015.4,"Arrivals and Departures","ARGOM","Current","1"
+"LDZA",2034.7,"Arrivals and Departures","ARGOM","PBN","1"
+"LDZA",2015.4,"Arrivals and Departures","ARGOM","Current","2"
+"LDZA",2034.7,"Arrivals and Departures","ARGOM","PBN","2"
+"LDDU",312.39999,"Arrivals and Departures","ARMIX","Current","1"
+"LDRI",760.6,"Arrivals and Departures","ARMIX","Current","1"
+"LDSP",224.2,"Arrivals and Departures","ARMIX","Current","1"
+"LDDU",312.60001,"Arrivals and Departures","ARMIX","PBN","1"
+"LDRI",794.7,"Arrivals and Departures","ARMIX","PBN","1"
+"LDSP",229.2,"Arrivals and Departures","ARMIX","PBN","1"
+"LDDU",312.39999,"Arrivals and Departures","ARMIX","Current","2"
+"LDRI",760.6,"Arrivals and Departures","ARMIX","Current","2"
+"LDSP",224.2,"Arrivals and Departures","ARMIX","Current","2"
+"LDDU",312.60001,"Arrivals and Departures","ARMIX","PBN","2"
+"LDRI",794.7,"Arrivals and Departures","ARMIX","PBN","2"
+"LDSP",229.2,"Arrivals and Departures","ARMIX","PBN","2"
+"LDDU",508.89999,"Arrivals and Departures","BAREB","Current","1"
+"LDSP",253.3,"Arrivals and Departures","BAREB","Current","1"
+"LDDU",506.79998,"Arrivals and Departures","BAREB","PBN","1"
+"LDSP",265.39999,"Arrivals and Departures","BAREB","PBN","1"
+"LDDU",508.89999,"Arrivals and Departures","BAREB","Current","2"
+"LDSP",253.3,"Arrivals and Departures","BAREB","Current","2"
+"LDDU",506.79998,"Arrivals and Departures","BAREB","PBN","2"
+"LDSP",265.39999,"Arrivals and Departures","BAREB","PBN","2"
+"LDDU",930.60001,"Arrivals and Departures","BAXON","Current","1"
+"LDSP",1261.8,"Arrivals and Departures","BAXON","Current","1"
+"LDDU",934.80002,"Arrivals and Departures","BAXON","PBN","1"
+"LDSP",1293.69998,"Arrivals and Departures","BAXON","PBN","1"
+"LDDU",930.60001,"Arrivals and Departures","BAXON","Current","2"
+"LDSP",1261.8,"Arrivals and Departures","BAXON","Current","2"
+"LDDU",934.80002,"Arrivals and Departures","BAXON","PBN","2"
+"LDSP",1293.69998,"Arrivals and Departures","BAXON","PBN","2"
+"LDDU",1925.79994,"Arrivals and Departures","BUSET","Current","1"
+"LDSP",1645.00003,"Arrivals and Departures","BUSET","Current","1"
+"LDZD",1324.59997,"Arrivals and Departures","BUSET","Current","1"
+"LDDU",1935.70002,"Arrivals and Departures","BUSET","PBN","1"
+"LDSP",1686.50001,"Arrivals and Departures","BUSET","PBN","1"
+"LDZD",1364.70002,"Arrivals and Departures","BUSET","PBN","1"
+"LDDU",1925.79994,"Arrivals and Departures","BUSET","Current","2"
+"LDSP",1645.00003,"Arrivals and Departures","BUSET","Current","2"
+"LDZD",1324.59997,"Arrivals and Departures","BUSET","Current","2"
+"LDDU",1935.70002,"Arrivals and Departures","BUSET","PBN","2"
+"LDSP",1686.50001,"Arrivals and Departures","BUSET","PBN","2"
+"LDZD",1364.70002,"Arrivals and Departures","BUSET","PBN","2"
+"LDDU",2236.4,"Arrivals and Departures","DARZA","Current","1"
+"LDSB",218.3,"Arrivals and Departures","DARZA","Current","1"
+"LDSP",3635.30011,"Arrivals and Departures","DARZA","Current","1"
+"LDZD",627.69999,"Arrivals and Departures","DARZA","Current","1"
+"LDDU",2279.00004,"Arrivals and Departures","DARZA","PBN","1"
+"LDSB",218.3,"Arrivals and Departures","DARZA","PBN","1"
+"LDSP",3771.30008,"Arrivals and Departures","DARZA","PBN","1"
+"LDZD",634.09999,"Arrivals and Departures","DARZA","PBN","1"
+"LDDU",2236.4,"Arrivals and Departures","DARZA","Current","2"
+"LDSB",218.3,"Arrivals and Departures","DARZA","Current","2"
+"LDSP",3635.30011,"Arrivals and Departures","DARZA","Current","2"
+"LDZD",627.69999,"Arrivals and Departures","DARZA","Current","2"
+"LDDU",2279.00004,"Arrivals and Departures","DARZA","PBN","2"
+"LDSB",218.3,"Arrivals and Departures","DARZA","PBN","2"
+"LDSP",3771.30008,"Arrivals and Departures","DARZA","PBN","2"
+"LDZD",634.09999,"Arrivals and Departures","DARZA","PBN","2"
+"LDDU",274.89999,"Arrivals and Departures","EDUGI","Current","1"
+"LDDU",276.70001,"Arrivals and Departures","EDUGI","PBN","1"
+"LDDU",274.89999,"Arrivals and Departures","EDUGI","Current","2"
+"LDDU",276.70001,"Arrivals and Departures","EDUGI","PBN","2"
+"LDSB",253.5,"Arrivals and Departures","GEMKA","Current","1"
+"LDZD",321.4,"Arrivals and Departures","GEMKA","Current","1"
+"LDSB",253.5,"Arrivals and Departures","GEMKA","PBN","1"
+"LDZD",349.2,"Arrivals and Departures","GEMKA","PBN","1"
+"LDSB",253.5,"Arrivals and Departures","GEMKA","Current","2"
+"LDZD",321.4,"Arrivals and Departures","GEMKA","Current","2"
+"LDSB",253.5,"Arrivals and Departures","GEMKA","PBN","2"
+"LDZD",349.2,"Arrivals and Departures","GEMKA","PBN","2"
+"LDPL",1482.7,"Arrivals and Departures","GIRDA","Current","1"
+"LDZD",833.69998,"Arrivals and Departures","GIRDA","Current","1"
+"LDPL",1473.7,"Arrivals and Departures","GIRDA","PBN","1"
+"LDZD",882.30002,"Arrivals and Departures","GIRDA","PBN","1"
+"LDPL",1482.7,"Arrivals and Departures","GIRDA","Current","2"
+"LDZD",833.69998,"Arrivals and Departures","GIRDA","Current","2"
+"LDPL",1473.7,"Arrivals and Departures","GIRDA","PBN","2"
+"LDZD",882.30002,"Arrivals and Departures","GIRDA","PBN","2"
+"LDDU",3391.49991,"Arrivals and Departures","KATTI","Current","1"
+"LDDU",3516.10004,"Arrivals and Departures","KATTI","PBN","1"
+"LDDU",3391.49991,"Arrivals and Departures","KATTI","Current","2"
+"LDDU",3516.10004,"Arrivals and Departures","KATTI","PBN","2"
+"LDDU",538,"Arrivals and Departures","KOPRY","Current","1"
+"LDPL",837.39999,"Arrivals and Departures","KOPRY","Current","1"
+"LDRI",165.3,"Arrivals and Departures","KOPRY","Current","1"
+"LDSB",214.60001,"Arrivals and Departures","KOPRY","Current","1"
+"LDSP",4718.89986,"Arrivals and Departures","KOPRY","Current","1"
+"LDZA",829.2,"Arrivals and Departures","KOPRY","Current","1"
+"LDZD",388,"Arrivals and Departures","KOPRY","Current","1"
+"LDDU",568.20001,"Arrivals and Departures","KOPRY","PBN","1"
+"LDPL",866.8,"Arrivals and Departures","KOPRY","PBN","1"
+"LDRI",162.2,"Arrivals and Departures","KOPRY","PBN","1"
+"LDSB",214.60001,"Arrivals and Departures","KOPRY","PBN","1"
+"LDSP",4961.99999,"Arrivals and Departures","KOPRY","PBN","1"
+"LDZA",829.29999,"Arrivals and Departures","KOPRY","PBN","1"
+"LDZD",393.79998,"Arrivals and Departures","KOPRY","PBN","1"
+"LDDU",538,"Arrivals and Departures","KOPRY","Current","2"
+"LDPL",837.39999,"Arrivals and Departures","KOPRY","Current","2"
+"LDRI",165.3,"Arrivals and Departures","KOPRY","Current","2"
+"LDSB",214.60001,"Arrivals and Departures","KOPRY","Current","2"
+"LDSP",4718.89986,"Arrivals and Departures","KOPRY","Current","2"
+"LDZA",829.2,"Arrivals and Departures","KOPRY","Current","2"
+"LDZD",388,"Arrivals and Departures","KOPRY","Current","2"
+"LDDU",568.20001,"Arrivals and Departures","KOPRY","PBN","2"
+"LDPL",866.8,"Arrivals and Departures","KOPRY","PBN","2"
+"LDRI",162.2,"Arrivals and Departures","KOPRY","PBN","2"
+"LDSB",214.60001,"Arrivals and Departures","KOPRY","PBN","2"
+"LDSP",4961.99999,"Arrivals and Departures","KOPRY","PBN","2"
+"LDZA",829.29999,"Arrivals and Departures","KOPRY","PBN","2"
+"LDZD",393.79998,"Arrivals and Departures","KOPRY","PBN","2"
+"LDDU",3299.90005,"Arrivals and Departures","LABIN","Current","1"
+"LDRI",258.6,"Arrivals and Departures","LABIN","Current","1"
+"LDSB",256.70001,"Arrivals and Departures","LABIN","Current","1"
+"LDSP",2482.40005,"Arrivals and Departures","LABIN","Current","1"
+"LDZA",573.9,"Arrivals and Departures","LABIN","Current","1"
+"LDZD",831.5,"Arrivals and Departures","LABIN","Current","1"
+"LDDU",3297.90002,"Arrivals and Departures","LABIN","PBN","1"
+"LDRI",246.5,"Arrivals and Departures","LABIN","PBN","1"
+"LDSB",256.70001,"Arrivals and Departures","LABIN","PBN","1"
+"LDSP",2596.39993,"Arrivals and Departures","LABIN","PBN","1"
+"LDZA",573.9,"Arrivals and Departures","LABIN","PBN","1"
+"LDZD",851.80003,"Arrivals and Departures","LABIN","PBN","1"
+"LDDU",3299.90005,"Arrivals and Departures","LABIN","Current","2"
+"LDRI",258.6,"Arrivals and Departures","LABIN","Current","2"
+"LDSB",256.70001,"Arrivals and Departures","LABIN","Current","2"
+"LDSP",2482.40005,"Arrivals and Departures","LABIN","Current","2"
+"LDZA",573.9,"Arrivals and Departures","LABIN","Current","2"
+"LDZD",831.5,"Arrivals and Departures","LABIN","Current","2"
+"LDDU",3297.90002,"Arrivals and Departures","LABIN","PBN","2"
+"LDRI",246.5,"Arrivals and Departures","LABIN","PBN","2"
+"LDSB",256.70001,"Arrivals and Departures","LABIN","PBN","2"
+"LDSP",2596.39993,"Arrivals and Departures","LABIN","PBN","2"
+"LDZA",573.9,"Arrivals and Departures","LABIN","PBN","2"
+"LDZD",851.80003,"Arrivals and Departures","LABIN","PBN","2"
+"LDZA",315.79998,"Arrivals and Departures","LAKIK","Current","1"
+"LDZA",313.79998,"Arrivals and Departures","LAKIK","PBN","1"
+"LDZA",315.79998,"Arrivals and Departures","LAKIK","Current","2"
+"LDZA",313.79998,"Arrivals and Departures","LAKIK","PBN","2"
+"LDSP",107.5,"Arrivals and Departures","LDDU","Current","1"
+"LDZA",2091.99998,"Arrivals and Departures","LDDU","Current","1"
+"LDZD",161.8,"Arrivals and Departures","LDDU","Current","1"
+"LDSP",123.9,"Arrivals and Departures","LDDU","PBN","1"
+"LDZA",2143.99996,"Arrivals and Departures","LDDU","PBN","1"
+"LDZD",169.2,"Arrivals and Departures","LDDU","PBN","1"
+"LDSP",107.5,"Arrivals and Departures","LDDU","Current","2"
+"LDZA",2091.99998,"Arrivals and Departures","LDDU","Current","2"
+"LDZD",161.8,"Arrivals and Departures","LDDU","Current","2"
+"LDSP",123.9,"Arrivals and Departures","LDDU","PBN","2"
+"LDZA",2143.99996,"Arrivals and Departures","LDDU","PBN","2"
+"LDZD",169.2,"Arrivals and Departures","LDDU","PBN","2"
+"LDZA",216.3,"Arrivals and Departures","LDLO","Current","1"
+"LDZA",216.2,"Arrivals and Departures","LDLO","PBN","1"
+"LDZA",216.3,"Arrivals and Departures","LDLO","Current","2"
+"LDZA",216.2,"Arrivals and Departures","LDLO","PBN","2"
+"LDPL",457.19999,"Arrivals and Departures","LDOS","Current","1"
+"LDSP",382.89999,"Arrivals and Departures","LDOS","Current","1"
+"LDZA",515.79998,"Arrivals and Departures","LDOS","Current","1"
+"LDPL",467.5,"Arrivals and Departures","LDOS","PBN","1"
+"LDSP",394.80001,"Arrivals and Departures","LDOS","PBN","1"
+"LDZA",518.89999,"Arrivals and Departures","LDOS","PBN","1"
+"LDPL",457.19999,"Arrivals and Departures","LDOS","Current","2"
+"LDSP",382.89999,"Arrivals and Departures","LDOS","Current","2"
+"LDZA",515.79998,"Arrivals and Departures","LDOS","Current","2"
+"LDPL",467.5,"Arrivals and Departures","LDOS","PBN","2"
+"LDSP",394.80001,"Arrivals and Departures","LDOS","PBN","2"
+"LDZA",518.89999,"Arrivals and Departures","LDOS","PBN","2"
+"LDOS",457.19999,"Arrivals and Departures","LDPL","Current","1"
+"LDSP",319,"Arrivals and Departures","LDPL","Current","1"
+"LDZD",171,"Arrivals and Departures","LDPL","Current","1"
+"LDOS",467.5,"Arrivals and Departures","LDPL","PBN","1"
+"LDSP",326.9,"Arrivals and Departures","LDPL","PBN","1"
+"LDZD",181.8,"Arrivals and Departures","LDPL","PBN","1"
+"LDOS",457.19999,"Arrivals and Departures","LDPL","Current","2"
+"LDSP",319,"Arrivals and Departures","LDPL","Current","2"
+"LDZD",171,"Arrivals and Departures","LDPL","Current","2"
+"LDOS",467.5,"Arrivals and Departures","LDPL","PBN","2"
+"LDSP",326.9,"Arrivals and Departures","LDPL","PBN","2"
+"LDZD",181.8,"Arrivals and Departures","LDPL","PBN","2"
+"LDZA",320.69999,"Arrivals and Departures","LDSB","Current","1"
+"LDZD",178.9,"Arrivals and Departures","LDSB","Current","1"
+"LDZA",331.80001,"Arrivals and Departures","LDSB","PBN","1"
+"LDZD",198,"Arrivals and Departures","LDSB","PBN","1"
+"LDZA",320.69999,"Arrivals and Departures","LDSB","Current","2"
+"LDZD",178.9,"Arrivals and Departures","LDSB","Current","2"
+"LDZA",331.80001,"Arrivals and Departures","LDSB","PBN","2"
+"LDZD",198,"Arrivals and Departures","LDSB","PBN","2"
+"LDDU",107.5,"Arrivals and Departures","LDSP","Current","1"
+"LDOS",382.89999,"Arrivals and Departures","LDSP","Current","1"
+"LDPL",319,"Arrivals and Departures","LDSP","Current","1"
+"LDZA",1427.39996,"Arrivals and Departures","LDSP","Current","1"
+"LDDU",123.9,"Arrivals and Departures","LDSP","PBN","1"
+"LDOS",394.80001,"Arrivals and Departures","LDSP","PBN","1"
+"LDPL",326.9,"Arrivals and Departures","LDSP","PBN","1"
+"LDZA",1516.40001,"Arrivals and Departures","LDSP","PBN","1"
+"LDDU",107.5,"Arrivals and Departures","LDSP","Current","2"
+"LDOS",382.89999,"Arrivals and Departures","LDSP","Current","2"
+"LDPL",319,"Arrivals and Departures","LDSP","Current","2"
+"LDZA",1427.39996,"Arrivals and Departures","LDSP","Current","2"
+"LDDU",123.9,"Arrivals and Departures","LDSP","PBN","2"
+"LDOS",394.80001,"Arrivals and Departures","LDSP","PBN","2"
+"LDPL",326.9,"Arrivals and Departures","LDSP","PBN","2"
+"LDZA",1516.40001,"Arrivals and Departures","LDSP","PBN","2"
+"LDDU",2091.99998,"Arrivals and Departures","LDZA","Current","1"
+"LDLO",216.3,"Arrivals and Departures","LDZA","Current","1"
+"LDOS",515.79998,"Arrivals and Departures","LDZA","Current","1"
+"LDSB",320.69999,"Arrivals and Departures","LDZA","Current","1"
+"LDSP",1427.39996,"Arrivals and Departures","LDZA","Current","1"
+"LDZD",965.5,"Arrivals and Departures","LDZA","Current","1"
+"LDDU",2143.99996,"Arrivals and Departures","LDZA","PBN","1"
+"LDLO",216.2,"Arrivals and Departures","LDZA","PBN","1"
+"LDOS",518.89999,"Arrivals and Departures","LDZA","PBN","1"
+"LDSB",331.80001,"Arrivals and Departures","LDZA","PBN","1"
+"LDSP",1516.40001,"Arrivals and Departures","LDZA","PBN","1"
+"LDZD",981.7,"Arrivals and Departures","LDZA","PBN","1"
+"LDDU",2091.99998,"Arrivals and Departures","LDZA","Current","2"
+"LDLO",216.3,"Arrivals and Departures","LDZA","Current","2"
+"LDOS",515.79998,"Arrivals and Departures","LDZA","Current","2"
+"LDSB",320.69999,"Arrivals and Departures","LDZA","Current","2"
+"LDSP",1427.39996,"Arrivals and Departures","LDZA","Current","2"
+"LDZD",965.5,"Arrivals and Departures","LDZA","Current","2"
+"LDDU",2143.99996,"Arrivals and Departures","LDZA","PBN","2"
+"LDLO",216.2,"Arrivals and Departures","LDZA","PBN","2"
+"LDOS",518.89999,"Arrivals and Departures","LDZA","PBN","2"
+"LDSB",331.80001,"Arrivals and Departures","LDZA","PBN","2"
+"LDSP",1516.40001,"Arrivals and Departures","LDZA","PBN","2"
+"LDZD",981.7,"Arrivals and Departures","LDZA","PBN","2"
+"LDDU",161.8,"Arrivals and Departures","LDZD","Current","1"
+"LDPL",171,"Arrivals and Departures","LDZD","Current","1"
+"LDSB",178.9,"Arrivals and Departures","LDZD","Current","1"
+"LDZA",965.5,"Arrivals and Departures","LDZD","Current","1"
+"LDDU",169.2,"Arrivals and Departures","LDZD","PBN","1"
+"LDPL",181.8,"Arrivals and Departures","LDZD","PBN","1"
+"LDSB",198,"Arrivals and Departures","LDZD","PBN","1"
+"LDZA",981.7,"Arrivals and Departures","LDZD","PBN","1"
+"LDDU",161.8,"Arrivals and Departures","LDZD","Current","2"
+"LDPL",171,"Arrivals and Departures","LDZD","Current","2"
+"LDSB",178.9,"Arrivals and Departures","LDZD","Current","2"
+"LDZA",965.5,"Arrivals and Departures","LDZD","Current","2"
+"LDDU",169.2,"Arrivals and Departures","LDZD","PBN","2"
+"LDPL",181.8,"Arrivals and Departures","LDZD","PBN","2"
+"LDSB",198,"Arrivals and Departures","LDZD","PBN","2"
+"LDZA",981.7,"Arrivals and Departures","LDZD","PBN","2"
+"LDZD",127.4,"Arrivals and Departures","LISKO","PBN","1"
+"LDZD",127.4,"Arrivals and Departures","LISKO","PBN","2"
+"LDSB",216.7,"Arrivals and Departures","LJLJ","Current","1"
+"LDSB",216.7,"Arrivals and Departures","LJLJ","PBN","1"
+"LDSB",216.7,"Arrivals and Departures","LJLJ","Current","2"
+"LDSB",216.7,"Arrivals and Departures","LJLJ","PBN","2"
+"LDSB",489.7,"Arrivals and Departures","LOWG","Current","1"
+"LDZA",199.5,"Arrivals and Departures","LOWG","Current","1"
+"LDSB",489.7,"Arrivals and Departures","LOWG","PBN","1"
+"LDZA",201.8,"Arrivals and Departures","LOWG","PBN","1"
+"LDSB",489.7,"Arrivals and Departures","LOWG","Current","2"
+"LDZA",199.5,"Arrivals and Departures","LOWG","Current","2"
+"LDSB",489.7,"Arrivals and Departures","LOWG","PBN","2"
+"LDZA",201.8,"Arrivals and Departures","LOWG","PBN","2"
+"LDZA",327.5,"Arrivals and Departures","LQSA","Current","1"
+"LDZA",320.30001,"Arrivals and Departures","LQSA","PBN","1"
+"LDZA",327.5,"Arrivals and Departures","LQSA","Current","2"
+"LDZA",320.30001,"Arrivals and Departures","LQSA","PBN","2"
+"LDDU",137.9,"Arrivals and Departures","LYPG","Current","1"
+"LDDU",139.8,"Arrivals and Departures","LYPG","PBN","1"
+"LDDU",137.9,"Arrivals and Departures","LYPG","Current","2"
+"LDDU",139.8,"Arrivals and Departures","LYPG","PBN","2"
+"LDDU",23.5,"Arrivals and Departures","LYTV","Current","1"
+"LDDU",23.5,"Arrivals and Departures","LYTV","Current","2"
+"LDDU",30.5,"Arrivals and Departures","LYTV.1","PBN","1"
+"LDDU",30.5,"Arrivals and Departures","LYTV.1","PBN","2"
+"LDZA",232.89999,"Arrivals and Departures","MITNO","Current","1"
+"LDZA",234.5,"Arrivals and Departures","MITNO","PBN","1"
+"LDZA",232.89999,"Arrivals and Departures","MITNO","Current","2"
+"LDZA",234.5,"Arrivals and Departures","MITNO","PBN","2"
+"LDDU",1745.1,"Arrivals and Departures","MOKUN","Current","1"
+"LDDU",1789.3,"Arrivals and Departures","MOKUN","PBN","1"
+"LDDU",1745.1,"Arrivals and Departures","MOKUN","Current","2"
+"LDDU",1789.3,"Arrivals and Departures","MOKUN","PBN","2"
+"LDSP",410.79998,"Arrivals and Departures","NEMEK","Current","1"
+"LDSP",435.1,"Arrivals and Departures","NEMEK","PBN","1"
+"LDSP",410.79998,"Arrivals and Departures","NEMEK","Current","2"
+"LDSP",435.1,"Arrivals and Departures","NEMEK","PBN","2"
+"LDDU",286.10001,"Arrivals and Departures","NIKOL","Current","1"
+"LDZD",146,"Arrivals and Departures","NIKOL","Current","1"
+"LDDU",286.10001,"Arrivals and Departures","NIKOL","PBN","1"
+"LDZD",145.60001,"Arrivals and Departures","NIKOL","PBN","1"
+"LDDU",286.10001,"Arrivals and Departures","NIKOL","Current","2"
+"LDZD",146,"Arrivals and Departures","NIKOL","Current","2"
+"LDDU",286.10001,"Arrivals and Departures","NIKOL","PBN","2"
+"LDZD",145.60001,"Arrivals and Departures","NIKOL","PBN","2"
+"LDZA",241.60001,"Arrivals and Departures","NILKU","Current","1"
+"LDZA",241.39999,"Arrivals and Departures","NILKU","PBN","1"
+"LDZA",241.60001,"Arrivals and Departures","NILKU","Current","2"
+"LDZA",241.39999,"Arrivals and Departures","NILKU","PBN","2"
+"LDZA",1218,"Arrivals and Departures","OBUTI","Current","1"
+"LDZA",1230.4,"Arrivals and Departures","OBUTI","PBN","1"
+"LDZA",1218,"Arrivals and Departures","OBUTI","Current","2"
+"LDZA",1230.4,"Arrivals and Departures","OBUTI","PBN","2"
+"LDDU",966.59998,"Arrivals and Departures","OBUTI.1","Current","1"
+"LDSB",235.7,"Arrivals and Departures","OBUTI.1","Current","1"
+"LDDU",953.10001,"Arrivals and Departures","OBUTI.1","PBN","1"
+"LDSB",235.7,"Arrivals and Departures","OBUTI.1","PBN","1"
+"LDDU",966.59998,"Arrivals and Departures","OBUTI.1","Current","2"
+"LDSB",235.7,"Arrivals and Departures","OBUTI.1","Current","2"
+"LDDU",953.10001,"Arrivals and Departures","OBUTI.1","PBN","2"
+"LDSB",235.7,"Arrivals and Departures","OBUTI.1","PBN","2"
+"LDDU",1808.09994,"Arrivals and Departures","OBUTI.2","Current","1"
+"LDSP",923.7,"Arrivals and Departures","OBUTI.2","Current","1"
+"LDDU",1834.20006,"Arrivals and Departures","OBUTI.2","PBN","1"
+"LDSP",923.60003,"Arrivals and Departures","OBUTI.2","PBN","1"
+"LDDU",1808.09994,"Arrivals and Departures","OBUTI.2","Current","2"
+"LDSP",923.7,"Arrivals and Departures","OBUTI.2","Current","2"
+"LDDU",1834.20006,"Arrivals and Departures","OBUTI.2","PBN","2"
+"LDSP",923.60003,"Arrivals and Departures","OBUTI.2","PBN","2"
+"LDZA",245.5,"Arrivals and Departures","OSLUD","Current","1"
+"LDZA",247,"Arrivals and Departures","OSLUD","PBN","1"
+"LDZA",245.5,"Arrivals and Departures","OSLUD","Current","2"
+"LDZA",247,"Arrivals and Departures","OSLUD","PBN","2"
+"LDZA",472.09999,"Arrivals and Departures","OSLUD.1","Current","1"
+"LDZA",474.89999,"Arrivals and Departures","OSLUD.1","PBN","1"
+"LDZA",472.09999,"Arrivals and Departures","OSLUD.1","Current","2"
+"LDZA",474.89999,"Arrivals and Departures","OSLUD.1","PBN","2"
+"LDZA",949.19997,"Arrivals and Departures","OUTSIDE.FIR.E","Current","1"
+"LDZA",979.59996,"Arrivals and Departures","OUTSIDE.FIR.E","PBN","1"
+"LDZA",949.19997,"Arrivals and Departures","OUTSIDE.FIR.E","Current","2"
+"LDZA",979.59996,"Arrivals and Departures","OUTSIDE.FIR.E","PBN","2"
+"LDSP",193.89999,"Arrivals and Departures","OUTSIDE.FIR.N","Current","1"
+"LDZD",252.9,"Arrivals and Departures","OUTSIDE.FIR.N","Current","1"
+"LDSP",193.39999,"Arrivals and Departures","OUTSIDE.FIR.N","PBN","1"
+"LDZD",256.00001,"Arrivals and Departures","OUTSIDE.FIR.N","PBN","1"
+"LDSP",193.89999,"Arrivals and Departures","OUTSIDE.FIR.N","Current","2"
+"LDZD",252.9,"Arrivals and Departures","OUTSIDE.FIR.N","Current","2"
+"LDSP",193.39999,"Arrivals and Departures","OUTSIDE.FIR.N","PBN","2"
+"LDZD",256.00001,"Arrivals and Departures","OUTSIDE.FIR.N","PBN","2"
+"LDSP",582,"Arrivals and Departures","OUTSIDE.FIR.N.1","Current","1"
+"LDSP",571.99998,"Arrivals and Departures","OUTSIDE.FIR.N.1","PBN","1"
+"LDSP",582,"Arrivals and Departures","OUTSIDE.FIR.N.1","Current","2"
+"LDSP",571.99998,"Arrivals and Departures","OUTSIDE.FIR.N.1","PBN","2"
+"LDPL",1666.99995,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","1"
+"LDSP",484.6,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","1"
+"LDZD",602.30003,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","1"
+"LDPL",1714.09999,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","1"
+"LDSP",500.20002,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","1"
+"LDZD",606.89999,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","1"
+"LDPL",1666.99995,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","2"
+"LDSP",484.6,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","2"
+"LDZD",602.30003,"Arrivals and Departures","OUTSIDE.FIR.NE","Current","2"
+"LDPL",1714.09999,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","2"
+"LDSP",500.20002,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","2"
+"LDZD",606.89999,"Arrivals and Departures","OUTSIDE.FIR.NE","PBN","2"
+"LDSP",1461.60006,"Arrivals and Departures","OUTSIDE.FIR.NE.1","Current","1"
+"LDSP",1462.2,"Arrivals and Departures","OUTSIDE.FIR.NE.1","PBN","1"
+"LDSP",1461.60006,"Arrivals and Departures","OUTSIDE.FIR.NE.1","Current","2"
+"LDSP",1462.2,"Arrivals and Departures","OUTSIDE.FIR.NE.1","PBN","2"
+"LDDU",701.20002,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","1"
+"LDPL",1218.50005,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","1"
+"LDSP",2816.30002,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","1"
+"LDZD",382.1,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","1"
+"LDDU",703.20002,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","1"
+"LDPL",1343.20006,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","1"
+"LDSP",2959.00005,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","1"
+"LDZD",389.19999,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","1"
+"LDDU",701.20002,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","2"
+"LDPL",1218.50005,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","2"
+"LDSP",2816.30002,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","2"
+"LDZD",382.1,"Arrivals and Departures","OUTSIDE.FIR.NW","Current","2"
+"LDDU",703.20002,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","2"
+"LDPL",1343.20006,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","2"
+"LDSP",2959.00005,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","2"
+"LDZD",389.19999,"Arrivals and Departures","OUTSIDE.FIR.NW","PBN","2"
+"LDZA",525.20001,"Arrivals and Departures","PERAN","Current","1"
+"LDZA",530.40002,"Arrivals and Departures","PERAN","PBN","1"
+"LDZA",525.20001,"Arrivals and Departures","PERAN","Current","2"
+"LDZA",530.40002,"Arrivals and Departures","PERAN","PBN","2"
+"LDZA",371.90001,"Arrivals and Departures","PEROT","Current","1"
+"LDZA",374.90001,"Arrivals and Departures","PEROT","PBN","1"
+"LDZA",371.90001,"Arrivals and Departures","PEROT","Current","2"
+"LDZA",374.90001,"Arrivals and Departures","PEROT","PBN","2"
+"LDSP",171.3,"Arrivals and Departures","PETAK","Current","1"
+"LDZD",238,"Arrivals and Departures","PETAK","Current","1"
+"LDSP",189.60001,"Arrivals and Departures","PETAK","PBN","1"
+"LDZD",247.89999,"Arrivals and Departures","PETAK","PBN","1"
+"LDSP",171.3,"Arrivals and Departures","PETAK","Current","2"
+"LDZD",238,"Arrivals and Departures","PETAK","Current","2"
+"LDSP",189.60001,"Arrivals and Departures","PETAK","PBN","2"
+"LDZD",247.89999,"Arrivals and Departures","PETAK","PBN","2"
+"LDDU",2201.89994,"Arrivals and Departures","PETOV","Current","1"
+"LDPL",200.8,"Arrivals and Departures","PETOV","Current","1"
+"LDSB",234.3,"Arrivals and Departures","PETOV","Current","1"
+"LDSP",3403.59997,"Arrivals and Departures","PETOV","Current","1"
+"LDZA",495,"Arrivals and Departures","PETOV","Current","1"
+"LDDU",2211.99995,"Arrivals and Departures","PETOV","PBN","1"
+"LDPL",211.7,"Arrivals and Departures","PETOV","PBN","1"
+"LDSB",234.3,"Arrivals and Departures","PETOV","PBN","1"
+"LDSP",2942.7999,"Arrivals and Departures","PETOV","PBN","1"
+"LDZA",520.4,"Arrivals and Departures","PETOV","PBN","1"
+"LDDU",2201.89994,"Arrivals and Departures","PETOV","Current","2"
+"LDPL",200.8,"Arrivals and Departures","PETOV","Current","2"
+"LDSB",234.3,"Arrivals and Departures","PETOV","Current","2"
+"LDSP",3403.59997,"Arrivals and Departures","PETOV","Current","2"
+"LDZA",495,"Arrivals and Departures","PETOV","Current","2"
+"LDDU",2211.99995,"Arrivals and Departures","PETOV","PBN","2"
+"LDPL",211.7,"Arrivals and Departures","PETOV","PBN","2"
+"LDSB",234.3,"Arrivals and Departures","PETOV","PBN","2"
+"LDSP",2942.7999,"Arrivals and Departures","PETOV","PBN","2"
+"LDZA",520.4,"Arrivals and Departures","PETOV","PBN","2"
+"LDSP",456.6,"Arrivals and Departures","PETOV.2","PBN","1"
+"LDSP",456.6,"Arrivals and Departures","PETOV.2","PBN","2"
+"LDDU",2602.69992,"Arrivals and Departures","PEVAL","Current","1"
+"LDPL",1763.9,"Arrivals and Departures","PEVAL","Current","1"
+"LDSB",1041.30003,"Arrivals and Departures","PEVAL","Current","1"
+"LDSP",690.30003,"Arrivals and Departures","PEVAL","Current","1"
+"LDZD",1006.4,"Arrivals and Departures","PEVAL","Current","1"
+"LDDU",2603.19992,"Arrivals and Departures","PEVAL","PBN","1"
+"LDPL",1761.8,"Arrivals and Departures","PEVAL","PBN","1"
+"LDSB",1041.30003,"Arrivals and Departures","PEVAL","PBN","1"
+"LDSP",717.9,"Arrivals and Departures","PEVAL","PBN","1"
+"LDZD",1021.80004,"Arrivals and Departures","PEVAL","PBN","1"
+"LDDU",2602.69992,"Arrivals and Departures","PEVAL","Current","2"
+"LDPL",1763.9,"Arrivals and Departures","PEVAL","Current","2"
+"LDSB",1041.30003,"Arrivals and Departures","PEVAL","Current","2"
+"LDSP",690.30003,"Arrivals and Departures","PEVAL","Current","2"
+"LDZD",1006.4,"Arrivals and Departures","PEVAL","Current","2"
+"LDDU",2603.19992,"Arrivals and Departures","PEVAL","PBN","2"
+"LDPL",1761.8,"Arrivals and Departures","PEVAL","PBN","2"
+"LDSB",1041.30003,"Arrivals and Departures","PEVAL","PBN","2"
+"LDSP",717.9,"Arrivals and Departures","PEVAL","PBN","2"
+"LDZD",1021.80004,"Arrivals and Departures","PEVAL","PBN","2"
+"LDDU",3098.49997,"Arrivals and Departures","PEVAL.1","Current","1"
+"LDSB",768.09997,"Arrivals and Departures","PEVAL.1","Current","1"
+"LDSP",4362.09993,"Arrivals and Departures","PEVAL.1","Current","1"
+"LDZD",2032.29999,"Arrivals and Departures","PEVAL.1","Current","1"
+"LDDU",3124.59998,"Arrivals and Departures","PEVAL.1","PBN","1"
+"LDSB",768.09997,"Arrivals and Departures","PEVAL.1","PBN","1"
+"LDSP",4420.20002,"Arrivals and Departures","PEVAL.1","PBN","1"
+"LDZD",2042.10003,"Arrivals and Departures","PEVAL.1","PBN","1"
+"LDDU",3098.49997,"Arrivals and Departures","PEVAL.1","Current","2"
+"LDSB",768.09997,"Arrivals and Departures","PEVAL.1","Current","2"
+"LDSP",4362.09993,"Arrivals and Departures","PEVAL.1","Current","2"
+"LDZD",2032.29999,"Arrivals and Departures","PEVAL.1","Current","2"
+"LDDU",3124.59998,"Arrivals and Departures","PEVAL.1","PBN","2"
+"LDSB",768.09997,"Arrivals and Departures","PEVAL.1","PBN","2"
+"LDSP",4420.20002,"Arrivals and Departures","PEVAL.1","PBN","2"
+"LDZD",2042.10003,"Arrivals and Departures","PEVAL.1","PBN","2"
+"LDZA",1486.6,"Arrivals and Departures","PODET","Current","1"
+"LDZA",1499.8,"Arrivals and Departures","PODET","PBN","1"
+"LDZA",1486.6,"Arrivals and Departures","PODET","Current","2"
+"LDZA",1499.8,"Arrivals and Departures","PODET","PBN","2"
+"LDZA",237.2,"Arrivals and Departures","PODOB","Current","1"
+"LDZA",235,"Arrivals and Departures","PODOB","PBN","1"
+"LDZA",237.2,"Arrivals and Departures","PODOB","Current","2"
+"LDZA",235,"Arrivals and Departures","PODOB","PBN","2"
+"LDSB",159.39999,"Arrivals and Departures","RODON","Current","1"
+"LDSP",199.8,"Arrivals and Departures","RODON","Current","1"
+"LDSB",159.39999,"Arrivals and Departures","RODON","PBN","1"
+"LDSP",229.10001,"Arrivals and Departures","RODON","PBN","1"
+"LDSB",159.39999,"Arrivals and Departures","RODON","Current","2"
+"LDSP",199.8,"Arrivals and Departures","RODON","Current","2"
+"LDSB",159.39999,"Arrivals and Departures","RODON","PBN","2"
+"LDSP",229.10001,"Arrivals and Departures","RODON","PBN","2"
+"LDDU",4197.10002,"Arrivals and Departures","ROTAR","Current","1"
+"LDPL",1443.4,"Arrivals and Departures","ROTAR","Current","1"
+"LDSB",264,"Arrivals and Departures","ROTAR","Current","1"
+"LDSP",239.39999,"Arrivals and Departures","ROTAR","Current","1"
+"LDZA",625.7,"Arrivals and Departures","ROTAR","Current","1"
+"LDDU",4257.49996,"Arrivals and Departures","ROTAR","PBN","1"
+"LDPL",1443.4,"Arrivals and Departures","ROTAR","PBN","1"
+"LDSB",264,"Arrivals and Departures","ROTAR","PBN","1"
+"LDSP",248.60001,"Arrivals and Departures","ROTAR","PBN","1"
+"LDZA",625.40002,"Arrivals and Departures","ROTAR","PBN","1"
+"LDDU",4197.10002,"Arrivals and Departures","ROTAR","Current","2"
+"LDPL",1443.4,"Arrivals and Departures","ROTAR","Current","2"
+"LDSB",264,"Arrivals and Departures","ROTAR","Current","2"
+"LDSP",239.39999,"Arrivals and Departures","ROTAR","Current","2"
+"LDZA",625.7,"Arrivals and Departures","ROTAR","Current","2"
+"LDDU",4257.49996,"Arrivals and Departures","ROTAR","PBN","2"
+"LDPL",1443.4,"Arrivals and Departures","ROTAR","PBN","2"
+"LDSB",264,"Arrivals and Departures","ROTAR","PBN","2"
+"LDSP",248.60001,"Arrivals and Departures","ROTAR","PBN","2"
+"LDZA",625.40002,"Arrivals and Departures","ROTAR","PBN","2"
+"LDSB",260.39999,"Arrivals and Departures","ROTAR.1","Current","1"
+"LDSP",1749.2,"Arrivals and Departures","ROTAR.1","Current","1"
+"LDSB",260.39999,"Arrivals and Departures","ROTAR.1","PBN","1"
+"LDSP",1775.39999,"Arrivals and Departures","ROTAR.1","PBN","1"
+"LDSB",260.39999,"Arrivals and Departures","ROTAR.1","Current","2"
+"LDSP",1749.2,"Arrivals and Departures","ROTAR.1","Current","2"
+"LDSB",260.39999,"Arrivals and Departures","ROTAR.1","PBN","2"
+"LDSP",1775.39999,"Arrivals and Departures","ROTAR.1","PBN","2"
+"LDDU",3425.49994,"Arrivals and Departures","SABAD","Current","1"
+"LDSB",221.8,"Arrivals and Departures","SABAD","Current","1"
+"LDSP",4262.0001,"Arrivals and Departures","SABAD","Current","1"
+"LDZD",154.2,"Arrivals and Departures","SABAD","Current","1"
+"LDDU",3443.29993,"Arrivals and Departures","SABAD","PBN","1"
+"LDSB",221.89999,"Arrivals and Departures","SABAD","PBN","1"
+"LDSP",4491.90003,"Arrivals and Departures","SABAD","PBN","1"
+"LDZD",154.89999,"Arrivals and Departures","SABAD","PBN","1"
+"LDDU",3425.49994,"Arrivals and Departures","SABAD","Current","2"
+"LDSB",221.8,"Arrivals and Departures","SABAD","Current","2"
+"LDSP",4262.0001,"Arrivals and Departures","SABAD","Current","2"
+"LDZD",154.2,"Arrivals and Departures","SABAD","Current","2"
+"LDDU",3443.29993,"Arrivals and Departures","SABAD","PBN","2"
+"LDSB",221.89999,"Arrivals and Departures","SABAD","PBN","2"
+"LDSP",4491.90003,"Arrivals and Departures","SABAD","PBN","2"
+"LDZD",154.89999,"Arrivals and Departures","SABAD","PBN","2"
+"LDSP",687.4,"Arrivals and Departures","SABAD.1","Current","1"
+"LDSP",676.49999,"Arrivals and Departures","SABAD.1","PBN","1"
+"LDSP",687.4,"Arrivals and Departures","SABAD.1","Current","2"
+"LDSP",676.49999,"Arrivals and Departures","SABAD.1","PBN","2"
+"LDPL",275.79999,"Arrivals and Departures","SOMUN","Current","1"
+"LDSP",192.2,"Arrivals and Departures","SOMUN","Current","1"
+"LDPL",275.79999,"Arrivals and Departures","SOMUN","PBN","1"
+"LDSP",204.5,"Arrivals and Departures","SOMUN","PBN","1"
+"LDPL",275.79999,"Arrivals and Departures","SOMUN","Current","2"
+"LDSP",192.2,"Arrivals and Departures","SOMUN","Current","2"
+"LDPL",275.79999,"Arrivals and Departures","SOMUN","PBN","2"
+"LDSP",204.5,"Arrivals and Departures","SOMUN","PBN","2"
+"LDDU",1513.39995,"Arrivals and Departures","TORPO","Current","1"
+"LDSB",716.4,"Arrivals and Departures","TORPO","Current","1"
+"LDSP",1098.09996,"Arrivals and Departures","TORPO","Current","1"
+"LDZD",491.20001,"Arrivals and Departures","TORPO","Current","1"
+"LDDU",1532.30001,"Arrivals and Departures","TORPO","PBN","1"
+"LDSB",716.4,"Arrivals and Departures","TORPO","PBN","1"
+"LDSP",1141.5,"Arrivals and Departures","TORPO","PBN","1"
+"LDZD",396.6,"Arrivals and Departures","TORPO","PBN","1"
+"LDDU",1513.39995,"Arrivals and Departures","TORPO","Current","2"
+"LDSB",716.4,"Arrivals and Departures","TORPO","Current","2"
+"LDSP",1098.09996,"Arrivals and Departures","TORPO","Current","2"
+"LDZD",491.20001,"Arrivals and Departures","TORPO","Current","2"
+"LDDU",1532.30001,"Arrivals and Departures","TORPO","PBN","2"
+"LDSB",716.4,"Arrivals and Departures","TORPO","PBN","2"
+"LDSP",1141.5,"Arrivals and Departures","TORPO","PBN","2"
+"LDZD",396.6,"Arrivals and Departures","TORPO","PBN","2"
+"LDZA",398.4,"Arrivals and Departures","TUVAR","Current","1"
+"LDZA",413.5,"Arrivals and Departures","TUVAR","PBN","1"
+"LDZA",398.4,"Arrivals and Departures","TUVAR","Current","2"
+"LDZA",413.5,"Arrivals and Departures","TUVAR","PBN","2"
+"LDZA",732.79999,"Arrivals and Departures","TUVAR.1","Current","1"
+"LDZA",735.19997,"Arrivals and Departures","TUVAR.1","PBN","1"
+"LDZA",732.79999,"Arrivals and Departures","TUVAR.1","Current","2"
+"LDZA",735.19997,"Arrivals and Departures","TUVAR.1","PBN","2"
+"LDZA",319.79999,"Arrivals and Departures","VAKSU","Current","1"
+"LDZA",326.10001,"Arrivals and Departures","VAKSU","PBN","1"
+"LDZA",319.79999,"Arrivals and Departures","VAKSU","Current","2"
+"LDZA",326.10001,"Arrivals and Departures","VAKSU","PBN","2"
+"LDDU",426.20002,"Arrivals and Departures","VAPUP","Current","1"
+"LDSP",260.6,"Arrivals and Departures","VAPUP","Current","1"
+"LDDU",438.30001,"Arrivals and Departures","VAPUP","PBN","1"
+"LDSP",262.79998,"Arrivals and Departures","VAPUP","PBN","1"
+"LDDU",426.20002,"Arrivals and Departures","VAPUP","Current","2"
+"LDSP",260.6,"Arrivals and Departures","VAPUP","Current","2"
+"LDDU",438.30001,"Arrivals and Departures","VAPUP","PBN","2"
+"LDSP",262.79998,"Arrivals and Departures","VAPUP","PBN","2"
+"LDDU",577.89999,"Arrivals and Departures","VEBAL","Current","1"
+"LDSB",206.60001,"Arrivals and Departures","VEBAL","Current","1"
+"LDDU",578,"Arrivals and Departures","VEBAL","PBN","1"
+"LDSB",202.8,"Arrivals and Departures","VEBAL","PBN","1"
+"LDDU",577.89999,"Arrivals and Departures","VEBAL","Current","2"
+"LDSB",206.60001,"Arrivals and Departures","VEBAL","Current","2"
+"LDDU",578,"Arrivals and Departures","VEBAL","PBN","2"
+"LDSB",202.8,"Arrivals and Departures","VEBAL","PBN","2"
+"LDSP",3092.70002,"Arrivals and Departures","VEBAL.3","Current","1"
+"LDSP",3096.69998,"Arrivals and Departures","VEBAL.3","PBN","1"
+"LDSP",3092.70002,"Arrivals and Departures","VEBAL.3","Current","2"
+"LDSP",3096.69998,"Arrivals and Departures","VEBAL.3","PBN","2"
+"LDDU",182.7,"Arrivals and Departures","VEBAR","Current","1"
+"LDPL",321.70001,"Arrivals and Departures","VEBAR","Current","1"
+"LDSP",212.3,"Arrivals and Departures","VEBAR","Current","1"
+"LDDU",187.10001,"Arrivals and Departures","VEBAR","PBN","1"
+"LDPL",321.89999,"Arrivals and Departures","VEBAR","PBN","1"
+"LDSP",212.8,"Arrivals and Departures","VEBAR","PBN","1"
+"LDDU",182.7,"Arrivals and Departures","VEBAR","Current","2"
+"LDPL",321.70001,"Arrivals and Departures","VEBAR","Current","2"
+"LDSP",212.3,"Arrivals and Departures","VEBAR","Current","2"
+"LDDU",187.10001,"Arrivals and Departures","VEBAR","PBN","2"
+"LDPL",321.89999,"Arrivals and Departures","VEBAR","PBN","2"
+"LDSP",212.8,"Arrivals and Departures","VEBAR","PBN","2"
+"LDDU",610.30001,"Arrivals and Departures","VELUG","Current","1"
+"LDSP",517.80001,"Arrivals and Departures","VELUG","Current","1"
+"LDDU",622.29999,"Arrivals and Departures","VELUG","PBN","1"
+"LDSP",516.49999,"Arrivals and Departures","VELUG","PBN","1"
+"LDDU",610.30001,"Arrivals and Departures","VELUG","Current","2"
+"LDSP",517.80001,"Arrivals and Departures","VELUG","Current","2"
+"LDDU",622.29999,"Arrivals and Departures","VELUG","PBN","2"
+"LDSP",516.49999,"Arrivals and Departures","VELUG","PBN","2"
+"LDDU",472.5,"Arrivals and Departures","XAMIT","Current","1"
+"LDZD",255,"Arrivals and Departures","XAMIT","Current","1"
+"LDDU",488.69999,"Arrivals and Departures","XAMIT","PBN","1"
+"LDZD",260.5,"Arrivals and Departures","XAMIT","PBN","1"
+"LDDU",472.5,"Arrivals and Departures","XAMIT","Current","2"
+"LDZD",255,"Arrivals and Departures","XAMIT","Current","2"
+"LDDU",488.69999,"Arrivals and Departures","XAMIT","PBN","2"
+"LDZD",260.5,"Arrivals and Departures","XAMIT","PBN","2"
+"LDDU",190.3,"Arrivals and Departures","XOLTA","Current","1"
+"LDZA",252,"Arrivals and Departures","XOLTA","Current","1"
+"LDDU",196.2,"Arrivals and Departures","XOLTA","PBN","1"
+"LDZA",251.89999,"Arrivals and Departures","XOLTA","PBN","1"
+"LDDU",190.3,"Arrivals and Departures","XOLTA","Current","2"
+"LDZA",252,"Arrivals and Departures","XOLTA","Current","2"
+"LDDU",196.2,"Arrivals and Departures","XOLTA","PBN","2"
+"LDZA",251.89999,"Arrivals and Departures","XOLTA","PBN","2"
+"LDDU",20635.79981,"Arrival","All Routes","Current","1"
+"LDLO",116.4,"Arrival","All Routes","Current","1"
+"LDOS",643.39999,"Arrival","All Routes","Current","1"
+"LDPL",6015.5,"Arrival","All Routes","Current","1"
+"LDRI",760.6,"Arrival","All Routes","Current","1"
+"LDSB",3059.40004,"Arrival","All Routes","Current","1"
+"LDSP",22202.60006,"Arrival","All Routes","Current","1"
+"LDZA",9942.69991,"Arrival","All Routes","Current","1"
+"LDZD",6106.99998,"Arrival","All Routes","Current","1"
+"LDDU",20908.99987,"Arrival","All Routes","PBN","1"
+"LDLO",116.3,"Arrival","All Routes","PBN","1"
+"LDOS",645.4,"Arrival","All Routes","PBN","1"
+"LDPL",6246.90004,"Arrival","All Routes","PBN","1"
+"LDRI",794.7,"Arrival","All Routes","PBN","1"
+"LDSB",3083.30005,"Arrival","All Routes","PBN","1"
+"LDSP",23360.10011,"Arrival","All Routes","PBN","1"
+"LDZA",10121.89998,"Arrival","All Routes","PBN","1"
+"LDZD",6277.90006,"Arrival","All Routes","PBN","1"
+"LDDU",20635.79981,"Arrival","All Routes","Current","2"
+"LDLO",116.4,"Arrival","All Routes","Current","2"
+"LDOS",643.39999,"Arrival","All Routes","Current","2"
+"LDPL",6015.5,"Arrival","All Routes","Current","2"
+"LDRI",760.6,"Arrival","All Routes","Current","2"
+"LDSB",3059.40004,"Arrival","All Routes","Current","2"
+"LDSP",22202.60006,"Arrival","All Routes","Current","2"
+"LDZA",9942.69991,"Arrival","All Routes","Current","2"
+"LDZD",6106.99998,"Arrival","All Routes","Current","2"
+"LDDU",20908.99987,"Arrival","All Routes","PBN","2"
+"LDLO",116.3,"Arrival","All Routes","PBN","2"
+"LDOS",645.4,"Arrival","All Routes","PBN","2"
+"LDPL",6246.90004,"Arrival","All Routes","PBN","2"
+"LDRI",794.7,"Arrival","All Routes","PBN","2"
+"LDSB",3083.30005,"Arrival","All Routes","PBN","2"
+"LDSP",23360.10011,"Arrival","All Routes","PBN","2"
+"LDZA",10121.89998,"Arrival","All Routes","PBN","2"
+"LDZD",6277.90006,"Arrival","All Routes","PBN","2"
+"LDDU",20879.89976,"Departure","All Routes","Current","1"
+"LDLO",99.9,"Departure","All Routes","Current","1"
+"LDOS",712.49997,"Departure","All Routes","Current","1"
+"LDPL",4763.69998,"Departure","All Routes","Current","1"
+"LDRI",1412.4,"Departure","All Routes","Current","1"
+"LDSB",3197.69996,"Departure","All Routes","Current","1"
+"LDSP",23117.20002,"Departure","All Routes","Current","1"
+"LDZA",8955.09993,"Departure","All Routes","Current","1"
+"LDZD",5726.29999,"Departure","All Routes","Current","1"
+"LDDU",21172.0001,"Departure","All Routes","PBN","1"
+"LDLO",99.9,"Departure","All Routes","PBN","1"
+"LDOS",735.8,"Departure","All Routes","PBN","1"
+"LDPL",4760.29999,"Departure","All Routes","PBN","1"
+"LDRI",1442.8,"Departure","All Routes","PBN","1"
+"LDSB",3200.29995,"Departure","All Routes","PBN","1"
+"LDSP",23335.99985,"Departure","All Routes","PBN","1"
+"LDZA",9079.39994,"Departure","All Routes","PBN","1"
+"LDZD",5850.30003,"Departure","All Routes","PBN","1"
+"LDDU",20879.89976,"Departure","All Routes","Current","2"
+"LDLO",99.9,"Departure","All Routes","Current","2"
+"LDOS",712.49997,"Departure","All Routes","Current","2"
+"LDPL",4763.69998,"Departure","All Routes","Current","2"
+"LDRI",1412.4,"Departure","All Routes","Current","2"
+"LDSB",3197.69996,"Departure","All Routes","Current","2"
+"LDSP",23117.20002,"Departure","All Routes","Current","2"
+"LDZA",8955.09993,"Departure","All Routes","Current","2"
+"LDZD",5726.29999,"Departure","All Routes","Current","2"
+"LDDU",21172.0001,"Departure","All Routes","PBN","2"
+"LDLO",99.9,"Departure","All Routes","PBN","2"
+"LDOS",735.8,"Departure","All Routes","PBN","2"
+"LDPL",4760.29999,"Departure","All Routes","PBN","2"
+"LDRI",1442.8,"Departure","All Routes","PBN","2"
+"LDSB",3200.29995,"Departure","All Routes","PBN","2"
+"LDSP",23335.99985,"Departure","All Routes","PBN","2"
+"LDZA",9079.39994,"Departure","All Routes","PBN","2"
+"LDZD",5850.30003,"Departure","All Routes","PBN","2"
+"LDDU",41515.69957,"Arrivals and Departures","All Routes","Current","1"
+"LDLO",216.3,"Arrivals and Departures","All Routes","Current","1"
+"LDOS",1355.89996,"Arrivals and Departures","All Routes","Current","1"
+"LDPL",10779.19998,"Arrivals and Departures","All Routes","Current","1"
+"LDRI",2173,"Arrivals and Departures","All Routes","Current","1"
+"LDSB",6257.1,"Arrivals and Departures","All Routes","Current","1"
+"LDSP",45319.80008,"Arrivals and Departures","All Routes","Current","1"
+"LDZA",18897.79984,"Arrivals and Departures","All Routes","Current","1"
+"LDZD",11833.29997,"Arrivals and Departures","All Routes","Current","1"
+"LDDU",41515.69957,"Arrivals and Departures","All Routes","Current","2"
+"LDLO",216.3,"Arrivals and Departures","All Routes","Current","2"
+"LDOS",1355.89996,"Arrivals and Departures","All Routes","Current","2"
+"LDPL",10779.19998,"Arrivals and Departures","All Routes","Current","2"
+"LDRI",2173,"Arrivals and Departures","All Routes","Current","2"
+"LDSB",6257.1,"Arrivals and Departures","All Routes","Current","2"
+"LDSP",45319.80008,"Arrivals and Departures","All Routes","Current","2"
+"LDZA",18897.79984,"Arrivals and Departures","All Routes","Current","2"
+"LDZD",11833.29997,"Arrivals and Departures","All Routes","Current","2"
+"LDDU",42080.99997,"Arrivals and Departures","All Routes","PBN","1"
+"LDLO",216.2,"Arrivals and Departures","All Routes","PBN","1"
+"LDOS",1381.2,"Arrivals and Departures","All Routes","PBN","1"
+"LDPL",11007.20003,"Arrivals and Departures","All Routes","PBN","1"
+"LDRI",2237.5,"Arrivals and Departures","All Routes","PBN","1"
+"LDSB",6283.6,"Arrivals and Departures","All Routes","PBN","1"
+"LDSP",46696.09996,"Arrivals and Departures","All Routes","PBN","1"
+"LDZA",19201.29992,"Arrivals and Departures","All Routes","PBN","1"
+"LDZD",12128.20009,"Arrivals and Departures","All Routes","PBN","1"
+"LDDU",42080.99997,"Arrivals and Departures","All Routes","PBN","2"
+"LDLO",216.2,"Arrivals and Departures","All Routes","PBN","2"
+"LDOS",1381.2,"Arrivals and Departures","All Routes","PBN","2"
+"LDPL",11007.20003,"Arrivals and Departures","All Routes","PBN","2"
+"LDRI",2237.5,"Arrivals and Departures","All Routes","PBN","2"
+"LDSB",6283.6,"Arrivals and Departures","All Routes","PBN","2"
+"LDSP",46696.09996,"Arrivals and Departures","All Routes","PBN","2"
+"LDZA",19201.29992,"Arrivals and Departures","All Routes","PBN","2"
+"LDZD",12128.20009,"Arrivals and Departures","All Routes","PBN","2"
+"All Airports",138348.0994,"Arrivals and Departures","All Routes","Current","1"
+"All Airports",141232.29997,"Arrivals and Departures","All Routes","PBN","1"
+"All Airports",138348.0994,"Arrivals and Departures","All Routes","Current","2"
+"All Airports",141232.29997,"Arrivals and Departures","All Routes","PBN","2"

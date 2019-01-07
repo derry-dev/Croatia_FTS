@@ -1,169 +1,319 @@
-"Sector","ConflictType","Scenario","freq"
-"ACC_ZAGREB","Crossing Both In Vertical","Current",3
-"ACC_ZAGREB","Crossing Both In Vertical","PBN",3
-"ACC_ZAGREB","Crossing One In Vertical","Current",3
-"ACC_ZAGREB","Crossing One In Vertical","PBN",3
-"ACC_ZAGREB","Opposite Both In Vertical","Current",9
-"ACC_ZAGREB","Opposite Both In Vertical","PBN",9
-"ACC_ZAGREB","Opposite One In Vertical","Current",11
-"ACC_ZAGREB","Opposite One In Vertical","PBN",11
-"ACC_ZAGREB","Same Track Both In Vertical","Current",2
-"ACC_ZAGREB","Same Track Both In Vertical","PBN",2
-"ACC_ZAGREB","Same Track One In Vertical","Current",7
-"ACC_ZAGREB","Same Track One In Vertical","PBN",7
-"CTR_BRAC","Crossing Both In Vertical","Current",2
-"CTR_BRAC","Crossing Both In Vertical","PBN",2
-"CTR_DUBROVNIK","Crossing Both In Vertical","Current",2
-"CTR_DUBROVNIK","Crossing Both In Vertical","PBN",2
-"CTR_DUBROVNIK","Opposite Both In Vertical","Current",1
-"CTR_DUBROVNIK","Opposite Both In Vertical","PBN",1
-"CTR_DUBROVNIK","Opposite One In Vertical","Current",2
-"CTR_DUBROVNIK","Opposite One In Vertical","PBN",2
-"CTR_DUBROVNIK","Same Track Both In Vertical","Current",30
-"CTR_DUBROVNIK","Same Track Both In Vertical","PBN",30
-"CTR_DUBROVNIK","Same Track One In Vertical","Current",6
-"CTR_DUBROVNIK","Same Track One In Vertical","PBN",6
-"CTR_LOSINJ","Crossing Both In Vertical","Current",1
-"CTR_LOSINJ","Crossing Both In Vertical","PBN",1
-"CTR_LOSINJ","Opposite Both In Vertical","Current",1
-"CTR_LOSINJ","Opposite Both In Vertical","PBN",1
-"CTR_PULA","Crossing Both In Vertical","Current",2
-"CTR_PULA","Crossing Both In Vertical","PBN",2
-"CTR_PULA","Crossing One In Vertical","Current",3
-"CTR_PULA","Crossing One In Vertical","PBN",3
-"CTR_PULA","Opposite One In Vertical","Current",2
-"CTR_PULA","Opposite One In Vertical","PBN",2
-"CTR_PULA","Same Track Both In Vertical","Current",6
-"CTR_PULA","Same Track Both In Vertical","PBN",6
-"CTR_PULA","Same Track One In Vertical","Current",1
-"CTR_PULA","Same Track One In Vertical","PBN",1
-"CTR_RIJEKA","Opposite One In Vertical","Current",2
-"CTR_RIJEKA","Opposite One In Vertical","PBN",2
-"CTR_SPLIT","Crossing One In Vertical","Current",2
-"CTR_SPLIT","Crossing One In Vertical","PBN",2
-"CTR_SPLIT","Opposite Both In Vertical","Current",1
-"CTR_SPLIT","Opposite Both In Vertical","PBN",1
-"CTR_ZADAR","Crossing Both In Vertical","Current",2
-"CTR_ZADAR","Crossing Both In Vertical","PBN",2
-"CTR_ZADAR","Opposite One In Vertical","Current",1
-"CTR_ZADAR","Opposite One In Vertical","PBN",1
-"CTR_ZADAR","Same Track One In Vertical","Current",2
-"CTR_ZADAR","Same Track One In Vertical","PBN",2
-"CTR_ZAGREB","Same Track Both In Vertical","Current",8
-"CTR_ZAGREB","Same Track Both In Vertical","PBN",8
-"FIC_ZAGREB","Same Track Both Cruising","Current",1
-"FIC_ZAGREB","Same Track Both Cruising","PBN",1
-"FIC_ZAGREB","Same Track One In Vertical","Current",1
-"FIC_ZAGREB","Same Track One In Vertical","PBN",1
-"OUTSIDE_FIR_E","Crossing Both In Vertical","Current",1
-"OUTSIDE_FIR_E","Crossing Both In Vertical","PBN",1
-"OUTSIDE_FIR_E","Crossing One In Vertical","Current",1
-"OUTSIDE_FIR_E","Crossing One In Vertical","PBN",1
-"OUTSIDE_FIR_N","Crossing Both In Vertical","Current",7
-"OUTSIDE_FIR_N","Crossing Both In Vertical","PBN",7
-"OUTSIDE_FIR_N","Crossing One In Vertical","Current",1
-"OUTSIDE_FIR_N","Crossing One In Vertical","PBN",1
-"OUTSIDE_FIR_N","Opposite Both In Vertical","Current",2
-"OUTSIDE_FIR_N","Opposite Both In Vertical","PBN",2
-"OUTSIDE_FIR_N","Opposite One In Vertical","Current",7
-"OUTSIDE_FIR_N","Opposite One In Vertical","PBN",7
-"OUTSIDE_FIR_N","Same Track Both In Vertical","Current",1
-"OUTSIDE_FIR_N","Same Track Both In Vertical","PBN",1
-"OUTSIDE_FIR_N","Same Track One In Vertical","Current",5
-"OUTSIDE_FIR_N","Same Track One In Vertical","PBN",5
-"OUTSIDE_FIR_W","Same Track Both Cruising","Current",2
-"OUTSIDE_FIR_W","Same Track Both Cruising","PBN",2
-"TMA_DUBROVNIK","Crossing Both In Vertical","Current",5
-"TMA_DUBROVNIK","Crossing Both In Vertical","PBN",5
-"TMA_DUBROVNIK","Crossing One In Vertical","Current",1
-"TMA_DUBROVNIK","Crossing One In Vertical","PBN",1
-"TMA_DUBROVNIK","Opposite Both Cruising","Current",1
-"TMA_DUBROVNIK","Opposite Both Cruising","PBN",1
-"TMA_DUBROVNIK","Opposite Both In Vertical","Current",2
-"TMA_DUBROVNIK","Opposite Both In Vertical","PBN",2
-"TMA_DUBROVNIK","Opposite One In Vertical","Current",3
-"TMA_DUBROVNIK","Opposite One In Vertical","PBN",3
-"TMA_DUBROVNIK","Same Track Both In Vertical","Current",3
-"TMA_DUBROVNIK","Same Track Both In Vertical","PBN",3
-"TMA_DUBROVNIK","Same Track One In Vertical","Current",2
-"TMA_DUBROVNIK","Same Track One In Vertical","PBN",2
-"TMA_PULA","Crossing Both Cruising","Current",1
-"TMA_PULA","Crossing Both Cruising","PBN",1
-"TMA_PULA","Crossing Both In Vertical","Current",1
-"TMA_PULA","Crossing Both In Vertical","PBN",1
-"TMA_PULA","Crossing One In Vertical","Current",11
-"TMA_PULA","Crossing One In Vertical","PBN",11
-"TMA_PULA","Opposite Both Cruising","Current",1
-"TMA_PULA","Opposite Both Cruising","PBN",1
-"TMA_PULA","Opposite One In Vertical","Current",2
-"TMA_PULA","Opposite One In Vertical","PBN",2
-"TMA_PULA","Same Track Both In Vertical","Current",2
-"TMA_PULA","Same Track Both In Vertical","PBN",2
-"TMA_PULA","Same Track One In Vertical","Current",3
-"TMA_PULA","Same Track One In Vertical","PBN",3
-"TMA_SPLIT","Crossing Both In Vertical","Current",13
-"TMA_SPLIT","Crossing Both In Vertical","PBN",13
-"TMA_SPLIT","Crossing One In Vertical","Current",6
-"TMA_SPLIT","Crossing One In Vertical","PBN",6
-"TMA_SPLIT","Opposite Both In Vertical","Current",5
-"TMA_SPLIT","Opposite Both In Vertical","PBN",5
-"TMA_SPLIT","Same Track Both In Vertical","Current",5
-"TMA_SPLIT","Same Track Both In Vertical","PBN",5
-"TMA_SPLIT","Same Track One In Vertical","Current",3
-"TMA_SPLIT","Same Track One In Vertical","PBN",3
-"TMA_ZADAR","Crossing Both In Vertical","Current",2
-"TMA_ZADAR","Crossing Both In Vertical","PBN",2
-"TMA_ZADAR","Opposite Both Cruising","Current",1
-"TMA_ZADAR","Opposite Both Cruising","PBN",1
-"TMA_ZADAR","Opposite Both In Vertical","Current",1
-"TMA_ZADAR","Opposite Both In Vertical","PBN",1
-"TMA_ZADAR","Opposite One In Vertical","Current",3
-"TMA_ZADAR","Opposite One In Vertical","PBN",3
-"TMA_ZADAR","Same Track One In Vertical","Current",4
-"TMA_ZADAR","Same Track One In Vertical","PBN",4
-"TMA_ZAGREB","Crossing Both In Vertical","Current",7
-"TMA_ZAGREB","Crossing Both In Vertical","PBN",7
-"TMA_ZAGREB","Crossing One In Vertical","Current",6
-"TMA_ZAGREB","Crossing One In Vertical","PBN",6
-"TMA_ZAGREB","Opposite Both In Vertical","Current",2
-"TMA_ZAGREB","Opposite Both In Vertical","PBN",2
-"TMA_ZAGREB","Opposite One In Vertical","Current",3
-"TMA_ZAGREB","Opposite One In Vertical","PBN",3
-"TMA_ZAGREB","Same Track Both In Vertical","Current",2
-"TMA_ZAGREB","Same Track Both In Vertical","PBN",2
-"TMA_ZAGREB","Same Track One In Vertical","Current",5
-"TMA_ZAGREB","Same Track One In Vertical","PBN",5
-"All Sectors","Crossing Both Cruising","Current",1
-"All Sectors","Crossing Both In Vertical","Current",48
-"All Sectors","Crossing One In Vertical","Current",34
-"All Sectors","Opposite Both Cruising","Current",3
-"All Sectors","Opposite Both In Vertical","Current",24
-"All Sectors","Opposite One In Vertical","Current",36
-"All Sectors","Same Track Both Cruising","Current",3
-"All Sectors","Same Track Both In Vertical","Current",59
-"All Sectors","Same Track One In Vertical","Current",39
-"All Sectors","Crossing Both Cruising","PBN",1
-"All Sectors","Crossing Both In Vertical","PBN",48
-"All Sectors","Crossing One In Vertical","PBN",34
-"All Sectors","Opposite Both Cruising","PBN",3
-"All Sectors","Opposite Both In Vertical","PBN",24
-"All Sectors","Opposite One In Vertical","PBN",36
-"All Sectors","Same Track Both Cruising","PBN",3
-"All Sectors","Same Track Both In Vertical","PBN",59
-"All Sectors","Same Track One In Vertical","PBN",39
-"All TMA","Crossing Both Cruising","Current",1
-"All TMA","Crossing Both In Vertical","Current",28
-"All TMA","Crossing One In Vertical","Current",24
-"All TMA","Opposite Both Cruising","Current",3
-"All TMA","Opposite Both In Vertical","Current",10
-"All TMA","Opposite One In Vertical","Current",11
-"All TMA","Same Track Both In Vertical","Current",12
-"All TMA","Same Track One In Vertical","Current",17
-"All TMA","Crossing Both Cruising","PBN",1
-"All TMA","Crossing Both In Vertical","PBN",28
-"All TMA","Crossing One In Vertical","PBN",24
-"All TMA","Opposite Both Cruising","PBN",3
-"All TMA","Opposite Both In Vertical","PBN",10
-"All TMA","Opposite One In Vertical","PBN",11
-"All TMA","Same Track Both In Vertical","PBN",12
-"All TMA","Same Track One In Vertical","PBN",17
+"Sector","Count","ConflictType","Scenario","Runway"
+"ACC_ZAGREB",1,"Crossing Both In Vertical","Current","1"
+"ACC_ZAGREB",1,"Crossing Both In Vertical","Current","2"
+"ACC_ZAGREB",4,"Crossing Both In Vertical","PBN","1"
+"ACC_ZAGREB",4,"Crossing Both In Vertical","PBN","2"
+"ACC_ZAGREB",3,"Crossing One In Vertical","Current","1"
+"ACC_ZAGREB",3,"Crossing One In Vertical","Current","2"
+"ACC_ZAGREB",3,"Crossing One In Vertical","PBN","1"
+"ACC_ZAGREB",3,"Crossing One In Vertical","PBN","2"
+"ACC_ZAGREB",8,"Opposite Both In Vertical","Current","1"
+"ACC_ZAGREB",8,"Opposite Both In Vertical","Current","2"
+"ACC_ZAGREB",8,"Opposite Both In Vertical","PBN","1"
+"ACC_ZAGREB",8,"Opposite Both In Vertical","PBN","2"
+"ACC_ZAGREB",14,"Opposite One In Vertical","Current","1"
+"ACC_ZAGREB",14,"Opposite One In Vertical","Current","2"
+"ACC_ZAGREB",9,"Opposite One In Vertical","PBN","1"
+"ACC_ZAGREB",9,"Opposite One In Vertical","PBN","2"
+"ACC_ZAGREB",1,"Same Track Both Cruising","Current","1"
+"ACC_ZAGREB",1,"Same Track Both Cruising","Current","2"
+"ACC_ZAGREB",1,"Same Track Both Cruising","PBN","1"
+"ACC_ZAGREB",1,"Same Track Both Cruising","PBN","2"
+"ACC_ZAGREB",2,"Same Track Both In Vertical","Current","1"
+"ACC_ZAGREB",2,"Same Track Both In Vertical","Current","2"
+"ACC_ZAGREB",4,"Same Track Both In Vertical","PBN","1"
+"ACC_ZAGREB",4,"Same Track Both In Vertical","PBN","2"
+"ACC_ZAGREB",5,"Same Track One In Vertical","Current","1"
+"ACC_ZAGREB",5,"Same Track One In Vertical","Current","2"
+"ACC_ZAGREB",2,"Same Track One In Vertical","PBN","1"
+"ACC_ZAGREB",2,"Same Track One In Vertical","PBN","2"
+"CTR_BRAC",1,"Crossing Both In Vertical","Current","1"
+"CTR_BRAC",1,"Crossing Both In Vertical","Current","2"
+"CTR_BRAC",1,"Crossing Both In Vertical","PBN","1"
+"CTR_BRAC",1,"Crossing Both In Vertical","PBN","2"
+"CTR_DUBROVNIK",2,"Crossing One In Vertical","PBN","1"
+"CTR_DUBROVNIK",2,"Crossing One In Vertical","PBN","2"
+"CTR_DUBROVNIK",5,"Opposite One In Vertical","Current","1"
+"CTR_DUBROVNIK",5,"Opposite One In Vertical","Current","2"
+"CTR_DUBROVNIK",5,"Opposite One In Vertical","PBN","1"
+"CTR_DUBROVNIK",5,"Opposite One In Vertical","PBN","2"
+"CTR_DUBROVNIK",1,"Same Track Both In Vertical","Current","1"
+"CTR_DUBROVNIK",1,"Same Track Both In Vertical","Current","2"
+"CTR_DUBROVNIK",4,"Same Track Both In Vertical","PBN","1"
+"CTR_DUBROVNIK",4,"Same Track Both In Vertical","PBN","2"
+"CTR_DUBROVNIK",3,"Same Track One In Vertical","Current","1"
+"CTR_DUBROVNIK",3,"Same Track One In Vertical","Current","2"
+"CTR_DUBROVNIK",4,"Same Track One In Vertical","PBN","1"
+"CTR_DUBROVNIK",4,"Same Track One In Vertical","PBN","2"
+"CTR_PULA",5,"Crossing One In Vertical","Current","1"
+"CTR_PULA",5,"Crossing One In Vertical","Current","2"
+"CTR_PULA",5,"Crossing One In Vertical","PBN","1"
+"CTR_PULA",5,"Crossing One In Vertical","PBN","2"
+"CTR_PULA",1,"Opposite Both In Vertical","Current","1"
+"CTR_PULA",1,"Opposite Both In Vertical","Current","2"
+"CTR_PULA",1,"Same Track Both In Vertical","Current","1"
+"CTR_PULA",1,"Same Track Both In Vertical","Current","2"
+"CTR_PULA",2,"Same Track Both In Vertical","PBN","1"
+"CTR_PULA",2,"Same Track Both In Vertical","PBN","2"
+"CTR_PULA",1,"Same Track One In Vertical","Current","1"
+"CTR_PULA",1,"Same Track One In Vertical","Current","2"
+"CTR_RIJEKA",2,"Opposite One In Vertical","Current","1"
+"CTR_RIJEKA",2,"Opposite One In Vertical","Current","2"
+"CTR_RIJEKA",2,"Opposite One In Vertical","PBN","1"
+"CTR_RIJEKA",2,"Opposite One In Vertical","PBN","2"
+"CTR_SPLIT",3,"Crossing One In Vertical","Current","1"
+"CTR_SPLIT",3,"Crossing One In Vertical","Current","2"
+"CTR_SPLIT",1,"Crossing One In Vertical","PBN","1"
+"CTR_SPLIT",1,"Crossing One In Vertical","PBN","2"
+"CTR_SPLIT",1,"Same Track Both In Vertical","Current","1"
+"CTR_SPLIT",1,"Same Track Both In Vertical","Current","2"
+"CTR_SPLIT",2,"Same Track One In Vertical","Current","1"
+"CTR_SPLIT",2,"Same Track One In Vertical","Current","2"
+"CTR_ZADAR",1,"Crossing Both In Vertical","Current","1"
+"CTR_ZADAR",1,"Crossing Both In Vertical","Current","2"
+"CTR_ZADAR",1,"Crossing Both In Vertical","PBN","1"
+"CTR_ZADAR",1,"Crossing Both In Vertical","PBN","2"
+"CTR_ZAGREB",1,"Crossing Both In Vertical","Current","1"
+"CTR_ZAGREB",1,"Crossing Both In Vertical","Current","2"
+"CTR_ZAGREB",1,"Same Track Both In Vertical","Current","1"
+"CTR_ZAGREB",1,"Same Track Both In Vertical","Current","2"
+"CTR_ZAGREB",2,"Same Track Both In Vertical","PBN","1"
+"CTR_ZAGREB",2,"Same Track Both In Vertical","PBN","2"
+"LQSB_FIR",1,"Opposite One In Vertical","Current","1"
+"LQSB_FIR",1,"Opposite One In Vertical","Current","2"
+"LQSB_FIR",1,"Same Track Both In Vertical","PBN","1"
+"LQSB_FIR",1,"Same Track Both In Vertical","PBN","2"
+"LQSB_FIR",1,"Same Track One In Vertical","Current","1"
+"LQSB_FIR",1,"Same Track One In Vertical","Current","2"
+"OUTSIDE_FIR_E",1,"Crossing Both In Vertical","PBN","1"
+"OUTSIDE_FIR_E",1,"Crossing Both In Vertical","PBN","2"
+"OUTSIDE_FIR_E",1,"Crossing One In Vertical","Current","1"
+"OUTSIDE_FIR_E",1,"Crossing One In Vertical","Current","2"
+"OUTSIDE_FIR_E",1,"Crossing One In Vertical","PBN","1"
+"OUTSIDE_FIR_E",1,"Crossing One In Vertical","PBN","2"
+"OUTSIDE_FIR_E",2,"Opposite Both In Vertical","Current","1"
+"OUTSIDE_FIR_E",2,"Opposite Both In Vertical","Current","2"
+"OUTSIDE_FIR_E",2,"Opposite Both In Vertical","PBN","1"
+"OUTSIDE_FIR_E",2,"Opposite Both In Vertical","PBN","2"
+"OUTSIDE_FIR_N",5,"Crossing Both In Vertical","Current","1"
+"OUTSIDE_FIR_N",5,"Crossing Both In Vertical","Current","2"
+"OUTSIDE_FIR_N",5,"Crossing Both In Vertical","PBN","1"
+"OUTSIDE_FIR_N",5,"Crossing Both In Vertical","PBN","2"
+"OUTSIDE_FIR_N",1,"Crossing One In Vertical","Current","1"
+"OUTSIDE_FIR_N",1,"Crossing One In Vertical","Current","2"
+"OUTSIDE_FIR_N",2,"Crossing One In Vertical","PBN","1"
+"OUTSIDE_FIR_N",2,"Crossing One In Vertical","PBN","2"
+"OUTSIDE_FIR_N",1,"Opposite Both In Vertical","Current","1"
+"OUTSIDE_FIR_N",1,"Opposite Both In Vertical","Current","2"
+"OUTSIDE_FIR_N",1,"Opposite Both In Vertical","PBN","1"
+"OUTSIDE_FIR_N",1,"Opposite Both In Vertical","PBN","2"
+"OUTSIDE_FIR_N",7,"Opposite One In Vertical","Current","1"
+"OUTSIDE_FIR_N",7,"Opposite One In Vertical","Current","2"
+"OUTSIDE_FIR_N",4,"Opposite One In Vertical","PBN","1"
+"OUTSIDE_FIR_N",4,"Opposite One In Vertical","PBN","2"
+"OUTSIDE_FIR_N",1,"Same Track Both Cruising","Current","1"
+"OUTSIDE_FIR_N",1,"Same Track Both Cruising","Current","2"
+"OUTSIDE_FIR_N",3,"Same Track One In Vertical","Current","1"
+"OUTSIDE_FIR_N",3,"Same Track One In Vertical","Current","2"
+"OUTSIDE_FIR_N",2,"Same Track One In Vertical","PBN","1"
+"OUTSIDE_FIR_N",2,"Same Track One In Vertical","PBN","2"
+"OUTSIDE_FIR_W",1,"Same Track Both Cruising","Current","1"
+"OUTSIDE_FIR_W",1,"Same Track Both Cruising","Current","2"
+"OUTSIDE_FIR_W",1,"Same Track Both Cruising","PBN","1"
+"OUTSIDE_FIR_W",1,"Same Track Both Cruising","PBN","2"
+"OUTSIDE_FIR_W",1,"Same Track Both In Vertical","Current","1"
+"OUTSIDE_FIR_W",1,"Same Track Both In Vertical","Current","2"
+"TMA_DUBROVNIK",2,"Crossing Both In Vertical","Current","1"
+"TMA_DUBROVNIK",2,"Crossing Both In Vertical","Current","2"
+"TMA_DUBROVNIK",1,"Crossing Both In Vertical","PBN","1"
+"TMA_DUBROVNIK",1,"Crossing Both In Vertical","PBN","2"
+"TMA_DUBROVNIK",1,"Opposite Both Cruising","PBN","1"
+"TMA_DUBROVNIK",1,"Opposite Both Cruising","PBN","2"
+"TMA_DUBROVNIK",1,"Opposite One In Vertical","Current","1"
+"TMA_DUBROVNIK",1,"Opposite One In Vertical","Current","2"
+"TMA_DUBROVNIK",2,"Opposite One In Vertical","PBN","1"
+"TMA_DUBROVNIK",2,"Opposite One In Vertical","PBN","2"
+"TMA_DUBROVNIK",1,"Same Track Both In Vertical","Current","1"
+"TMA_DUBROVNIK",1,"Same Track Both In Vertical","Current","2"
+"TMA_DUBROVNIK",5,"Same Track Both In Vertical","PBN","1"
+"TMA_DUBROVNIK",5,"Same Track Both In Vertical","PBN","2"
+"TMA_DUBROVNIK",1,"Same Track One In Vertical","Current","1"
+"TMA_DUBROVNIK",1,"Same Track One In Vertical","Current","2"
+"TMA_DUBROVNIK",2,"Same Track One In Vertical","PBN","1"
+"TMA_DUBROVNIK",2,"Same Track One In Vertical","PBN","2"
+"TMA_PULA",1,"Crossing Both Cruising","Current","1"
+"TMA_PULA",1,"Crossing Both Cruising","Current","2"
+"TMA_PULA",1,"Crossing Both Cruising","PBN","1"
+"TMA_PULA",1,"Crossing Both Cruising","PBN","2"
+"TMA_PULA",1,"Crossing Both In Vertical","Current","1"
+"TMA_PULA",1,"Crossing Both In Vertical","Current","2"
+"TMA_PULA",1,"Crossing Both In Vertical","PBN","1"
+"TMA_PULA",1,"Crossing Both In Vertical","PBN","2"
+"TMA_PULA",9,"Crossing One In Vertical","Current","1"
+"TMA_PULA",9,"Crossing One In Vertical","Current","2"
+"TMA_PULA",8,"Crossing One In Vertical","PBN","1"
+"TMA_PULA",8,"Crossing One In Vertical","PBN","2"
+"TMA_PULA",1,"Opposite Both In Vertical","Current","1"
+"TMA_PULA",1,"Opposite Both In Vertical","Current","2"
+"TMA_PULA",2,"Opposite Both In Vertical","PBN","1"
+"TMA_PULA",2,"Opposite Both In Vertical","PBN","2"
+"TMA_PULA",1,"Opposite One In Vertical","Current","1"
+"TMA_PULA",1,"Opposite One In Vertical","Current","2"
+"TMA_PULA",1,"Opposite One In Vertical","PBN","1"
+"TMA_PULA",1,"Opposite One In Vertical","PBN","2"
+"TMA_PULA",1,"Same Track Both Cruising","Current","1"
+"TMA_PULA",1,"Same Track Both Cruising","Current","2"
+"TMA_PULA",1,"Same Track Both Cruising","PBN","1"
+"TMA_PULA",1,"Same Track Both Cruising","PBN","2"
+"TMA_PULA",1,"Same Track Both In Vertical","Current","1"
+"TMA_PULA",1,"Same Track Both In Vertical","Current","2"
+"TMA_PULA",2,"Same Track One In Vertical","Current","1"
+"TMA_PULA",2,"Same Track One In Vertical","Current","2"
+"TMA_PULA",2,"Same Track One In Vertical","PBN","1"
+"TMA_PULA",2,"Same Track One In Vertical","PBN","2"
+"TMA_SPLIT",3,"Crossing Both Cruising","PBN","1"
+"TMA_SPLIT",3,"Crossing Both Cruising","PBN","2"
+"TMA_SPLIT",3,"Crossing Both In Vertical","Current","1"
+"TMA_SPLIT",3,"Crossing Both In Vertical","Current","2"
+"TMA_SPLIT",10,"Crossing Both In Vertical","PBN","1"
+"TMA_SPLIT",10,"Crossing Both In Vertical","PBN","2"
+"TMA_SPLIT",4,"Crossing One In Vertical","Current","1"
+"TMA_SPLIT",4,"Crossing One In Vertical","Current","2"
+"TMA_SPLIT",10,"Crossing One In Vertical","PBN","1"
+"TMA_SPLIT",10,"Crossing One In Vertical","PBN","2"
+"TMA_SPLIT",1,"Opposite Both Cruising","Current","1"
+"TMA_SPLIT",1,"Opposite Both Cruising","Current","2"
+"TMA_SPLIT",3,"Opposite Both Cruising","PBN","1"
+"TMA_SPLIT",3,"Opposite Both Cruising","PBN","2"
+"TMA_SPLIT",2,"Opposite Both In Vertical","Current","1"
+"TMA_SPLIT",2,"Opposite Both In Vertical","Current","2"
+"TMA_SPLIT",1,"Opposite Both In Vertical","PBN","1"
+"TMA_SPLIT",1,"Opposite Both In Vertical","PBN","2"
+"TMA_SPLIT",1,"Opposite One In Vertical","Current","1"
+"TMA_SPLIT",1,"Opposite One In Vertical","Current","2"
+"TMA_SPLIT",1,"Opposite One In Vertical","PBN","1"
+"TMA_SPLIT",1,"Opposite One In Vertical","PBN","2"
+"TMA_SPLIT",2,"Same Track Both In Vertical","Current","1"
+"TMA_SPLIT",2,"Same Track Both In Vertical","Current","2"
+"TMA_SPLIT",2,"Same Track Both In Vertical","PBN","1"
+"TMA_SPLIT",2,"Same Track Both In Vertical","PBN","2"
+"TMA_SPLIT",1,"Same Track One In Vertical","Current","1"
+"TMA_SPLIT",1,"Same Track One In Vertical","Current","2"
+"TMA_SPLIT",3,"Same Track One In Vertical","PBN","1"
+"TMA_SPLIT",3,"Same Track One In Vertical","PBN","2"
+"TMA_ZADAR",1,"Crossing Both In Vertical","Current","1"
+"TMA_ZADAR",1,"Crossing Both In Vertical","Current","2"
+"TMA_ZADAR",1,"Opposite Both Cruising","Current","1"
+"TMA_ZADAR",1,"Opposite Both Cruising","Current","2"
+"TMA_ZADAR",1,"Opposite Both Cruising","PBN","1"
+"TMA_ZADAR",1,"Opposite Both Cruising","PBN","2"
+"TMA_ZADAR",1,"Opposite Both In Vertical","PBN","1"
+"TMA_ZADAR",1,"Opposite Both In Vertical","PBN","2"
+"TMA_ZADAR",1,"Opposite One In Vertical","Current","1"
+"TMA_ZADAR",1,"Opposite One In Vertical","Current","2"
+"TMA_ZADAR",1,"Opposite One In Vertical","PBN","1"
+"TMA_ZADAR",1,"Opposite One In Vertical","PBN","2"
+"TMA_ZADAR",1,"Same Track Both Cruising","Current","1"
+"TMA_ZADAR",1,"Same Track Both Cruising","Current","2"
+"TMA_ZADAR",1,"Same Track Both Cruising","PBN","1"
+"TMA_ZADAR",1,"Same Track Both Cruising","PBN","2"
+"TMA_ZADAR",1,"Same Track Both In Vertical","Current","1"
+"TMA_ZADAR",1,"Same Track Both In Vertical","Current","2"
+"TMA_ZADAR",2,"Same Track One In Vertical","Current","1"
+"TMA_ZADAR",2,"Same Track One In Vertical","Current","2"
+"TMA_ZADAR",2,"Same Track One In Vertical","PBN","1"
+"TMA_ZADAR",2,"Same Track One In Vertical","PBN","2"
+"TMA_ZAGREB",1,"Crossing Both Cruising","Current","1"
+"TMA_ZAGREB",1,"Crossing Both Cruising","Current","2"
+"TMA_ZAGREB",3,"Crossing Both In Vertical","Current","1"
+"TMA_ZAGREB",3,"Crossing Both In Vertical","Current","2"
+"TMA_ZAGREB",2,"Crossing One In Vertical","Current","1"
+"TMA_ZAGREB",2,"Crossing One In Vertical","Current","2"
+"TMA_ZAGREB",3,"Opposite One In Vertical","Current","1"
+"TMA_ZAGREB",3,"Opposite One In Vertical","Current","2"
+"TMA_ZAGREB",1,"Opposite One In Vertical","PBN","1"
+"TMA_ZAGREB",1,"Opposite One In Vertical","PBN","2"
+"TMA_ZAGREB",5,"Same Track Both Cruising","Current","1"
+"TMA_ZAGREB",5,"Same Track Both Cruising","Current","2"
+"TMA_ZAGREB",5,"Same Track Both Cruising","PBN","1"
+"TMA_ZAGREB",5,"Same Track Both Cruising","PBN","2"
+"TMA_ZAGREB",2,"Same Track Both In Vertical","Current","1"
+"TMA_ZAGREB",2,"Same Track Both In Vertical","Current","2"
+"TMA_ZAGREB",6,"Same Track Both In Vertical","PBN","1"
+"TMA_ZAGREB",6,"Same Track Both In Vertical","PBN","2"
+"TMA_ZAGREB",5,"Same Track One In Vertical","Current","1"
+"TMA_ZAGREB",5,"Same Track One In Vertical","Current","2"
+"TMA_ZAGREB",2,"Same Track One In Vertical","PBN","1"
+"TMA_ZAGREB",2,"Same Track One In Vertical","PBN","2"
+"All Sectors",2,"Crossing Both Cruising","Current","1"
+"All Sectors",19,"Crossing Both In Vertical","Current","1"
+"All Sectors",28,"Crossing One In Vertical","Current","1"
+"All Sectors",2,"Opposite Both Cruising","Current","1"
+"All Sectors",15,"Opposite Both In Vertical","Current","1"
+"All Sectors",36,"Opposite One In Vertical","Current","1"
+"All Sectors",10,"Same Track Both Cruising","Current","1"
+"All Sectors",14,"Same Track Both In Vertical","Current","1"
+"All Sectors",26,"Same Track One In Vertical","Current","1"
+"All Sectors",4,"Crossing Both Cruising","PBN","1"
+"All Sectors",24,"Crossing Both In Vertical","PBN","1"
+"All Sectors",32,"Crossing One In Vertical","PBN","1"
+"All Sectors",5,"Opposite Both Cruising","PBN","1"
+"All Sectors",15,"Opposite Both In Vertical","PBN","1"
+"All Sectors",26,"Opposite One In Vertical","PBN","1"
+"All Sectors",9,"Same Track Both Cruising","PBN","1"
+"All Sectors",26,"Same Track Both In Vertical","PBN","1"
+"All Sectors",19,"Same Track One In Vertical","PBN","1"
+"All Sectors",2,"Crossing Both Cruising","Current","2"
+"All Sectors",19,"Crossing Both In Vertical","Current","2"
+"All Sectors",28,"Crossing One In Vertical","Current","2"
+"All Sectors",2,"Opposite Both Cruising","Current","2"
+"All Sectors",15,"Opposite Both In Vertical","Current","2"
+"All Sectors",36,"Opposite One In Vertical","Current","2"
+"All Sectors",10,"Same Track Both Cruising","Current","2"
+"All Sectors",14,"Same Track Both In Vertical","Current","2"
+"All Sectors",26,"Same Track One In Vertical","Current","2"
+"All Sectors",4,"Crossing Both Cruising","PBN","2"
+"All Sectors",24,"Crossing Both In Vertical","PBN","2"
+"All Sectors",32,"Crossing One In Vertical","PBN","2"
+"All Sectors",5,"Opposite Both Cruising","PBN","2"
+"All Sectors",15,"Opposite Both In Vertical","PBN","2"
+"All Sectors",26,"Opposite One In Vertical","PBN","2"
+"All Sectors",9,"Same Track Both Cruising","PBN","2"
+"All Sectors",26,"Same Track Both In Vertical","PBN","2"
+"All Sectors",19,"Same Track One In Vertical","PBN","2"
+"All TMA",2,"Crossing Both Cruising","Current","1"
+"All TMA",10,"Crossing Both In Vertical","Current","1"
+"All TMA",15,"Crossing One In Vertical","Current","1"
+"All TMA",2,"Opposite Both Cruising","Current","1"
+"All TMA",3,"Opposite Both In Vertical","Current","1"
+"All TMA",7,"Opposite One In Vertical","Current","1"
+"All TMA",7,"Same Track Both Cruising","Current","1"
+"All TMA",7,"Same Track Both In Vertical","Current","1"
+"All TMA",11,"Same Track One In Vertical","Current","1"
+"All TMA",4,"Crossing Both Cruising","PBN","1"
+"All TMA",12,"Crossing Both In Vertical","PBN","1"
+"All TMA",18,"Crossing One In Vertical","PBN","1"
+"All TMA",5,"Opposite Both Cruising","PBN","1"
+"All TMA",4,"Opposite Both In Vertical","PBN","1"
+"All TMA",6,"Opposite One In Vertical","PBN","1"
+"All TMA",7,"Same Track Both Cruising","PBN","1"
+"All TMA",13,"Same Track Both In Vertical","PBN","1"
+"All TMA",11,"Same Track One In Vertical","PBN","1"
+"All TMA",2,"Crossing Both Cruising","Current","2"
+"All TMA",10,"Crossing Both In Vertical","Current","2"
+"All TMA",15,"Crossing One In Vertical","Current","2"
+"All TMA",2,"Opposite Both Cruising","Current","2"
+"All TMA",3,"Opposite Both In Vertical","Current","2"
+"All TMA",7,"Opposite One In Vertical","Current","2"
+"All TMA",7,"Same Track Both Cruising","Current","2"
+"All TMA",7,"Same Track Both In Vertical","Current","2"
+"All TMA",11,"Same Track One In Vertical","Current","2"
+"All TMA",4,"Crossing Both Cruising","PBN","2"
+"All TMA",12,"Crossing Both In Vertical","PBN","2"
+"All TMA",18,"Crossing One In Vertical","PBN","2"
+"All TMA",5,"Opposite Both Cruising","PBN","2"
+"All TMA",4,"Opposite Both In Vertical","PBN","2"
+"All TMA",6,"Opposite One In Vertical","PBN","2"
+"All TMA",7,"Same Track Both Cruising","PBN","2"
+"All TMA",13,"Same Track Both In Vertical","PBN","2"
+"All TMA",11,"Same Track One In Vertical","PBN","2"

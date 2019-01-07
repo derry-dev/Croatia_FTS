@@ -1,93 +1,167 @@
-"Sector","LateralConflictType","Scenario","freq"
-"ACC_ZAGREB","Crossing","Current",6
-"ACC_ZAGREB","Crossing","PBN",6
-"ACC_ZAGREB","Opposite","Current",20
-"ACC_ZAGREB","Opposite","PBN",20
-"ACC_ZAGREB","Same Track","Current",9
-"ACC_ZAGREB","Same Track","PBN",9
-"CTR_BRAC","Crossing","Current",2
-"CTR_BRAC","Crossing","PBN",2
-"CTR_DUBROVNIK","Crossing","Current",2
-"CTR_DUBROVNIK","Crossing","PBN",2
-"CTR_DUBROVNIK","Opposite","Current",3
-"CTR_DUBROVNIK","Opposite","PBN",3
-"CTR_DUBROVNIK","Same Track","Current",36
-"CTR_DUBROVNIK","Same Track","PBN",36
-"CTR_LOSINJ","Crossing","Current",1
-"CTR_LOSINJ","Crossing","PBN",1
-"CTR_LOSINJ","Opposite","Current",1
-"CTR_LOSINJ","Opposite","PBN",1
-"CTR_PULA","Crossing","Current",5
-"CTR_PULA","Crossing","PBN",5
-"CTR_PULA","Opposite","Current",2
-"CTR_PULA","Opposite","PBN",2
-"CTR_PULA","Same Track","Current",7
-"CTR_PULA","Same Track","PBN",7
-"CTR_RIJEKA","Opposite","Current",2
-"CTR_RIJEKA","Opposite","PBN",2
-"CTR_SPLIT","Crossing","Current",2
-"CTR_SPLIT","Crossing","PBN",2
-"CTR_SPLIT","Opposite","Current",1
-"CTR_SPLIT","Opposite","PBN",1
-"CTR_ZADAR","Crossing","Current",2
-"CTR_ZADAR","Crossing","PBN",2
-"CTR_ZADAR","Opposite","Current",1
-"CTR_ZADAR","Opposite","PBN",1
-"CTR_ZADAR","Same Track","Current",2
-"CTR_ZADAR","Same Track","PBN",2
-"CTR_ZAGREB","Same Track","Current",8
-"CTR_ZAGREB","Same Track","PBN",8
-"FIC_ZAGREB","Same Track","Current",2
-"FIC_ZAGREB","Same Track","PBN",2
-"OUTSIDE_FIR_E","Crossing","Current",2
-"OUTSIDE_FIR_E","Crossing","PBN",2
-"OUTSIDE_FIR_N","Crossing","Current",8
-"OUTSIDE_FIR_N","Crossing","PBN",8
-"OUTSIDE_FIR_N","Opposite","Current",9
-"OUTSIDE_FIR_N","Opposite","PBN",9
-"OUTSIDE_FIR_N","Same Track","Current",6
-"OUTSIDE_FIR_N","Same Track","PBN",6
-"OUTSIDE_FIR_W","Same Track","Current",2
-"OUTSIDE_FIR_W","Same Track","PBN",2
-"TMA_DUBROVNIK","Crossing","Current",6
-"TMA_DUBROVNIK","Crossing","PBN",6
-"TMA_DUBROVNIK","Opposite","Current",6
-"TMA_DUBROVNIK","Opposite","PBN",6
-"TMA_DUBROVNIK","Same Track","Current",5
-"TMA_DUBROVNIK","Same Track","PBN",5
-"TMA_PULA","Crossing","Current",13
-"TMA_PULA","Crossing","PBN",13
-"TMA_PULA","Opposite","Current",3
-"TMA_PULA","Opposite","PBN",3
-"TMA_PULA","Same Track","Current",5
-"TMA_PULA","Same Track","PBN",5
-"TMA_SPLIT","Crossing","Current",19
-"TMA_SPLIT","Crossing","PBN",19
-"TMA_SPLIT","Opposite","Current",5
-"TMA_SPLIT","Opposite","PBN",5
-"TMA_SPLIT","Same Track","Current",8
-"TMA_SPLIT","Same Track","PBN",8
-"TMA_ZADAR","Crossing","Current",2
-"TMA_ZADAR","Crossing","PBN",2
-"TMA_ZADAR","Opposite","Current",5
-"TMA_ZADAR","Opposite","PBN",5
-"TMA_ZADAR","Same Track","Current",4
-"TMA_ZADAR","Same Track","PBN",4
-"TMA_ZAGREB","Crossing","Current",13
-"TMA_ZAGREB","Crossing","PBN",13
-"TMA_ZAGREB","Opposite","Current",5
-"TMA_ZAGREB","Opposite","PBN",5
-"TMA_ZAGREB","Same Track","Current",7
-"TMA_ZAGREB","Same Track","PBN",7
-"All Sectors","Crossing","Current",83
-"All Sectors","Opposite","Current",63
-"All Sectors","Same Track","Current",101
-"All Sectors","Crossing","PBN",83
-"All Sectors","Opposite","PBN",63
-"All Sectors","Same Track","PBN",101
-"All TMA","Crossing","Current",53
-"All TMA","Opposite","Current",24
-"All TMA","Same Track","Current",29
-"All TMA","Crossing","PBN",53
-"All TMA","Opposite","PBN",24
-"All TMA","Same Track","PBN",29
+"Sector","Count","LateralConflictType","Scenario","Runway"
+"ACC_ZAGREB",4,"Crossing","Current","1"
+"ACC_ZAGREB",4,"Crossing","Current","2"
+"ACC_ZAGREB",7,"Crossing","PBN","1"
+"ACC_ZAGREB",7,"Crossing","PBN","2"
+"ACC_ZAGREB",22,"Opposite","Current","1"
+"ACC_ZAGREB",22,"Opposite","Current","2"
+"ACC_ZAGREB",17,"Opposite","PBN","1"
+"ACC_ZAGREB",17,"Opposite","PBN","2"
+"ACC_ZAGREB",8,"Same Track","Current","1"
+"ACC_ZAGREB",8,"Same Track","Current","2"
+"ACC_ZAGREB",7,"Same Track","PBN","1"
+"ACC_ZAGREB",7,"Same Track","PBN","2"
+"CTR_BRAC",1,"Crossing","Current","1"
+"CTR_BRAC",1,"Crossing","Current","2"
+"CTR_BRAC",1,"Crossing","PBN","1"
+"CTR_BRAC",1,"Crossing","PBN","2"
+"CTR_DUBROVNIK",2,"Crossing","PBN","1"
+"CTR_DUBROVNIK",2,"Crossing","PBN","2"
+"CTR_DUBROVNIK",5,"Opposite","Current","1"
+"CTR_DUBROVNIK",5,"Opposite","Current","2"
+"CTR_DUBROVNIK",5,"Opposite","PBN","1"
+"CTR_DUBROVNIK",5,"Opposite","PBN","2"
+"CTR_DUBROVNIK",4,"Same Track","Current","1"
+"CTR_DUBROVNIK",4,"Same Track","Current","2"
+"CTR_DUBROVNIK",8,"Same Track","PBN","1"
+"CTR_DUBROVNIK",8,"Same Track","PBN","2"
+"CTR_PULA",5,"Crossing","Current","1"
+"CTR_PULA",5,"Crossing","Current","2"
+"CTR_PULA",5,"Crossing","PBN","1"
+"CTR_PULA",5,"Crossing","PBN","2"
+"CTR_PULA",1,"Opposite","Current","1"
+"CTR_PULA",1,"Opposite","Current","2"
+"CTR_PULA",2,"Same Track","Current","1"
+"CTR_PULA",2,"Same Track","Current","2"
+"CTR_PULA",2,"Same Track","PBN","1"
+"CTR_PULA",2,"Same Track","PBN","2"
+"CTR_RIJEKA",2,"Opposite","Current","1"
+"CTR_RIJEKA",2,"Opposite","Current","2"
+"CTR_RIJEKA",2,"Opposite","PBN","1"
+"CTR_RIJEKA",2,"Opposite","PBN","2"
+"CTR_SPLIT",3,"Crossing","Current","1"
+"CTR_SPLIT",3,"Crossing","Current","2"
+"CTR_SPLIT",1,"Crossing","PBN","1"
+"CTR_SPLIT",1,"Crossing","PBN","2"
+"CTR_SPLIT",3,"Same Track","Current","1"
+"CTR_SPLIT",3,"Same Track","Current","2"
+"CTR_ZADAR",1,"Crossing","Current","1"
+"CTR_ZADAR",1,"Crossing","Current","2"
+"CTR_ZADAR",1,"Crossing","PBN","1"
+"CTR_ZADAR",1,"Crossing","PBN","2"
+"CTR_ZAGREB",1,"Crossing","Current","1"
+"CTR_ZAGREB",1,"Crossing","Current","2"
+"CTR_ZAGREB",1,"Same Track","Current","1"
+"CTR_ZAGREB",1,"Same Track","Current","2"
+"CTR_ZAGREB",2,"Same Track","PBN","1"
+"CTR_ZAGREB",2,"Same Track","PBN","2"
+"LQSB_FIR",1,"Opposite","Current","1"
+"LQSB_FIR",1,"Opposite","Current","2"
+"LQSB_FIR",1,"Same Track","Current","1"
+"LQSB_FIR",1,"Same Track","Current","2"
+"LQSB_FIR",1,"Same Track","PBN","1"
+"LQSB_FIR",1,"Same Track","PBN","2"
+"OUTSIDE_FIR_E",1,"Crossing","Current","1"
+"OUTSIDE_FIR_E",1,"Crossing","Current","2"
+"OUTSIDE_FIR_E",2,"Crossing","PBN","1"
+"OUTSIDE_FIR_E",2,"Crossing","PBN","2"
+"OUTSIDE_FIR_E",2,"Opposite","Current","1"
+"OUTSIDE_FIR_E",2,"Opposite","Current","2"
+"OUTSIDE_FIR_E",2,"Opposite","PBN","1"
+"OUTSIDE_FIR_E",2,"Opposite","PBN","2"
+"OUTSIDE_FIR_N",6,"Crossing","Current","1"
+"OUTSIDE_FIR_N",6,"Crossing","Current","2"
+"OUTSIDE_FIR_N",7,"Crossing","PBN","1"
+"OUTSIDE_FIR_N",7,"Crossing","PBN","2"
+"OUTSIDE_FIR_N",8,"Opposite","Current","1"
+"OUTSIDE_FIR_N",8,"Opposite","Current","2"
+"OUTSIDE_FIR_N",5,"Opposite","PBN","1"
+"OUTSIDE_FIR_N",5,"Opposite","PBN","2"
+"OUTSIDE_FIR_N",4,"Same Track","Current","1"
+"OUTSIDE_FIR_N",4,"Same Track","Current","2"
+"OUTSIDE_FIR_N",2,"Same Track","PBN","1"
+"OUTSIDE_FIR_N",2,"Same Track","PBN","2"
+"OUTSIDE_FIR_W",2,"Same Track","Current","1"
+"OUTSIDE_FIR_W",2,"Same Track","Current","2"
+"OUTSIDE_FIR_W",1,"Same Track","PBN","1"
+"OUTSIDE_FIR_W",1,"Same Track","PBN","2"
+"TMA_DUBROVNIK",2,"Crossing","Current","1"
+"TMA_DUBROVNIK",2,"Crossing","Current","2"
+"TMA_DUBROVNIK",1,"Crossing","PBN","1"
+"TMA_DUBROVNIK",1,"Crossing","PBN","2"
+"TMA_DUBROVNIK",1,"Opposite","Current","1"
+"TMA_DUBROVNIK",1,"Opposite","Current","2"
+"TMA_DUBROVNIK",3,"Opposite","PBN","1"
+"TMA_DUBROVNIK",3,"Opposite","PBN","2"
+"TMA_DUBROVNIK",2,"Same Track","Current","1"
+"TMA_DUBROVNIK",2,"Same Track","Current","2"
+"TMA_DUBROVNIK",7,"Same Track","PBN","1"
+"TMA_DUBROVNIK",7,"Same Track","PBN","2"
+"TMA_PULA",11,"Crossing","Current","1"
+"TMA_PULA",11,"Crossing","Current","2"
+"TMA_PULA",10,"Crossing","PBN","1"
+"TMA_PULA",10,"Crossing","PBN","2"
+"TMA_PULA",2,"Opposite","Current","1"
+"TMA_PULA",2,"Opposite","Current","2"
+"TMA_PULA",3,"Opposite","PBN","1"
+"TMA_PULA",3,"Opposite","PBN","2"
+"TMA_PULA",4,"Same Track","Current","1"
+"TMA_PULA",4,"Same Track","Current","2"
+"TMA_PULA",3,"Same Track","PBN","1"
+"TMA_PULA",3,"Same Track","PBN","2"
+"TMA_SPLIT",7,"Crossing","Current","1"
+"TMA_SPLIT",7,"Crossing","Current","2"
+"TMA_SPLIT",23,"Crossing","PBN","1"
+"TMA_SPLIT",23,"Crossing","PBN","2"
+"TMA_SPLIT",4,"Opposite","Current","1"
+"TMA_SPLIT",4,"Opposite","Current","2"
+"TMA_SPLIT",5,"Opposite","PBN","1"
+"TMA_SPLIT",5,"Opposite","PBN","2"
+"TMA_SPLIT",3,"Same Track","Current","1"
+"TMA_SPLIT",3,"Same Track","Current","2"
+"TMA_SPLIT",5,"Same Track","PBN","1"
+"TMA_SPLIT",5,"Same Track","PBN","2"
+"TMA_ZADAR",1,"Crossing","Current","1"
+"TMA_ZADAR",1,"Crossing","Current","2"
+"TMA_ZADAR",2,"Opposite","Current","1"
+"TMA_ZADAR",2,"Opposite","Current","2"
+"TMA_ZADAR",3,"Opposite","PBN","1"
+"TMA_ZADAR",3,"Opposite","PBN","2"
+"TMA_ZADAR",4,"Same Track","Current","1"
+"TMA_ZADAR",4,"Same Track","Current","2"
+"TMA_ZADAR",3,"Same Track","PBN","1"
+"TMA_ZADAR",3,"Same Track","PBN","2"
+"TMA_ZAGREB",6,"Crossing","Current","1"
+"TMA_ZAGREB",6,"Crossing","Current","2"
+"TMA_ZAGREB",3,"Opposite","Current","1"
+"TMA_ZAGREB",3,"Opposite","Current","2"
+"TMA_ZAGREB",1,"Opposite","PBN","1"
+"TMA_ZAGREB",1,"Opposite","PBN","2"
+"TMA_ZAGREB",12,"Same Track","Current","1"
+"TMA_ZAGREB",12,"Same Track","Current","2"
+"TMA_ZAGREB",13,"Same Track","PBN","1"
+"TMA_ZAGREB",13,"Same Track","PBN","2"
+"All Sectors",49,"Crossing","Current","1"
+"All Sectors",53,"Opposite","Current","1"
+"All Sectors",50,"Same Track","Current","1"
+"All Sectors",60,"Crossing","PBN","1"
+"All Sectors",46,"Opposite","PBN","1"
+"All Sectors",54,"Same Track","PBN","1"
+"All Sectors",49,"Crossing","Current","2"
+"All Sectors",53,"Opposite","Current","2"
+"All Sectors",50,"Same Track","Current","2"
+"All Sectors",60,"Crossing","PBN","2"
+"All Sectors",46,"Opposite","PBN","2"
+"All Sectors",54,"Same Track","PBN","2"
+"All TMA",27,"Crossing","Current","1"
+"All TMA",12,"Opposite","Current","1"
+"All TMA",25,"Same Track","Current","1"
+"All TMA",34,"Crossing","PBN","1"
+"All TMA",15,"Opposite","PBN","1"
+"All TMA",31,"Same Track","PBN","1"
+"All TMA",27,"Crossing","Current","2"
+"All TMA",12,"Opposite","Current","2"
+"All TMA",25,"Same Track","Current","2"
+"All TMA",34,"Crossing","PBN","2"
+"All TMA",15,"Opposite","PBN","2"
+"All TMA",31,"Same Track","PBN","2"
