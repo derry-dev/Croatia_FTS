@@ -3,14 +3,9 @@
 ################## Shiny Croatia App #################### 
 ###### With Special Thanks To Pier Carlo Ferraris #######
 
-# VERSION 1.8 --"It Just Works"-- NOTES:
-# Added swanky new TMA sector polygons to conflict map
-# Centralised airport/sector lists for ease of adding new airports/sectors to list
-# Converted seperation distances in Conflict table to NM/ft from m
-# Increased plot font size for better visibility
-# Removed sector filtering from SQL scripts, filtering is now done entirely in plotting functions
-# Removed view button, now plots render automatically on selection change
-# Some adaptations to accomodate future PBN data
+# VERSION 1.9 --"Swanky"-- NOTES:
+# Converted ggplotlified ggplots plots into interactive ggplotly plotly plots for enhanced interactivity
+# Major overhaul of Shiny App with minimal UI and conditionally displayed UI elements
 
 # Load Packages --------------------------------------------------
 library(RPostgreSQL)
@@ -20,94 +15,102 @@ library(tidyr)
 library(shiny)
 library(leaflet)
 library(sp)
+library(plotly)
 
 # Import from database --------------------------------------------------
 # Get database connection
-# con <- dbConnect(dbDriver("PostgreSQL"), dbname="airtopdb",host="192.168.1.137",port=5432,user="think",password="think")
+#con <- dbConnect(dbDriver("PostgreSQL"), dbname="airtopdb",host="192.168.1.137",port=5432,user="think",password="think")
 con <- dbConnect(dbDriver("PostgreSQL"), dbname="airtopdb",host="localhost",port=5432,user="rob",password="rob")
 
 # Current data
-table.current.TotalThroughputs <- dbGetQuery(con,'
-SELECT
-  COUNT("Callsign") AS "Count", 
-  "New DepartureOrArrivalAirport" AS "Airport",
-  "AircraftState" AS "Category"
-FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
-WHERE "Time_day" = 2
-GROUP BY "New DepartureOrArrivalAirport", "AircraftState"
-ORDER BY "New DepartureOrArrivalAirport", "AircraftState"')
-table.current.HourlyThroughputs <- dbGetQuery(con,'
-SELECT
-  EXTRACT(HOUR FROM "Time_time") AS "Hour",
-  COUNT("Callsign") AS "Count", 
-  "New DepartureOrArrivalAirport" AS "Airport",
-  "AircraftState" AS "Category"
-FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
-WHERE "Time_day" = 2
-GROUP BY EXTRACT(HOUR FROM "Time_time"),"New DepartureOrArrivalAirport", "AircraftState"
-ORDER BY "New DepartureOrArrivalAirport", "AircraftState",EXTRACT(HOUR FROM "Time_time")')
-table.current.RollingHourlyThroughputs <- dbGetQuery(con,'
-SELECT
-  "Time_time" AS "Time",
-  "AirportStatus" AS "Airport",
-  "LiftOffCountInPeriod" AS "RollingLiftOffCount",
-  "TouchDownCountInPeriod" AS "RollingTouchDownCount",
-  "ThroughputCountInPeriod" AS "RollingThroughputCount"
-FROM "Croatia"."RS_RWYTHROUGHPUT"
-WHERE "Time_day" = 2
-ORDER BY "AirportStatus",  "Time_time"')
-table.current.Conflicts <- dbGetQuery(con,'
-SELECT 
-	"ID",
-	"ATCSector" AS "Sector",
-	"StartTime_day" AS "Start_Day",
-	"StartTime_time" AS "Start_Time",
-	"ClosestApproachTime_day" AS "Closest_Day",
-	"ClosestApproachTime_time" AS "Closest_Time",
-	"EndTime_day" AS "End_Day",
-	"EndTime_time" AS "End_Time",
-	"ConflictType",
-	"Severity",
-	"VerticalSeverity",
-	"LateralConflictType",
-	"VerticalConflictType",
-	ROUND("VerticalSeparation_m"::numeric/0.3048, 5) AS "VerticalSeparation",
-	ROUND("ReqVerticalSeparation_m"::numeric/0.3048, 5) AS "ReqVerticalSeparation",
-	ROUND("LateralSeparation_m"::numeric/1852, 5) AS "LateralSeparation",
-	ROUND("ReqLateralSeparation_m"::numeric/1852, 5) AS "ReqLateralSeparation",
-	"Altitude_ft",
-  "FlightPlanPhase1",
-  "FlightPlanPhase2",
-	"2DLocation",
-	SPLIT_PART("2DLocation",\' \',6)::numeric + SPLIT_PART("2DLocation",\' \',7)::numeric/60 + SPLIT_PART("2DLocation",\' \',8)::numeric/3600 AS "Longitude",
-	SPLIT_PART("2DLocation",\' \',2)::numeric + SPLIT_PART("2DLocation",\' \',3)::numeric/60 + SPLIT_PART("2DLocation",\' \',4)::numeric/3600 AS "Latitude"
-FROM "Croatia"."Conflict"
-WHERE "StartTime_day" = 2')
-table.current.ConflictsFlightPlanPhase <- dbGetQuery(con,'
-SELECT
-	"ATCSector" AS "Sector",
-	CASE
-		WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2")
-		THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2"
-		ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1"
-	END AS "FlightPlanPhases",
-	COUNT(*) AS "Count"
-FROM "Croatia"."Conflict"
-GROUP BY "ATCSector", (CASE WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2") THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2" ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1" END)')
-table.current.SectorOccupancy <- dbGetQuery(con,'
-SELECT
-	"Time_time" AS "Time",
-	"ATCSector" AS "Sector",
-	"AircraftLoad" AS "Count"
-FROM "Croatia"."RS_SECOCC"
-WHERE "Time_day" = 2')
-table.current.SectorEntry <- dbGetQuery(con,'
-SELECT
-  "Time_time" AS "Time", 
-  "ATCSector" AS "Sector",
-  "LastPeriodEntryCount" AS "Entries"
-FROM "Croatia"."RS_SECENTRY"
-WHERE "Time_day" = 2')
+table.current.TotalThroughputs <- 
+  dbGetQuery(con,'
+             SELECT
+               COUNT("Callsign") AS "Count", 
+               "New DepartureOrArrivalAirport" AS "Airport",
+               "AircraftState" AS "Category"
+             FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
+             WHERE "Time_day" = 2
+             GROUP BY "New DepartureOrArrivalAirport", "AircraftState"
+             ORDER BY "New DepartureOrArrivalAirport", "AircraftState"')
+table.current.HourlyThroughputs <- 
+  dbGetQuery(con,'
+             SELECT
+               EXTRACT(HOUR FROM "Time_time") AS "Hour",
+               COUNT("Callsign") AS "Count", 
+               "New DepartureOrArrivalAirport" AS "Airport",
+               "AircraftState" AS "Category"
+             FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
+             WHERE "Time_day" = 2
+             GROUP BY EXTRACT(HOUR FROM "Time_time"),"New DepartureOrArrivalAirport", "AircraftState"
+             ORDER BY "New DepartureOrArrivalAirport", "AircraftState",EXTRACT(HOUR FROM "Time_time")')
+table.current.RollingHourlyThroughputs <- 
+  dbGetQuery(con,'
+             SELECT
+               "Time_time" AS "Time",
+               "AirportStatus" AS "Airport",
+               "LiftOffCountInPeriod" AS "RollingLiftOffCount",
+               "TouchDownCountInPeriod" AS "RollingTouchDownCount",
+               "ThroughputCountInPeriod" AS "RollingThroughputCount"
+             FROM "Croatia"."RS_RWYTHROUGHPUT"
+             WHERE "Time_day" = 2
+             ORDER BY "AirportStatus",  "Time_time"')
+table.current.Conflicts <- 
+  dbGetQuery(con,'
+             SELECT 
+               "ID",
+               "ATCSector" AS "Sector",
+               "StartTime_day" AS "Start_Day",
+               "StartTime_time" AS "Start_Time",
+               "ClosestApproachTime_day" AS "Closest_Day",
+               "ClosestApproachTime_time" AS "Closest_Time",
+               "EndTime_day" AS "End_Day",
+               "EndTime_time" AS "End_Time",
+               "ConflictType",
+               "Severity",
+               "VerticalSeverity",
+               "LateralConflictType",
+               "VerticalConflictType",
+               ROUND("VerticalSeparation_m"::numeric/0.3048, 5) AS "VerticalSeparation",
+               ROUND("ReqVerticalSeparation_m"::numeric/0.3048, 5) AS "ReqVerticalSeparation",
+               ROUND("LateralSeparation_m"::numeric/1852, 5) AS "LateralSeparation",
+               ROUND("ReqLateralSeparation_m"::numeric/1852, 5) AS "ReqLateralSeparation",
+               "Altitude_ft",
+               "FlightPlanPhase1",
+               "FlightPlanPhase2",
+               "2DLocation",
+               SPLIT_PART("2DLocation",\' \',6)::numeric + SPLIT_PART("2DLocation",\' \',7)::numeric/60 + SPLIT_PART("2DLocation",\' \',8)::numeric/3600 AS "Longitude",
+               SPLIT_PART("2DLocation",\' \',2)::numeric + SPLIT_PART("2DLocation",\' \',3)::numeric/60 + SPLIT_PART("2DLocation",\' \',4)::numeric/3600 AS "Latitude"
+             FROM "Croatia"."Conflict"
+             WHERE "StartTime_day" = 2')
+table.current.ConflictsFlightPlanPhase <- 
+  dbGetQuery(con,'
+             SELECT
+               "ATCSector" AS "Sector",
+               CASE
+                 WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2")
+                 THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2"
+                 ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1"
+               END AS "FlightPlanPhases",
+               COUNT(*) AS "Count"
+             FROM "Croatia"."Conflict"
+             GROUP BY "ATCSector", (CASE WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2") THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2" ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1" END)')
+table.current.SectorOccupancy <- 
+  dbGetQuery(con,'
+             SELECT
+               "Time_time" AS "Time",
+               "ATCSector" AS "Sector",
+               "AircraftLoad" AS "Count"
+             FROM "Croatia"."RS_SECOCC"
+             WHERE "Time_day" = 2')
+table.current.SectorEntry <- 
+  dbGetQuery(con,'
+             SELECT
+               "Time_time" AS "Time", 
+               "ATCSector" AS "Sector",
+               "LastPeriodEntryCount" AS "Entries"
+             FROM "Croatia"."RS_SECENTRY"
+             WHERE "Time_day" = 2')
 
 # PBN data
 # table.PBN.TotalThroughputs <- dbGetQuery(con,'')
@@ -124,7 +127,6 @@ dbDisconnect(con)
 # Definitions --------------------------------------------------
 # Change these lists if you want to include another airports/sectors
 Airport.list <- factor(c("All","LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI","LDSB","LDOS"), ordered = TRUE)
-
 Sector.list <- factor(c("All","TMA_DUBROVNIK","TMA_OSIJEK","TMA_PULA","TMA_SPLIT","TMA_ZADAR","TMA_ZAGREB"), ordered = TRUE)
 
 # TMA Polygons (for leaflet mapping purposes)
@@ -163,8 +165,8 @@ roundUp <- function(x, limit=10000) {
 
 # Throughput plots
 plotTotalThroughput <- function(airport="All"){
-    if (airport == "All") {
-      ggplot(subset(table.current.TotalThroughputs, Airport %in% Airport.list),
+  if (airport == "All") {
+    ggplotly(ggplot(subset(table.current.TotalThroughputs, Airport %in% Airport.list),
            aes(x=Airport,y=Count,group=Airport),
            colour=c("Arrivals","Departures")) + 
       geom_bar(stat="identity",
@@ -173,57 +175,57 @@ plotTotalThroughput <- function(airport="All"){
                aes(fill=ordered(Category,levels=c("Descending","GroundAccelerating")))) + 
       labs(y="Count",
            title=paste("Total Throughputs")) +
-      scale_x_discrete(expand = c(0,0)) +
+      scale_x_discrete(expand=c(0,0)) +
       scale_y_continuous(expand=c(0,0),
                          limit=c(0,roundUp(max(aggregate(data=table.current.TotalThroughputs,Count~Airport,"sum")$Count)))) +
       theme(legend.position="right",
             legend.background=element_blank(),
             panel.background=element_rect(fill = "grey97"),
             axis.line = element_line(colour = "black"),
-            plot.title = element_text(size=20),
-            axis.title = element_text(size=18),
-            axis.text = element_text(size=14),
-            legend.title = element_text(size=18),
-            legend.text = element_text(size=14)) +
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
       scale_fill_manual(values=c("red4","green4"),
                         name="Category",
-                        labels=c("Arrivals","Departures"))
-    } else {
-      ggplot(subset(table.current.TotalThroughputs, Airport %in% airport),
-             aes(x=Category,y=Count),
-             colour=c("Arrivals","Departures")) + 
-        geom_bar(stat="identity",
-                 position="dodge",
-                 width=0.5,
-                 aes(fill=ordered(Category,levels=c("Descending","GroundAccelerating")))) + 
-        labs(y="Count",
-             title=paste("Total Throughputs", airport)) +
-        scale_x_discrete(expand=c(0,0),
-                         labels=c("Arrivals","Departures")) +
-        scale_y_continuous(expand=c(0,0),
-                           limit=c(0,roundUp(max(aggregate(data=table.current.TotalThroughputs,Count~Airport,"sum")$Count)))) +
-        theme(legend.position="right",
-              legend.background=element_blank(),
-              panel.background=element_rect(fill = "grey97"),
-              axis.line = element_line(colour = "black"),
-              plot.title = element_text(size=20),
-              axis.title = element_text(size=18),
-              axis.text = element_text(size=14),
-              legend.title = element_text(size=18),
-              legend.text = element_text(size=14)) +
-        scale_fill_manual(values=c("red4","green4"),
-                          name="Category",
-                          labels=c("Arrivals","Departures"))
-    }
+                        labels=c("Arrivals","Departures")))
+  } else {
+    ggplotly(ggplot(subset(table.current.TotalThroughputs, Airport %in% airport),
+           aes(x=Category,y=Count),
+           colour=c("Arrivals","Departures")) + 
+      geom_bar(stat="identity",
+               position="dodge",
+               width=0.5,
+               aes(fill=ordered(Category,levels=c("Descending","GroundAccelerating")))) + 
+      labs(y="Count",
+           title=paste("Total Throughputs", airport)) +
+      scale_x_discrete(expand=c(0,0),
+                       labels=c("Arrivals","Departures")) +
+      scale_y_continuous(expand=c(0,0),
+                         limit=c(0,roundUp(max(aggregate(data=table.current.TotalThroughputs,Count~Airport,"sum")$Count)))) +
+      theme(legend.position="right",
+            legend.background=element_blank(),
+            panel.background=element_rect(fill = "grey97"),
+            axis.line = element_line(colour = "black"),
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
+      scale_fill_manual(values=c("red4","green4"),
+                        name="Category",
+                        labels=c("Arrivals","Departures")))
+  }
 }
 plotHourlyThroughput <- function(airport="All"){
-    ggplot(data = if (airport == "All") {
-      subset(table.current.HourlyThroughputs, Airport %in% Airport.list)
-    } else {
-      subset(table.current.HourlyThroughputs, Airport %in% airport)
-    },
-         aes(x=Hour,y=Count,group=Hour),
-         colour=c("Arrivals","Departures")) + 
+  ggplotly(ggplot(data = if (airport == "All") {
+    subset(table.current.HourlyThroughputs, Airport %in% Airport.list)
+  } else {
+    subset(table.current.HourlyThroughputs, Airport %in% airport)
+  },
+  aes(x=Hour,y=Count,group=Hour),
+  colour=c("Arrivals","Departures")) + 
     geom_bar(stat="identity",
              position="stack",
              width=0.5,
@@ -243,51 +245,51 @@ plotHourlyThroughput <- function(airport="All"){
           legend.background=element_blank(),
           panel.background=element_rect(fill = "grey97"),
           axis.line = element_line(colour = "black"),
-          plot.title = element_text(size=20),
-          axis.title = element_text(size=18),
-          axis.text = element_text(size=14),
-          legend.title = element_text(size=18),
-          legend.text = element_text(size=14)) +
+          plot.title = element_text(size=16),
+          axis.title = element_text(size=14),
+          axis.text = element_text(size=11),
+          legend.title = element_text(size=14),
+          legend.text = element_text(size=11)) +
     scale_fill_manual(values=c("red4","green4"),
                       name="Category",
-                      labels=c("Arrivals","Departures"))
+                      labels=c("Arrivals","Departures")))
 }
 plotRollingHourlyThroughput <- function(airport="All"){
   temp <- gather(table.current.RollingHourlyThroughputs,"count_type","count",c(RollingThroughputCount,RollingLiftOffCount,RollingTouchDownCount))
-  ggplot(data = if (airport == "All") {
+  ggplotly(ggplot(data = if (airport == "All") {
     subset(temp, Airport %in% Airport.list)
   } else {
     subset(temp, Airport %in% airport)
   },
   aes(x = as.POSIXct(strptime(Time,format="%H:%M:%S")),
-             y = count,
-             colour = factor(count_type, ordered = T, levels = c("RollingThroughputCount", "RollingLiftOffCount", "RollingTouchDownCount")))) + 
-  geom_line(size=1.2) + 
-  labs(x="Time", y="Count",
-       title=paste("Rolling Hourly Throughputs", airport)) +
-  scale_x_datetime(expand=c(0,0),
-                   breaks=c("1 hour"),
-                   minor_breaks = c("30 min"),
-                   limits=as.POSIXct(strptime(c("00:00","24:00"),format="%H:%M")),
-                   date_labels = format("%H:%M")) +
-  scale_y_continuous(expand=c(0,0),
-                     limits=c(0,roundUp(if (airport == "All") {
-                       max(temp$count)
-                     } else {
-                       max(table.current.RollingHourlyThroughputs$RollingThroughputCount)
-                     }))) +
-  theme(legend.position="right",
-        legend.background=element_blank(),
-        panel.background=element_rect(fill = "grey97"),
-        axis.line = element_line(colour = "black"),
-        plot.title = element_text(size=20),
-        axis.title = element_text(size=18),
-        axis.text = element_text(size=14),
-        legend.title = element_text(size=18),
-        legend.text = element_text(size=14)) +
-  scale_colour_manual(values = c("RollingThroughputCount" = "red4", "RollingLiftOffCount" = "green4", "RollingTouchDownCount" = "blue4"),
-                      labels=c("Total","Arrivals","Departures"),
-                      name="Category")
+      y = count,
+      colour = factor(count_type, ordered = T, levels = c("RollingThroughputCount", "RollingLiftOffCount", "RollingTouchDownCount")))) + 
+    geom_line(size=1.2) + 
+    labs(x="Time", y="Count",
+         title=paste("Rolling Hourly Throughputs", airport)) +
+    scale_x_datetime(expand=c(0,0),
+                     breaks=c("1 hour"),
+                     minor_breaks = c("30 min"),
+                     limits=as.POSIXct(strptime(c("00:00","24:00"),format="%H:%M")),
+                     date_labels = format("%H:%M")) +
+    scale_y_continuous(expand=c(0,0),
+                       limits=c(0,roundUp(if (airport == "All") {
+                         max(temp$count)
+                       } else {
+                         max(table.current.RollingHourlyThroughputs$RollingThroughputCount)
+                       }))) +
+    theme(legend.position="right",
+          legend.background=element_blank(),
+          panel.background=element_rect(fill = "grey97"),
+          axis.line = element_line(colour = "black"),
+          plot.title = element_text(size=16),
+          axis.title = element_text(size=14),
+          axis.text = element_text(size=11),
+          legend.title = element_text(size=14),
+          legend.text = element_text(size=11)) +
+    scale_colour_manual(values = c("RollingThroughputCount" = "red4", "RollingLiftOffCount" = "green4", "RollingTouchDownCount" = "blue4"),
+                        labels=c("Total","Arrivals","Departures"),
+                        name="Category"))
 }
 
 # Efficiency plots
@@ -298,7 +300,7 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
   if (sector == "All") {
     switch(group,
            "Conflict Type" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
                     aes(x = Sector, group = ConflictType)) + 
              geom_bar(aes(fill = ConflictType),
                       position = "stack") +
@@ -308,18 +310,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(table.current.Conflicts$Sector))),10),
                                 limit=c(0,roundUp(max(table(table.current.Conflicts$Sector))))) +
-             scale_fill_brewer(name = "Type", palette = "Set3"),
+             scale_fill_brewer(name = "Type", palette = "Set3")),
            "Conflict Type (Lateral)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
                     aes(x = Sector, group = LateralConflictType)) + 
              geom_bar(aes(fill = LateralConflictType),
                       position = "stack") +
@@ -329,18 +331,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(table.current.Conflicts$Sector))),10),
                                 limit=c(0,roundUp(max(table(table.current.Conflicts$Sector))))) +
-             scale_fill_brewer(name = "Type", palette = "Set1"),
+             scale_fill_brewer(name = "Type", palette = "Set1")),
            "Conflict Type (Vertical)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
                     aes(x = Sector, group = VerticalConflictType)) + 
              geom_bar(aes(fill = VerticalConflictType),
                       position = "stack") +
@@ -350,18 +352,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(table.current.Conflicts$Sector))),10),
                                 limit=c(0,roundUp(max(table(table.current.Conflicts$Sector))))) +
-             scale_fill_brewer(name = "Type", palette = "Set1"),
+             scale_fill_brewer(name = "Type", palette = "Set1")),
            "Flight Phase" = 
-             ggplot(subset(table.current.ConflictsFlightPlanPhase, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.ConflictsFlightPlanPhase, Sector %in% Sector.list),
                     aes(x = Sector, y = Count)) + 
              geom_bar(aes(fill = FlightPlanPhases),
                       stat = "identity",
@@ -372,18 +374,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(aggregate(data=table.current.ConflictsFlightPlanPhase, Count~Sector, "sum")$Count)),10),
                                 limit=c(0,roundUp(max(aggregate(data=table.current.ConflictsFlightPlanPhase, Count~Sector, "sum")$Count)))) +
-             scale_fill_brewer(name = "Phase", palette = "Set1"),
+             scale_fill_brewer(name = "Phase", palette = "Set1")),
            "Severity" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
                     aes(x = Sector, group = factor(Severity))) + 
              geom_bar(aes(fill = factor(Severity)),
                       position = "stack") +
@@ -393,18 +395,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(table.current.Conflicts$Sector))),10),
                                 limit=c(0,roundUp(max(table(table.current.Conflicts$Sector))))) +
-             scale_fill_brewer(name = "Severity", palette = "YlOrRd"),
+             scale_fill_brewer(name = "", palette = "YlOrRd")),
            "Severity (Vertical)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% Sector.list),
                     aes(x = Sector, group = factor(VerticalSeverity))) + 
              geom_bar(aes(fill = factor(VerticalSeverity)),
                       position = "stack") +
@@ -414,21 +416,21 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
                    legend.background=element_blank(),
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(table.current.Conflicts$Sector))),10),
                                 limit=c(0,roundUp(max(table(table.current.Conflicts$Sector))))) +
-             scale_fill_brewer(name = "Severity", palette = "YlOrRd")
+             scale_fill_brewer(name = "", palette = "YlOrRd"))
     )
   } else {
     switch(group,
            "Conflict Type" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% sector),
                     aes(x = ConflictType)) + 
              geom_bar(aes(fill = ConflictType),
                       position = "stack") +
@@ -437,18 +439,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$ConflictType))),2),
                                 limit=c(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$ConflictType))))) +
-             scale_fill_brewer(palette = "Spectral"),
+             scale_fill_brewer(palette = "Spectral")),
            "Conflict Type (Lateral)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% sector),
                     aes(x = LateralConflictType)) + 
              geom_bar(aes(fill = LateralConflictType),
                       position = "stack") +
@@ -457,18 +459,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$LateralConflictType))),2),
                                 limit=c(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$LateralConflictType))))) +
-             scale_fill_brewer(palette = "Set1"),
+             scale_fill_brewer(palette = "Set1")),
            "Conflict Type (Vertical)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% sector),
                     aes(x = VerticalConflictType)) + 
              geom_bar(aes(fill = VerticalConflictType),
                       position = "stack") +
@@ -477,18 +479,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$VerticalConflictType))),2),
                                 limit=c(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$VerticalConflictType))))) +
-             scale_fill_brewer(palette = "Set1"),
+             scale_fill_brewer(palette = "Set1")),
            "Flight Phase" = 
-             ggplot(subset(table.current.ConflictsFlightPlanPhase, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.ConflictsFlightPlanPhase, Sector %in% sector),
                     aes(x = FlightPlanPhases, y = Count)) + 
              geom_bar(aes(fill = FlightPlanPhases),
                       stat = "identity",
@@ -498,18 +500,18 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0)) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(subset(table.current.ConflictsFlightPlanPhase, Sector %in% sector)$Count)),10),
                                 limit=c(0,roundUp(max(subset(table.current.ConflictsFlightPlanPhase, Sector %in% sector)$Count)))) +
-             scale_fill_brewer(palette = "Set1"),
+             scale_fill_brewer(palette = "Set1")),
            "Severity" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% sector),
                     aes(x = factor(Severity))) + 
              geom_bar(aes(fill = factor(Severity)),
                       position = "stack") +
@@ -518,20 +520,20 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0),
                               labels = c("0","1","2","3","4","5","6"),
                               limit = c("0","1","2","3","4","5","6")) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$Severity))),5),
                                 limit=c(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$Severity))))) +
-             scale_fill_brewer(palette = "YlOrRd"),
+             scale_fill_brewer(palette = "YlOrRd")),
            "Severity (Vertical)" = 
-             ggplot(subset(table.current.Conflicts, Sector %in% sector),
+             ggplotly(ggplot(subset(table.current.Conflicts, Sector %in% sector),
                     aes(x = factor(VerticalSeverity))) + 
              geom_bar(aes(fill = factor(VerticalSeverity)),
                       position = "stack") +
@@ -540,28 +542,29 @@ plotConflictCount <- function(sector="All", group="Conflict Type"){
              theme(legend.position="none",
                    panel.background=element_rect(fill = "grey97"),
                    axis.line = element_line(colour = "black"),
-                   plot.title = element_text(size=20),
-                   axis.title = element_text(size=18),
-                   axis.text = element_text(size=14),
-                   legend.title = element_text(size=18),
-                   legend.text = element_text(size=14)) +
+                   plot.title = element_text(size=16),
+                   axis.title = element_text(size=14),
+                   axis.text = element_text(size=11),
+                   legend.title = element_text(size=14),
+                   legend.text = element_text(size=11)) +
              scale_x_discrete(expand = c(0,0),
                               labels = c("0","1","2","3","4","5","6"),
                               limit = c("0","1","2","3","4","5","6")) +
              scale_y_continuous(expand = c(0,0),
                                 breaks=seq(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$VerticalSeverity))),5),
                                 limit=c(0,roundUp(max(table(subset(table.current.Conflicts, Sector %in% sector)$VerticalSeverity))))) +
-             scale_fill_brewer(palette = "YlOrRd")
+             scale_fill_brewer(palette = "YlOrRd"))
     )
   }
 }
 plotConflictMap <- function(){
-    Conflicts.labels <- sprintf(
+  # HTML enabled for multi-lined labelling of conflict markers
+  Conflicts.labels <- sprintf(
     "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (NM): %s (Req. %s)<br/>Altitude (ft): %s",
     table.current.Conflicts$ID,table.current.Conflicts$Sector,table.current.Conflicts$Closest_Time,table.current.Conflicts$ConflictType,table.current.Conflicts$FlightPlanPhase1,table.current.Conflicts$FlightPlanPhase2,table.current.Conflicts$LateralSeparation,table.current.Conflicts$ReqLateralSeparation,table.current.Conflicts$VerticalSeparation,table.current.Conflicts$ReqVerticalSeparation,table.current.Conflicts$Altitude_ft) %>% lapply(htmltools::HTML)
-    
+  # Leaflet map wrapper is first initialised by leaflet(), then map tiles, polygons, markers and controls are added
   leaflet() %>% 
-    setView(lng=16.8, lat=44.2, zoom=6) %>%
+    setView(lng=16.8, lat=44.2, zoom=7) %>%
     addTiles(options = providerTileOptions(noWrap = TRUE), group="Default") %>%
     addProviderTiles(providers$CartoDB.Positron, group="Greyscale") %>% 
     addProviderTiles("Esri.WorldImagery", group="Satellite") %>%
@@ -572,10 +575,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Dubrovnik",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -590,10 +591,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Split",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -608,10 +607,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Zadar",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -626,10 +623,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Pula",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -644,10 +639,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Zagreb",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -662,10 +655,8 @@ plotConflictMap <- function(){
                 color = "gray",
                 dashArray = "18",
                 label = "TMA Osijek",
-                labelOptions = labelOptions(noHide=T,
-                                            textOnly = T,
-                                            style = list("font-weight" = "bold"),
-                                            opacity = 0.8,
+                labelOptions = labelOptions(style = list("font-weight" = "bold"),
+                                            opacity = 1,
                                             textsize = "12px",
                                             direction = "auto"),
                 highlight = highlightOptions(weight = 5,
@@ -697,7 +688,7 @@ plotConflictMap <- function(){
 # Sector Capacity plots
 plotSectorOccupancy <- function(sector="All"){
   if (sector == "All") {
-    ggplot(subset(table.current.SectorOccupancy, Sector %in% Sector.list),
+    ggplotly(ggplot(subset(table.current.SectorOccupancy, Sector %in% Sector.list),
            aes(x = as.POSIXct(strptime(Time,format="%H:%M:%S")),
                y = Count,
                colour = factor(Sector, ordered = T, levels = Sector.list))) +
@@ -716,15 +707,15 @@ plotSectorOccupancy <- function(sector="All"){
             legend.background=element_blank(),
             panel.background=element_rect(fill = "grey97"),
             axis.line = element_line(colour = "black"),
-            plot.title = element_text(size=20),
-            axis.title = element_text(size=18),
-            axis.text = element_text(size=14),
-            legend.title = element_text(size=18),
-            legend.text = element_text(size=14)) +
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
       scale_colour_manual(values = rainbow(6),
-                          name="Sector")
+                          name="Sector"))
   } else {
-    ggplot(subset(table.current.SectorOccupancy, Sector %in% sector),
+    ggplotly(ggplot(subset(table.current.SectorOccupancy, Sector %in% sector),
            aes(x = as.POSIXct(strptime(Time,format="%H:%M:%S")),
                y = Count,
                colour = factor(Sector, ordered = T, levels = Sector.list))) +
@@ -742,18 +733,18 @@ plotSectorOccupancy <- function(sector="All"){
       theme(legend.position="none",
             panel.background=element_rect(fill = "grey97"),
             axis.line = element_line(colour = "black"),
-            plot.title = element_text(size=20),
-            axis.title = element_text(size=18),
-            axis.text = element_text(size=14),
-            legend.title = element_text(size=18),
-            legend.text = element_text(size=14)) +
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
       scale_colour_manual(values = "blue4",
-                          name="")
+                          name=""))
   }
 }
 plotSectorEntry <- function(sector="All"){
   if (sector == "All") {
-    ggplot(subset(table.current.SectorEntry, Sector %in% Sector.list),
+      ggplotly(ggplot(subset(table.current.SectorEntry, Sector %in% Sector.list),
            aes(x = as.POSIXct(strptime(Time,format="%H:%M:%S")),
                y = Entries,
                colour = factor(Sector, ordered = T, levels = Sector.list))) +
@@ -772,15 +763,15 @@ plotSectorEntry <- function(sector="All"){
             legend.background=element_blank(),
             panel.background=element_rect(fill = "grey97"),
             axis.line = element_line(colour = "black"),
-            plot.title = element_text(size=20),
-            axis.title = element_text(size=18),
-            axis.text = element_text(size=14),
-            legend.title = element_text(size=18),
-            legend.text = element_text(size=14)) +
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
       scale_colour_manual(values = rainbow(6),
-                          name="Sector")
+                          name="Sector"))
   } else {
-    ggplot(subset(table.current.SectorEntry, Sector %in% sector),
+    ggplotly(ggplot(subset(table.current.SectorEntry, Sector %in% sector),
            aes(x = as.POSIXct(strptime(Time,format="%H:%M:%S")),
                y = Entries,
                colour = factor(Sector, ordered = T, levels = Sector.list))) +
@@ -798,136 +789,129 @@ plotSectorEntry <- function(sector="All"){
       theme(legend.position="none",
             panel.background=element_rect(fill = "grey97"),
             axis.line = element_line(colour = "black"),
-            plot.title = element_text(size=20),
-            axis.title = element_text(size=18),
-            axis.text = element_text(size=14),
-            legend.title = element_text(size=18),
-            legend.text = element_text(size=14)) +
+            plot.title = element_text(size=16),
+            axis.title = element_text(size=14),
+            axis.text = element_text(size=11),
+            legend.title = element_text(size=14),
+            legend.text = element_text(size=11)) +
       scale_colour_manual(values = "blue4",
-                          name="")
+                          name=""))
   }
 }
 
 # Shiny App --------------------------------------------------
+# Defines base UI elements
 ui <- fluidPage(
   br(),
-  div(style="width: auto;height: auto;position: relative;float: left;", tabsetPanel(id = "tabset",
-              tabPanel("Throughput",
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("metric1",
-                                       label = "Select metric:",
-                                       choices = c("Total Throughputs","Hourly Throughputs", "Rolling Hourly Throughputs"))),
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("airport1",
-                                       label = "Select airport:",
-                                       choices = Airport.list))
-              ),
-              # tabPanel("Efficiency"),
-              tabPanel("Safety",
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("metric3",
-                                       label = "Select metric:",
-                                       choices = c("Conflict Statistics", "Conflict Map"))),
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("sector3",
-                                       label = "Select sector:",
-                                       choices = Sector.list)),
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("group3",
-                                       label = "Select grouping:",
-                                       choices = c("Conflict Type","Conflict Type (Lateral)","Conflict Type (Vertical)","Flight Phase","Severity","Severity (Vertical)")))
-              ),
-              tabPanel("Capacity",
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("metric4",
-                                       label = "Select metric:",
-                                       choices = c("Sector Occupancy Count","Sector Entry Count"))),
-                       div(style="display: inline-block;vertical-align:top; width: 200px;",
-                           selectInput("sector4",
-                                       label = "Select sector:",
-                                       choices = Sector.list))
-              )
-              
-  )),
-  br(),
-  uiOutput("display")
+  # Selection box for KPA
+  div(style="display:inline-block; vertical-align:top; position:relative; top:5; width:200px;",
+      selectInput("kpa",
+              label = "Select KPA:",
+              choices = c("Throughput", "Safety", "Sector Capacity"))),
+  # Reactively renders more selection input boxes based on KPA selection
+  div(style="display:inline-block; vertical-align:top; width:auto;",
+      uiOutput("options")),
+  # Suppress red warning messages
+  tags$style(type="text/css",
+             ".shiny-output-error { visibility: hidden; }",
+             ".shiny-output-error:before { visibility: hidden; }"
+  )
 )
-
+# Defines changes in UI based on input selections
 server <- function(input, output, session){
-  
-  observeEvent(input$tabset, {
-    removeUI(
-      selector = "display"
-    )
-  })
-  
-  output$display <- renderUI({
-      if (input$tabset == "Safety" & input$metric3 == "Conflict Map") {
-        tagList(
-        leafletOutput("map", height="800px")
-        #absolutePanel(top=20, left=70, textInput("search_map", "" , ""))
-        )
-      } else {
-        plotOutput("plot", height="800px")
-      }
-  })
-  
-  observe({
-    if (input$metric3 == "Conflict Statistics") {
-      updateSelectInput(session,
-                        "sector3",
+  # Conditions for rendering additional selection input boxes
+  output$options <- renderUI({
+    if (input$kpa == "Throughput") {
+      tagList(
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("metric1",
+                        label = "Select metric:",
+                        choices = c("Total Throughputs","Hourly Throughputs", "Rolling Hourly Throughputs"))),
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("airport1",
+                        label = "Select airport:",
+                        choices = Airport.list)),
+        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:50px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
+            plotlyOutput("plot", height="100%"))
+      )
+    } else if (input$kpa == "Safety") {
+      tagList(
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("metric3",
+                        label = "Select metric:",
+                        choices = c("Conflict Map","Conflict Statistics"))),
+        div(style="display:inline-block; vertical-align:top; width:auto;",
+            uiOutput("options3"))
+      )
+    } else if (input$kpa == "Sector Capacity") {
+      tagList(
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("metric4",
+                        label = "Select metric:",
+                        choices = c("Sector Occupancy Count","Sector Entry Count"))),
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("sector4",
                         label = "Select sector:",
-                        choices = Sector.list)
-      updateSelectInput(session,
-                        "group3",
-                        label = "Select grouping:",
-                        choices = c("Conflict Type","Conflict Type (Lateral)","Conflict Type (Vertical)","Flight Phase","Severity","Severity (Vertical)"))
-    } else if (input$metric3 == "Conflict Map") {
-      updateSelectInput(session,
-                        "sector3",
-                        label = "Select sector:",
-                        choices = c("None"))
-      updateSelectInput(session,
-                        "group3",
-                        label = "Select grouping:",
-                        choices = c("None"))
+                        choices = Sector.list)),
+        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:50px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
+            plotlyOutput("plot", height="100%"))
+      )
     }
   })
-  
-  output$map <- renderLeaflet({
-    isolate({
-      if (input$tabset == "Safety") {
-        if (input$metric3 == "Conflict Map") {
-          plotConflictMap()
-        }
-      }
-    })
+  # More conditions for rendering additional selection input boxes in Safety KPA
+  output$options3 <- renderUI({
+    if (input$metric3 == "Conflict Statistics") {
+      tagList(
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("sector3",
+                        label = "Select sector:",
+                        choices = Sector.list)),
+        div(style="display:inline-block;vertical-align:top; width:200px;",
+            selectInput("group3",
+                        label = "Select grouping:",
+                        choices = c("Conflict Type","Conflict Type (Lateral)","Conflict Type (Vertical)","Flight Phase","Severity","Severity (Vertical)"))),
+        div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
+            plotlyOutput("plot", height="100%"))
+      )
+    } else if (input$metric3 == "Conflict Map") {
+      div(style="vertical-align:top; position:absolute; top:0; left:0; right:0; padding-top:100px; padding-left:10px; padding-right:10px; padding-bottom:10px; width:100%; height:100%;",
+          leafletOutput("map", height="100%"))
+      
+    }
   })
-  
-  output$plot <- renderPlot({
-      if (input$tabset == "Throughput") {
-        if (input$metric1 == "Total Throughputs") {
-          plotTotalThroughput(airport = input$airport1)
-        } else if (input$metric1 == "Hourly Throughputs") {
-          plotHourlyThroughput(airport = input$airport1)
-        } else if (input$metric1 == "Rolling Hourly Throughputs") {
-          plotRollingHourlyThroughput(airport = input$airport1)
-        }
-      } else if (input$tabset == "Efficiency") {
-        
-      } else if (input$tabset == "Safety") {
-        if (input$metric3 == "Conflict Statistics") {
-          plotConflictCount(sector = input$sector3, group = input$group3)
-        }
-      } else if (input$tabset == "Capacity") {
-        if (input$metric4 == "Sector Occupancy Count") {
-          plotSectorOccupancy(sector = input$sector4)
-        } else if (input$metric4 == "Sector Entry Count") {
-          plotSectorEntry(sector = input$sector4)
-        }
+  # Render leaflet map
+  output$map <- renderLeaflet({
+    if (input$kpa == "Safety") {
+      if (input$metric3 == "Conflict Map") {
+        plotConflictMap()
       }
+    }
+  })
+  # Render required plotly plots based on selections
+  output$plot <- renderPlotly({
+    if (input$kpa == "Throughput") {
+      if (input$metric1 == "Total Throughputs") {
+        plotTotalThroughput(airport = input$airport1)
+      } else if (input$metric1 == "Hourly Throughputs") {
+        plotHourlyThroughput(airport = input$airport1)
+      } else if (input$metric1 == "Rolling Hourly Throughputs") {
+        plotRollingHourlyThroughput(airport = input$airport1)
+      }
+    } else if (input$kpa == "Efficiency") {
+
+    } else if (input$kpa == "Safety") {
+      if (input$metric3 == "Conflict Statistics") {
+        plotConflictCount(sector = input$sector3, group = input$group3)
+      }
+    } else if (input$kpa == "Sector Capacity") {
+      if (input$metric4 == "Sector Occupancy Count") {
+        plotSectorOccupancy(sector = input$sector4)
+      } else if (input$metric4 == "Sector Entry Count") {
+        plotSectorEntry(sector = input$sector4)
+      }
+    }
   })
 }
-
+# Run Shiny App
 # shinyApp(ui, server, options=c(host="0.0.0.0", port=8788)) # host="192.168.1.137", port=8788
 shinyApp(ui, server)
