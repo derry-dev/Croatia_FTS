@@ -5,7 +5,7 @@ list.airports <- factor(c("All","LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI"
 list.sectors <- factor(c("All","TMA_DUBROVNIK","TMA_OSIJEK","TMA_PULA","TMA_SPLIT","TMA_ZADAR","TMA_ZAGREB"), ordered = TRUE)
 
 # Functions
-'%!in%' <- function(x,y)!('%in%'(x,y))
+'%!in%' <- function(x,y){!('%in%'(x,y))}
 
 plotlyTotalThroughput <- function(operation=c("Current","PBN"), runway="1", airport="All", arrange="Vertical"){
   d <- subset(table.TotalThroughputs, Runway %in% runway & Category %in% c("Arrivals","Departures"))
@@ -608,22 +608,22 @@ plotlyControllerWorkload <- function(operation=c("Current","PBN"), runway="1", s
   }
   
   g <- d %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~paste(Scenario,Sector), colors=c(palette.current,palette.PBN), type="scatter", mode="line") %>%
-    add_lines(y=~Entries, name=~paste(Scenario,Sector,"Entries"), line=list(color=c(palette.current,palette.PBN), width=1, dash="dot")) %>%
+    plot_ly(x=~Time, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=c(palette.current,palette.PBN), type="scatter", mode="line") %>%
+    add_lines(y=~RollingHourlyEntries, name=~paste(Scenario,Sector,"Entries"), line=list(color=c(palette.current,palette.PBN), width=1, dash="dot")) %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("Rolling Hourly Percentage Radar Controller Workload for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload %")) %>% config(collaborate=F)
   
   g1 <- subset(d,Scenario %in% "Current") %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.current, type="scatter", mode="line") %>%
-    add_lines(y=~Entries, name=~paste(Scenario,Sector,"Entries"), line=list(color=palette.current, width=1, dash="dot")) %>%
+    plot_ly(x=~Time, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.current, type="scatter", mode="line") %>%
+    add_lines(y=~RollingHourlyEntries, name=~paste(Scenario,Sector,"Entries"), line=list(color=palette.current, width=1, dash="dot")) %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("Current Rolling Hourly Percentage Radar Controller Workload for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload %")) %>% config(collaborate=F)
   
   g2 <- subset(d,Scenario %in% "PBN") %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.PBN, type="scatter", mode="line") %>%
-    add_lines(y=~Entries, name=~paste(Scenario,Sector,"Entries"), line=list(color=palette.PBN, width=1, dash="dot")) %>%
+    plot_ly(x=~Time, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.PBN, type="scatter", mode="line") %>%
+    add_lines(y=~RollingHourlyEntries, name=~paste(Scenario,Sector,"Entries"), line=list(color=palette.PBN, width=1, dash="dot")) %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("PBN Rolling Hourly Percentage Radar Controller Workload for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload %")) %>% config(collaborate=F)
@@ -656,11 +656,10 @@ plotlyWorkloadEntries <- function(operation=c("Current","PBN"), runway="1", sect
   }
   
   g <- d %>% group_by(Sector) %>%
-    plot_ly(x=~Entries, y=~PercentHourlyWorkload,# text=~paste(Scenario,Sector,"<br>Predicted max capacity:",PredictedCapacity), name=~Sector,
-            color=~paste(Scenario,Sector), colors=c(palette.current,palette.PBN), type="scatter", mode="markers")
+    plot_ly(x=~RollingHourlyEntries, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=c(palette.current,palette.PBN), type="scatter", mode="markers")
   for (i in 1:length(unique(paste(d$Scenario,d$Sector)))) {
     g <- g %>% add_lines(data=subset(d, paste(Scenario,Sector) %in% unique(paste(d$Scenario,d$Sector))[i]),
-                         y=~fitted(lm(PercentHourlyWorkload~Entries)), colors=c(palette.current,palette.PBN)[i])
+                         y=~fitted(lm(PercentRollingHourlyWorkload~RollingHourlyEntries)), colors=c(palette.current,palette.PBN)[i])
   }
   g <- g %>% layout(hovermode="closest", dragmode="zoom", title=paste("(Rolling Hourly) Percentage Radar Controller Workload vs Sector Entries for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
                     xaxis=list(tickmode="auto", fixedrange=T, title="Sector Entry Count"),
@@ -668,11 +667,10 @@ plotlyWorkloadEntries <- function(operation=c("Current","PBN"), runway="1", sect
   
   d1 <- subset(d,Scenario %in% "Current")
   g1 <- d1 %>% group_by(Sector) %>%
-    plot_ly(x=~Entries, y=~PercentHourlyWorkload,# text=~paste(Scenario,Sector,"<br>Predicted max capacity:",PredictedCapacity), name=~Sector,
-            color=~paste(Scenario,Sector), colors=palette.current, type="scatter", mode="markers")
+    plot_ly(x=~RollingHourlyEntries, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.current, type="scatter", mode="markers")
   for (i in 1:length(unique(paste(d1$Scenario,d1$Sector)))) {
     g1 <- g1 %>% add_lines(data=subset(d1, paste(Scenario,Sector) %in% unique(paste(d1$Scenario,d1$Sector))[i]),
-                           y=~fitted(lm(PercentHourlyWorkload~Entries)), colors=c(palette.current)[i])
+                           y=~fitted(lm(PercentRollingHourlyWorkload~RollingHourlyEntries)), colors=c(palette.current)[i])
   }
   g1 <- g1 %>% layout(hovermode="closest", dragmode="zoom", title=paste("Current (Rolling Hourly) Percentage Radar Controller Workload vs Sector Entries for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
                       xaxis=list(tickmode="auto", fixedrange=T, title="Sector Entry Count"),
@@ -680,11 +678,10 @@ plotlyWorkloadEntries <- function(operation=c("Current","PBN"), runway="1", sect
   
   d2 <- subset(d,Scenario %in% "PBN")
   g2 <- d2 %>% group_by(Sector) %>%
-    plot_ly(x=~Entries, y=~PercentHourlyWorkload,# text=~paste(Scenario,Sector,"<br>Predicted max capacity:",PredictedCapacity), name=~Sector,
-            color=~paste(Scenario,Sector), colors=palette.PBN, type="scatter", mode="markers")
+    plot_ly(x=~RollingHourlyEntries, y=~PercentRollingHourlyWorkload, color=~paste(Scenario,Sector), colors=palette.PBN, type="scatter", mode="markers")
   for (i in 1:length(unique(paste(d2$Scenario,d2$Sector)))) {
     g2 <- g2 %>% add_lines(data=subset(d2, paste(Scenario,Sector) %in% unique(paste(d2$Scenario,d2$Sector))[i]),
-                           y=~fitted(lm(PercentHourlyWorkload~Entries)), colors=c(palette.PBN)[i])
+                           y=~fitted(lm(PercentRollingHourlyWorkload~RollingHourlyEntries)), colors=c(palette.PBN)[i])
   }
   g2 <- g2 %>% layout(hovermode="closest", dragmode="zoom", title=paste("PBN (Rolling Hourly) Percentage Radar Controller Workload vs Sector Entries for Sector",sector,"Runway",runway), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", fixedrange=T, title="Sector Entry Count"),
@@ -698,6 +695,138 @@ plotlyWorkloadEntries <- function(operation=c("Current","PBN"), runway="1", sect
     } else if (arrange == "Group") {
       return(g)
     }
+  } else if ("Current" %in% operation & "PBN" %!in% operation) {
+    return(g1)
+  } else if ("Current" %!in% operation & "PBN" %in% operation) {
+    return(g2)
+  }
+}
+
+plotlyCapacityModel <- function(operation=c("Current","PBN"), runway="1", sector="TMA_DUBROVNIK", model="IFR Only"){
+  
+  t1 <- subset(table.Workload, Scenario %in% "Current" & Runway %in% runway & Sector %in% sector)
+  t1$PRHWexp <- exp(t1$PercentRollingHourlyWorkload)
+  t1$RHEexp <- exp(t1$RollingHourlyEntries)
+  t1$RHIFRexp <- exp(t1$RollingHourlyIFR)
+  t1$RHVFRexp <- exp(t1$RollingHourlyVFR)
+  t1$RHMILexp <- exp(t1$RollingHourlyMIL)
+  t1$PRHWsq <- (t1$PercentRollingHourlyWorkload)^2
+  t1$RHEsq <- (t1$RollingHourlyEntries)^2
+  t1$RHIFRsq <- (t1$RollingHourlyIFR)^2
+  t1$RHVFRsq <- (t1$RollingHourlyVFR)^2
+  t1$RHMILsq <- (t1$RollingHourlyMIL)^2
+  
+  t2 <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% runway & Sector %in% sector)
+  t2$PRHWexp <- exp(t2$PercentRollingHourlyWorkload)
+  t2$RHEexp <- exp(t2$RollingHourlyEntries)
+  t2$RHIFRexp <- exp(t2$RollingHourlyIFR)
+  t2$RHVFRexp <- exp(t2$RollingHourlyVFR)
+  t2$RHMILexp <- exp(t2$RollingHourlyMIL)
+  t2$PRHWsq <- (t2$PercentRollingHourlyWorkload)^2
+  t2$RHEsq <- (t2$RollingHourlyEntries)^2
+  t2$RHIFRsq <- (t2$RollingHourlyIFR)^2
+  t2$RHVFRsq <- (t2$RollingHourlyVFR)^2
+  t2$RHMILsq <- (t2$RollingHourlyMIL)^2
+  
+  if (model == "All (Combined)") {
+    
+    if (sector == "TMA_DUBROVNIK") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t2)
+    } else if (sector == "TMA_OSIJEK") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries,data=t2)
+    } else if (sector == "TMA_PULA") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t2)
+    } else if (sector == "TMA_SPLIT") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEsq,data=t2)
+    } else if (sector == "TMA_ZADAR") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEexp,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEexp,data=t2)
+    } else if (sector == "TMA_ZAGREB") {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEexp,data=t1)
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyEntries+RHEexp,data=t2)
+    }
+    
+    g1 <- t1 %>% plot_ly(x=~RollingHourlyEntries) %>%
+      add_markers(y=~PercentRollingHourlyWorkload, name="Current All (Combined)", marker=list(color="blue")) %>%
+      add_lines(y=fitted(lm1), name="Current All (Combined)", line=list(color="blue"), fillcolor="rgba(50,50,255,.5)", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("Current Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly Entries"), yaxis=list(title="Rolling Hourly Workload")) %>% config(collaborate=F)
+    
+    g2 <- t2 %>% plot_ly(x=~RollingHourlyEntries) %>%
+      add_markers(y=~PercentRollingHourlyWorkload, name="PBN All (Combined)", marker=list(color="red")) %>%
+      add_lines(y=fitted(lm2), name="PBN All (Combined)", line=list(color="red"), fillcolor="rgba(255,50,50,.5)", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("PBN Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly Entries"), yaxis=list(title="Rolling Hourly Workload")) %>% config(collaborate=F)
+    
+  } else if (model == "All (Separate)") {
+    
+    if (all(t1$RollingHourlyMIL == 0)) {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR,data=t1)
+      g1 <- plot_ly(r=c((70-lm1$coefficient[1])/lm1$coefficient[2],(70-lm1$coefficient[1])/lm1$coefficient[3],0),
+                    theta=c("RollingHourlyIFR","RollingHourlyVFR","RollingHourlyMIL"),
+                    name="Current All (Separate)", marker=list(color="blue"), fillcolor="rgba(50,50,255,0.5)", type="scatterpolar",mode="markers", fill = "toself", hoveron="points+fills") %>%
+        layout(title=paste("Current Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5)) %>% config(collaborate=F)
+    } else {
+      lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR+RollingHourlyMIL,data=t1)
+      g1 <- plot_ly(r=c((70-lm1$coefficient[1])/lm1$coefficient[2],(70-lm1$coefficient[1])/lm1$coefficient[3],(70-lm1$coefficient[1])/lm1$coefficient[4]),
+                    theta=c("RollingHourlyIFR","RollingHourlyVFR","RollingHourlyMIL"),
+                    name="Current All (Separate)", marker=list(color="blue"), fillcolor="rgba(50,50,255,0.5)", type="scatterpolar",mode="markers", fill = "toself", hoveron="points+fills") %>%
+        layout(title=paste("Current Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5)) %>% config(collaborate=F)
+    }
+    
+    if (all(t2$RollingHourlyMIL == 0)) {
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR,data=t2)
+      g2 <- plot_ly(r=c((70-lm2$coefficient[1])/lm2$coefficient[2],(70-lm2$coefficient[1])/lm2$coefficient[3],0),
+                    theta=c("RollingHourlyIFR","RollingHourlyVFR","RollingHourlyMIL"),
+                    name="PBN All (Separate)", marker=list(color="red"), fillcolor="rgba(255,50,50,0.5)", type="scatterpolar",mode="markers", fill = "toself", hoveron="points+fills") %>%
+        layout(title=paste("PBN Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5)) %>% config(collaborate=F)
+    } else {
+      lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR+RollingHourlyMIL,data=t2)
+      g2 <- plot_ly(r=c((70-lm2$coefficient[1])/lm2$coefficient[2],(70-lm2$coefficient[1])/lm2$coefficient[3],(70-lm2$coefficient[1])/lm2$coefficient[4]),
+                    theta=c("RollingHourlyIFR","RollingHourlyVFR","RollingHourlyMIL"),
+                    name="PBN All (Separate)", marker=list(color="red"), fillcolor="rgba(255,50,50,0.5)", type="scatterpolar",mode="markers", fill = "toself", hoveron="points+fills") %>%
+        layout(title=paste("PBN Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5)) %>% config(collaborate=F)
+    }
+    
+  } else if (model == "IFR and VFR") {
+    
+    lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR,data=t1)
+    lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR+RollingHourlyVFR,data=t2)
+    
+    g1 <- plot_ly(x=c(0,(70-lm1$coefficient[1])/lm1$coefficient[2]), y=c((70-lm1$coefficient[1])/lm1$coefficient[3],0),
+            name="Current IFR and VFR", marker=list(color="blue"), line=list(color="blue"), fillcolor="rgba(50,50,255,0.5)", type="scatter", mode="markers+lines", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("Current Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly IFR"), yaxis=list(title="Rolling Hourly VFR")) %>% config(collaborate=F)
+    
+    g2 <- plot_ly(x=c(0,(70-lm2$coefficient[1])/lm2$coefficient[2]), y=c((70-lm2$coefficient[1])/lm2$coefficient[3],0),
+                 name="PBN IFR and VFR", marker=list(color="red"), line=list(color="red"), fillcolor="rgba(255,50,50,0.5)", type="scatter", mode="markers+lines", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("PBN Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly IFR"), yaxis=list(title="Rolling Hourly VFR")) %>% config(collaborate=F)
+    
+  } else if (model == "IFR Only") {
+    
+    lm1 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR,data=t1)
+    lm2 <- lm(PercentRollingHourlyWorkload~RollingHourlyIFR,data=t2)
+    
+    g1 <- t1 %>% plot_ly(x=~RollingHourlyIFR) %>%
+      add_markers(y=~PercentRollingHourlyWorkload, name="Current All (Combined)", marker=list(color="blue")) %>%
+      add_lines(y=fitted(lm1), name="Current All (Combined)", line=list(color="blue"), fillcolor="rgba(50,50,255,.5)", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("Current Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly IFR"), yaxis=list(title="Rolling Hourly Workload")) %>% config(collaborate=F)
+    
+    g2 <- t2 %>% plot_ly(x=~RollingHourlyIFR) %>%
+      add_markers(y=~PercentRollingHourlyWorkload, name="PBN All (Combined)", marker=list(color="red")) %>%
+      add_lines(y=fitted(lm2), name="PBN All (Combined)", line=list(color="red"), fillcolor="rgba(255,50,50,.5)", fill="tozeroy", hoveron="points+fills") %>%
+      layout(title=paste("PBN Acceptable Rolling Hourly Workload",model,sector,"Runway",runway), legend=list(x=100, y=0.5),
+             xaxis=list(title="Rolling Hourly IFR"), yaxis=list(title="Rolling Hourly Workload")) %>% config(collaborate=F)
+    
+  }
+  if ("Current" %in% operation & "PBN" %in% operation) {
+    return(subplot(g1,g2,shareY=T,shareX=T,nrows=1) %>% layout(title=paste("Acceptable Rolling Hourly Workload",model,sector,"Runway",runway)))
   } else if ("Current" %in% operation & "PBN" %!in% operation) {
     return(g1)
   } else if ("Current" %!in% operation & "PBN" %in% operation) {

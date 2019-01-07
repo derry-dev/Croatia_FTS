@@ -6,7 +6,7 @@ library(tidyr)
 list.airports <- factor(c("All","LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI","LDSB","LDOS"), ordered = TRUE)
 list.sectors <- factor(c("All","TMA_DUBROVNIK","TMA_OSIJEK","TMA_PULA","TMA_SPLIT","TMA_ZADAR","TMA_ZAGREB"), ordered = TRUE)
 
-# Change these to match schema names for each scenario (assuming rest of query remain the same)
+# Change these to match schema names (base name if multiple runs) for each scenario (assuming rest of query remain the same)
 schema.current1 <- "Croatia"
 schema.current2 <- "Croatia"
 schema.PBN1 <- "Croatia_PBN"
@@ -47,7 +47,7 @@ table.TotalThroughputs <- rbind(table.TotalThroughputs, agg1, agg2, agg3)
 table.TotalThroughputs$Category[table.TotalThroughputs$Category == "Descending"] <- "Arrivals"
 table.TotalThroughputs$Category[table.TotalThroughputs$Category == "GroundAccelerating"] <- "Departures"
 
-write.csv(table.TotalThroughputs, file="~/Croatia v3.1/data/TotalThroughputs.csv", row.names=F)
+write.csv(table.TotalThroughputs, file="~/Croatia v3.2/data/TotalThroughputs.csv", row.names=F)
 
 # Hourly Throughput -------------------------------------------------------
 query.HourlyThroughputs <-
@@ -83,7 +83,7 @@ table.HourlyThroughputs <- rbind(table.HourlyThroughputs, agg1, agg2, agg3)
 table.HourlyThroughputs$Category[table.HourlyThroughputs$Category == "Descending"] <- "Arrivals"
 table.HourlyThroughputs$Category[table.HourlyThroughputs$Category == "GroundAccelerating"] <- "Departures"
 
-write.csv(table.HourlyThroughputs, file="~/Croatia v3.1/data/HourlyThroughputs.csv", row.names=F)
+write.csv(table.HourlyThroughputs, file="~/Croatia v3.2/data/HourlyThroughputs.csv", row.names=F)
 
 # Rolling Hourly Throughput -----------------------------------------------
 query.RollingHourlyThroughputs <-
@@ -117,7 +117,7 @@ agg2$Airport <- "All Major Airports"
 table.RollingHourlyThroughputs <- rbind(table.RollingHourlyThroughputs, agg1, agg2)
 table.RollingHourlyThroughputs <- table.RollingHourlyThroughputs[,c(1,6,2,5,3,4)]
 
-write.csv(table.RollingHourlyThroughputs, file="~/Croatia v3.1/data/RollingHourlyThroughputs.csv", row.names=F)
+write.csv(table.RollingHourlyThroughputs, file="~/Croatia v3.2/data/RollingHourlyThroughputs.csv", row.names=F)
 
 # Fuel Burn Track Miles ---------------------------------------------------
 query.FuelBurnTrackMiles <-
@@ -204,9 +204,9 @@ temp4$Airport <- "All Airports"
 table.TrackMiles <- rbind(table.TrackMiles,temp1,temp2,temp3,temp4)
 table.TrackMiles <- table.TrackMiles[,c(1,6,4,5,2,3)]
 
-write.csv(table.FuelBurnTrackMiles, file="~/Croatia v3.1/data/FuelBurnTrackMiles.csv", row.names=F)
-write.csv(table.FuelBurn, file="~/Croatia v3.1/data/FuelBurn.csv", row.names=F)
-write.csv(table.TrackMiles, file="~/Croatia v3.1/data/TrackMiles.csv", row.names=F)
+write.csv(table.FuelBurnTrackMiles, file="~/Croatia v3.2/data/FuelBurnTrackMiles.csv", row.names=F)
+write.csv(table.FuelBurn, file="~/Croatia v3.2/data/FuelBurn.csv", row.names=F)
+write.csv(table.TrackMiles, file="~/Croatia v3.2/data/TrackMiles.csv", row.names=F)
 
 # Conflict ----------------------------------------------------------------
 query.Conflicts <-
@@ -338,12 +338,12 @@ table.VerticalSeverity <- rbind(table.VerticalSeverity, temp1, temp2)
 names(table.VerticalSeverity) <- c("Sector","VerticalSeverity","Scenario","Runway","Count")
 table.VerticalSeverity <- table.VerticalSeverity[,c(1,5,2,3,4)]
 
-write.csv(table.Conflicts, file="~/Croatia v3.1/data/Conflicts.csv", row.names=F)
-write.csv(table.ConflictType, file="~/Croatia v3.1/data/ConflictType.csv", row.names=F)
-write.csv(table.LateralConflictType, file="~/Croatia v3.1/data/LateralConflictType.csv", row.names=F)
-write.csv(table.VerticalConflictType, file="~/Croatia v3.1/data/VerticalConflictType.csv", row.names=F)
-write.csv(table.Severity, file="~/Croatia v3.1/data/Severity.csv", row.names=F)
-write.csv(table.VerticalSeverity, file="~/Croatia v3.1/data/VerticalSeverity.csv", row.names=F)
+write.csv(table.Conflicts, file="~/Croatia v3.2/data/Conflicts.csv", row.names=F)
+write.csv(table.ConflictType, file="~/Croatia v3.2/data/ConflictType.csv", row.names=F)
+write.csv(table.LateralConflictType, file="~/Croatia v3.2/data/LateralConflictType.csv", row.names=F)
+write.csv(table.VerticalConflictType, file="~/Croatia v3.2/data/VerticalConflictType.csv", row.names=F)
+write.csv(table.Severity, file="~/Croatia v3.2/data/Severity.csv", row.names=F)
+write.csv(table.VerticalSeverity, file="~/Croatia v3.2/data/VerticalSeverity.csv", row.names=F)
 
 # Conflict Flight Plan Phase ---------------------------------------------
 query.ConflictsFlightPlanPhase <-
@@ -386,14 +386,14 @@ for (i in 1:length(temp)) {
 table.ConflictsFlightPlanPhase$FlightPlanPhases <- unlist(temp)
 table.ConflictsFlightPlanPhase <- table.ConflictsFlightPlanPhase[,c(1,3,2,4,5)]
 
-write.csv(table.ConflictsFlightPlanPhase, file="~/Croatia v3.1/data/ConflictsFlightPlanPhase.csv", row.names=F)
+write.csv(table.ConflictsFlightPlanPhase, file="~/Croatia v3.2/data/ConflictsFlightPlanPhase.csv", row.names=F)
 
 # Sector Occupancy --------------------------------------------------------
 query.SectorOccupancy <-
   'SELECT
 to_char("Time_time", \'HH24:MI\') AS "Time",
-"ATCSector" AS "Sector",
-"AircraftLoad" AS "Count"
+"RadarController" AS "Sector",
+"AircraftList" AS "Count"
 FROM "ENTER SCHEMA NAME"."RS_SECOCC"
 WHERE "Time_day" = 2'
 
@@ -414,14 +414,14 @@ agg2 <- aggregate(data = subset(table.SectorOccupancy, Sector %in% list.sectors)
 agg2$Sector <- "All TMA"
 table.SectorOccupancy <- rbind(table.SectorOccupancy,agg1,agg2)
 
-write.csv(table.SectorOccupancy, file="~/Croatia v3.1/data/SectorOccupancy.csv", row.names=F)
+write.csv(table.SectorOccupancy, file="~/Croatia v3.2/data/SectorOccupancy.csv", row.names=F)
 
 # Sector Entry ------------------------------------------------------------
 query.SectorEntry <-
   'SELECT
 to_char("Time_time", \'HH24:MI\') AS "Time", 
-"ATCSector" AS "Sector",
-"LastPeriodEntryCount" AS "Entries"
+"RadarController" AS "Sector",
+"LastPeriodReceivedAircraftCount" AS "Entries"
 FROM "ENTER SCHEMA NAME"."RS_SECENTRY"
 WHERE "Time_day" = 2'
 
@@ -442,16 +442,76 @@ agg2 <- aggregate(data = subset(table.SectorEntry, Sector %in% list.sectors),Ent
 agg2$Sector <- "All TMA"
 table.SectorEntry <- rbind(table.SectorEntry,agg1,agg2)
 
-write.csv(table.SectorEntry, file="~/Croatia v3.1/data/SectorEntry.csv", row.names=F)
+write.csv(table.SectorEntry, file="~/Croatia v3.2/data/SectorEntry.csv", row.names=F)
 
 # Workload ----------------------------------------------------------------
-query.Workload <-
-  'SELECT "Time", "Sector", ROUND("HourlyWorkload"/36) AS "PercentHourlyWorkload"
-FROM "ENTER SCHEMA NAME"."RollingHourlyWorkload"
+query.Workload <- 
+  'SELECT
+  "Time",
+"Sector",
+"RollingHourlyWorkload",
+"PercentRollingHourlyWorkload",
+"RollingHourlyIFR" + "RollingHourlyVFR" + "RollingHourlyMIL" AS "RollingHourlyEntries",
+"RollingHourlyIFR",
+"RollingHourlyVFR",
+"RollingHourlyMIL"
+FROM (
+SELECT
+"Time",
+"Sector",
+"Workload",
+"IFR" + "VFR" + "MIL" AS "Entries",
+"IFR",
+"VFR",
+"MIL",
+SUM("Workload") OVER (PARTITION BY "Sector" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) AS "RollingHourlyWorkload",
+ROUND((SUM("Workload") OVER (PARTITION BY "Sector" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW))/36) AS "PercentRollingHourlyWorkload",
+SUM("IFR") OVER (PARTITION BY "Sector" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) AS "RollingHourlyIFR",
+SUM("VFR") OVER (PARTITION BY "Sector" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) AS "RollingHourlyVFR",
+SUM("MIL") OVER (PARTITION BY "Sector" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) AS "RollingHourlyMIL"
+FROM (
+SELECT
+t1."Time",
+t1."Sector",
+CASE WHEN t3."Workload" IS NULL THEN 0 ELSE t3."Workload" END,
+CASE WHEN t2."IFR" IS NULL THEN 0 ELSE t2."IFR" END,
+CASE WHEN t2."VFR" IS NULL THEN 0 ELSE t2."VFR" END,
+CASE WHEN t2."MIL" IS NULL THEN 0 ELSE t2."MIL" END
+FROM (
+SELECT "Time", "Sector" FROM time_template
+CROSS JOIN (
+(SELECT \'TMA_ZAGREB\' AS "Sector" UNION SELECT \'TMA_ZADAR\' UNION SELECT \'TMA_SPLIT\' UNION SELECT \'TMA_PULA\' UNION SELECT \'TMA_OSIJEK\' UNION SELECT \'TMA_DUBROVNIK\')
+) AS verysql
+ORDER BY "Sector", "Time"
+) AS t1
+LEFT JOIN (
+SELECT
+"Time",
+"Sector",
+SUM("IFR") AS "IFR",
+SUM("VFR") AS "VFR",
+SUM("MIL") AS "MIL"
+FROM (
+SELECT
+"Time_time" AS "Time",
+"New CurrentRadarController" AS "Sector",
+CASE WHEN "FlightType" = \'AirCarrier\' THEN 1 ELSE 0 END AS "IFR",
+CASE WHEN "FlightType" = \'GeneralAviation\' THEN 1 ELSE 0 END AS "VFR",
+CASE WHEN "FlightType" = \'Military\' THEN 1 ELSE 0 END AS "MIL"
+FROM "ENTER SCHEMA NAME"."RS_ATC_SECTOR_ENTRY_EXIT_AND_CONTROLLED"
+WHERE "New CurrentRadarController" LIKE \'TMA%\' AND "Time_day" = 2
+) AS suchsql
+GROUP BY "Sector", "Time"
+) AS t2 ON t1."Time" = t2."Time" AND t1."Sector" = t2."Sector"
+LEFT JOIN (
+SELECT "TimeAdjusted", "Sector", SUM("Task Duration") AS "Workload"
+FROM "ENTER SCHEMA NAME"."Workload"
+GROUP BY "Sector", "TimeAdjusted"
+) AS t3 ON t1."Time" = t3."TimeAdjusted" AND t1."Sector" = t3."Sector"
+) AS extremelysql
+) AS definitelysql
 WHERE EXTRACT(second from "Time") = 0
-AND EXTRACT(minute from "Time") IN (0,10,20,30,40,50)
-AND "Sector" LIKE \'TMA_%\'
-ORDER BY "Sector"'
+AND EXTRACT(minute from "Time") IN (0,10,20,30,40,50)'
 
 table.current1.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current1,query.Workload))
 table.current2.Workload <- dbGetQuery(con,gsub("ENTER SCHEMA NAME",schema.current2,query.Workload))
@@ -464,111 +524,14 @@ t3 <- table.PBN1.Workload; t3$Scenario <- "PBN"; t3$Runway <- "1"
 t4 <- table.PBN2.Workload; t4$Scenario <- "PBN"; t4$Runway <- "2"
 table.Workload <- rbind(t1,t2,t3,t4)
 
-agg1 <- aggregate(data = table.Workload,PercentHourlyWorkload~Time+Scenario+Runway,"sum")
-agg1$Sector <- "All Sectors"
-agg2 <- aggregate(data = subset(table.Workload, Sector %in% list.sectors),PercentHourlyWorkload~Time+Scenario+Runway,"sum")
-agg2$Sector <- "All TMA"
-table.Workload <- rbind(subset(table.Workload, PercentHourlyWorkload != 0),agg1,agg2)
-
-temp <- table.SectorEntry
-temp$Time <- strftime(as.POSIXct(temp$Time,format="%H:%M"),format="%H:%M:%S")
-temp <- temp[order(temp$Runway,temp$Scenario,temp$Sector,temp$Time),]
-table.Workload <- merge(x=table.Workload, y=temp, all=T)
-table.Workload[is.na(table.Workload$PercentHourlyWorkload),]$PercentHourlyWorkload <- 0
-table.Workload[is.na(table.Workload$Entries),]$Entries <- 0
-table.Workload <- table.Workload[order(table.Workload$Scenario,table.Workload$Runway,table.Workload$Sector,table.Workload$Time),]
-
-table.Workload.Current.1.TMA_DUBROVNIK <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_DUBROVNIK")
-table.Workload.Current.1.TMA_OSIJEK <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_OSIJEK")
-table.Workload.Current.1.TMA_PULA <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_PULA")
-table.Workload.Current.1.TMA_SPLIT <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_SPLIT")
-table.Workload.Current.1.TMA_ZADAR <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_ZADAR")
-table.Workload.Current.1.TMA_ZAGREB <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "1" & Sector %in% "TMA_ZAGREB")
-table.Workload.Current.2.TMA_DUBROVNIK <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_DUBROVNIK")
-table.Workload.Current.2.TMA_OSIJEK <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_OSIJEK")
-table.Workload.Current.2.TMA_PULA <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_PULA")
-table.Workload.Current.2.TMA_SPLIT <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_SPLIT")
-table.Workload.Current.2.TMA_ZADAR <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_ZADAR")
-table.Workload.Current.2.TMA_ZAGREB <- subset(table.Workload, Scenario %in% "Current" & Runway %in% "2" & Sector %in% "TMA_ZAGREB")
-table.Workload.PBN.1.TMA_DUBROVNIK <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_DUBROVNIK")
-table.Workload.PBN.1.TMA_OSIJEK <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_OSIJEK")
-table.Workload.PBN.1.TMA_PULA <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_PULA")
-table.Workload.PBN.1.TMA_SPLIT <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_SPLIT")
-table.Workload.PBN.1.TMA_ZADAR <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_ZADAR")
-table.Workload.PBN.1.TMA_ZAGREB <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "1" & Sector %in% "TMA_ZAGREB")
-table.Workload.PBN.2.TMA_DUBROVNIK <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_DUBROVNIK")
-table.Workload.PBN.2.TMA_OSIJEK <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_OSIJEK")
-table.Workload.PBN.2.TMA_PULA <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_PULA")
-table.Workload.PBN.2.TMA_SPLIT <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_SPLIT")
-table.Workload.PBN.2.TMA_ZADAR <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_ZADAR")
-table.Workload.PBN.2.TMA_ZAGREB <- subset(table.Workload, Scenario %in% "PBN" & Runway %in% "2" & Sector %in% "TMA_ZAGREB")
-lm.Workload.Current.1.TMA_DUBROVNIK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_DUBROVNIK)
-lm.Workload.Current.1.TMA_OSIJEK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_OSIJEK)
-lm.Workload.Current.1.TMA_PULA <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_PULA)
-lm.Workload.Current.1.TMA_SPLIT <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_SPLIT)
-lm.Workload.Current.1.TMA_ZADAR <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_ZADAR)
-lm.Workload.Current.1.TMA_ZAGREB <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.1.TMA_ZAGREB)
-lm.Workload.Current.2.TMA_DUBROVNIK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_DUBROVNIK)
-lm.Workload.Current.2.TMA_OSIJEK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_OSIJEK)
-lm.Workload.Current.2.TMA_PULA <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_PULA)
-lm.Workload.Current.2.TMA_SPLIT <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_SPLIT)
-lm.Workload.Current.2.TMA_ZADAR <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_ZADAR)
-lm.Workload.Current.2.TMA_ZAGREB <- lm(PercentHourlyWorkload~Entries,data=table.Workload.Current.2.TMA_ZAGREB)
-lm.Workload.PBN.1.TMA_DUBROVNIK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_DUBROVNIK)
-lm.Workload.PBN.1.TMA_OSIJEK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_OSIJEK)
-lm.Workload.PBN.1.TMA_PULA <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_PULA)
-lm.Workload.PBN.1.TMA_SPLIT <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_SPLIT)
-lm.Workload.PBN.1.TMA_ZADAR <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_ZADAR)
-lm.Workload.PBN.1.TMA_ZAGREB <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.1.TMA_ZAGREB)
-lm.Workload.PBN.2.TMA_DUBROVNIK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_DUBROVNIK)
-lm.Workload.PBN.2.TMA_OSIJEK <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_OSIJEK)
-lm.Workload.PBN.2.TMA_PULA <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_PULA)
-lm.Workload.PBN.2.TMA_SPLIT <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_SPLIT)
-lm.Workload.PBN.2.TMA_ZADAR <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_ZADAR)
-lm.Workload.PBN.2.TMA_ZAGREB <- lm(PercentHourlyWorkload~Entries,data=table.Workload.PBN.2.TMA_ZAGREB)
-table.Workload.Current.1.TMA_DUBROVNIK$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_DUBROVNIK$coefficients[1])/lm.Workload.Current.1.TMA_DUBROVNIK$coefficients[2]
-table.Workload.Current.1.TMA_OSIJEK$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_OSIJEK$coefficients[1])/lm.Workload.Current.1.TMA_OSIJEK$coefficients[2]
-table.Workload.Current.1.TMA_PULA$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_PULA$coefficients[1])/lm.Workload.Current.1.TMA_PULA$coefficients[2]
-table.Workload.Current.1.TMA_SPLIT$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_SPLIT$coefficients[1])/lm.Workload.Current.1.TMA_SPLIT$coefficients[2]
-table.Workload.Current.1.TMA_ZADAR$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_ZADAR$coefficients[1])/lm.Workload.Current.1.TMA_ZADAR$coefficients[2]
-table.Workload.Current.1.TMA_ZAGREB$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_ZAGREB$coefficients[1])/lm.Workload.Current.1.TMA_ZAGREB$coefficients[2]
-table.Workload.Current.2.TMA_DUBROVNIK$PredictedCapacity <- (70-lm.Workload.Current.1.TMA_DUBROVNIK$coefficients[1])/lm.Workload.Current.1.TMA_DUBROVNIK$coefficients[2]
-table.Workload.Current.2.TMA_OSIJEK$PredictedCapacity <- (70-lm.Workload.Current.2.TMA_DUBROVNIK$coefficients[1])/lm.Workload.Current.2.TMA_DUBROVNIK$coefficients[2]
-table.Workload.Current.2.TMA_PULA$PredictedCapacity <- (70-lm.Workload.Current.2.TMA_OSIJEK$coefficients[1])/lm.Workload.Current.2.TMA_OSIJEK$coefficients[2]
-table.Workload.Current.2.TMA_SPLIT$PredictedCapacity <- (70-lm.Workload.Current.2.TMA_SPLIT$coefficients[1])/lm.Workload.Current.2.TMA_SPLIT$coefficients[2]
-table.Workload.Current.2.TMA_ZADAR$PredictedCapacity <- (70-lm.Workload.Current.2.TMA_ZADAR$coefficients[1])/lm.Workload.Current.2.TMA_ZADAR$coefficients[2]
-table.Workload.Current.2.TMA_ZAGREB$PredictedCapacity <- (70-lm.Workload.Current.2.TMA_ZAGREB$coefficients[1])/lm.Workload.Current.2.TMA_ZAGREB$coefficients[2]
-table.Workload.PBN.1.TMA_DUBROVNIK$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_DUBROVNIK$coefficients[1])/lm.Workload.PBN.1.TMA_DUBROVNIK$coefficients[2]
-table.Workload.PBN.1.TMA_OSIJEK$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_OSIJEK$coefficients[1])/lm.Workload.PBN.1.TMA_OSIJEK$coefficients[2]
-table.Workload.PBN.1.TMA_PULA$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_PULA$coefficients[1])/lm.Workload.PBN.1.TMA_PULA$coefficients[2]
-table.Workload.PBN.1.TMA_SPLIT$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_SPLIT$coefficients[1])/lm.Workload.PBN.1.TMA_SPLIT$coefficients[2]
-table.Workload.PBN.1.TMA_ZADAR$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_ZADAR$coefficients[1])/lm.Workload.PBN.1.TMA_ZADAR$coefficients[2]
-table.Workload.PBN.1.TMA_ZAGREB$PredictedCapacity <- (70-lm.Workload.PBN.1.TMA_ZAGREB$coefficients[1])/lm.Workload.PBN.1.TMA_ZAGREB$coefficients[2]
-table.Workload.PBN.2.TMA_DUBROVNIK$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_DUBROVNIK$coefficients[1])/lm.Workload.PBN.2.TMA_DUBROVNIK$coefficients[2]
-table.Workload.PBN.2.TMA_OSIJEK$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_OSIJEK$coefficients[1])/lm.Workload.PBN.2.TMA_OSIJEK$coefficients[2]
-table.Workload.PBN.2.TMA_PULA$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_PULA$coefficients[1])/lm.Workload.PBN.2.TMA_PULA$coefficients[2]
-table.Workload.PBN.2.TMA_SPLIT$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_SPLIT$coefficients[1])/lm.Workload.PBN.2.TMA_SPLIT$coefficients[2]
-table.Workload.PBN.2.TMA_ZADAR$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_ZADAR$coefficients[1])/lm.Workload.PBN.2.TMA_ZADAR$coefficients[2]
-table.Workload.PBN.2.TMA_ZAGREB$PredictedCapacity <- (70-lm.Workload.PBN.2.TMA_ZAGREB$coefficients[1])/lm.Workload.PBN.2.TMA_ZAGREB$coefficients[2]
-table.Workload.agg <- subset(table.Workload, !(Sector %in% list.sectors))
-table.Workload.agg$PredictedCapacity<- NA
-table.Workload <- rbind(table.Workload.agg, table.Workload.Current.1.TMA_DUBROVNIK,table.Workload.Current.1.TMA_OSIJEK,table.Workload.Current.1.TMA_PULA,
-                        table.Workload.Current.1.TMA_SPLIT,table.Workload.Current.1.TMA_ZADAR,table.Workload.Current.1.TMA_ZAGREB,
-                        table.Workload.Current.2.TMA_DUBROVNIK,table.Workload.Current.2.TMA_OSIJEK,table.Workload.Current.2.TMA_PULA,
-                        table.Workload.Current.2.TMA_SPLIT,table.Workload.Current.2.TMA_ZADAR,table.Workload.Current.2.TMA_ZAGREB,
-                        table.Workload.PBN.1.TMA_DUBROVNIK,table.Workload.PBN.1.TMA_OSIJEK,table.Workload.PBN.1.TMA_PULA,
-                        table.Workload.PBN.1.TMA_SPLIT,table.Workload.PBN.1.TMA_ZADAR,table.Workload.PBN.1.TMA_ZAGREB,
-                        table.Workload.PBN.2.TMA_DUBROVNIK,table.Workload.PBN.2.TMA_OSIJEK,table.Workload.PBN.2.TMA_PULA,
-                        table.Workload.PBN.2.TMA_SPLIT,table.Workload.PBN.2.TMA_ZADAR,table.Workload.PBN.2.TMA_ZAGREB)
-
-write.csv(table.Workload, file="~/Croatia v3.1/data/Workload.csv", row.names=F)
+write.csv(table.Workload, file="~/Croatia v3.2/data/Workload.csv", row.names=F)
 
 # Sector Polygons ---------------------------------------------------------
 table.SectorPolygons <-
   dbGetQuery(con,'
              SELECT
              "Sector",
-             ST_SetSRID(ST_UNION("Polygon"::geometry), 4326) AS "Geometry",
+             --ST_SetSRID(ST_UNION("Polygon"::geometry), 4326) AS "Geometry",
              REPLACE(REPLACE(ST_AsText(ST_UNION("Polygon"::geometry)),\'POLYGON((\',\'\'),\'))\',\'\') AS "SectorPolygon"
              FROM (
              SELECT
@@ -1225,6 +1188,6 @@ table.SectorPolygons <- subset(gather(data=table.SectorPolygons, "V", "Position"
 table.SectorPolygons <- separate(data=table.SectorPolygons, col=Position, into=c("Longitude","Latitude"), sep=" ")
 table.SectorPolygons$Longitude <- as.numeric(table.SectorPolygons$Longitude); table.SectorPolygons$Latitude <- as.numeric(table.SectorPolygons$Latitude)  
 
-write.csv(table.SectorPolygons, file="~/Croatia v3.1/data/SectorPolygons.csv", row.names=F)
+write.csv(table.SectorPolygons, file="~/Croatia v3.2/data/SectorPolygons.csv", row.names=F)
 
 dbDisconnect(con)

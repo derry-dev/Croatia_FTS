@@ -7,7 +7,7 @@
   	opacity: 0.1;
   	background-color: rgb(250,250,250);
     background-color: rgba(250,250,250,0.8);
-  	padding: 10px 10px 10px 10px;
+  	padding: 20px 10px 10px 10px;
   	border: 1px solid #bcbcbc;
   	border-radius: 5px;
   	cursor: move;
@@ -21,6 +21,16 @@
 }
 .controlpanel:hover {
   	opacity: 1;
+}
+.dropdown_box {
+  	display: inline-block;
+  	position: relative;
+  	text-align: left;
+  	width: 199px;
+  	top: -10px;
+}
+.check_box {
+    text-align: center;
 }
 .mapcontrols {
     position: relative;
@@ -54,7 +64,7 @@
 #mapcontrols2 {
     position: relative;
     display: inline-block;
-    top: 20px;
+    top: 15px;
     width: 45%;
     right: -13px;
 }
@@ -94,15 +104,6 @@
     width: 45%;
     left: 13%;
     right: 5%;
-}
-.dropdown_box {
-  	display: inline-block;
-  	position: relative;
-  	text-align: left;
-  	width: 199px;
-}
-.check_box {
-    text-align: center;
 }
 .header {
     position: fixed;

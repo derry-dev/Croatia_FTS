@@ -13,7 +13,8 @@ choices.efficiencygrouping <- c("Airport (Combined)", "Airport (Arrivals Only)",
 choices.safety <- c("Conflict Map", "Conflict Statistics")
 choices.mapcolours <- c("Operation","Conflict Type","Lateral Conflict Type","Vertical Conflict Type","Flight Phase","Flight Type","Severity","Vertical Severity","Altitude","Lateral Separation","Vertical Separation")
 choices.conflictsgrouping <- c("Conflict Type","Conflict Type (Lateral)","Conflict Type (Vertical)","Flight Phase","Severity","Severity (Vertical)")
-choices.sectorcapacity <- c("Sector Entry Count","Sector Occupancy Count","Controller Workload","Workload vs Entries")
+choices.sectorcapacity <- c("Sector Entry Count","Sector Occupancy Count","Controller Workload","Workload vs Entries","Capacity Models")
+choices.capacitymodels <- c("IFR Only", "IFR and VFR", "All (Separate)", "All (Combined)")
 
 function(input, output, session){
   
@@ -52,7 +53,7 @@ function(input, output, session){
         selectInput("moreoptions","Airport",list.airports)
       )
     } else if (x == "Conflict Map") {
-      div(style="text-align:center;",checkboxGroupInput("sectors","Sectors",c("TMA","Non-TMA"),selected=c("TMA"),inline=T))
+      div(style="text-align:center;", checkboxGroupInput("sectors","Sectors",c("TMA","Non-TMA"),selected=c("TMA"),inline=T))
     } else if (x == "Conflict Statistics") {
       selectInput("options","Group by",choices.conflictsgrouping)
     } else if (x == "Sector Occupancy Count") {
@@ -63,11 +64,20 @@ function(input, output, session){
       selectInput("options","Sector",list.sectors)
     } else if (x == "Workload vs Entries") {
       selectInput("options","Sector",list.sectors)
+    } else if (x == "Capacity Models") {
+      tagList(
+        selectInput("options","Sector",list.sectors[-c(1)]),
+        selectInput("moreoptions","Model",choices.capacitymodels)
+      )
     }
   })
   
+  output$operation <- renderUI({
+    checkboxGroupInput("operation","Operation Scenario",c("Current","PBN"),selected=c("Current","PBN"),inline=T)
+  })
+  
   output$arrange <- renderUI({
-    if ("Current" %in% input$operation & "PBN" %in% input$operation & input$metric != "Conflict Map") {
+    if ("Current" %in% input$operation & "PBN" %in% input$operation & !(input$metric %in% c("Conflict Map","Capacity Models"))) {
       radioButtons("arrange","Plot Arrangement",c("Vertical","Horizontal","Group"),selected="Vertical",inline=T)
     }
   })
@@ -218,7 +228,7 @@ function(input, output, session){
       if (input$options != "All") {
         data <- subset(data, Sector %in% input$options)
       }
-    } else if (x == "Controller Workload" | x == "Workload vs Entries") {
+    } else if (x == "Controller Workload" | x == "Workload vs Entries" | x == "Capacity Models") {
       data <- table.Workload
       if (input$options != "All") {
         data <- subset(data, Sector %in% input$options)
@@ -249,19 +259,22 @@ function(input, output, session){
       plotlyControllerWorkload(operation=c(input$operation), runway=input$runway, sector=input$options, arrange=input$arrange)
     } else if (x == "Workload vs Entries") {
       plotlyWorkloadEntries(operation=c(input$operation), runway=input$runway, sector=input$options, arrange=input$arrange)
+    } else if (x == "Capacity Models") {
+      plotlyCapacityModel(operation=input$operation, runway=input$runway, sector=input$options, model=input$moreoptions)
     }
   })
   
   output$map <- renderLeaflet({
     leaflet(options = leafletOptions(zoomControl = F)) %>% 
       setView(lng = 16.8, lat = 44.2, zoom = 7) %>%
-      addTiles(options = providerTileOptions(noWrap = TRUE), group="OSM.Mapnik") %>%
-      addProviderTiles(providers$CartoDB.Positron, group="CartoDB.Positron") %>%
-      addProviderTiles(providers$CartoDB.DarkMatter, group="CartoDB.DarkMatter") %>%
-      addProviderTiles(providers$Stamen.Toner, group="Stamen.Toner") %>% 
-      addProviderTiles(providers$Stamen.TonerLite, group="Stamen.TonerLite") %>% 
-      addProviderTiles(providers$Esri.WorldImagery, group="Esri.WorldImagery") %>%
-      addLayersControl(baseGroups = c("OSM.Mapnik","CartoDB.Positron","CartoDB.DarkMatter","Stamen.Toner","Stamen.TonerLite","Esri.WorldImagery"),
+      addProviderTiles(providers$Esri.WorldTopoMap, options = providerTileOptions(noWrap = TRUE), group="Light") %>%
+      addProviderTiles(providers$Esri.WorldImagery, options = providerTileOptions(noWrap = TRUE), group="Satellite") %>%
+      addProviderTiles(providers$CartoDB.Positron, options = providerTileOptions(noWrap = TRUE), group="Grey") %>%
+      addProviderTiles(providers$CartoDB.DarkMatter, options = providerTileOptions(noWrap = TRUE), group="Dark") %>%
+      addProviderTiles(providers$Esri.DeLorme, options = providerTileOptions(noWrap = TRUE), group="Topo") %>%
+      addProviderTiles(providers$OpenStreetMap.Mapnik, options = providerTileOptions(noWrap = TRUE), group="OSM") %>%
+      addProviderTiles(providers$OpenStreetMap.BlackAndWhite, options = providerTileOptions(noWrap = TRUE), group="OSM B&W") %>%
+      addLayersControl(baseGroups = c("Light","Satellite","Grey","Dark","Topo","OSM","OSM B&W"),
                        options = layersControlOptions(collapsed = T))
   })
   
