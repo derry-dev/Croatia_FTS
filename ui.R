@@ -8,17 +8,17 @@ fillPage(
     #tags$script(src = "script.js")
   ),
   tags$body(
-    div(class="header"),
+    #div(class="header"),
     
     div(class="content",
       uiOutput("display")
     ),
     
-    div(class="footer"),
+    #div(class="footer"),
     
     absolutePanel(
       class = "controls",
-      div(class="dropdown_box",selectInput("kpa","Select KPA:",choices.kpa)),
+      div(class="dropdown_box",selectInput("kpa","Select KPA:",choices.kpa,selected="Safety")),
       div(class="dropdown_box",uiOutput("metric")),
       div(class="dropdown_box",uiOutput("options")),
       div(class="dropdown_box",uiOutput("moreoptions")),

@@ -207,15 +207,15 @@ plotlyFuelBurn <- function(data = c("Current","PBN"), group="Airport", airport="
   } else if (group == "Routing") {
     
     g <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both")) %>%
-      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport), colors=c(palette.current,palette.PBN), type="box") %>%
+      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport,RoutingType), colors=c(palette.current,palette.PBN), type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
     
     g1 <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both") & Scenario %in% "Current") %>%
-      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport), colors=palette.current, type="box") %>%
+      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport,RoutingType), colors=palette.current, type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
     
     g2 <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both") & Scenario %in% "PBN") %>%
-      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport), colors=palette.PBN, type="box") %>%
+      plot_ly(x=~Waypoint, y=~FuelBurn, color=~paste(Scenario,Airport,RoutingType), colors=palette.PBN, type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
 
   }
@@ -305,15 +305,15 @@ plotlyTrackMiles <- function(data = c("Current","PBN"), group="Airport", airport
   } else if (group == "Routing") {
     
     g <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both")) %>%
-      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport), colors=c(palette.current,palette.PBN), type="box") %>%
+      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport,RoutingType), colors=c(palette.current,palette.PBN), type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
     
     g1 <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both") & Scenario %in% "Current") %>%
-      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport), colors=palette.current, type="box") %>%
+      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport,RoutingType), colors=palette.current, type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
     
     g2 <- subset(d, !(Waypoint %in% list.airports) & !(RoutingType %in% "Both") & Scenario %in% "PBN") %>%
-      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport), colors=palette.PBN, type="box") %>%
+      plot_ly(x=~Waypoint, y=~TrackMiles, color=~paste(Scenario,Airport,RoutingType), colors=palette.PBN, type="box") %>%
       layout(boxmode="group", xaxis=list(title="Route"))
     
   }
@@ -348,26 +348,7 @@ plotlyTrackMiles <- function(data = c("Current","PBN"), group="Airport", airport
 plotConflictMap <- function(){
   table.current.Conflicts <- subset(table.Conflicts, Scenario %in% "Current")
   table.PBN.Conflicts <- subset(table.Conflicts, Scenario %in% "PBN")
-  
-  polygon.DUBROVNIK <- Polygon(cbind(
-    c(16.16194444444444,16.35388888888889,17.61638888888889,17.75861111111111,18.19444444444445,18.38111111111111,18.66361111111111,18.45027777777778,17.95305555555555,17.78277777777778,17.68944444444444,17.43083333333334,17.27722222222222,17.22777777777778,17.19944444444445,17.125,16.84694444444444,16.61666666666667,16.2763888888888900,15.93611111111111,16.16194444444444),
-    c(42.43361111111111,42.34722222222222,41.75333333333333,41.91861111111111,41.93277777777777,41.90027777777777,41.94388888888889,42.63666666666666,42.89333333333333,42.98083333333334,43.02861111111111,43.18027777777778,43.35166666666667,43.43944444444444,43.49583333333334,43.51694444444444,43.30166666666666,43.12194444444445,42.8518055555555600,42.58166666666667,42.43361111111111)))
-  polygon.OSIJEK <- Polygon(cbind(
-    c(17.865000000000002,17.981666666666666,18.099166666666665,18.21611111111111,18.329166666666666,18.413055555555555,18.519166666666667,18.611944444444447,18.636388888888888,18.772777777777776,18.849444444444444,19.011111111111113,19.012777777777778,19.39638888888889,19.395555555555553,19.0775,19.078055555555554,19.095555555555553,19.035833333333336,18.727777777777778,18.381666666666668,18.002777777777776,17.861666666666668,17.86416666666667,17.865000000000002),
-    c(45.770833333333336,45.79194444444444,45.76694444444444,45.78055555555555,45.754444444444445,45.74583333333334,45.784166666666664,45.83638888888889,45.87861111111111,45.88805555555555,45.876666666666665,45.405833333333334,45.400555555555556,45.22416666666667,45.21222222222222,45.126666666666665,45.1225,45.00416666666667,44.90833333333333,45.003055555555555,45.10194444444445,45.06083333333333,45.04472222222222,45.740833333333335,45.770833333333336)))
-  polygon.PULA <- Polygon(cbind(
-    c(12.99555555555556,13.32888888888889,13.49805555555555,13.75972222222222,14.24638888888889,14.39722222222222,14.65916666666667,14.74444444444444,14.98222222222222,15.15,14.94111111111111,14.8675,14.73916666666667,14.6025,14.44861111111111,14.22444444444444,14.19833333333333,14.13388888888889,13.97194444444445,13.77333333333333,13.66666666666667,13.58472222222222,13.53666666666667,13.38722222222222,12.99555555555556,12.99555555555556,12.99555555555556),
-    c(45.16638888888889,44.53305555555556,44.38638888888889,44.15722222222222,44.34722222222222,44.40527777777778,44.53305555555556,44.595,44.76611111111111,44.88555555555556,45.48166666666666,45.46583333333334,45.52333333333333,45.49833333333333,45.46916666666667,45.50138888888888,45.47083333333334,45.47555555555557,45.44777777777777,45.46555555555556,45.44749999999999,45.47583333333333,45.49805555555556,45.55805555555556,45.29972222222222,45.2625,45.16638888888889)))
-  polygon.SPLIT <- Polygon(cbind(
-    c(14.42472222222222,14.49555555555556,14.63027777777778,15.93611111111111,17.07527777777778,17.43083333333334,17.27722222222222,17.22777777777778,17.19944444444445,17.125,17.125,17.02083333333333,16.86416666666667,16.72944444444444,16.72944444444444,16.71611111111111,16.67111111111111,16.27444444444445,15.91388888888889,15.90277777777778,15.77583333333334,15.70638888888889,15.64027777777778,15.62027777777778,15.36416666666667,15.20388888888889,14.32888888888889,14.42472222222222),
-    c(43.56416666666667,43.5,43.41777777777777,42.58166666666667,42.68,43.18027777777778,43.35166666666667,43.43944444444444,43.49583333333334,43.51694444444444,43.51694444444444,43.56861111111112,43.70972222222223,43.79222222222222,43.79222222222222,43.83611111111112,43.87611111111112,44.1675,44.13916666666667,44.10416666666667,44.14111111111111,44.12222222222222,44.09638888888889,44.11555555555556,44.09527777777778,44.0275,43.65055555555556,43.56416666666667)))
-  polygon.ZADAR <- Polygon(cbind(
-    c(14.63583333333333,14.25916666666667,13.49805555555555,13.75972222222222,14.32888888888889,15.41861111111111,15.6425,15.77861111111111,15.90277777777778,15.91388888888889,15.36555555555556,15.15,14.63583333333333),
-    c(44.82694444444445,44.68305555555556,44.38638888888889,44.15722222222222,43.65055555555556,43.62361111111111,43.61666666666667,43.75833333333333,44.10416666666667,44.13916666666667,44.89277777777778,44.88555555555556,44.82694444444445)))
-  polygon.ZAGREB <- Polygon(cbind(
-    c(15.4275,15.35333333333333,15.35,15.34944444444444,15.29722222222222,15.29722222222222,15.09027777777778,15.18333333333334,15.75805555555555,15.76972222222222,15.77777777777778,15.77777777777778,16.90861111111111,16.95416666666667,17,17.05944444444445,17.16388888888889,17.38944444444444,17.29805555555556,17.28916666666667,17.18111111111111,17.05111111111111,16.96611111111111,16.83722222222222,16.72055555555555,16.58861111111111,16.5225,16.46972222222222,16.38138888888889,16.27305555555556,16.26166666666667,16.27416666666667,16.14694444444444,16.05333333333334,16.06694444444445,15.97611111111111,15.90194444444444,15.86666666666667,15.82611111111111,15.67361111111111,15.625,15.70305555555555,15.655,15.49111111111111,15.4275),
-    c(45.79444444444443,45.77305555555555,45.66333333333332,45.63583333333333,45.57361111111111,45.57361111111111,45.51666666666667,45.42416666666667,45.07055555555556,45.07888888888888,45.17527777777778,45.17527777777778,44.56888888888889,44.69888888888889,44.83333333333334,44.96472222222223,45.15333333333333,45.93166666666667,45.99027777777778,46.02861111111112,46.12083333333334,46.20333333333333,46.23972222222222,46.37416666666667,46.39138888888889,46.44805555555556,46.47833333333334,46.50416666666667,46.5325,46.5175,46.45500000000001,46.37833333333333,46.40333333333332,46.38805555555555,46.34083333333334,46.30972222222222,46.28666666666666,46.27166666666666,46.26611111111112,46.22638888888889,46.17222222222222,45.97277777777778,45.84027777777778,45.8075,45.79444444444443)))
-  
+
   airport.location <- data.frame(
     airport <- c("LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI","LDSB","LDOS"),
     lng <- c(16.29800033569336,18.268199920654297,16.0687999725,13.922200202941895,15.346699714660645,14.3930997849,14.570300102233887,16.67970085144043,18.810199737548828),
@@ -381,11 +362,13 @@ plotConflictMap <- function(){
   table.PBN.Conflicts.NonTMA <- subset(table.PBN.Conflicts, !(Sector %in% TMA))
   table.PBN.Conflicts.TMA <- subset(table.PBN.Conflicts, Sector %in% TMA)
   labels.current.NonTMA <- sprintf(
-    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
+    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>Severity: %s<br/>Vertical Severity: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
     table.current.Conflicts.NonTMA$ID,
     table.current.Conflicts.NonTMA$Sector,
     table.current.Conflicts.NonTMA$Closest_Time,
     table.current.Conflicts.NonTMA$ConflictType,
+    table.current.Conflicts.NonTMA$Severity,
+    table.current.Conflicts.NonTMA$VerticalSeverity,
     table.current.Conflicts.NonTMA$FlightPlanPhase1,
     table.current.Conflicts.NonTMA$FlightPlanPhase2,
     table.current.Conflicts.NonTMA$LateralSeparation,
@@ -394,11 +377,13 @@ plotConflictMap <- function(){
     table.current.Conflicts.NonTMA$ReqVerticalSeparation,
     table.current.Conflicts.NonTMA$Altitude_ft) %>% lapply(htmltools::HTML)
   labels.current.TMA <- sprintf(
-    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
+    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>Severity: %s<br/>Vertical Severity: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
     table.current.Conflicts.TMA$ID,
     table.current.Conflicts.TMA$Sector,
     table.current.Conflicts.TMA$Closest_Time,
     table.current.Conflicts.TMA$ConflictType,
+    table.current.Conflicts.TMA$Severity,
+    table.current.Conflicts.TMA$VerticalSeverity,
     table.current.Conflicts.TMA$FlightPlanPhase1,
     table.current.Conflicts.TMA$FlightPlanPhase2,
     table.current.Conflicts.TMA$LateralSeparation,
@@ -407,11 +392,13 @@ plotConflictMap <- function(){
     table.current.Conflicts.TMA$ReqVerticalSeparation,
     table.current.Conflicts.TMA$Altitude_ft) %>% lapply(htmltools::HTML)
   labels.PBN.NonTMA <- sprintf(
-    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
+    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>Severity: %s<br/>Vertical Severity: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
     table.PBN.Conflicts.NonTMA$ID,
     table.PBN.Conflicts.NonTMA$Sector,
     table.PBN.Conflicts.NonTMA$Closest_Time,
     table.PBN.Conflicts.NonTMA$ConflictType,
+    table.PBN.Conflicts.NonTMA$Severity,
+    table.PBN.Conflicts.NonTMA$VerticalSeverity,
     table.PBN.Conflicts.NonTMA$FlightPlanPhase1,
     table.PBN.Conflicts.NonTMA$FlightPlanPhase2,
     table.PBN.Conflicts.NonTMA$LateralSeparation,
@@ -420,11 +407,13 @@ plotConflictMap <- function(){
     table.PBN.Conflicts.NonTMA$ReqVerticalSeparation,
     table.PBN.Conflicts.NonTMA$Altitude_ft) %>% lapply(htmltools::HTML)
   labels.PBN.TMA <- sprintf(
-    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
+    "ID: %s<br/>Sector: %s<br/>Time: %s<br/>Type: %s<br/>Severity: %s<br/>Vertical Severity: %s<br/>FP Phase: %s %s<br/>Lateral Sep. (NM): %s (Req. %s)<br/>Vertical Sep. (ft): %s (Req. %s)<br/>Altitude (ft): %s",
     table.PBN.Conflicts.TMA$ID,
     table.PBN.Conflicts.TMA$Sector,
     table.PBN.Conflicts.TMA$Closest_Time,
     table.PBN.Conflicts.TMA$ConflictType,
+    table.PBN.Conflicts.TMA$Severity,
+    table.PBN.Conflicts.TMA$VerticalSeverity,
     table.PBN.Conflicts.TMA$FlightPlanPhase1,
     table.PBN.Conflicts.TMA$FlightPlanPhase2,
     table.PBN.Conflicts.TMA$LateralSeparation,
@@ -432,27 +421,38 @@ plotConflictMap <- function(){
     table.PBN.Conflicts.TMA$VerticalSeparation,
     table.PBN.Conflicts.TMA$ReqVerticalSeparation,
     table.PBN.Conflicts.TMA$Altitude_ft) %>% lapply(htmltools::HTML)
+  
+  pal <- colorNumeric(
+    palette = brewer.pal(9,"YlOrRd"),
+    domain = table.Conflicts$Severity)
+  
   leaflet() %>% 
     setView(lng = 16.8, lat = 44.2, zoom = 7) %>%
     addTiles(options = providerTileOptions(noWrap = TRUE), group="Default") %>%
     addProviderTiles(providers$CartoDB.Positron, group="Greyscale") %>% 
     addProviderTiles("Esri.WorldImagery", group="Satellite") %>%
-    addPolygons(data = polygon.DUBROVNIK, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Dubrovnik",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_DUBROVNIK",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Dubrovnik",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
-    addPolygons(data = polygon.SPLIT, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Split",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_SPLIT",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Split",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
-    addPolygons(data = polygon.ZADAR, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Zadar",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_ZADAR",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Zadar",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
-    addPolygons(data = polygon.PULA, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Pula",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_PULA",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Pula",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
-    addPolygons(data = polygon.ZAGREB, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Zagreb",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_ZAGREB",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Zagreb",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
-    addPolygons(data = polygon.OSIJEK, group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Osijek",
+    addPolygons(data = Polygon(subset(table.SectorPolygons,Sector %in% "TMA_OSIJEK",select=c(Longitude,Latitude))),
+                group="TMA Sectors", weight = 5, opacity = 0.5, color = "gray", dashArray = "18", label = "TMA Osijek",
                 labelOptions=labelOptions(style = list("font-weight" = "bold"), opacity = 1, textsize="12px", direction = "auto"),
                 highlight = highlightOptions(weight = 5, color = "#666", dashArray = "", fillOpacity = 0.35, bringToFront = F)) %>%
     addCircleMarkers(data = airport.location,
@@ -464,32 +464,32 @@ plotConflictMap <- function(){
     addCircleMarkers(data = table.current.Conflicts.NonTMA,
                      lng=~Longitude,
                      lat=~Latitude,
-                     color="black",
-                     fillColor="orange",
+                     color="orange",
+                     fillColor=~pal(Severity),
                      label=labels.current.NonTMA,
                      labelOptions=labelOptions(textsize="13px", direction="auto"),
                      radius = 5, stroke = TRUE, fillOpacity = 0.8, group="Current Non-TMA Conflicts") %>%
     addCircleMarkers(data = table.current.Conflicts.TMA,
                      lng=~Longitude,
                      lat=~Latitude,
-                     color="black",
-                     fillColor="red",
+                     color="red",
+                     fillColor=~pal(Severity),
                      label=labels.current.TMA,
                      labelOptions=labelOptions(textsize="13px", direction="auto"),
                      radius = 5, stroke = TRUE, fillOpacity = 0.8, group="Current TMA Conflicts") %>%
     addCircleMarkers(data = table.PBN.Conflicts.NonTMA,
                      lng=~Longitude,
                      lat=~Latitude,
-                     color="black",
-                     fillColor="lightblue",
+                     color="purple",
+                     fillColor=~pal(Severity),
                      label=labels.PBN.NonTMA,
                      labelOptions=labelOptions(textsize="13px", direction="auto"),
                      radius = 5, stroke = TRUE, fillOpacity = 0.8, group="PBN Non-TMA Conflicts") %>%
     addCircleMarkers(data = table.PBN.Conflicts.TMA,
                      lng=~Longitude,
                      lat=~Latitude,
-                     color="black",
-                     fillColor="blue",
+                     color="blue",
+                     fillColor=~pal(Severity),
                      label=labels.PBN.TMA,
                      labelOptions=labelOptions(textsize="13px", direction="auto"),
                      radius = 5, stroke = TRUE, fillOpacity = 0.8, group="PBN TMA Conflicts") %>%
@@ -499,7 +499,8 @@ plotConflictMap <- function(){
               title="Conflict Type") %>%
     addLayersControl(overlayGroups = c("Airports","TMA Sectors", "Current TMA Conflicts","Current Non-TMA Conflicts","PBN TMA Conflicts","PBN Non-TMA Conflicts"),
                      baseGroups = c("Default","Greyscale","Satellite"),
-                     options = layersControlOptions(collapsed = F))
+                     options = layersControlOptions(collapsed = F)) %>%
+    hideGroup(c("PBN TMA Conflicts","PBN Non-TMA Conflicts"))
 }
 
 plotlyConflictCount <- function(data = c("Current","PBN"), group="Conflict Type", arrange="Vertical"){
@@ -722,19 +723,19 @@ plotlyControllerWorkload <- function(data = c("Current","PBN"), sector="All", ar
   d$Sector <- paste(d$Scenario,d$Sector)
   
   g <- d %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~Workload, color=~Sector, colors=c(palette.current,palette.PBN), type="scatter", mode="line") %>%
+    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~Sector, colors=c(palette.current,palette.PBN), type="scatter", mode="line") %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("Rolling Hourly Percentage Radar Controller Workload", sector), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload (Hourly %)")) %>% config(collaborate=F)
   
   g1 <- subset(d,Scenario %in% "Current") %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~Workload, color=~Sector, colors=palette.current, type="scatter", mode="line") %>%
+    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~Sector, colors=palette.current, type="scatter", mode="line") %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("Current Rolling Hourly Percentage Radar Controller Workload", sector), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload (Hourly %)")) %>% config(collaborate=F)
   
   g2 <- subset(d,Scenario %in% "PBN") %>% group_by(Sector) %>%
-    plot_ly(x=~Time, y=~Workload, color=~Sector, colors=palette.PBN, type="scatter", mode="line") %>%
+    plot_ly(x=~Time, y=~PercentHourlyWorkload, color=~Sector, colors=palette.PBN, type="scatter", mode="line") %>%
     layout(hovermode="compare", dragmode="zoom", title=paste("PBN Rolling Hourly Percentage Radar Controller Workload", sector), legend=list(x=100, y=0.5),
            xaxis=list(tickmode="auto", rangeslider=list(type="time")),
            yaxis=list(tickmode="auto", fixedrange=T, title="Workload (Hourly %)")) %>% config(collaborate=F)

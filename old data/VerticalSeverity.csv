@@ -1,0 +1,107 @@
+"Sector","VerticalSeverity","Scenario","freq"
+"ACC_ZAGREB","3","Current",30
+"ACC_ZAGREB","3","PBN",30
+"ACC_ZAGREB","4","Current",3
+"ACC_ZAGREB","4","PBN",3
+"ACC_ZAGREB","5","Current",2
+"ACC_ZAGREB","5","PBN",2
+"CTR_BRAC","4","Current",1
+"CTR_BRAC","4","PBN",1
+"CTR_BRAC","5","Current",1
+"CTR_BRAC","5","PBN",1
+"CTR_DUBROVNIK","3","Current",23
+"CTR_DUBROVNIK","3","PBN",23
+"CTR_DUBROVNIK","4","Current",6
+"CTR_DUBROVNIK","4","PBN",6
+"CTR_DUBROVNIK","5","Current",10
+"CTR_DUBROVNIK","5","PBN",10
+"CTR_DUBROVNIK","6","Current",2
+"CTR_DUBROVNIK","6","PBN",2
+"CTR_LOSINJ","3","Current",1
+"CTR_LOSINJ","3","PBN",1
+"CTR_LOSINJ","4","Current",1
+"CTR_LOSINJ","4","PBN",1
+"CTR_PULA","3","Current",7
+"CTR_PULA","3","PBN",7
+"CTR_PULA","4","Current",4
+"CTR_PULA","4","PBN",4
+"CTR_PULA","5","Current",3
+"CTR_PULA","5","PBN",3
+"CTR_RIJEKA","5","Current",1
+"CTR_RIJEKA","5","PBN",1
+"CTR_RIJEKA","6","Current",1
+"CTR_RIJEKA","6","PBN",1
+"CTR_SPLIT","3","Current",1
+"CTR_SPLIT","3","PBN",1
+"CTR_SPLIT","4","Current",2
+"CTR_SPLIT","4","PBN",2
+"CTR_ZADAR","3","Current",2
+"CTR_ZADAR","3","PBN",2
+"CTR_ZADAR","4","Current",1
+"CTR_ZADAR","4","PBN",1
+"CTR_ZADAR","5","Current",2
+"CTR_ZADAR","5","PBN",2
+"CTR_ZAGREB","3","Current",6
+"CTR_ZAGREB","3","PBN",6
+"CTR_ZAGREB","4","Current",2
+"CTR_ZAGREB","4","PBN",2
+"FIC_ZAGREB","4","Current",1
+"FIC_ZAGREB","4","PBN",1
+"FIC_ZAGREB","6","Current",1
+"FIC_ZAGREB","6","PBN",1
+"OUTSIDE_FIR_E","3","Current",1
+"OUTSIDE_FIR_E","3","PBN",1
+"OUTSIDE_FIR_E","6","Current",1
+"OUTSIDE_FIR_E","6","PBN",1
+"OUTSIDE_FIR_N","3","Current",17
+"OUTSIDE_FIR_N","3","PBN",17
+"OUTSIDE_FIR_N","4","Current",5
+"OUTSIDE_FIR_N","4","PBN",5
+"OUTSIDE_FIR_N","5","Current",1
+"OUTSIDE_FIR_N","5","PBN",1
+"OUTSIDE_FIR_W","6","Current",2
+"OUTSIDE_FIR_W","6","PBN",2
+"TMA_DUBROVNIK","3","Current",13
+"TMA_DUBROVNIK","3","PBN",13
+"TMA_DUBROVNIK","4","Current",2
+"TMA_DUBROVNIK","4","PBN",2
+"TMA_DUBROVNIK","5","Current",1
+"TMA_DUBROVNIK","5","PBN",1
+"TMA_DUBROVNIK","6","Current",1
+"TMA_DUBROVNIK","6","PBN",1
+"TMA_PULA","3","Current",18
+"TMA_PULA","3","PBN",18
+"TMA_PULA","6","Current",3
+"TMA_PULA","6","PBN",3
+"TMA_SPLIT","3","Current",29
+"TMA_SPLIT","3","PBN",29
+"TMA_SPLIT","4","Current",2
+"TMA_SPLIT","4","PBN",2
+"TMA_SPLIT","5","Current",1
+"TMA_SPLIT","5","PBN",1
+"TMA_ZADAR","3","Current",7
+"TMA_ZADAR","3","PBN",7
+"TMA_ZADAR","4","Current",3
+"TMA_ZADAR","4","PBN",3
+"TMA_ZADAR","5","Current",1
+"TMA_ZADAR","5","PBN",1
+"TMA_ZAGREB","3","Current",20
+"TMA_ZAGREB","3","PBN",20
+"TMA_ZAGREB","4","Current",5
+"TMA_ZAGREB","4","PBN",5
+"All Sectors","3","Current",175
+"All Sectors","4","Current",38
+"All Sectors","5","Current",23
+"All Sectors","6","Current",11
+"All Sectors","3","PBN",175
+"All Sectors","4","PBN",38
+"All Sectors","5","PBN",23
+"All Sectors","6","PBN",11
+"All TMA","3","Current",87
+"All TMA","4","Current",12
+"All TMA","5","Current",3
+"All TMA","6","Current",4
+"All TMA","3","PBN",87
+"All TMA","4","PBN",12
+"All TMA","5","PBN",3
+"All TMA","6","PBN",4

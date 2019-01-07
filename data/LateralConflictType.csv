@@ -1,93 +1,95 @@
 "Sector","LateralConflictType","Scenario","freq"
-"ACC_ZAGREB","Crossing","Current",6
-"ACC_ZAGREB","Crossing","PBN",6
-"ACC_ZAGREB","Opposite","Current",20
-"ACC_ZAGREB","Opposite","PBN",20
-"ACC_ZAGREB","Same Track","Current",9
-"ACC_ZAGREB","Same Track","PBN",9
+"ACC_ZAGREB","Crossing","Current",2
+"ACC_ZAGREB","Crossing","PBN",7
+"ACC_ZAGREB","Opposite","Current",21
+"ACC_ZAGREB","Opposite","PBN",25
+"ACC_ZAGREB","Same Track","Current",8
+"ACC_ZAGREB","Same Track","PBN",7
 "CTR_BRAC","Crossing","Current",2
 "CTR_BRAC","Crossing","PBN",2
-"CTR_DUBROVNIK","Crossing","Current",2
-"CTR_DUBROVNIK","Crossing","PBN",2
-"CTR_DUBROVNIK","Opposite","Current",3
-"CTR_DUBROVNIK","Opposite","PBN",3
-"CTR_DUBROVNIK","Same Track","Current",36
-"CTR_DUBROVNIK","Same Track","PBN",36
+"CTR_DUBROVNIK","Crossing","Current",6
+"CTR_DUBROVNIK","Crossing","PBN",8
+"CTR_DUBROVNIK","Opposite","Current",8
+"CTR_DUBROVNIK","Opposite","PBN",11
+"CTR_DUBROVNIK","Same Track","Current",25
+"CTR_DUBROVNIK","Same Track","PBN",24
 "CTR_LOSINJ","Crossing","Current",1
 "CTR_LOSINJ","Crossing","PBN",1
 "CTR_LOSINJ","Opposite","Current",1
 "CTR_LOSINJ","Opposite","PBN",1
-"CTR_PULA","Crossing","Current",5
-"CTR_PULA","Crossing","PBN",5
-"CTR_PULA","Opposite","Current",2
-"CTR_PULA","Opposite","PBN",2
-"CTR_PULA","Same Track","Current",7
-"CTR_PULA","Same Track","PBN",7
+"CTR_PULA","Crossing","Current",6
+"CTR_PULA","Crossing","PBN",6
+"CTR_PULA","Opposite","Current",5
+"CTR_PULA","Same Track","Current",3
+"CTR_PULA","Same Track","PBN",3
 "CTR_RIJEKA","Opposite","Current",2
 "CTR_RIJEKA","Opposite","PBN",2
 "CTR_SPLIT","Crossing","Current",2
-"CTR_SPLIT","Crossing","PBN",2
+"CTR_SPLIT","Crossing","PBN",1
 "CTR_SPLIT","Opposite","Current",1
-"CTR_SPLIT","Opposite","PBN",1
+"CTR_SPLIT","Same Track","PBN",1
 "CTR_ZADAR","Crossing","Current",2
-"CTR_ZADAR","Crossing","PBN",2
+"CTR_ZADAR","Crossing","PBN",4
 "CTR_ZADAR","Opposite","Current",1
 "CTR_ZADAR","Opposite","PBN",1
 "CTR_ZADAR","Same Track","Current",2
 "CTR_ZADAR","Same Track","PBN",2
-"CTR_ZAGREB","Same Track","Current",8
-"CTR_ZAGREB","Same Track","PBN",8
+"CTR_ZAGREB","Opposite","Current",1
+"CTR_ZAGREB","Same Track","Current",6
+"CTR_ZAGREB","Same Track","PBN",6
 "FIC_ZAGREB","Same Track","Current",2
 "FIC_ZAGREB","Same Track","PBN",2
-"OUTSIDE_FIR_E","Crossing","Current",2
+"LQSB_FIR","Same Track","Current",1
+"OUTSIDE_FIR_E","Crossing","Current",1
 "OUTSIDE_FIR_E","Crossing","PBN",2
-"OUTSIDE_FIR_N","Crossing","Current",8
-"OUTSIDE_FIR_N","Crossing","PBN",8
-"OUTSIDE_FIR_N","Opposite","Current",9
-"OUTSIDE_FIR_N","Opposite","PBN",9
-"OUTSIDE_FIR_N","Same Track","Current",6
-"OUTSIDE_FIR_N","Same Track","PBN",6
+"OUTSIDE_FIR_E","Opposite","Current",2
+"OUTSIDE_FIR_E","Opposite","PBN",1
+"OUTSIDE_FIR_N","Crossing","Current",6
+"OUTSIDE_FIR_N","Crossing","PBN",6
+"OUTSIDE_FIR_N","Opposite","Current",8
+"OUTSIDE_FIR_N","Opposite","PBN",4
+"OUTSIDE_FIR_N","Same Track","Current",3
+"OUTSIDE_FIR_N","Same Track","PBN",4
 "OUTSIDE_FIR_W","Same Track","Current",2
-"OUTSIDE_FIR_W","Same Track","PBN",2
-"TMA_DUBROVNIK","Crossing","Current",6
-"TMA_DUBROVNIK","Crossing","PBN",6
-"TMA_DUBROVNIK","Opposite","Current",6
-"TMA_DUBROVNIK","Opposite","PBN",6
-"TMA_DUBROVNIK","Same Track","Current",5
-"TMA_DUBROVNIK","Same Track","PBN",5
-"TMA_PULA","Crossing","Current",13
-"TMA_PULA","Crossing","PBN",13
-"TMA_PULA","Opposite","Current",3
+"TMA_DUBROVNIK","Crossing","Current",7
+"TMA_DUBROVNIK","Crossing","PBN",11
+"TMA_DUBROVNIK","Opposite","Current",2
+"TMA_DUBROVNIK","Opposite","PBN",3
+"TMA_DUBROVNIK","Same Track","Current",3
+"TMA_DUBROVNIK","Same Track","PBN",10
+"TMA_OSIJEK","Same Track","PBN",1
+"TMA_PULA","Crossing","Current",14
+"TMA_PULA","Crossing","PBN",12
+"TMA_PULA","Opposite","Current",2
 "TMA_PULA","Opposite","PBN",3
-"TMA_PULA","Same Track","Current",5
-"TMA_PULA","Same Track","PBN",5
-"TMA_SPLIT","Crossing","Current",19
-"TMA_SPLIT","Crossing","PBN",19
-"TMA_SPLIT","Opposite","Current",5
-"TMA_SPLIT","Opposite","PBN",5
-"TMA_SPLIT","Same Track","Current",8
-"TMA_SPLIT","Same Track","PBN",8
+"TMA_PULA","Same Track","Current",6
+"TMA_PULA","Same Track","PBN",4
+"TMA_SPLIT","Crossing","Current",13
+"TMA_SPLIT","Crossing","PBN",16
+"TMA_SPLIT","Opposite","Current",8
+"TMA_SPLIT","Opposite","PBN",4
+"TMA_SPLIT","Same Track","Current",7
+"TMA_SPLIT","Same Track","PBN",10
 "TMA_ZADAR","Crossing","Current",2
-"TMA_ZADAR","Crossing","PBN",2
-"TMA_ZADAR","Opposite","Current",5
+"TMA_ZADAR","Opposite","Current",8
 "TMA_ZADAR","Opposite","PBN",5
-"TMA_ZADAR","Same Track","Current",4
-"TMA_ZADAR","Same Track","PBN",4
-"TMA_ZAGREB","Crossing","Current",13
-"TMA_ZAGREB","Crossing","PBN",13
-"TMA_ZAGREB","Opposite","Current",5
-"TMA_ZAGREB","Opposite","PBN",5
-"TMA_ZAGREB","Same Track","Current",7
-"TMA_ZAGREB","Same Track","PBN",7
-"All Sectors","Crossing","Current",83
-"All Sectors","Opposite","Current",63
-"All Sectors","Same Track","Current",101
-"All Sectors","Crossing","PBN",83
+"TMA_ZADAR","Same Track","Current",5
+"TMA_ZADAR","Same Track","PBN",5
+"TMA_ZAGREB","Crossing","Current",16
+"TMA_ZAGREB","Crossing","PBN",10
+"TMA_ZAGREB","Opposite","Current",7
+"TMA_ZAGREB","Opposite","PBN",3
+"TMA_ZAGREB","Same Track","Current",9
+"TMA_ZAGREB","Same Track","PBN",14
+"All Sectors","Crossing","Current",80
+"All Sectors","Opposite","Current",77
+"All Sectors","Same Track","Current",82
+"All Sectors","Crossing","PBN",86
 "All Sectors","Opposite","PBN",63
-"All Sectors","Same Track","PBN",101
-"All TMA","Crossing","Current",53
-"All TMA","Opposite","Current",24
-"All TMA","Same Track","Current",29
-"All TMA","Crossing","PBN",53
-"All TMA","Opposite","PBN",24
-"All TMA","Same Track","PBN",29
+"All Sectors","Same Track","PBN",93
+"All TMA","Crossing","Current",52
+"All TMA","Opposite","Current",27
+"All TMA","Same Track","Current",30
+"All TMA","Crossing","PBN",49
+"All TMA","Opposite","PBN",18
+"All TMA","Same Track","PBN",44

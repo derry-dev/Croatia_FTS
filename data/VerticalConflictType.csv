@@ -1,81 +1,89 @@
 "Sector","VerticalConflictType","Scenario","freq"
-"ACC_ZAGREB","Both In Vertical","Current",14
-"ACC_ZAGREB","Both In Vertical","PBN",14
-"ACC_ZAGREB","One In Vertical","Current",21
-"ACC_ZAGREB","One In Vertical","PBN",21
-"CTR_BRAC","Both In Vertical","Current",2
-"CTR_BRAC","Both In Vertical","PBN",2
-"CTR_DUBROVNIK","Both In Vertical","Current",33
-"CTR_DUBROVNIK","Both In Vertical","PBN",33
-"CTR_DUBROVNIK","One In Vertical","Current",8
-"CTR_DUBROVNIK","One In Vertical","PBN",8
+"ACC_ZAGREB","Both Cruising","Current",1
+"ACC_ZAGREB","Both In Vertical","Current",8
+"ACC_ZAGREB","Both In Vertical","PBN",15
+"ACC_ZAGREB","One In Vertical","Current",22
+"ACC_ZAGREB","One In Vertical","PBN",24
+"CTR_BRAC","Both In Vertical","Current",1
+"CTR_BRAC","Both In Vertical","PBN",1
+"CTR_BRAC","One In Vertical","Current",1
+"CTR_BRAC","One In Vertical","PBN",1
+"CTR_DUBROVNIK","Both Cruising","Current",1
+"CTR_DUBROVNIK","Both Cruising","PBN",1
+"CTR_DUBROVNIK","Both In Vertical","Current",17
+"CTR_DUBROVNIK","Both In Vertical","PBN",18
+"CTR_DUBROVNIK","One In Vertical","Current",21
+"CTR_DUBROVNIK","One In Vertical","PBN",24
 "CTR_LOSINJ","Both In Vertical","Current",2
 "CTR_LOSINJ","Both In Vertical","PBN",2
-"CTR_PULA","Both In Vertical","Current",8
-"CTR_PULA","Both In Vertical","PBN",8
-"CTR_PULA","One In Vertical","Current",6
+"CTR_PULA","Both In Vertical","Current",3
+"CTR_PULA","Both In Vertical","PBN",3
+"CTR_PULA","One In Vertical","Current",11
 "CTR_PULA","One In Vertical","PBN",6
 "CTR_RIJEKA","One In Vertical","Current",2
 "CTR_RIJEKA","One In Vertical","PBN",2
 "CTR_SPLIT","Both In Vertical","Current",1
 "CTR_SPLIT","Both In Vertical","PBN",1
 "CTR_SPLIT","One In Vertical","Current",2
-"CTR_SPLIT","One In Vertical","PBN",2
+"CTR_SPLIT","One In Vertical","PBN",1
 "CTR_ZADAR","Both In Vertical","Current",2
-"CTR_ZADAR","Both In Vertical","PBN",2
+"CTR_ZADAR","Both In Vertical","PBN",4
 "CTR_ZADAR","One In Vertical","Current",3
 "CTR_ZADAR","One In Vertical","PBN",3
-"CTR_ZAGREB","Both In Vertical","Current",8
-"CTR_ZAGREB","Both In Vertical","PBN",8
+"CTR_ZAGREB","Both In Vertical","Current",6
+"CTR_ZAGREB","Both In Vertical","PBN",6
+"CTR_ZAGREB","One In Vertical","Current",1
 "FIC_ZAGREB","Both Cruising","Current",1
 "FIC_ZAGREB","Both Cruising","PBN",1
 "FIC_ZAGREB","One In Vertical","Current",1
 "FIC_ZAGREB","One In Vertical","PBN",1
-"OUTSIDE_FIR_E","Both In Vertical","Current",1
-"OUTSIDE_FIR_E","Both In Vertical","PBN",1
+"LQSB_FIR","Both In Vertical","Current",1
+"OUTSIDE_FIR_E","Both In Vertical","Current",2
+"OUTSIDE_FIR_E","Both In Vertical","PBN",2
 "OUTSIDE_FIR_E","One In Vertical","Current",1
 "OUTSIDE_FIR_E","One In Vertical","PBN",1
-"OUTSIDE_FIR_N","Both In Vertical","Current",10
-"OUTSIDE_FIR_N","Both In Vertical","PBN",10
-"OUTSIDE_FIR_N","One In Vertical","Current",13
-"OUTSIDE_FIR_N","One In Vertical","PBN",13
+"OUTSIDE_FIR_N","Both In Vertical","Current",6
+"OUTSIDE_FIR_N","Both In Vertical","PBN",6
+"OUTSIDE_FIR_N","One In Vertical","Current",11
+"OUTSIDE_FIR_N","One In Vertical","PBN",8
 "OUTSIDE_FIR_W","Both Cruising","Current",2
-"OUTSIDE_FIR_W","Both Cruising","PBN",2
 "TMA_DUBROVNIK","Both Cruising","Current",1
 "TMA_DUBROVNIK","Both Cruising","PBN",1
-"TMA_DUBROVNIK","Both In Vertical","Current",10
+"TMA_DUBROVNIK","Both In Vertical","Current",7
 "TMA_DUBROVNIK","Both In Vertical","PBN",10
-"TMA_DUBROVNIK","One In Vertical","Current",6
-"TMA_DUBROVNIK","One In Vertical","PBN",6
-"TMA_PULA","Both Cruising","Current",2
-"TMA_PULA","Both Cruising","PBN",2
+"TMA_DUBROVNIK","One In Vertical","Current",4
+"TMA_DUBROVNIK","One In Vertical","PBN",13
+"TMA_OSIJEK","One In Vertical","PBN",1
+"TMA_PULA","Both Cruising","Current",1
+"TMA_PULA","Both Cruising","PBN",1
 "TMA_PULA","Both In Vertical","Current",3
-"TMA_PULA","Both In Vertical","PBN",3
-"TMA_PULA","One In Vertical","Current",16
+"TMA_PULA","Both In Vertical","PBN",2
+"TMA_PULA","One In Vertical","Current",18
 "TMA_PULA","One In Vertical","PBN",16
-"TMA_SPLIT","Both In Vertical","Current",23
-"TMA_SPLIT","Both In Vertical","PBN",23
-"TMA_SPLIT","One In Vertical","Current",9
+"TMA_SPLIT","Both In Vertical","Current",20
+"TMA_SPLIT","Both In Vertical","PBN",21
+"TMA_SPLIT","One In Vertical","Current",8
 "TMA_SPLIT","One In Vertical","PBN",9
 "TMA_ZADAR","Both Cruising","Current",1
 "TMA_ZADAR","Both Cruising","PBN",1
-"TMA_ZADAR","Both In Vertical","Current",3
-"TMA_ZADAR","Both In Vertical","PBN",3
+"TMA_ZADAR","Both In Vertical","Current",7
+"TMA_ZADAR","Both In Vertical","PBN",2
 "TMA_ZADAR","One In Vertical","Current",7
 "TMA_ZADAR","One In Vertical","PBN",7
-"TMA_ZAGREB","Both In Vertical","Current",11
-"TMA_ZAGREB","Both In Vertical","PBN",11
-"TMA_ZAGREB","One In Vertical","Current",14
-"TMA_ZAGREB","One In Vertical","PBN",14
-"All Sectors","Both Cruising","Current",7
-"All Sectors","Both In Vertical","Current",131
-"All Sectors","One In Vertical","Current",109
-"All Sectors","Both Cruising","PBN",7
-"All Sectors","Both In Vertical","PBN",131
-"All Sectors","One In Vertical","PBN",109
-"All TMA","Both Cruising","Current",4
-"All TMA","Both In Vertical","Current",50
-"All TMA","One In Vertical","Current",52
-"All TMA","Both Cruising","PBN",4
-"All TMA","Both In Vertical","PBN",50
-"All TMA","One In Vertical","PBN",52
+"TMA_ZAGREB","Both Cruising","Current",4
+"TMA_ZAGREB","Both In Vertical","Current",21
+"TMA_ZAGREB","Both In Vertical","PBN",17
+"TMA_ZAGREB","One In Vertical","Current",7
+"TMA_ZAGREB","One In Vertical","PBN",10
+"All Sectors","Both Cruising","Current",12
+"All Sectors","Both In Vertical","Current",107
+"All Sectors","One In Vertical","Current",120
+"All Sectors","Both Cruising","PBN",5
+"All Sectors","Both In Vertical","PBN",110
+"All Sectors","One In Vertical","PBN",127
+"All TMA","Both Cruising","Current",7
+"All TMA","Both In Vertical","Current",58
+"All TMA","One In Vertical","Current",44
+"All TMA","Both Cruising","PBN",3
+"All TMA","Both In Vertical","PBN",52
+"All TMA","One In Vertical","PBN",56

@@ -9,6 +9,8 @@
 # Added HTML and CSS features
 # Added interactive data explorer for exploring data corresponding to each plot
 # Added option to import database data when required (disabled in online distributions)
+# Added sector polygon table (uses ~/3. Analysis & Results/Metrics/Croatia Polygons/Polygon conversion.R)
+# Corrected axis and title labels for Fuel Burn, Track Miles and Workload
 # Disabled conflict map 3D pending removal/rework
 # Major UI rework (again)
 # Return of sector specific plots in sector capacity KPA
@@ -18,6 +20,9 @@
 # install.packages(c("shiny","rstudioapi","RPostgreSQL","ggplot2","RColorBrewer",
 #                    "tidyr","leaflet","rgeos","sp","plotly",
 #                    "lubridate","plyr","DT","shinyjs","V8"),dependencies=T)
+
+# View all installed packages:
+# as.data.frame(installed.packages()[,c(1,3)])
 
 # Shiny App ---------------------------------------------------------------
 library(shiny)

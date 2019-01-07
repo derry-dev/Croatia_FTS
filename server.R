@@ -5,7 +5,7 @@ function(input, output, session){
   session$allowReconnect(TRUE)
   options(shiny.launch.browser=FALSE)
   
-  v <- reactiveValues(doDisplay = FALSE, doTable = FALSE)
+  v <- reactiveValues(doDisplay = TRUE, doTable = FALSE)
   
   observeEvent(input$view, {
     v$doDisplay <- TRUE
@@ -21,6 +21,7 @@ function(input, output, session){
     dbimport()
     v$doDisplay <- FALSE
     v$doTable <- FALSE
+    table.SectorPolygons <- read.csv("~/Croatia v3.0/data/SectorPolygons.csv", stringsAsFactors = FALSE)
     table.TotalThroughputs <- read.csv("~/Croatia v3.0/data/TotalThroughputs.csv", stringsAsFactors = FALSE)
     table.HourlyThroughputs <- read.csv("~/Croatia v3.0/data/HourlyThroughputs.csv", stringsAsFactors = FALSE)
     table.RollingHourlyThroughputs <- read.csv("~/Croatia v3.0/data/RollingHourlyThroughputs.csv", stringsAsFactors = FALSE)

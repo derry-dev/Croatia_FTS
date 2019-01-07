@@ -15,6 +15,7 @@ library(shinyjs)
 list.airports <- factor(c("All","LDSP","LDDU","LDZA","LDPL","LDZD","LDLO","LDRI","LDSB","LDOS"), ordered = TRUE) 
 list.sectors <- factor(c("All","TMA_DUBROVNIK","TMA_OSIJEK","TMA_PULA","TMA_SPLIT","TMA_ZADAR","TMA_ZAGREB"), ordered = TRUE)
 
+
 dbimport <- function() {
   
   #con <- dbConnect(dbDriver("PostgreSQL"), dbname="airtopdb",host="192.168.1.137",port=5432,user="think",password="think")
@@ -802,116 +803,6 @@ dbimport <- function() {
                WHERE "Time_day" = 2')
   table.current.Workload <- 
     dbGetQuery(con,'
-              DROP TABLE IF EXISTS "Croatia"."Workload";
-               SELECT
-               t1."Time" + (t2."Time Adjustment"||\'seconds\')::interval AS "Time",
-               t2."Task",
-               t1."Event Type",
-               t1."Event Condition",
-               t2."Task Duration",
-               t2."Sector",
-               t1."Callsign",
-               t1."OriginInfo",
-               t1."DestinationInfo",
-               t1."FlightType"
-               --t1."Routing"
-               INTO "Croatia"."Workload"
-               FROM (
-               SELECT
-               "Time_time" AS "Time",
-               \'Sector Exit\' AS "Event Type",
-               "New PreviousATCSector" AS "Event Condition",
-               "Callsign",
-               "OriginInfo",
-               "DestinationInfo",
-               "FlightType",
-               "Routing"
-               FROM "Croatia"."RS_ATC_SECTOR_EXIT_AND_CONTROLLED"
-               WHERE "Time_day" = 2
-               UNION
-               SELECT
-               "Time_time" AS "Time",
-               \'Sector Entry\' AS "Event Type",
-               "New LastAirspaceEntered" AS "Event Condition",
-               "Callsign",
-               "OriginInfo",
-               "DestinationInfo",
-               "FlightType",
-               "Routing"
-               FROM "Croatia"."RS_ATC_SECTOR_ENTRY_AND_CONTROLLED"
-               WHERE "Time_day" = 2
-               UNION
-               SELECT
-               "Time_time" AS "Time",
-               \'Lift Off\' AS "Event Type",
-               "OriginInfo" AS "Event Condition",
-               "Callsign",
-               "OriginInfo",
-               "DestinationInfo",
-               "FlightType",
-               "Routing"
-               FROM "Croatia"."RS_LIFT_OFF"
-               WHERE "Time_day" = 2
-               UNION
-               SELECT
-               "Time_time" AS "Time",
-               \'WP Passed\' AS "Event Type",
-               "New LastWaypointPassed" AS "Event Condition",
-               "Callsign",
-               "OriginInfo",
-               "DestinationInfo",
-               "FlightType",
-               "Routing"
-               FROM "Croatia"."RS_WP_PASSED"
-               WHERE "Time_day" = 2
-               ) AS t1
-               LEFT JOIN LATERAL (
-               SELECT "Task", "Event Type", "Event Condition", "Sector", "Task Duration", "Time Adjustment", "Origin", "Destination", "Flight Type"
-               FROM "Croatia"."WORKLOAD_TASK_LIST"
-               WHERE (
-               "Event Type" = t1."Event Type"
-               AND "Event Condition" = t1."Event Condition"
-               AND ("Origin" = "OriginInfo" OR "Origin" = \'NA\')
-               AND ("Destination" = "DestinationInfo" OR "Destination" = \'NA\')
-               AND ("Flight Type" = "FlightType" OR "Flight Type" = \'NA\')
-               )
-               ) AS t2 ON TRUE
-               WHERE t2."Task" IS NOT NULL
-               ORDER BY "Time";
-               DROP TABLE IF EXISTS "Croatia"."RollingHourlyWorkload_temp";
-               SELECT DISTINCT
-               t1."Time",
-               t1."Sector",
-               SUM("Task Duration") OVER (PARTITION BY t2."Time", t2."Sector" ORDER BY t2."Time") AS "Workload"
-               INTO "Croatia"."RollingHourlyWorkload_temp"
-               FROM (
-               SELECT "Time", "ID" AS "Sector" FROM "Croatia"."time_template"
-               CROSS JOIN (
-               SELECT "ID" FROM "Croatia"."ATCSector"
-               ) AS t
-               ) AS t1
-               LEFT JOIN (
-               SELECT * FROM "Croatia"."Workload"
-               ) AS t2 ON t2."Time" = t1."Time" AND t2."Sector" = t1."Sector"
-               ORDER BY t1."Sector", t1."Time";
-               
-               DROP TABLE IF EXISTS "Croatia"."RollingHourlyWorkload";
-               SELECT
-               "Time",
-               "Sector",
-               CASE
-               WHEN "Workload" IS NULL THEN 0
-               ELSE "Workload"
-               END AS "Workload",
-               CASE
-               WHEN SUM("Workload") OVER (PARTITION BY "Sector" ORDER BY "Time" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) IS NULL THEN 0
-               ELSE SUM("Workload") OVER (PARTITION BY "Sector" ORDER BY "Time" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW)
-               END AS "HourlyWorkload"
-               INTO "Croatia"."RollingHourlyWorkload"
-               FROM "Croatia"."RollingHourlyWorkload_temp";
-               
-               DROP TABLE "Croatia"."RollingHourlyWorkload_temp";
-               
                SELECT "Time", "Sector", ROUND("HourlyWorkload"/36) AS "PercentHourlyWorkload"
                FROM "Croatia"."RollingHourlyWorkload"
                WHERE EXTRACT(second from "Time") = 0
@@ -925,7 +816,7 @@ dbimport <- function() {
                COUNT("Callsign") AS "Count", 
                "New DepartureOrArrivalAirport" AS "Airport",
                "AircraftState" AS "Category"
-               FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
+               FROM "Croatia_PBN"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
                WHERE "Time_day" = 2
                GROUP BY "New DepartureOrArrivalAirport", "AircraftState"
                ORDER BY "New DepartureOrArrivalAirport", "AircraftState"')
@@ -936,7 +827,7 @@ dbimport <- function() {
                COUNT("Callsign") AS "Count", 
                "New DepartureOrArrivalAirport" AS "Airport",
                "AircraftState" AS "Category"
-               FROM "Croatia"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
+               FROM "Croatia_PBN"."FLIGHT.AIRPORT.DEPARTED_OR_REACHED"
                WHERE "Time_day" = 2
                GROUP BY EXTRACT(HOUR FROM "Time_time"),"New DepartureOrArrivalAirport", "AircraftState"
                ORDER BY "New DepartureOrArrivalAirport", "AircraftState",EXTRACT(HOUR FROM "Time_time")')
@@ -948,7 +839,7 @@ dbimport <- function() {
                "LiftOffCountInPeriod" AS "RollingLiftOffCount",
                "TouchDownCountInPeriod" AS "RollingTouchDownCount",
                "ThroughputCountInPeriod" AS "RollingThroughputCount"
-               FROM "Croatia"."RS_RWYTHROUGHPUT"
+               FROM "Croatia_PBN"."RS_RWYTHROUGHPUT"
                WHERE "Time_day" = 2
                ORDER BY "AirportStatus",  "Time_time"')
   table.PBN.FuelBurnTrackMiles <- 
@@ -979,7 +870,7 @@ dbimport <- function() {
               	WHEN SPLIT_PART("Routing",\'_\',1) LIKE "OriginInfo"||\'%\' AND SPLIT_PART("Routing",\'_\',2) LIKE "DestinationInfo"||\'%\'
               	THEN \'Domestic\'
               END AS "RoutingType"
-              FROM "Croatia"."RS.FB_TM"
+              FROM "Croatia_PBN"."RS.FB_TM"
               WHERE "Time_day" = 2')
   table.PBN.Conflicts <- 
     dbGetQuery(con,'
@@ -1007,7 +898,7 @@ dbimport <- function() {
                "2DLocation",
                SPLIT_PART("2DLocation",\' \',6)::numeric + SPLIT_PART("2DLocation",\' \',7)::numeric/60 + SPLIT_PART("2DLocation",\' \',8)::numeric/3600 AS "Longitude",
                SPLIT_PART("2DLocation",\' \',2)::numeric + SPLIT_PART("2DLocation",\' \',3)::numeric/60 + SPLIT_PART("2DLocation",\' \',4)::numeric/3600 AS "Latitude"
-               FROM "Croatia"."Conflict"
+               FROM "Croatia_PBN"."Conflict"
                WHERE "StartTime_day" = 2')
   table.PBN.ConflictsFlightPlanPhase <- 
     dbGetQuery(con,'
@@ -1019,7 +910,7 @@ dbimport <- function() {
                ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1"
                END AS "FlightPlanPhases",
                COUNT(*) AS "Count"
-               FROM "Croatia"."Conflict"
+               FROM "Croatia_PBN"."Conflict"
                GROUP BY "ATCSector", (CASE WHEN LOWER("FlightPlanPhase1") < LOWER("FlightPlanPhase2") THEN "FlightPlanPhase1" || \' \' || "FlightPlanPhase2" ELSE "FlightPlanPhase2" || \' \' || "FlightPlanPhase1" END)')
   table.PBN.SectorOccupancy <- 
     dbGetQuery(con,'
@@ -1027,7 +918,7 @@ dbimport <- function() {
                to_char("Time_time", \'HH24:MI\') AS "Time",
                "ATCSector" AS "Sector",
                "AircraftLoad" AS "Count"
-               FROM "Croatia"."RS_SECOCC"
+               FROM "Croatia_PBN"."RS_SECOCC"
                WHERE "Time_day" = 2')
   table.PBN.SectorEntry <- 
     dbGetQuery(con,'
@@ -1035,122 +926,12 @@ dbimport <- function() {
                to_char("Time_time", \'HH24:MI\') AS "Time", 
                "ATCSector" AS "Sector",
                "LastPeriodEntryCount" AS "Entries"
-               FROM "Croatia"."RS_SECENTRY"
+               FROM "Croatia_PBN"."RS_SECENTRY"
                WHERE "Time_day" = 2')
   table.PBN.Workload <- 
     dbGetQuery(con,'
-              DROP TABLE IF EXISTS "Croatia"."Workload";
-              SELECT
-              t1."Time" + (t2."Time Adjustment"||\'seconds\')::interval AS "Time",
-              t2."Task",
-              t1."Event Type",
-              t1."Event Condition",
-              t2."Task Duration",
-              t2."Sector",
-              t1."Callsign",
-              t1."OriginInfo",
-              t1."DestinationInfo",
-              t1."FlightType"
-              --t1."Routing"
-              INTO "Croatia"."Workload"
-              FROM (
-              SELECT
-              "Time_time" AS "Time",
-              \'Sector Exit\' AS "Event Type",
-              "New PreviousATCSector" AS "Event Condition",
-              "Callsign",
-              "OriginInfo",
-              "DestinationInfo",
-              "FlightType",
-              "Routing"
-              FROM "Croatia"."RS_ATC_SECTOR_EXIT_AND_CONTROLLED"
-              WHERE "Time_day" = 2
-              UNION
-              SELECT
-              "Time_time" AS "Time",
-              \'Sector Entry\' AS "Event Type",
-              "New LastAirspaceEntered" AS "Event Condition",
-              "Callsign",
-              "OriginInfo",
-              "DestinationInfo",
-              "FlightType",
-              "Routing"
-              FROM "Croatia"."RS_ATC_SECTOR_ENTRY_AND_CONTROLLED"
-              WHERE "Time_day" = 2
-              UNION
-              SELECT
-              "Time_time" AS "Time",
-              \'Lift Off\' AS "Event Type",
-              "OriginInfo" AS "Event Condition",
-              "Callsign",
-              "OriginInfo",
-              "DestinationInfo",
-              "FlightType",
-              "Routing"
-              FROM "Croatia"."RS_LIFT_OFF"
-              WHERE "Time_day" = 2
-              UNION
-              SELECT
-              "Time_time" AS "Time",
-              \'WP Passed\' AS "Event Type",
-              "New LastWaypointPassed" AS "Event Condition",
-              "Callsign",
-              "OriginInfo",
-              "DestinationInfo",
-              "FlightType",
-              "Routing"
-              FROM "Croatia"."RS_WP_PASSED"
-              WHERE "Time_day" = 2
-              ) AS t1
-              LEFT JOIN LATERAL (
-              SELECT "Task", "Event Type", "Event Condition", "Sector", "Task Duration", "Time Adjustment", "Origin", "Destination", "Flight Type"
-              FROM "Croatia"."WORKLOAD_TASK_LIST"
-              WHERE (
-              "Event Type" = t1."Event Type"
-              AND "Event Condition" = t1."Event Condition"
-              AND ("Origin" = "OriginInfo" OR "Origin" = \'NA\')
-              AND ("Destination" = "DestinationInfo" OR "Destination" = \'NA\')
-              AND ("Flight Type" = "FlightType" OR "Flight Type" = \'NA\')
-              )
-              ) AS t2 ON TRUE
-              WHERE t2."Task" IS NOT NULL
-              ORDER BY "Time";
-              DROP TABLE IF EXISTS "Croatia"."RollingHourlyWorkload_temp";
-              SELECT DISTINCT
-              t1."Time",
-              t1."Sector",
-              SUM("Task Duration") OVER (PARTITION BY t2."Time", t2."Sector" ORDER BY t2."Time") AS "Workload"
-              INTO "Croatia"."RollingHourlyWorkload_temp"
-              FROM (
-              SELECT "Time", "ID" AS "Sector" FROM "Croatia"."time_template"
-              CROSS JOIN (
-              SELECT "ID" FROM "Croatia"."ATCSector"
-              ) AS t
-              ) AS t1
-              LEFT JOIN (
-              SELECT * FROM "Croatia"."Workload"
-              ) AS t2 ON t2."Time" = t1."Time" AND t2."Sector" = t1."Sector"
-              ORDER BY t1."Sector", t1."Time";
-              
-              DROP TABLE IF EXISTS "Croatia"."RollingHourlyWorkload";
-              SELECT
-              "Time",
-              "Sector",
-              CASE
-              WHEN "Workload" IS NULL THEN 0
-              ELSE "Workload"
-              END AS "Workload",
-              CASE
-              WHEN SUM("Workload") OVER (PARTITION BY "Sector" ORDER BY "Time" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW) IS NULL THEN 0
-              ELSE SUM("Workload") OVER (PARTITION BY "Sector" ORDER BY "Time" ROWS BETWEEN 3599 PRECEDING AND CURRENT ROW)
-              END AS "HourlyWorkload"
-              INTO "Croatia"."RollingHourlyWorkload"
-              FROM "Croatia"."RollingHourlyWorkload_temp";
-              
-              DROP TABLE "Croatia"."RollingHourlyWorkload_temp";
-              
               SELECT "Time", "Sector", ROUND("HourlyWorkload"/36) AS "PercentHourlyWorkload"
-              FROM "Croatia"."RollingHourlyWorkload"
+              FROM "Croatia_PBN"."RollingHourlyWorkload"
               WHERE EXTRACT(second from "Time") = 0
               AND EXTRACT(minute from "Time") IN (0,10,20,30,40,50)
               AND "Sector" LIKE \'TMA_%\'
