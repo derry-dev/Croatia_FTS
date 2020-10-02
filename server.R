@@ -21,6 +21,10 @@ choices.capacitymodels <- c("IFR Only", "IFR and VFR", "All (Separate)", "All (C
 
 function(input, output, session){
   
+  session$onSessionEnded(function() {
+    stopApp()
+  })
+
   session$allowReconnect(TRUE)
   
   output$metric <- renderUI({
